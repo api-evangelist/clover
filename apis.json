@@ -1,0 +1,100 @@
+{
+    "name": "Clover",
+    "description": "We design and build low-cost, beautiful Android-based point-of-sale devices, a suite of point-of-sale applications for restaurants and retailers, SDKs for device integrations, and robust cloud services with REST APIs.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/pull_image_09-26-2019-07-00-pm.jpg",
+    "tags": [
+        "have api",
+        "have swagger",
+        "point of sale",
+        "pos",
+        "profile",
+        "relative data",
+        "service api",
+        "webhook implementations"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/clover\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "apisandbox.dev.clover.com",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/pull_image_09-26-2019-07-00-pm.jpg",
+            "humanURL": "https:\/\/docs.clover.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/apisandbox-dev-clover-com.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/apisandbox-dev-clover-com-openapi.json"
+                }
+            ]
+        },
+        {
+            "name": "Merchants",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/pull_image_09-26-2019-07-00-pm.jpg",
+            "humanURL": "https:\/\/docs.clover.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/merchants.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/merchants-openapi.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/clover"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/www.clover.com\/developers"
+        },
+        {
+            "type": "Documentation",
+            "url": "https:\/\/docs.clover.com\/"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/clover"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/28757-2019-09-04-03-09-28.json"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/28757-2019-09-03-22-23-08.json"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/CloverPOS"
+        },
+        {
+            "type": "Webhooks",
+            "url": "https:\/\/docs.clover.com\/build\/webhooks\/"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/docs.clover.com"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/www.clover.com"
+        }
+    ]
+}
