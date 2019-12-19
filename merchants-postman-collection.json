@@ -1,0 +1,89 @@
+{
+    "id": "c602d97e66f0bf02bf8226941c81d47e",
+    "name": "Merchants",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "a96c710dbc1d2206745f3199160ec772",
+            "name": "Get a single merchant",
+            "url": "http:\/\/apisandbox.dev.clover.com\/\/v3\/merchants\/{mId}",
+            "description": "Get a single merchant",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "mId",
+                    "description": "Merchant Id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "expand",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "c602d97e66f0bf02bf8226941c81d47e",
+            "rawModeData": ""
+        },
+        {
+            "id": "e67cab9703824706144d2110f26976ad",
+            "name": "UpdateMerchant",
+            "url": "http:\/\/apisandbox.dev.clover.com\/\/v3\/merchants\/{mId}",
+            "description": "Update a merchant",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "mId",
+                    "description": "Merchant Id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "expand",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "c602d97e66f0bf02bf8226941c81d47e",
+            "rawModeData": ""
+        }
+    ]
+}
