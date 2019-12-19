@@ -1,0 +1,89 @@
+{
+    "id": "d31ccd490aa335f568d74b094344fe57",
+    "name": "apisandbox.dev.clover.com",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "fd8ef911574d960362a3ce944927d09d",
+            "name": "Get a single merchant",
+            "url": "http:\/\/apisandbox.dev.clover.com\/\/v3\/merchants\/{mId}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "mId",
+                    "description": "Merchant Id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "expand",
+                    "description": "Expandable fields: [employees, bankProcessing, externalMerchant, merchantBoarding, deviceBoarding, programExpress, hierarchy, shifts, orders, address, logos, owner, items, tags, tenders, payments, gateway, printers, modifierGroups, properties, tipSuggestions, openingHours, partnerApp, selfBoardingApplication]",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "d31ccd490aa335f568d74b094344fe57",
+            "rawModeData": ""
+        },
+        {
+            "id": "b97534b45211b91fd1cbba9f3de2b481",
+            "name": "Update a merchant",
+            "url": "http:\/\/apisandbox.dev.clover.com\/\/v3\/merchants\/{mId}",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "mId",
+                    "description": "Merchant Id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "expand",
+                    "description": "Expandable fields: [employees, bankProcessing, externalMerchant, merchantBoarding, deviceBoarding, programExpress, hierarchy, shifts, orders, address, logos, owner, items, tags, tenders, payments, gateway, printers, modifierGroups, properties, tipSuggestions, openingHours, partnerApp, selfBoardingApplication]",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "d31ccd490aa335f568d74b094344fe57",
+            "rawModeData": ""
+        }
+    ]
+}
