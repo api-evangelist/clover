@@ -1,0 +1,3879 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "3",
+        "title": "apisandbox.dev.clover.com",
+        "description": "",
+        "termsOfService": "http:\/\/exmple.com\/license\/"
+    },
+    "servers": [
+        "http:\/\/apisandbox.dev.clover.com\/"
+    ],
+    "paths": {
+        "\/v3\/merchants\/{mId}": {
+            "get": {
+                "summary": "Get a single merchant",
+                "description": "",
+                "operationId": "GetMerchant",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "mId",
+                        "in": "path",
+                        "description": "Merchant Id"
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "Expandable fields: [employees, bankProcessing, externalMerchant, merchantBoarding, deviceBoarding, programExpress, hierarchy, shifts, orders, address, logos, owner, items, tags, tenders, payments, gateway, printers, modifierGroups, properties, tipSuggestions, openingHours, partnerApp, selfBoardingApplication]"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "No response was specified"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Update a merchant",
+                "description": "",
+                "operationId": "UpdateMerchant",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "mId",
+                        "in": "path",
+                        "description": "Merchant Id"
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "Expandable fields: [employees, bankProcessing, externalMerchant, merchantBoarding, deviceBoarding, programExpress, hierarchy, shifts, orders, address, logos, owner, items, tags, tenders, payments, gateway, printers, modifierGroups, properties, tipSuggestions, openingHours, partnerApp, selfBoardingApplication]"
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Account": {
+                "type": "object",
+                "properties": {
+                    "authFactors": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "claimedTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "csrfToken": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "developers": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "email": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "inviteSent": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "isActive": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "lastLogin": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "merchants": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "primaryDeveloper": {
+                        "description": "The primary developer",
+                        "type": ""
+                    },
+                    "primaryEnterprise": {
+                        "description": "The primary enterprise",
+                        "type": ""
+                    },
+                    "primaryMerchant": {
+                        "description": "The primary merchant",
+                        "type": ""
+                    },
+                    "primaryReseller": {
+                        "description": "The primary reseller",
+                        "type": ""
+                    },
+                    "resellers": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "role": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "status": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "authFactors": {
+                "type": "array"
+            },
+            "developers": {
+                "type": "array"
+            },
+            "merchants": {
+                "type": "array"
+            },
+            "primaryDeveloper": {
+                "type": "object"
+            },
+            "primaryEnterprise": {
+                "type": "object"
+            },
+            "primaryMerchant": {
+                "type": "object"
+            },
+            "primaryReseller": {
+                "type": "object"
+            },
+            "resellers": {
+                "type": "array"
+            },
+            "role": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "systemRole": {
+                        "description": "Base System Role",
+                        "type": "string"
+                    }
+                }
+            },
+            "Address": {
+                "type": "object",
+                "properties": {
+                    "address1": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "address2": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "address3": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "city": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "country": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "phoneNumber": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "state": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "zip": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "AppBundle": {
+                "type": "object",
+                "properties": {
+                    "bundleCountries": {
+                        "description": "Bundle country options for this app bundle",
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "includedApps": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "price": {
+                        "description": "DEPRECATED: Instead use per country pricing in bundleCountries",
+                        "type": "integer"
+                    },
+                    "pricePerDevice": {
+                        "description": "DEPRECATED: Instead use per country pricing in bundleCountries",
+                        "type": "integer"
+                    }
+                }
+            },
+            "bundleCountries": {
+                "type": "array"
+            },
+            "includedApps": {
+                "type": "array"
+            },
+            "AppBundleCountry": {
+                "type": "object",
+                "properties": {
+                    "appBundle": {
+                        "description": "DB reference to app bundle that contains this app bundle country.",
+                        "type": "integer"
+                    },
+                    "country": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "price": {
+                        "description": "DEPRECATED: Instead use per country pricing in bundleCountries",
+                        "type": "integer"
+                    },
+                    "pricePerDevice": {
+                        "description": "DEPRECATED: Instead use per country pricing in bundleCountries",
+                        "type": "integer"
+                    }
+                }
+            },
+            "AppTracking": {
+                "type": "object",
+                "properties": {
+                    "applicationID": {
+                        "description": "A string representing an application",
+                        "type": "string"
+                    },
+                    "applicationName": {
+                        "description": "The name of the developer application.",
+                        "type": "string"
+                    },
+                    "applicationVersion": {
+                        "description": "A string representing a semanticversion.  See http:\/\/semver.org\/",
+                        "type": "string"
+                    },
+                    "developerAppId": {
+                        "description": "The uuid from the developer application.  This is typically populated and used only on the back end.",
+                        "type": "string"
+                    },
+                    "sourceSDK": {
+                        "description": "A string representing a SDK",
+                        "type": "string"
+                    },
+                    "sourceSDKVersion": {
+                        "description": "A string representing a semanticversion.  See http:\/\/semver.org\/",
+                        "type": "string"
+                    }
+                }
+            },
+            "Authorization": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "description": "Amount authorized",
+                        "type": "integer"
+                    },
+                    "authcode": {
+                        "description": "Authorization code",
+                        "type": "string"
+                    },
+                    "cardType": {
+                        "description": "Type of credit card used for authorization",
+                        "type": "string"
+                    },
+                    "closingPayment": {
+                        "description": "Payment that the auth was closed with",
+                        "type": ""
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "last4": {
+                        "description": "Last 4 digits of credit card used for authorization",
+                        "type": "string"
+                    },
+                    "note": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "payment": {
+                        "description": "Payment that the auth was opened with",
+                        "type": ""
+                    },
+                    "tabName": {
+                        "description": "Name of tab",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "closingPayment": {
+                "type": "object"
+            },
+            "payment": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "description": "Amount authorized",
+                        "type": "integer"
+                    },
+                    "AppTracking": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "appTracking": {
+                        "description": "Tracking information for the app that created this credit.",
+                        "type": ""
+                    },
+                    "CardTransaction": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "cardTransaction": {
+                        "description": "Information about the card used for credit\/debit card payments",
+                        "type": ""
+                    },
+                    "CashAdvanceExtra": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "cashAdvanceExtra": {
+                        "description": "Information specific to cash advance transactions.",
+                        "type": ""
+                    },
+                    "cashTendered": {
+                        "description": "Amount of cash given by the customer",
+                        "type": "integer"
+                    },
+                    "cashbackAmount": {
+                        "description": "Amount given back in a cash back transaction",
+                        "type": "integer"
+                    },
+                    "clientCreatedTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "dccInfo": {
+                        "description": "Dynamic Currency Conversion information",
+                        "type": ""
+                    },
+                    "reference": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "device": {
+                        "description": "Device which processed this credit",
+                        "type": ""
+                    },
+                    "employee": {
+                        "description": "The employee who processed the payment",
+                        "type": ""
+                    },
+                    "externalPaymentId": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "germanInfo": {
+                        "description": "German region-specific information",
+                        "type": ""
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "lineItemPayments": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "modifiedTime": {
+                        "description": "The timestamp from when this customer's data was last updated.",
+                        "type": "integer"
+                    },
+                    "note": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "offline": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "order": {
+                        "description": "The order with which the payment is associated",
+                        "type": ""
+                    },
+                    "refunds": {
+                        "description": "Refunds that were made for this order",
+                        "type": "array"
+                    },
+                    "result": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "serviceCharge": {
+                        "description": "Optional service charge (gratuity) applied to this order",
+                        "type": ""
+                    },
+                    "taxAmount": {
+                        "description": "Amount paid in tax",
+                        "type": "integer"
+                    },
+                    "taxRates": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "tender": {
+                        "description": "The tender type associated with this payment, e.g. credit card, cash, etc.",
+                        "type": ""
+                    },
+                    "tipAmount": {
+                        "description": "Amount paid in tips",
+                        "type": "integer"
+                    },
+                    "transactionSettings": {
+                        "description": "Per transaction settings for the payment",
+                        "type": ""
+                    },
+                    "voidReason": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "Card": {
+                "type": "object",
+                "properties": {
+                    "cardType": {
+                        "description": "Type of credit card used for authorization",
+                        "type": "string"
+                    },
+                    "expirationDate": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "first6": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "last4": {
+                        "description": "Last 4 digits of credit card used for authorization",
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "token": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "CardTransaction": {
+                "type": "object",
+                "properties": {
+                    "authcode": {
+                        "description": "Authorization code",
+                        "type": "string"
+                    },
+                    "avsResult": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "begBalance": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "cardType": {
+                        "description": "Type of credit card used for authorization",
+                        "type": "string"
+                    },
+                    "cardholderName": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "endBalance": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "entryType": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "extra": {
+                        "description": "Extra info to be stored as part of gateway\/card transaction",
+                        "type": "object"
+                    },
+                    "first6": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "gatewayTxState": {
+                        "description": "The state as currently recorded. This differs from the legacy 'state' field. The legacy 'state' field is calculated from the 'type' field and whether the transaction was captured.",
+                        "type": "string"
+                    },
+                    "last4": {
+                        "description": "Last 4 digits of credit card used for authorization",
+                        "type": "string"
+                    },
+                    "referenceId": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "state": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "token": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "transactionNo": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "vaultedCard": {
+                        "description": "Vaulted card which can be used for subsequent transactions",
+                        "type": ""
+                    }
+                }
+            },
+            "extra": {
+                "type": "object"
+            },
+            "vaultedCard": {
+                "type": "object",
+                "properties": {
+                    "cardholderName": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "expirationDate": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "first6": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "last4": {
+                        "description": "Last 4 digits of credit card used for authorization",
+                        "type": "string"
+                    },
+                    "token": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "CashAdvanceCustomerIdentification": {
+                "type": "object",
+                "properties": {
+                    "addressCity": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "addressCountry": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "addressState": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "addressStreet1": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "addressStreet2": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "addressZipCode": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "customerName": {
+                        "description": "Full customer name",
+                        "type": "string"
+                    },
+                    "encryptedSerialNumber": {
+                        "description": "Encrypted identification serial number",
+                        "type": "string"
+                    },
+                    "expirationDate": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "idType": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "issuingCountry": {
+                        "description": "Country in which identification was issued",
+                        "type": "string"
+                    },
+                    "issuingState": {
+                        "description": "State in which identification was issued",
+                        "type": "string"
+                    },
+                    "maskedSerialNumber": {
+                        "description": "Masked identification serial number",
+                        "type": "string"
+                    },
+                    "serialNumber": {
+                        "description": "Identification serial number",
+                        "type": "string"
+                    }
+                }
+            },
+            "CashAdvanceExtra": {
+                "type": "object",
+                "properties": {
+                    "CashAdvanceCustomerIdentification": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "cashAdvanceCustomerIdentification": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "cashAdvanceSerialNum": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "Category": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "items": {
+                        "description": "Ordered list of items associated with this category.",
+                        "type": "array"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "sortOrder": {
+                        "description": "Integer used to determine how this category is sorted against other categories.",
+                        "type": "integer"
+                    }
+                }
+            },
+            "items": {
+                "type": "array"
+            },
+            "Credit": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "description": "Amount authorized",
+                        "type": "integer"
+                    },
+                    "AppTracking": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "appTracking": {
+                        "description": "Tracking information for the app that created this credit.",
+                        "type": ""
+                    },
+                    "CardTransaction": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "cardTransaction": {
+                        "description": "Information about the card used for credit\/debit card payments",
+                        "type": ""
+                    },
+                    "clientCreatedTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "creditRefunds": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "customers": {
+                        "description": "Customer who received the credit\/refund",
+                        "type": ""
+                    },
+                    "dccInfo": {
+                        "description": "Dynamic Currency Conversion information",
+                        "type": ""
+                    },
+                    "device": {
+                        "description": "Device which processed this credit",
+                        "type": ""
+                    },
+                    "employee": {
+                        "description": "The employee who processed the payment",
+                        "type": ""
+                    },
+                    "germanInfo": {
+                        "description": "German region-specific information",
+                        "type": ""
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "orderRef": {
+                        "description": "The order with which the credit is associated",
+                        "type": ""
+                    },
+                    "result": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "taxAmount": {
+                        "description": "Amount paid in tax",
+                        "type": "integer"
+                    },
+                    "taxRates": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "tender": {
+                        "description": "The tender type associated with this payment, e.g. credit card, cash, etc.",
+                        "type": ""
+                    },
+                    "transactionSettings": {
+                        "description": "Per transaction settings for the payment",
+                        "type": ""
+                    },
+                    "voidReason": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "voided": {
+                        "description": "",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "creditRefunds": {
+                "type": "array"
+            },
+            "customers": {
+                "type": "array"
+            },
+            "dccInfo": {
+                "type": "object",
+                "properties": {
+                    "dccApplied": {
+                        "description": "Flag indicating whether DCC was applied on this txn",
+                        "type": "boolean"
+                    },
+                    "exchangeRate": {
+                        "description": "Exchange Rate",
+                        "type": "number"
+                    },
+                    "exchangeRateSourceName": {
+                        "description": "Exchange Rate Source Name",
+                        "type": "string"
+                    },
+                    "exchangeRateSourceTimeStamp": {
+                        "description": "Exchange Rate Source Timestamp",
+                        "type": "string"
+                    },
+                    "foreignAmount": {
+                        "description": "Foreign (transaction) amount",
+                        "type": "integer"
+                    },
+                    "foreignCurrencyCode": {
+                        "description": "Foreign currency code",
+                        "type": "string"
+                    },
+                    "inquiryRateId": {
+                        "description": "Inquiry Rate ID (IPG)",
+                        "type": "integer"
+                    },
+                    "marginRatePercentage": {
+                        "description": "Margin Rate Percentage",
+                        "type": "string"
+                    }
+                }
+            },
+            "device": {
+                "type": "object",
+                "properties": {
+                    "allowStoreAndForward": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "deviceCertificate": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "deviceTypeName": {
+                        "description": "The type of device. Possible values are \"GOLDLEAF\" (Station), \"LEAFCUTTER\" (Mobile), \"MAPLECUTTER\" (Mini), \"CLOVER_GO\" (Clover Go), or \"OTHER\" (Unknown).",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "imei": {
+                        "description": "The IMEI of the device",
+                        "type": "string"
+                    },
+                    "imsi": {
+                        "description": "The IMSI of the SIM in the device (if present)",
+                        "type": "string"
+                    },
+                    "maxOfflineDays": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "merchant": {
+                        "description": "The merchant that is associated with this customer",
+                        "type": ""
+                    },
+                    "model": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "offlinePayments": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "offlinePaymentsAll": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "offlinePaymentsLimit": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "offlinePaymentsLimitDefault": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "offlinePaymentsMaxLimit": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "offlinePaymentsMaxTotalPaymentsLimit": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "offlinePaymentsPromptThreshold": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "offlinePaymentsPromptThresholdDefault": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "offlinePaymentsTotalPaymentsLimit": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "offlinePaymentsTotalPaymentsLimitDefault": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "orderPrefix": {
+                        "description": "A prefix that will be applied to order numbers. This is useful if the merchant and\/or customer needs to track which device an order came from.",
+                        "type": "string"
+                    },
+                    "pedCertificate": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "pinDisabled": {
+                        "description": "Whether this device has PIN prompt disabled.",
+                        "type": "boolean"
+                    },
+                    "secureReports": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "serial": {
+                        "description": "The device's serial number.",
+                        "type": "string"
+                    },
+                    "showOfflinePayments": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "simIccid": {
+                        "description": "The ICCID of the SIM in the device (if present)",
+                        "type": "string"
+                    },
+                    "terminalPrefix": {
+                        "description": "",
+                        "type": "integer"
+                    }
+                }
+            },
+            "employee": {
+                "type": "object",
+                "properties": {
+                    "claimedTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "customId": {
+                        "description": "Custom ID of the employee",
+                        "type": "string"
+                    },
+                    "deletedTime": {
+                        "description": "Timestamp of when this employee was deleted",
+                        "type": "integer"
+                    },
+                    "email": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "employeeCards": {
+                        "description": "This employee's employee cards",
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "inviteSent": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "isOwner": {
+                        "description": "Returns true if this employee is the owner account for this merchant",
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "nickname": {
+                        "description": "Nickname of the employee (shows up on receipts)",
+                        "type": "string"
+                    },
+                    "orders": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "payments": {
+                        "description": "This employee's payments",
+                        "type": "array"
+                    },
+                    "pin": {
+                        "description": "Employee PIN (hashed)",
+                        "type": "string"
+                    },
+                    "role": {
+                        "description": "Employee System Role",
+                        "type": "string"
+                    },
+                    "roles": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "shifts": {
+                        "description": "This employee's shifts",
+                        "type": "array"
+                    },
+                    "unhashedPin": {
+                        "description": "Employee PIN",
+                        "type": "string"
+                    }
+                }
+            },
+            "germanInfo": {
+                "type": "object",
+                "properties": {
+                    "cardSequenceNumber": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "cardTrack2": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "configMerchantId": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "configProductLabel": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "customerTransactionDOLValues": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "hostResponseAidParBMP53": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "hostResponsePrintDataBM60": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "merchantJournalDOL": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "merchantJournalDOLValues": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "merchantTransactionDOLValues": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "oldTraceNumber": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "receiptNumber": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "receiptType": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "terminalID": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "traceNumber": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "transactionAID": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "transactionCaseGermany": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "transactionMSApp": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "transactionScriptResults": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "transactionTypeGermany": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "orderRef": {
+                "type": "object"
+            },
+            "taxRates": {
+                "type": "array"
+            },
+            "tender": {
+                "type": "object",
+                "properties": {
+                    "editable": {
+                        "description": "If this merchant tender is editable",
+                        "type": "boolean"
+                    },
+                    "enabled": {
+                        "description": "If this service charge is enabled",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "instructions": {
+                        "description": "Label Key",
+                        "type": "string"
+                    },
+                    "label": {
+                        "description": "Label Key",
+                        "type": "string"
+                    },
+                    "labelKey": {
+                        "description": "Label Key",
+                        "type": "string"
+                    },
+                    "opensCashDrawer": {
+                        "description": "If this tender opens the cash drawer",
+                        "type": "boolean"
+                    },
+                    "supportsTipping": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "visible": {
+                        "description": "If this merchant tender is visible",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "transactionSettings": {
+                "type": "object",
+                "properties": {
+                    "allowOfflinePayment": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "approveOfflinePaymentWithoutPrompt": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "autoAcceptPaymentConfirmations": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "autoAcceptSignature": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "cardEntryMethods": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "cloverShouldHandleReceipts": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "disableCashBack": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "disableDuplicateCheck": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "disableReceiptSelection": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "disableRestartTransactionOnFailure": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "forceOfflinePayment": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "forcePinEntryOnSwipe": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "signatureEntryLocation": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "signatureThreshold": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "tipMode": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "tippableAmount": {
+                        "description": "",
+                        "type": "integer"
+                    }
+                }
+            },
+            "CreditRefund": {
+                "type": "object",
+                "properties": {
+                    "AppTracking": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "appTracking": {
+                        "description": "Tracking information for the app that created this credit.",
+                        "type": ""
+                    },
+                    "clientCreatedTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "credit": {
+                        "description": "The credit with which the credit refund is associated",
+                        "type": ""
+                    },
+                    "device": {
+                        "description": "Device which processed this credit",
+                        "type": ""
+                    },
+                    "employee": {
+                        "description": "The employee who processed the payment",
+                        "type": ""
+                    },
+                    "germanInfo": {
+                        "description": "German region-specific information",
+                        "type": ""
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "orderRef": {
+                        "description": "The order with which the credit is associated",
+                        "type": ""
+                    }
+                }
+            },
+            "credit": {
+                "type": "object"
+            },
+            "Customer": {
+                "type": "object",
+                "properties": {
+                    "addresses": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "cards": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "customerSince": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "emailAddresses": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "firstName": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "marketingAllowed": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "merchant": {
+                        "description": "The merchant that is associated with this customer",
+                        "type": ""
+                    },
+                    "metadata": {
+                        "description": "Additional information about the customer.",
+                        "type": ""
+                    },
+                    "orders": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "phoneNumbers": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "addresses": {
+                "type": "array"
+            },
+            "cards": {
+                "type": "array"
+            },
+            "emailAddresses": {
+                "type": "array"
+            },
+            "merchant": {
+                "type": "object",
+                "properties": {
+                    "tags": {
+                        "description": "Tags associated with this item",
+                        "type": "array"
+                    },
+                    "accountType": {
+                        "description": "The account type for the merchant. Used for reference merchants. See enterprise.ReferenceType",
+                        "type": "string"
+                    },
+                    "Address": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "address": {
+                        "description": "The address of the merchant.",
+                        "type": ""
+                    },
+                    "bankProcessing": {
+                        "description": "Bank processing data for this merchant",
+                        "type": ""
+                    },
+                    "businessTypeCode": {
+                        "description": "The business type of the merchant",
+                        "type": "string"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "customerContactEmail": {
+                        "description": "Email address for customers to contact merchant through",
+                        "type": "string"
+                    },
+                    "defaultCurrency": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "deviceBoardings": {
+                        "description": "A list of additional device boarding data for this merchant",
+                        "type": "array"
+                    },
+                    "devices": {
+                        "description": "A list of devices a merchant owns",
+                        "type": "array"
+                    },
+                    "employees": {
+                        "description": "This merchant's employees",
+                        "type": "array"
+                    },
+                    "externalMerchants": {
+                        "description": "A list of external merchants for this merchant",
+                        "type": "array"
+                    },
+                    "Gateway": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "gateway": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "hierarchy": {
+                        "description": "Business hierarchy data for merchant.",
+                        "type": ""
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "isBillable": {
+                        "description": "Returns true when the merchant is billable.",
+                        "type": "boolean"
+                    },
+                    "items": {
+                        "description": "Ordered list of items associated with this category.",
+                        "type": "array"
+                    },
+                    "logos": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "merchantBoarding": {
+                        "description": "Additional data collected during boarding",
+                        "type": ""
+                    },
+                    "merchantGroups": {
+                        "description": "A list of merchant groups a merchant belongs to",
+                        "type": "array"
+                    },
+                    "merchantPlan": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "modifierGroups": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "opening_hours": {
+                        "description": "This merchant's opening hours",
+                        "type": "array"
+                    },
+                    "orderTypes": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "orders": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "employee": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "owner": {
+                        "description": "The account that owns this merchant",
+                        "type": ""
+                    },
+                    "reference": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "partnerApp": {
+                        "description": "The partner app\/solution with which this merchant is primarily associated",
+                        "type": ""
+                    },
+                    "payments": {
+                        "description": "This employee's payments",
+                        "type": "array"
+                    },
+                    "phoneNumber": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "printers": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "programExpresses": {
+                        "description": "A list of program expresses for this merchant",
+                        "type": "array"
+                    },
+                    "properties": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "reseller": {
+                        "description": "The merchant's reseller",
+                        "type": ""
+                    },
+                    "selfBoardingApplication": {
+                        "description": "The boarding application submitted by the merchant",
+                        "type": ""
+                    },
+                    "shifts": {
+                        "description": "This employee's shifts",
+                        "type": "array"
+                    },
+                    "taxRates": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "tenders": {
+                        "description": "This merchant's supported tenders",
+                        "type": "array"
+                    },
+                    "tipSuggestions": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "website": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "metadata": {
+                "type": "object"
+            },
+            "orders": {
+                "type": "array"
+            },
+            "phoneNumbers": {
+                "type": "array"
+            },
+            "CustomerMetadata": {
+                "type": "object",
+                "properties": {
+                    "businessName": {
+                        "description": "The name of the business the customer is associated with.",
+                        "type": "string"
+                    },
+                    "dobDay": {
+                        "description": "The day part of the date of birth for this customer.",
+                        "type": "integer"
+                    },
+                    "dobMonth": {
+                        "description": "The month part of the date of birth for this customer.",
+                        "type": "integer"
+                    },
+                    "dobYear": {
+                        "description": "The year part of the date of birth for this customer. This part of the date of birth is optional, i.e., it's possible that only dobMonth and dobDay are populated.",
+                        "type": "integer"
+                    },
+                    "modifiedTime": {
+                        "description": "The timestamp from when this customer's data was last updated.",
+                        "type": "integer"
+                    },
+                    "note": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "secureReports": {
+                "type": "array"
+            },
+            "Discount": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "description": "Amount authorized",
+                        "type": "integer"
+                    },
+                    "approver": {
+                        "description": "The person that authorized a discount",
+                        "type": ""
+                    },
+                    "discount": {
+                        "description": "If this item is based on a standard discount, this will point to the appropriate inventory.Discount",
+                        "type": ""
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "percentage": {
+                        "description": "Discount amount in percent",
+                        "type": "integer"
+                    }
+                }
+            },
+            "approver": {
+                "type": "object"
+            },
+            "discount": {
+                "type": "object"
+            },
+            "EmailAddress": {
+                "type": "object",
+                "properties": {
+                    "emailAddress": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "verifiedTime": {
+                        "description": "",
+                        "type": "integer"
+                    }
+                }
+            },
+            "employeeCards": {
+                "type": "array"
+            },
+            "payments": {
+                "type": "array"
+            },
+            "roles": {
+                "type": "array"
+            },
+            "shifts": {
+                "type": "array"
+            },
+            "ExternalMerchant": {
+                "type": "object",
+                "properties": {
+                    "auditDate": {
+                        "description": "Date of audit",
+                        "type": "integer"
+                    },
+                    "auditUserId": {
+                        "description": "User performing audit",
+                        "type": "string"
+                    },
+                    "clientFlag": {
+                        "description": "Client flag",
+                        "type": "string"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "externalMerchantNumber": {
+                        "description": "External merchant number",
+                        "type": "string"
+                    },
+                    "merchantRef": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "modifiedTime": {
+                        "description": "The timestamp from when this customer's data was last updated.",
+                        "type": "integer"
+                    },
+                    "usageFlag": {
+                        "description": "Usage flag",
+                        "type": "string"
+                    },
+                    "xrefType": {
+                        "description": "Cross reference type",
+                        "type": "string"
+                    }
+                }
+            },
+            "merchantRef": {
+                "type": "object"
+            },
+            "Gateway": {
+                "type": "object",
+                "properties": {
+                    "accountName": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "acquiringBackEnd": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "altMid": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "authorizationFrontEnd": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "backendMid": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "closingTime": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "debitKeyCode": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "fns": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "frontendMid": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "groupId": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "mcc": {
+                        "description": "Merchant Category Code",
+                        "type": "string"
+                    },
+                    "mid": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "newBatchCloseEnabled": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "paymentGatewayApi": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "paymentProcessorName": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "storeId": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "supportsMultiPayToken": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "supportsNakedCredit": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "supportsTipAdjust": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "supportsTipping": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "tid": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "tokenType": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "HourRange": {
+                "type": "object",
+                "properties": {
+                    "end": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "start": {
+                        "description": "",
+                        "type": "integer"
+                    }
+                }
+            },
+            "HoursSet": {
+                "type": "object",
+                "properties": {
+                    "friday": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "monday": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "reference": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "saturday": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "sunday": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "thursday": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "tuesday": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "wednesday": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "friday": {
+                "type": "array"
+            },
+            "monday": {
+                "type": "array"
+            },
+            "reference": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "saturday": {
+                "type": "array"
+            },
+            "sunday": {
+                "type": "array"
+            },
+            "thursday": {
+                "type": "array"
+            },
+            "tuesday": {
+                "type": "array"
+            },
+            "wednesday": {
+                "type": "array"
+            },
+            "Item": {
+                "type": "object",
+                "properties": {
+                    "tags": {
+                        "description": "Tags associated with this item",
+                        "type": "array"
+                    },
+                    "alternateName": {
+                        "description": "Alternate name of the item",
+                        "type": "string"
+                    },
+                    "categories": {
+                        "description": "Categories associated with this item",
+                        "type": "array"
+                    },
+                    "code": {
+                        "description": "Product code, e.g. UPC or EAN",
+                        "type": "string"
+                    },
+                    "cost": {
+                        "description": "Cost of the item to merchant, as opposed to customer price",
+                        "type": "integer"
+                    },
+                    "defaultTaxRates": {
+                        "description": "Flag to indicate whether or not to use default tax rates",
+                        "type": "boolean"
+                    },
+                    "hidden": {
+                        "description": "True if this item is hidden from Clover Register App",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "isRevenue": {
+                        "description": "True if this item should be counted as revenue, for example gift cards and donations would not",
+                        "type": "boolean"
+                    },
+                    "reference": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "itemGroup": {
+                        "description": "Reference to an item group",
+                        "type": ""
+                    },
+                    "itemStock": {
+                        "description": "Item stock attribute that can be expanded to show stock quantity",
+                        "type": ""
+                    },
+                    "modifiedTime": {
+                        "description": "The timestamp from when this customer's data was last updated.",
+                        "type": "integer"
+                    },
+                    "modifierGroups": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "options": {
+                        "description": "List of options pertaining to this item's attribute variation",
+                        "type": "array"
+                    },
+                    "price": {
+                        "description": "DEPRECATED: Instead use per country pricing in bundleCountries",
+                        "type": "integer"
+                    },
+                    "priceType": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "sku": {
+                        "description": "SKU of the item",
+                        "type": "string"
+                    },
+                    "stockCount": {
+                        "description": "DEPRECATED: use itemStock instead",
+                        "type": "integer"
+                    },
+                    "taxRates": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "unitName": {
+                        "description": "Unit name, e.g. oz, lb",
+                        "type": "string"
+                    }
+                }
+            },
+            "tags": {
+                "type": "array"
+            },
+            "categories": {
+                "type": "array"
+            },
+            "itemStock": {
+                "type": "object",
+                "properties": {
+                    "reference": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "item": {
+                        "description": "Reference to an item",
+                        "type": ""
+                    },
+                    "quantity": {
+                        "description": "Current count of this item in stock",
+                        "type": "number"
+                    },
+                    "stockCount": {
+                        "description": "DEPRECATED: use itemStock instead",
+                        "type": "integer"
+                    }
+                }
+            },
+            "modifierGroups": {
+                "type": "array"
+            },
+            "options": {
+                "type": "array"
+            },
+            "LineItem": {
+                "type": "object",
+                "properties": {
+                    "alternateName": {
+                        "description": "Alternate name of the item",
+                        "type": "string"
+                    },
+                    "binName": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "discountAmount": {
+                        "description": "Unnamed fixed discount amount in cents.",
+                        "type": "integer"
+                    },
+                    "discounts": {
+                        "description": "List of references to of Order discounts.",
+                        "type": "array"
+                    },
+                    "exchanged": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "reference": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "exchangedLineItem": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "isRevenue": {
+                        "description": "True if this item should be counted as revenue, for example gift cards and donations would not",
+                        "type": "boolean"
+                    },
+                    "item": {
+                        "description": "Reference to an item",
+                        "type": ""
+                    },
+                    "itemCode": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "modifications": {
+                        "description": "List of references to modifications applied to this line item.",
+                        "type": "array"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "note": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "orderClientCreatedTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "payments": {
+                        "description": "This employee's payments",
+                        "type": "array"
+                    },
+                    "price": {
+                        "description": "DEPRECATED: Instead use per country pricing in bundleCountries",
+                        "type": "integer"
+                    },
+                    "printed": {
+                        "description": "True if this line item has been printed out on an order printer at least once already.",
+                        "type": "boolean"
+                    },
+                    "quantitySold": {
+                        "description": "Quantity sold for this line item. This field is only used in reporting",
+                        "type": "number"
+                    },
+                    "refunded": {
+                        "description": "True if this line item has been refunded",
+                        "type": "boolean"
+                    },
+                    "revenueAmount": {
+                        "description": "Revenue collected for this. This field is only used in reporting.",
+                        "type": "integer"
+                    },
+                    "taxRates": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "unitName": {
+                        "description": "Unit name, e.g. oz, lb",
+                        "type": "string"
+                    },
+                    "unitQty": {
+                        "description": "Unit quantity if this line item is priced by quantity instead of having a fixed price.",
+                        "type": "integer"
+                    },
+                    "userData": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "discounts": {
+                "type": "array"
+            },
+            "modifications": {
+                "type": "array"
+            },
+            "LineItemPayment": {
+                "type": "object",
+                "properties": {
+                    "binName": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "percentage": {
+                        "description": "Discount amount in percent",
+                        "type": "integer"
+                    },
+                    "refunded": {
+                        "description": "True if this line item has been refunded",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "Logo": {
+                "type": "object",
+                "properties": {
+                    "logoFilename": {
+                        "description": "The filename of the logo",
+                        "type": "string"
+                    },
+                    "logoType": {
+                        "description": "The type of merchant logo",
+                        "type": "string"
+                    },
+                    "url": {
+                        "description": "URL of the logo file. Generated from filename.",
+                        "type": "string"
+                    }
+                }
+            },
+            "bankProcessing": {
+                "type": "object"
+            },
+            "deviceBoardings": {
+                "type": "array"
+            },
+            "devices": {
+                "type": "array"
+            },
+            "employees": {
+                "type": "array"
+            },
+            "externalMerchants": {
+                "type": "array"
+            },
+            "hierarchy": {
+                "type": "object"
+            },
+            "logos": {
+                "type": "array"
+            },
+            "merchantBoarding": {
+                "type": "object",
+                "properties": {
+                    "accountFunding": {
+                        "description": "Account funding",
+                        "type": "string"
+                    },
+                    "accountStatus": {
+                        "description": "Status of the account",
+                        "type": "string"
+                    },
+                    "achBankId": {
+                        "description": "ID of automated clearing house bank",
+                        "type": "string"
+                    },
+                    "agentBankIndicator": {
+                        "description": "Agent bank indicator",
+                        "type": "string"
+                    },
+                    "altValueLinkMid": {
+                        "description": "Alternative ValueLink MID",
+                        "type": "string"
+                    },
+                    "authLimit": {
+                        "description": "Authorization limit",
+                        "type": "number"
+                    },
+                    "bankNumber": {
+                        "description": "Bank Number",
+                        "type": "string"
+                    },
+                    "billToName": {
+                        "description": "The name to bill the merchant to",
+                        "type": "string"
+                    },
+                    "chargeBackRetrievalAddressFlag": {
+                        "description": "Charge back retrieval address flag",
+                        "type": "string"
+                    },
+                    "clientRepresentative": {
+                        "description": "Client representative",
+                        "type": "string"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "creditLimit": {
+                        "description": "Credit limit",
+                        "type": "number"
+                    },
+                    "daylightSavings": {
+                        "description": "Indicator if daylight savings followed by merchant",
+                        "type": "boolean"
+                    },
+                    "directMarketing": {
+                        "description": "Direct marketing",
+                        "type": "string"
+                    },
+                    "dynamicDba": {
+                        "description": "True if allows dynamic Doing Business As (DBA)",
+                        "type": "boolean"
+                    },
+                    "emvAllowed": {
+                        "description": "Is EMV chip allowed",
+                        "type": "string"
+                    },
+                    "externalMerchant": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "faxPhone": {
+                        "description": "Merchant fax number",
+                        "type": "string"
+                    },
+                    "foreignDomesticIndicator": {
+                        "description": "Indicates foreign or domestic merchant",
+                        "type": "string"
+                    },
+                    "internetIndicator": {
+                        "description": "Merchant internet indicator",
+                        "type": "string"
+                    },
+                    "leaseCompanyCode": {
+                        "description": "Lease company code",
+                        "type": "string"
+                    },
+                    "linkFrom": {
+                        "description": "Link from",
+                        "type": "string"
+                    },
+                    "linkTo": {
+                        "description": "Link to",
+                        "type": "string"
+                    },
+                    "mastercardDebitAccept": {
+                        "description": "Does merchant accept MasterCard debit",
+                        "type": "string"
+                    },
+                    "merchantAuthType": {
+                        "description": "Merchant authorization type",
+                        "type": "string"
+                    },
+                    "merchantData": {
+                        "description": "Merchant data",
+                        "type": "string"
+                    },
+                    "reference": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "merchantRef": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "merchantType": {
+                        "description": "Type of merchant",
+                        "type": "string"
+                    },
+                    "modifiedTime": {
+                        "description": "The timestamp from when this customer's data was last updated.",
+                        "type": "integer"
+                    },
+                    "multiCurrencyIndicator": {
+                        "description": "Multi-currency indicator",
+                        "type": "string"
+                    },
+                    "multiMerchantType": {
+                        "description": "Type of Multi-Merchant terminal",
+                        "type": "string"
+                    },
+                    "nonMpaIndicator": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "parentMerchantId": {
+                        "description": "ID of merchant's parent",
+                        "type": "string"
+                    },
+                    "participantRelationship": {
+                        "description": "Participant relationship",
+                        "type": "string"
+                    },
+                    "preferredMerchant": {
+                        "description": "Preferred merchant flag",
+                        "type": "string"
+                    },
+                    "previousAccountStatus": {
+                        "description": "Previous status of account",
+                        "type": "string"
+                    },
+                    "processMode": {
+                        "description": "Process mode",
+                        "type": "string"
+                    },
+                    "processSettlement": {
+                        "description": "Process settlement",
+                        "type": "string"
+                    },
+                    "receiptDba": {
+                        "description": "Doing Business As (DBA) receipt",
+                        "type": "string"
+                    },
+                    "recurringFlag": {
+                        "description": "Recurring flag",
+                        "type": "string"
+                    },
+                    "relationshipManager": {
+                        "description": "Relationship manager",
+                        "type": "string"
+                    },
+                    "retailDescription": {
+                        "description": "Retail description",
+                        "type": "string"
+                    },
+                    "saleLimit": {
+                        "description": "Sale limit",
+                        "type": "number"
+                    },
+                    "salesman": {
+                        "description": "Salesman",
+                        "type": "string"
+                    },
+                    "seasonal": {
+                        "description": "True if merchant is a seasonal business",
+                        "type": "boolean"
+                    },
+                    "signingKey": {
+                        "description": "Signing key",
+                        "type": "string"
+                    },
+                    "sourceIndicator": {
+                        "description": "Source indicator",
+                        "type": "string"
+                    },
+                    "store": {
+                        "description": "Store identifier",
+                        "type": "string"
+                    },
+                    "sysPrin": {
+                        "description": "Sys-Prin of reseller channel for this merchant",
+                        "type": "string"
+                    },
+                    "taxExempt": {
+                        "description": "True if merchant is tax exempt",
+                        "type": "boolean"
+                    },
+                    "transArmorIndicator": {
+                        "description": "TransArmor indicator",
+                        "type": "string"
+                    },
+                    "transArmorKey": {
+                        "description": "FD TransArmor public key",
+                        "type": "string"
+                    },
+                    "valueLink": {
+                        "description": "True if merchant supports ValueLink",
+                        "type": "boolean"
+                    },
+                    "valueLinkMid": {
+                        "description": "ValueLink MID",
+                        "type": "string"
+                    },
+                    "viRelationshipParticipant": {
+                        "description": "VI relationship participant",
+                        "type": "string"
+                    },
+                    "visaDebitAccept": {
+                        "description": "Does merchant accept Visa debit",
+                        "type": "string"
+                    },
+                    "visaIram": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "merchantGroups": {
+                "type": "array"
+            },
+            "merchantPlan": {
+                "type": "object",
+                "properties": {
+                    "activationTime": {
+                        "description": "Date\/time when this plan becomes active. If null then active now.",
+                        "type": "integer"
+                    },
+                    "AppBundle": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "appBundle": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "billToMid": {
+                        "description": "If true then billing will charge monthly fee regardless of device status or count.",
+                        "type": "boolean"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "deactivationTime": {
+                        "description": "Date\/time when this plan becomes inactive. If null then no end of life.",
+                        "type": "integer"
+                    },
+                    "defaultPlan": {
+                        "description": "If true and multiple plans of this code then treat as default plan for reseller. Cannot use word default.",
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "description": "Description of the plan",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "modifiedTime": {
+                        "description": "The timestamp from when this customer's data was last updated.",
+                        "type": "integer"
+                    },
+                    "modules": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "planCode": {
+                        "description": "First data plan code",
+                        "type": "string"
+                    },
+                    "price": {
+                        "description": "DEPRECATED: Instead use per country pricing in bundleCountries",
+                        "type": "integer"
+                    },
+                    "reseller": {
+                        "description": "The merchant's reseller",
+                        "type": ""
+                    }
+                }
+            },
+            "opening_hours": {
+                "type": "array"
+            },
+            "orderTypes": {
+                "type": "array"
+            },
+            "printers": {
+                "type": "array"
+            },
+            "programExpresses": {
+                "type": "array"
+            },
+            "properties": {
+                "type": "object"
+            },
+            "tenders": {
+                "type": "array"
+            },
+            "tipSuggestions": {
+                "type": "array"
+            },
+            "MerchantBankProcessing": {
+                "type": "object",
+                "properties": {
+                    "achRollup": {
+                        "description": "ACH rollup",
+                        "type": "string"
+                    },
+                    "bin": {
+                        "description": "Bank identification number of bank",
+                        "type": "string"
+                    },
+                    "clearingCode": {
+                        "description": "Clearing code",
+                        "type": "string"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "ica": {
+                        "description": "Interbank Card Association",
+                        "type": "string"
+                    },
+                    "reference": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "merchantRef": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "modifiedTime": {
+                        "description": "The timestamp from when this customer's data was last updated.",
+                        "type": "integer"
+                    },
+                    "payCode": {
+                        "description": "Pay code",
+                        "type": "string"
+                    },
+                    "payCycle": {
+                        "description": "Pay cycle",
+                        "type": "string"
+                    }
+                }
+            },
+            "MerchantDeviceBoarding": {
+                "type": "object",
+                "properties": {
+                    "businessType": {
+                        "description": "Business type",
+                        "type": "string"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "equipmentNumber": {
+                        "description": "Equipment number",
+                        "type": "string"
+                    },
+                    "forceCloseTime": {
+                        "description": "Force close time",
+                        "type": "string"
+                    },
+                    "reference": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "merchantRef": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "modifiedTime": {
+                        "description": "The timestamp from when this customer's data was last updated.",
+                        "type": "integer"
+                    },
+                    "productType": {
+                        "description": "Device product type",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "transArmorIndicator": {
+                        "description": "TransArmor indicator",
+                        "type": "string"
+                    }
+                }
+            },
+            "MerchantHierarchy": {
+                "type": "object",
+                "properties": {
+                    "abaAccountNumber": {
+                        "description": "ABA account number",
+                        "type": "string"
+                    },
+                    "agent": {
+                        "description": "Agent ID",
+                        "type": "string"
+                    },
+                    "bank": {
+                        "description": "Bank ID",
+                        "type": "string"
+                    },
+                    "billCity": {
+                        "description": "Bill To city",
+                        "type": "string"
+                    },
+                    "billName": {
+                        "description": "Bill to name",
+                        "type": "string"
+                    },
+                    "billPhoneNumber": {
+                        "description": "Bill To phone number",
+                        "type": "string"
+                    },
+                    "billState": {
+                        "description": "Bill To state",
+                        "type": "string"
+                    },
+                    "billToAttention": {
+                        "description": "Bill To attention",
+                        "type": "string"
+                    },
+                    "billZip": {
+                        "description": "Bill To ZIP",
+                        "type": "string"
+                    },
+                    "business": {
+                        "description": "Business ID",
+                        "type": "string"
+                    },
+                    "chain": {
+                        "description": "Chain bank",
+                        "type": "string"
+                    },
+                    "corporate": {
+                        "description": "Corporate ID",
+                        "type": "string"
+                    },
+                    "dbaAddress": {
+                        "description": "DBA address",
+                        "type": "string"
+                    },
+                    "dbaAttention": {
+                        "description": "DBA attention name",
+                        "type": "string"
+                    },
+                    "dbaCity": {
+                        "description": "DBA city",
+                        "type": "string"
+                    },
+                    "dbaName": {
+                        "description": "DBA name",
+                        "type": "string"
+                    },
+                    "dbaPhoneNumber": {
+                        "description": "DBA phone number",
+                        "type": "string"
+                    },
+                    "dbaState": {
+                        "description": "DBA state",
+                        "type": "string"
+                    },
+                    "dbaZip": {
+                        "description": "DBA zip",
+                        "type": "string"
+                    },
+                    "ddaAccountNumber": {
+                        "description": "DDA account number",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "legalName": {
+                        "description": "Legal name",
+                        "type": "string"
+                    },
+                    "mid": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "modules": {
+                "type": "array"
+            },
+            "reseller": {
+                "type": "object",
+                "properties": {
+                    "alternateName": {
+                        "description": "Alternate name of the item",
+                        "type": "string"
+                    },
+                    "brandAssets": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "reference": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "broadcastMessage": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "code": {
+                        "description": "Product code, e.g. UPC or EAN",
+                        "type": "string"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "defaultCountryCode": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "PaymentProcessor": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "defaultPaymentProcessor": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "ProcessorKey": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "defaultProcessorKey": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "enforceMerchantPlan": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "fdClientId": {
+                        "description": "First Data Client ID",
+                        "type": "string"
+                    },
+                    "featuredApps": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "filterApps": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "forcePhone": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "isBulkPurchaser": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "isRkiIdentifier": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "Account": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "owner": {
+                        "description": "The account that owns this merchant",
+                        "type": ""
+                    },
+                    "reseller": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "parentReseller": {
+                        "description": "The parent reseller",
+                        "type": ""
+                    },
+                    "partnerSupportEmail": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "stationsOnClassic": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "supportEmail": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "supportPhone": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "supportsNakedCredit": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "supportsOutboundBoarding": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "tasqCustomerNumber": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "MerchantProgramExpress": {
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "description": "Key",
+                        "type": "string"
+                    },
+                    "keyDescription": {
+                        "description": "Key description",
+                        "type": "string"
+                    },
+                    "reference": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "merchantRef": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "programCode": {
+                        "description": "Program Code",
+                        "type": "string"
+                    },
+                    "programCodeDescription": {
+                        "description": "Description of Program Code",
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "Value",
+                        "type": "string"
+                    },
+                    "valueDescription": {
+                        "description": "Description of value",
+                        "type": "string"
+                    }
+                }
+            },
+            "MerchantProperties": {
+                "type": "object",
+                "properties": {
+                    "abaAccountNumber": {
+                        "description": "ABA account number",
+                        "type": "string"
+                    },
+                    "accountType": {
+                        "description": "The account type for the merchant. Used for reference merchants. See enterprise.ReferenceType",
+                        "type": "string"
+                    },
+                    "allowClockOutWithOpenOrders": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "alternateInventoryNames": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "appBillingSystem": {
+                        "description": "Temporary while we are switching US billing systems",
+                        "type": "string"
+                    },
+                    "autoLogout": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "autoPrint": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "bankMarker": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "businessTypeCode": {
+                        "description": "The business type of the merchant",
+                        "type": "string"
+                    },
+                    "cashBackEnabled": {
+                        "description": "Whether cash back is enabled for this merchant",
+                        "type": "boolean"
+                    },
+                    "cashBackOptions": {
+                        "description": "List of cash back possible cash back amounts",
+                        "type": "string"
+                    },
+                    "ddaAccountNumber": {
+                        "description": "DDA account number",
+                        "type": "string"
+                    },
+                    "defaultCurrency": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "deleteOrders": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "groupLineItems": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "hardwareProfile": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "hasConsented": {
+                        "description": "Whether or not merchant has consented to infolease billing",
+                        "type": "boolean"
+                    },
+                    "hasDefaultEmployee": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "hierarchy": {
+                        "description": "Merchant hierarchy (Business, Bank, Agent, Corp, Chain). Supplied by First Data.",
+                        "type": "string"
+                    },
+                    "infoleaseSuppressBilling": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "infoleaseSuppressPlanBilling": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "locale": {
+                        "description": "The locale of the merchant.",
+                        "type": "string"
+                    },
+                    "logInClockInPrompt": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "manualCloseout": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "marketingEnabled": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "marketingPreferenceText": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "maxCashBack": {
+                        "description": "The maximum amount of cash back that the customer can select.",
+                        "type": "integer"
+                    },
+                    "merchantBoardingStatus": {
+                        "description": "This is used to identify if the merchant is self-boarded",
+                        "type": "string"
+                    },
+                    "reference": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "merchantRef": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "notesOnOrders": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "onPaperTipSignatures": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "orderTitle": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "orderTitleMax": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "pinLength": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "receiptProperties": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "removeTaxEnabled": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "resetOnReportingTime": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "sendCloseoutEmail": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "shippingAddress": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "showCloseoutOrders": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "signatureThreshold": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "stayInCategory": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "summaryHour": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "supportEmail": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "supportPhone": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "timezone": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "tipRateDefault": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "tipsEnabled": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "trackStock": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "updateStock": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "vat": {
+                        "description": "Whether this merchant is in a VAT country",
+                        "type": "boolean"
+                    },
+                    "vatTaxName": {
+                        "description": "The VAT tax name that is shown on receipts",
+                        "type": "string"
+                    }
+                }
+            },
+            "Modification": {
+                "type": "object",
+                "properties": {
+                    "alternateName": {
+                        "description": "Alternate name of the item",
+                        "type": "string"
+                    },
+                    "amount": {
+                        "description": "Amount authorized",
+                        "type": "integer"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "modifier": {
+                        "description": "The modifier object.  Values from the Modifier are copied to the Modification at the time that the order is placed.  Modifier values may change after the modification is created.",
+                        "type": ""
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "quantitySold": {
+                        "description": "This is only used in reports. The count of how many of these modifiers that were sold.",
+                        "type": "integer"
+                    }
+                }
+            },
+            "modifier": {
+                "type": "object",
+                "properties": {
+                    "alternateName": {
+                        "description": "Alternate name of the item",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "reference": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "modifierGroup": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "price": {
+                        "description": "DEPRECATED: Instead use per country pricing in bundleCountries",
+                        "type": "integer"
+                    }
+                }
+            },
+            "ModifierGroup": {
+                "type": "object",
+                "properties": {
+                    "alternateName": {
+                        "description": "Alternate name of the item",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "items": {
+                        "description": "Ordered list of items associated with this category.",
+                        "type": "array"
+                    },
+                    "maxAllowed": {
+                        "description": "The maximum amount of modifiers from this group that can be applied to associated lineItems when using Register",
+                        "type": "integer"
+                    },
+                    "minRequired": {
+                        "description": "The minimum amount of modifiers from this group that must be applied to associated lineItems when using Register",
+                        "type": "integer"
+                    },
+                    "modifierIds": {
+                        "description": "An ordered, comma-separated list of modifier ids in this group. (READ ONLY)",
+                        "type": "string"
+                    },
+                    "modifiers": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "showByDefault": {
+                        "description": "Whether employees will be automatically prompted to add modifiers from this category when using Register",
+                        "type": "boolean"
+                    },
+                    "sortOrder": {
+                        "description": "Integer used to determine how this category is sorted against other categories.",
+                        "type": "integer"
+                    }
+                }
+            },
+            "modifiers": {
+                "type": "array"
+            },
+            "Module": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "Option": {
+                "type": "object",
+                "properties": {
+                    "reference": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "attribute": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "items": {
+                        "description": "Ordered list of items associated with this category.",
+                        "type": "array"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "Order": {
+                "type": "object",
+                "properties": {
+                    "authorizations": {
+                        "description": "Card authorizations associated with this order",
+                        "type": "array"
+                    },
+                    "clientCreatedTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "credits": {
+                        "description": "Credits associated with this order.",
+                        "type": "array"
+                    },
+                    "currency": {
+                        "description": "Currency of this order. For example, \"USD\"",
+                        "type": "string"
+                    },
+                    "customers": {
+                        "description": "List of customers associated with this order.",
+                        "type": "array"
+                    },
+                    "deletedTimestamp": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "reference": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "device": {
+                        "description": "Device which processed this credit",
+                        "type": ""
+                    },
+                    "discounts": {
+                        "description": "List of references to of Order discounts.",
+                        "type": "array"
+                    },
+                    "employee": {
+                        "description": "The employee who processed the payment",
+                        "type": ""
+                    },
+                    "groupLineItems": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "isVat": {
+                        "description": "This order was created by merchant with VAT enabled.",
+                        "type": "boolean"
+                    },
+                    "lineItems": {
+                        "description": "Line items associated with this order",
+                        "type": "array"
+                    },
+                    "manualTransaction": {
+                        "description": "Whether this order represents a manual transaction. A manual transaction is a transaction that has an arbitrary amount defined and is not associated with any inventory items. For example, the Clover Sale App and Clover Manual Transaction App create manual transactions. A manual transactions will have a single associated line item to hold the sale amount, but the generated receipt will display this differently to indicate that it is not considered a typical order with inventory items.",
+                        "type": "boolean"
+                    },
+                    "modifiedTime": {
+                        "description": "The timestamp from when this customer's data was last updated.",
+                        "type": "integer"
+                    },
+                    "note": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "orderType": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "payType": {
+                        "description": "Possible values: SPLIT_GUEST, SPLIT_ITEM, SPLIT_CUSTOM, FULL. During the payment flow, if the user chooses to split the payment for this order, this field will be set to one of the SPLIT_* values to indicate how the full amount should be split. If the user chooses to pay for the order in full with one payment, then this field will be FULL.",
+                        "type": "string"
+                    },
+                    "payments": {
+                        "description": "This employee's payments",
+                        "type": "array"
+                    },
+                    "preAuths": {
+                        "description": "Pre-authorizations associated with this order",
+                        "type": "array"
+                    },
+                    "refunds": {
+                        "description": "Refunds that were made for this order",
+                        "type": "array"
+                    },
+                    "serviceCharge": {
+                        "description": "Optional service charge (gratuity) applied to this order",
+                        "type": ""
+                    },
+                    "state": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "taxRemoved": {
+                        "description": "If true then this order should not have taxes applied to it",
+                        "type": "boolean"
+                    },
+                    "testMode": {
+                        "description": "Whether this order was created in test mode. Payments made against test orders are not processed. Test mode orders can be deleted from the Orders App on the merchant's device or web dashboard (https:\/\/www.clover.com\/orders\/m\/{mId}\/orders). They will also be deleted when the device sends a POST to the \/v2\/merchant\/{mId}\/orders\/delete_all_tests endpoint.",
+                        "type": "boolean"
+                    },
+                    "title": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "total": {
+                        "description": "Total price of the order in cents",
+                        "type": "integer"
+                    },
+                    "voids": {
+                        "description": "Voided payments associated with this order",
+                        "type": "array"
+                    }
+                }
+            },
+            "authorizations": {
+                "type": "array"
+            },
+            "credits": {
+                "type": "array"
+            },
+            "lineItems": {
+                "type": "array"
+            },
+            "orderType": {
+                "type": "object",
+                "properties": {
+                    "avgOrderTime": {
+                        "description": "The average time it takes to complete the order",
+                        "type": "integer"
+                    },
+                    "categories": {
+                        "description": "Categories associated with this item",
+                        "type": "array"
+                    },
+                    "customerIdMethod": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "fee": {
+                        "description": "The price of a fee added to this order type, not fully implemented at this time.",
+                        "type": "integer"
+                    },
+                    "filterCategories": {
+                        "description": "If set to false, then this order type includes all of the merchant's categories. Otherwise, it only contains the categories defined in the \"categories\" field on this object.",
+                        "type": "boolean"
+                    },
+                    "HoursSet": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "hours": {
+                        "description": "The hours this order type is available (if they differ from normal merchant hours)",
+                        "type": ""
+                    },
+                    "hoursAvailable": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "isDefault": {
+                        "description": "If this order type is the default",
+                        "type": "boolean"
+                    },
+                    "isDeleted": {
+                        "description": "If this order type is deleted",
+                        "type": "boolean"
+                    },
+                    "isHidden": {
+                        "description": "If this order type is hidden on the register",
+                        "type": "boolean"
+                    },
+                    "label": {
+                        "description": "Label Key",
+                        "type": "string"
+                    },
+                    "labelKey": {
+                        "description": "Label Key",
+                        "type": "string"
+                    },
+                    "maxOrderAmount": {
+                        "description": "The maximum amount for an order allowed",
+                        "type": "integer"
+                    },
+                    "maxRadius": {
+                        "description": "The maximum radius allowed for an order (i.e. delivery)",
+                        "type": "integer"
+                    },
+                    "minOrderAmount": {
+                        "description": "The minimum amount required for an order to be placed",
+                        "type": "integer"
+                    },
+                    "systemOrderTypeId": {
+                        "description": "Optional system order type that this order type is associated with.",
+                        "type": "string"
+                    },
+                    "taxable": {
+                        "description": "If this order type is taxable",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "preAuths": {
+                "type": "array"
+            },
+            "refunds": {
+                "type": "array"
+            },
+            "serviceCharge": {
+                "type": "object",
+                "properties": {
+                    "enabled": {
+                        "description": "If this service charge is enabled",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "percentage": {
+                        "description": "Discount amount in percent",
+                        "type": "integer"
+                    },
+                    "percentageDecimal": {
+                        "description": "Percent to charge times 10000, e.g. 12.5% will be 125000",
+                        "type": "integer"
+                    }
+                }
+            },
+            "voids": {
+                "type": "array"
+            },
+            "OrderTaxRate": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "description": "Amount authorized",
+                        "type": "integer"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "lineItemPayments": {
+                "type": "array"
+            },
+            "PaymentProcessor": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "paymentGatewayApi": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "production": {
+                        "description": "",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "PaymentTaxRate": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "isDefault": {
+                        "description": "If this order type is the default",
+                        "type": "boolean"
+                    },
+                    "isVat": {
+                        "description": "This order was created by merchant with VAT enabled.",
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "rate": {
+                        "description": "The tax rate. 100% = 1e7.",
+                        "type": "integer"
+                    },
+                    "taxAmount": {
+                        "description": "Amount paid in tax",
+                        "type": "integer"
+                    },
+                    "taxableAmount": {
+                        "description": "The sub-total of line items that the tax was based on. For VAT, this amount includes tax. For all others, this amount does not include tax.",
+                        "type": "integer"
+                    }
+                }
+            },
+            "PhoneNumber": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "phoneNumber": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "Printer": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "ipAddress": {
+                        "description": "IP address of a network printer",
+                        "type": "string"
+                    },
+                    "mac": {
+                        "description": "MAC address of a network printer",
+                        "type": "string"
+                    },
+                    "model": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "ProcessorKey": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "Refund": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "description": "Amount authorized",
+                        "type": "integer"
+                    },
+                    "AppTracking": {
+                        "description": "",
+                        "type": "object"
+                    },
+                    "appTracking": {
+                        "description": "Tracking information for the app that created this credit.",
+                        "type": ""
+                    },
+                    "clientCreatedTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "reference": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "device": {
+                        "description": "Device which processed this credit",
+                        "type": ""
+                    },
+                    "employee": {
+                        "description": "The employee who processed the payment",
+                        "type": ""
+                    },
+                    "germanInfo": {
+                        "description": "German region-specific information",
+                        "type": ""
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "lineItems": {
+                        "description": "Line items associated with this order",
+                        "type": "array"
+                    },
+                    "orderRef": {
+                        "description": "The order with which the credit is associated",
+                        "type": ""
+                    },
+                    "tender": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "overrideMerchantTender": {
+                        "description": "The tender type associated with this payment, e.g. credit card, cash, etc.",
+                        "type": ""
+                    },
+                    "payment": {
+                        "description": "Payment that the auth was opened with",
+                        "type": ""
+                    },
+                    "serviceChargeAmount": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "taxAmount": {
+                        "description": "Amount paid in tax",
+                        "type": "integer"
+                    },
+                    "taxableAmountRates": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "tipAmount": {
+                        "description": "Amount paid in tips",
+                        "type": "integer"
+                    }
+                }
+            },
+            "serviceChargeAmount": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "description": "Amount authorized",
+                        "type": "integer"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "taxableAmountRates": {
+                "type": "array"
+            },
+            "brandAssets": {
+                "type": "array"
+            },
+            "featuredApps": {
+                "type": "array"
+            },
+            "Shift": {
+                "type": "object",
+                "properties": {
+                    "cashTipsCollected": {
+                        "description": "Amount of cash tips collected",
+                        "type": "integer"
+                    },
+                    "employee": {
+                        "description": "The employee who processed the payment",
+                        "type": ""
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "inTime": {
+                        "description": "Clock in time",
+                        "type": "integer"
+                    },
+                    "outTime": {
+                        "description": "Clock out time",
+                        "type": "integer"
+                    },
+                    "overrideInEmployee": {
+                        "description": "The employee who overrode the clock in time",
+                        "type": ""
+                    },
+                    "overrideInTime": {
+                        "description": "Overridden clock in time",
+                        "type": "integer"
+                    },
+                    "overrideOutEmployee": {
+                        "description": "The employee who overrode the clock out time",
+                        "type": ""
+                    },
+                    "overrideOutTime": {
+                        "description": "Overridden clock out time",
+                        "type": "integer"
+                    },
+                    "serverBanking": {
+                        "description": "Whether the employee used server banking",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "SystemOrderType": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "isFsr": {
+                        "description": "Is for full service restraunts?",
+                        "type": "boolean"
+                    },
+                    "isQsr": {
+                        "description": "Is for quick service restraunts?",
+                        "type": "boolean"
+                    },
+                    "isRetail": {
+                        "description": "Is for retail stores?",
+                        "type": "boolean"
+                    },
+                    "labelKey": {
+                        "description": "Label Key",
+                        "type": "string"
+                    }
+                }
+            },
+            "Tag": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "items": {
+                        "description": "Ordered list of items associated with this category.",
+                        "type": "array"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "printers": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "showInReporting": {
+                        "description": "True if tag is a summary label in the reporting app",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "TaxRate": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "isDefault": {
+                        "description": "If this order type is the default",
+                        "type": "boolean"
+                    },
+                    "items": {
+                        "description": "Ordered list of items associated with this category.",
+                        "type": "array"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "rate": {
+                        "description": "The tax rate. 100% = 1e7.",
+                        "type": "integer"
+                    }
+                }
+            },
+            "TaxableAmountRate": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "isVat": {
+                        "description": "This order was created by merchant with VAT enabled.",
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "rate": {
+                        "description": "The tax rate. 100% = 1e7.",
+                        "type": "integer"
+                    },
+                    "taxAmount": {
+                        "description": "Amount paid in tax",
+                        "type": "integer"
+                    },
+                    "taxableAmount": {
+                        "description": "The sub-total of line items that the tax was based on. For VAT, this amount includes tax. For all others, this amount does not include tax.",
+                        "type": "integer"
+                    }
+                }
+            },
+            "TipSuggestion": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "isEnabled": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "percentage": {
+                        "description": "Discount amount in percent",
+                        "type": "integer"
+                    }
+                }
+            },
+            "expand": {
+                "type": "array"
+            }
+        }
+    }
+}
