@@ -1,5 +1,5 @@
 {
-    "id": "c602d97e66f0bf02bf8226941c81d47e",
+    "id": "0b72305f871d5be67edc2f6c155f4a21",
     "name": "Merchants",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "a96c710dbc1d2206745f3199160ec772",
+            "id": "0501c38e274c84abc12e1169d0431ae8",
             "name": "Get a single merchant",
             "url": "http:\/\/apisandbox.dev.clover.com\/\/v3\/merchants\/{mId}",
             "description": "Get a single merchant",
@@ -44,11 +44,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "c602d97e66f0bf02bf8226941c81d47e",
+            "collectionId": "0b72305f871d5be67edc2f6c155f4a21",
             "rawModeData": ""
         },
         {
-            "id": "e67cab9703824706144d2110f26976ad",
+            "id": "2bc06498758cbbeb49bb6c6a768aa667",
             "name": "UpdateMerchant",
             "url": "http:\/\/apisandbox.dev.clover.com\/\/v3\/merchants\/{mId}",
             "description": "Update a merchant",
@@ -82,7 +82,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "c602d97e66f0bf02bf8226941c81d47e",
+            "collectionId": "0b72305f871d5be67edc2f6c155f4a21",
             "rawModeData": ""
         }
     ]
