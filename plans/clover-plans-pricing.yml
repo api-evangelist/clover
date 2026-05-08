@@ -8,34 +8,57 @@ modified: '2026-05-08'
 reconciled: false
 tags:
 - POS
-- SMB
 - Payments
-- Fiserv
+- Retail
+- SMB
 - Hardware
 - Plans
-description: Placeholder plans/pricing artifact for Clover. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled.
+description: Clover plans (Starter, Standard, Advanced, etc.) are merchant SaaS subscriptions tied to
+  hardware bundles and processing rates from Fiserv-affiliated banks. Developer/API access is generally
+  free; merchants pay for the platform.
+notes: App developers can publish to the Clover App Market (revenue-share model).
 sources:
-- https://www.clover.com/
+- https://www.clover.com/pos-systems
+- https://docs.clover.com/
 plans:
-- id: clover-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
+- id: clover-developer
+  name: Clover Developer (App Market)
+  type: free
+  description: Free developer accounts; published apps participate in revenue-share via the Clover App
+    Market.
   entries:
-  - label: API Access
-    name: api_access
+  - label: Developer Account
+    name: developer
     type: flat
-    metric: varies
+    metric: account
     limit: -1
-    timeFrame: usage
+    timeFrame: perpetual
     geo: global
     unit: 1
-    price: see https://www.clover.com/
+    price: free
     userMultiplied: false
   elements:
-  - name: Pending Reconciliation
+  - name: Sandbox Access
+  - name: Production via App Market Approval
+- id: clover-merchant-saas
+  name: Merchant SaaS Plans
+  type: paid
+  description: Merchant-facing plans (Starter, Standard, Advanced, etc.) bundled with hardware and payment
+    processing.
+  entries:
+  - label: Monthly SaaS
+    name: merchant_saas
+    type: tiered
+    metric: merchant subscription
+    limit: -1
+    timeFrame: monthly
+    geo: global
+    unit: 1
+    price: varies by reseller and bundle
+    userMultiplied: false
+  elements:
+  - name: POS Hardware
+  - name: Payment Processing
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

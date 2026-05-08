@@ -8,25 +8,27 @@ modified: '2026-05-08'
 reconciled: false
 tags:
 - POS
-- SMB
 - Payments
-- Fiserv
+- Retail
+- SMB
 - Hardware
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for Clover. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: 'Clover REST API enforces per-merchant and per-app rate limits. Documented guidance: stay
+  under 16 requests/second per merchant token; bulk operations have separate guidance. Honor 429 with
+  Retry-After.'
+notes: Confirm tenant-specific quotas in your Clover developer dashboard.
 sources:
-- https://www.clover.com/
+- https://docs.clover.com/reference
 responseCodes:
   throttled: 429
 limits:
-- name: Default
-  scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+- name: Default REST
+  scope: merchant
+  metric: requests/second
+  limit: 'guidance: ~16 RPS per merchant'
+  notes: Honor 429 and Retry-After.
 policies:
 - name: Backoff Strategy
   description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
