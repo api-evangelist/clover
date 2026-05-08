@@ -1,0 +1,29 @@
+aid: clover
+url: https://raw.githubusercontent.com/api-evangelist/clover/refs/heads/main/apis.yml
+name: Clover
+x-type: company
+description: >-
+  Clover is a Fiserv-owned point-of-sale platform for SMBs offering integrated hardware, software, payments, and a developer ecosystem with REST + Ecommerce APIs.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - POS
+  - SMB
+  - Payments
+  - Fiserv
+  - Hardware
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://www.clover.com/
+  - type: Plans
+    url: plans/clover-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/clover-rate-limits.yml
+  - type: FinOps
+    url: finops/clover-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
