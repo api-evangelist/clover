@@ -1,7 +1,7 @@
 aid: clover
 url: https://raw.githubusercontent.com/api-evangelist/clover/refs/heads/main/apis.yml
 name: Clover
-x-type: company
+kind: company
 description: Clover is a Fiserv-owned point-of-sale platform for small and mid-size merchants. The Clover
   developer platform exposes the Clover REST API for inventory/orders/customers/transactions, the Ecommerce
   API for online payments, an Android Payments API and Clover Android SDK for native apps on Clover devices,
