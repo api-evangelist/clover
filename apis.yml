@@ -9,109 +9,113 @@ description: Clover is a Fiserv-owned point-of-sale platform for small and mid-s
   and the Clover Go SDK.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-- POS
-- Payments
-- Retail
-- SMB
-- Hardware
+  - POS
+  - Payments
+  - Retail
+  - SMB
+  - Hardware
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
 apis:
-- aid: clover:rest-api
-  name: Clover REST API
-  description: 'Foundational REST API for merchant data: inventory, orders, customers, employees, line
-    items, modifiers, payments, refunds, and more. OAuth-based auth with sandbox and production environments.'
-  humanURL: https://docs.clover.com/reference
-  baseURL: https://api.clover.com
-  tags:
-  - REST
-  - Merchant
-  - Inventory
-  - Orders
-  properties:
-  - type: Documentation
-    url: https://docs.clover.com/reference
-  - type: Sandbox
-    url: https://sandbox.dev.clover.com/
-- aid: clover:ecommerce-api
-  name: Clover Ecommerce API
-  description: Online payments API for charges, refunds, tokenization, recurring payments, and gift cards.
-  humanURL: https://docs.clover.com/
-  baseURL: https://api.clover.com
-  tags:
-  - REST
-  - Payments
-  - Ecommerce
-  properties:
-  - type: Documentation
-    url: https://docs.clover.com/
-- aid: clover:android-sdk
-  name: Clover Android SDK
-  description: Native SDK for Android apps running on Clover devices, with access to merchant data and
-    device hardware.
-  humanURL: https://docs.clover.com/
-  tags:
-  - SDK
-  - Android
-  - Hardware
-  properties:
-  - type: Documentation
-    url: https://docs.clover.com/
-- aid: clover:android-payments-api
-  name: Clover Android Payments API
-  description: Payment-processing API for Android apps on Clover devices that abstracts device configuration.
-  humanURL: https://docs.clover.com/
-  tags:
-  - SDK
-  - Android
-  - Payments
-  properties:
-  - type: Documentation
-    url: https://docs.clover.com/
-- aid: clover:rest-pay-display
-  name: Clover REST Pay Display API
-  description: Semi-integrated POS API for merchant-facing Pay Display flows on Clover devices.
-  humanURL: https://docs.clover.com/
-  tags:
-  - REST
-  - Pay Display
-  - Semi-Integrated
-  properties:
-  - type: Documentation
-    url: https://docs.clover.com/
-- aid: clover:remote-pay-sdks
-  name: Clover Remote Pay SDKs
-  description: Remote Pay SDKs for Cloud, Windows, iOS, and Android integrations with Clover devices.
-  humanURL: https://docs.clover.com/
-  tags:
-  - SDK
-  - Remote Pay
-  properties:
-  - type: Documentation
-    url: https://docs.clover.com/
-- aid: clover:go-sdk
-  name: Clover Go SDK
-  description: Mobile SDK (iOS, Android) for accepting card-present payments via Clover Go readers.
-  humanURL: https://docs.clover.com/
-  tags:
-  - SDK
-  - Mobile
-  - Card Reader
-  properties:
-  - type: Documentation
-    url: https://docs.clover.com/
+  - aid: clover:rest-api
+    name: Clover REST API
+    description: 'Foundational REST API for merchant data: inventory, orders, customers, employees, line
+      items, modifiers, payments, refunds, and more. OAuth-based auth with sandbox and production environments.'
+    humanURL: https://docs.clover.com/reference
+    baseURL: https://api.clover.com
+    tags:
+    - REST
+    - Merchant
+    - Inventory
+    - Orders
+    properties:
+    - type: Documentation
+      url: https://docs.clover.com/reference
+    - type: Sandbox
+      url: https://sandbox.dev.clover.com/
+  - aid: clover:ecommerce-api
+    name: Clover Ecommerce API
+    description: Online payments API for charges, refunds, tokenization, recurring payments, and gift cards.
+    humanURL: https://docs.clover.com/
+    baseURL: https://api.clover.com
+    tags:
+    - REST
+    - Payments
+    - Ecommerce
+    properties:
+    - type: Documentation
+      url: https://docs.clover.com/
+  - aid: clover:android-sdk
+    name: Clover Android SDK
+    description: Native SDK for Android apps running on Clover devices, with access to merchant data and
+      device hardware.
+    humanURL: https://docs.clover.com/
+    tags:
+    - SDK
+    - Android
+    - Hardware
+    properties:
+    - type: Documentation
+      url: https://docs.clover.com/
+  - aid: clover:android-payments-api
+    name: Clover Android Payments API
+    description: Payment-processing API for Android apps on Clover devices that abstracts device configuration.
+    humanURL: https://docs.clover.com/
+    tags:
+    - SDK
+    - Android
+    - Payments
+    properties:
+    - type: Documentation
+      url: https://docs.clover.com/
+  - aid: clover:rest-pay-display
+    name: Clover REST Pay Display API
+    description: Semi-integrated POS API for merchant-facing Pay Display flows on Clover devices.
+    humanURL: https://docs.clover.com/
+    tags:
+    - REST
+    - Pay Display
+    - Semi-Integrated
+    properties:
+    - type: Documentation
+      url: https://docs.clover.com/
+  - aid: clover:remote-pay-sdks
+    name: Clover Remote Pay SDKs
+    description: Remote Pay SDKs for Cloud, Windows, iOS, and Android integrations with Clover devices.
+    humanURL: https://docs.clover.com/
+    tags:
+    - SDK
+    - Remote Pay
+    properties:
+    - type: Documentation
+      url: https://docs.clover.com/
+  - aid: clover:go-sdk
+    name: Clover Go SDK
+    description: Mobile SDK (iOS, Android) for accepting card-present payments via Clover Go readers.
+    humanURL: https://docs.clover.com/
+    tags:
+    - SDK
+    - Mobile
+    - Card Reader
+    properties:
+    - type: Documentation
+      url: https://docs.clover.com/
 common:
-- type: Website
-  url: https://www.clover.com/
-- type: Developer
-  url: https://docs.clover.com/
-- type: Plans
-  url: plans/clover-plans-pricing.yml
-- type: RateLimits
-  url: rate-limits/clover-rate-limits.yml
-- type: FinOps
-  url: finops/clover-finops.yml
+  - type: GitHubOrganization
+    url: https://github.com/clover
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/clovernetwork
+  - type: Website
+    url: https://www.clover.com/
+  - type: Developer
+    url: https://docs.clover.com/
+  - type: Plans
+    url: plans/clover-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/clover-rate-limits.yml
+  - type: FinOps
+    url: finops/clover-finops.yml
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
