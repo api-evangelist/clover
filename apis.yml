@@ -116,6 +116,8 @@ common:
     url: rate-limits/clover-rate-limits.yml
   - type: FinOps
     url: finops/clover-finops.yml
+  - type: LLMsTxt
+    url: https://docs.clover.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
