@@ -9,13 +9,14 @@ description: Clover is a Fiserv-owned point-of-sale platform for small and mid-s
   and the Clover Go SDK.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
+  - Restaurant
   - POS
   - Payments
   - Retail
   - SMB
   - Hardware
 created: '2026-05-08'
-modified: '2026-05-08'
+modified: '2026-06-02'
 specificationVersion: '0.19'
 apis:
   - aid: clover:rest-api
