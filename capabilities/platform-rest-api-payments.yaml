@@ -1,0 +1,148 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Clover Platform REST API — PAYMENTS
+  description: 'Clover Platform REST API — PAYMENTS. 2 operations. Lead operation: Get a Single Payment. Self-contained Naftiko capability covering one Clover business surface.'
+  tags:
+  - Clover
+  - Platform REST API
+  - PAYMENTS
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    CLOVER_API_TOKEN: CLOVER_API_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: platform-rest-api-payments
+    baseUri: https://api.clover.com
+    description: Clover Platform REST API — PAYMENTS business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.CLOVER_API_TOKEN}}'
+    resources:
+    - name: v3-merchants-mid-payments-payid
+      path: /v3/merchants/{mId}/payments/{payId}
+      operations:
+      - name: payGetPayment
+        method: GET
+        description: Clover Get a Single Payment
+        inputParameters:
+        - name: mId
+          in: path
+          type: string
+          required: true
+          description: Merchant Id
+        - name: payId
+          in: path
+          type: string
+          required: true
+          description: Payment Id
+        - name: expand
+          in: query
+          type: string
+          required: false
+          description: 'Expandable fields: [tender, germanInfo, lineItemPayments, cardTransaction, dccInfo, employee, refunds, transactionInfo, externalReferenceId, oceanGatewayInfo, taxRates, additionalCharges, appTracking, paymentAttributes, order]'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v3-merchants-mid-payments
+      path: /v3/merchants/{mId}/payments
+      operations:
+      - name: payGetPayments
+        method: GET
+        description: Clover Get All Payments
+        inputParameters:
+        - name: mId
+          in: path
+          type: string
+          required: true
+          description: Merchant identifier.
+        - name: filter
+          in: query
+          type: string
+          required: false
+          description: 'Filter fields to display search results: [modifiedTime, device.id, externalReferenceId, result, offline, createdTime, externalPaymentId, voided, id, tender.id, employee.id, order.modifiedTime, amount, cardType, clientCreatedTime]'
+        - name: expand
+          in: query
+          type: string
+          required: false
+          description: 'Expandable fields to display additional nested information: [tender, germanInfo, lineItemPayments, cardTransaction, dccInfo, refunds, transactionInfo, externalReferenceId, oceanGatewayInfo, taxRates, additionalCharges, appTracking, paymentAttributes, order]'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: platform-rest-api-payments-rest
+    port: 8080
+    description: REST adapter for Clover Platform REST API — PAYMENTS. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/merchants-mid-payments-payid
+      name: v3-merchants-mid-payments-payid
+      description: REST surface for PAYMENTS.
+      operations:
+      - method: GET
+        name: payGetPayment
+        description: Clover Get a Single Payment
+        call: platform-rest-api-payments.payGetPayment
+        with:
+          mId: rest.mId
+          payId: rest.payId
+          expand: rest.expand
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/merchants-mid-payments
+      name: v3-merchants-mid-payments
+      description: REST surface for PAYMENTS.
+      operations:
+      - method: GET
+        name: payGetPayments
+        description: Clover Get All Payments
+        call: platform-rest-api-payments.payGetPayments
+        with:
+          mId: rest.mId
+          filter: rest.filter
+          expand: rest.expand
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-rest-api-payments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Clover Platform REST API — PAYMENTS. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-single-payment
+      description: Clover Get a Single Payment
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-rest-api-payments.payGetPayment
+      with:
+        mId: tools.mId
+        payId: tools.payId
+        expand: tools.expand
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-all-payments
+      description: Clover Get All Payments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-rest-api-payments.payGetPayments
+      with:
+        mId: tools.mId
+        filter: tools.filter
+        expand: tools.expand
+      outputParameters:
+      - type: object
+        mapping: $.

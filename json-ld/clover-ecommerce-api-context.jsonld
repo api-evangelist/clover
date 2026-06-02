@@ -1,0 +1,198 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "clover": "https://docs.clover.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Refund": "clover:Refund",
+    "id": {
+      "@id": "clover:id",
+      "@type": "xsd:string"
+    },
+    "charge": {
+      "@id": "clover:charge",
+      "@type": "xsd:string"
+    },
+    "amount": {
+      "@id": "clover:amount",
+      "@type": "xsd:integer"
+    },
+    "status": {
+      "@id": "clover:status",
+      "@type": "xsd:string"
+    },
+    "Charge": "clover:Charge",
+    "taxAmount": {
+      "@id": "clover:tax_amount",
+      "@type": "xsd:integer"
+    },
+    "tipAmount": {
+      "@id": "clover:tip_amount",
+      "@type": "xsd:integer"
+    },
+    "additionalCharges": {
+      "@id": "clover:additional_charges",
+      "@type": "@id"
+    },
+    "amountRefunded": {
+      "@id": "clover:amount_refunded",
+      "@type": "xsd:integer"
+    },
+    "partialAuth": {
+      "@id": "clover:partial_auth",
+      "@type": "xsd:boolean"
+    },
+    "billingDetails": {
+      "@id": "clover:billing_details",
+      "@type": "@id"
+    },
+    "captured": {
+      "@id": "clover:captured",
+      "@type": "xsd:boolean"
+    },
+    "created": {
+      "@id": "clover:created",
+      "@type": "xsd:integer"
+    },
+    "currency": {
+      "@id": "clover:currency",
+      "@type": "xsd:string"
+    },
+    "customer": {
+      "@id": "clover:customer",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "externalReferenceId": {
+      "@id": "clover:external_reference_id",
+      "@type": "xsd:string"
+    },
+    "externalCustomerReference": {
+      "@id": "clover:external_customer_reference",
+      "@type": "xsd:string"
+    },
+    "authCode": {
+      "@id": "clover:auth_code",
+      "@type": "xsd:string"
+    },
+    "refNum": {
+      "@id": "clover:ref_num",
+      "@type": "xsd:string"
+    },
+    "failureCode": {
+      "@id": "clover:failure_code",
+      "@type": "xsd:string"
+    },
+    "failureMessage": {
+      "@id": "clover:failure_message",
+      "@type": "xsd:string"
+    },
+    "warningMessage": {
+      "@id": "clover:warning_message",
+      "@type": "xsd:string"
+    },
+    "livemode": {
+      "@id": "clover:livemode",
+      "@type": "xsd:boolean"
+    },
+    "metadata": {
+      "@id": "clover:metadata",
+      "@type": "xsd:string"
+    },
+    "object": {
+      "@id": "clover:object",
+      "@type": "xsd:string"
+    },
+    "order": {
+      "@id": "clover:order",
+      "@type": "xsd:string"
+    },
+    "outcome": {
+      "@id": "clover:outcome",
+      "@type": "@id"
+    },
+    "paid": {
+      "@id": "clover:paid",
+      "@type": "xsd:boolean"
+    },
+    "paymentMethodDetails": {
+      "@id": "clover:payment_method_details",
+      "@type": "xsd:string"
+    },
+    "onBehalfOf": {
+      "@id": "clover:on_behalf_of",
+      "@type": "xsd:boolean"
+    },
+    "debtPayment": {
+      "@id": "clover:debt_payment",
+      "@type": "xsd:string"
+    },
+    "receiptEmail": {
+      "@id": "clover:receipt_email",
+      "@type": "xsd:string"
+    },
+    "receiptNumber": {
+      "@id": "clover:receipt_number",
+      "@type": "xsd:string"
+    },
+    "receiptUrl": {
+      "@id": "clover:receipt_url",
+      "@type": "xsd:string"
+    },
+    "siteUrl": {
+      "@id": "clover:site_url",
+      "@type": "xsd:string"
+    },
+    "refunded": {
+      "@id": "clover:refunded",
+      "@type": "xsd:boolean"
+    },
+    "shipping": {
+      "@id": "clover:shipping",
+      "@type": "xsd:string"
+    },
+    "source": {
+      "@id": "clover:source",
+      "@type": "@id"
+    },
+    "storedCredentials": {
+      "@id": "clover:stored_credentials",
+      "@type": "@id"
+    },
+    "softDescriptor": {
+      "@id": "clover:soft_descriptor",
+      "@type": "@id"
+    },
+    "threeds": {
+      "@id": "clover:threeds",
+      "@type": "@id"
+    },
+    "giftCard": {
+      "@id": "clover:gift_card",
+      "@type": "@id"
+    },
+    "level2": {
+      "@id": "clover:level2",
+      "@type": "@id"
+    },
+    "level3": {
+      "@id": "clover:level3",
+      "@type": "@id"
+    },
+    "savedCredentialsOnFile": {
+      "@id": "clover:saved_credentials_on_file",
+      "@type": "@id"
+    },
+    "ecomind": {
+      "@id": "clover:ecomind",
+      "@type": "xsd:string"
+    },
+    "amountCaptured": {
+      "@id": "clover:amount_captured",
+      "@type": "xsd:integer"
+    }
+  }
+}

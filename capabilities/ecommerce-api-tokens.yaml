@@ -1,0 +1,85 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Clover Ecommerce API — TOKENS
+  description: 'Clover Ecommerce API — TOKENS. 1 operations. Lead operation: Create a Card Token. Self-contained Naftiko capability covering one Clover business surface.'
+  tags:
+  - Clover
+  - Ecommerce API
+  - TOKENS
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    CLOVER_ECOMM_API_KEY: CLOVER_ECOMM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ecommerce-api-tokens
+    baseUri: https://scl.clover.com
+    description: Clover Ecommerce API — TOKENS business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.CLOVER_ECOMM_API_KEY}}'
+    resources:
+    - name: v1-tokens
+      path: /v1/tokens
+      operations:
+      - name: CreateToken
+        method: POST
+        description: Clover Create a Card Token
+        inputParameters:
+        - name: apikey
+          in: header
+          type: string
+          required: true
+          description: Public Ecommerce API key associated with a specific merchant and developer app. Use [Retrieve an Ecommerce API key or PAKMS key](https://docs.clover.com/dev/reference/getapikey) to generate this key.
+        - name: User-Agent
+          in: header
+          type: string
+          required: true
+          description: 'Identifies the application, operating system, vendor, and/or version of the requesting user agent. Format: `<application>/<version>`'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ecommerce-api-tokens-rest
+    port: 8080
+    description: REST adapter for Clover Ecommerce API — TOKENS. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/tokens
+      name: v1-tokens
+      description: REST surface for TOKENS.
+      operations:
+      - method: POST
+        name: CreateToken
+        description: Clover Create a Card Token
+        call: ecommerce-api-tokens.CreateToken
+        with:
+          apikey: rest.apikey
+          User-Agent: rest.User-Agent
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ecommerce-api-tokens-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Clover Ecommerce API — TOKENS. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: create-card-token
+      description: Clover Create a Card Token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ecommerce-api-tokens.CreateToken
+      with:
+        apikey: tools.apikey
+        User-Agent: tools.User-Agent
+      outputParameters:
+      - type: object
+        mapping: $.

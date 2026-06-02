@@ -1,0 +1,2926 @@
+openapi: 3.1.0
+info:
+  title: Clover Platform REST API
+  description: Clover Platform REST API v3 — merchant-scoped resources for inventory items, categories, orders, line items, payments, customers, employees, and shifts. Authentication uses OAuth 2.0 bearer access tokens (or merchant API tokens) scoped to a single merchant. Schemas and operations are derived from the Clover developer reference at docs.clover.com.
+  version: v3
+  contact:
+    name: Clover Developer Platform
+    url: https://docs.clover.com/dev/reference
+  x-generated-from: documentation
+  x-last-validated: '2026-06-02'
+servers:
+- url: https://api.clover.com
+  description: Production (North America)
+- url: https://api.eu.clover.com
+  description: Production (Europe)
+- url: https://api.la.clover.com
+  description: Production (Latin America)
+- url: https://apisandbox.dev.clover.com
+  description: Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Inventory
+  description: Inventory items, categories, and modifier groups for a merchant.
+- name: Orders
+  description: Orders, line items, and order payments.
+- name: Payments
+  description: Payment and refund records.
+- name: Customers
+  description: Customer profiles, contacts, and cards.
+- name: Employees
+  description: Employees and shifts.
+paths:
+  /v3/merchants/{mId}/items/{itemId}:
+    delete:
+      summary: Clover Delete an Inventory Item
+      description: Delete an inventory item
+      operationId: inventoryDeleteItem
+      tags:
+      - INVENTORY
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: itemId
+        in: path
+        required: true
+        description: Item Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+              examples:
+                InventoryDeleteItem200Example:
+                  summary: Default inventoryDeleteItem 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    hidden: true
+                    available: true
+                    autoManage: true
+                    itemGroup: {}
+                    options:
+                    - {}
+                    name: example-value
+                    alternateName: example-value
+                    code: example-value
+                    sku: example-value
+                    price: 1
+                    priceType: FIXED
+                    defaultTaxRates: true
+                    unitName: example-value
+                    cost: 1
+                    isRevenue: true
+                    stockCount: 1
+                    taxRates:
+                    - {}
+                    modifierGroups:
+                    - {}
+                    categories:
+                    - {}
+                    tags:
+                    - {}
+                    canonical: {}
+                    itemStock: {}
+                    MenuItem: {}
+                    modifiedTime: 1
+                    deletedTime: 1
+                    priceWithoutVat: 1
+                    colorCode: example-value
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      summary: Clover Get a Single Inventory Item
+      description: Retrieves an existing inventory item.
+      operationId: inventoryGetItem
+      tags:
+      - INVENTORY
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant idenitifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: itemId
+        in: path
+        required: true
+        description: Inventory item identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Additional information provided as an expanded response: [tags, categories, taxRates, modifierGroups, itemStock, options]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+              examples:
+                InventoryGetItem200Example:
+                  summary: Default inventoryGetItem 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    hidden: true
+                    available: true
+                    autoManage: true
+                    itemGroup: {}
+                    options:
+                    - {}
+                    name: example-value
+                    alternateName: example-value
+                    code: example-value
+                    sku: example-value
+                    price: 1
+                    priceType: FIXED
+                    defaultTaxRates: true
+                    unitName: example-value
+                    cost: 1
+                    isRevenue: true
+                    stockCount: 1
+                    taxRates:
+                    - {}
+                    modifierGroups:
+                    - {}
+                    categories:
+                    - {}
+                    tags:
+                    - {}
+                    canonical: {}
+                    itemStock: {}
+                    MenuItem: {}
+                    modifiedTime: 1
+                    deletedTime: 1
+                    priceWithoutVat: 1
+                    colorCode: example-value
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/categories:
+    post:
+      summary: Clover Create an Item Category
+      description: Create an item category
+      operationId: categoryCreateCategory
+      tags:
+      - INVENTORY
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable field: [items]'
+        schema:
+          type: string
+        example: example-expand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+            examples:
+              CategoryCreateCategoryRequestExample:
+                summary: Default categoryCreateCategory request
+                x-microcks-default: true
+                value:
+                  id: example-value
+                  name: example-value
+                  sortOrder: 1
+                  items:
+                  - {}
+                  colorCode: example-value
+                  deleted: true
+                  modifiedTime: 1
+                  canonical: {}
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+              examples:
+                CategoryCreateCategory200Example:
+                  summary: Default categoryCreateCategory 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    name: example-value
+                    sortOrder: 1
+                    items:
+                    - {}
+                    colorCode: example-value
+                    deleted: true
+                    modifiedTime: 1
+                    canonical: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      summary: Clover Get All Categories
+      description: Retrieves all categories. Items display on the Register app within categories in the order in which they are added to a category. Items may be associated with one or more categories or may not be associated with any category. Categories display in the Register app based on the sort order value for each category.
+      operationId: categoryGetCategories
+      tags:
+      - INVENTORY
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: filter
+        in: query
+        required: false
+        description: 'Filter fields to display search results: [modifiedTime, deleted, sortOrder, name, colorCode, id]'
+        schema:
+          type: string
+        example: example-filter
+      - name: expand
+        in: query
+        required: false
+        description: 'Additional information provided as an expanded response: [items]'
+        schema:
+          type: string
+        example: example-expand
+      - name: offset
+        in: query
+        required: false
+        description: Position of the first line item returned in the search results. Indicates the number of line items that are excluded from the search results.
+        schema:
+          type: integer
+        example: 1
+      - name: limit
+        in: query
+        required: false
+        description: "Maximum number of line items returned in the search result.\n Default: 100 \n Maximum limit: 1000"
+        schema:
+          type: integer
+        example: 1
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
+              examples:
+                CategoryGetCategories200Example:
+                  summary: Default categoryGetCategories 200 response
+                  x-microcks-default: true
+                  value:
+                    elements:
+                    - {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/items:
+    get:
+      summary: Clover Get All Inventory Items
+      description: Displays line items for each category in the inventory for an order.
+      operationId: inventoryGetItems
+      tags:
+      - INVENTORY
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: filter
+        in: query
+        required: false
+        description: 'Filter fields to display search results: [lowStock, modifiedTime, hidden, itemCode, available, option.id, modifierGroup.id, autoManage, price, id, sku, defaultTaxRates, tags.id, alternateName, isRevenue, tags.name, deleted, item.id, name, itemStock.quantity, itemGroup.id, isAgeRestricted, ageRestrictedType, minimumAge]'
+        schema:
+          type: string
+        example: example-filter
+      - name: expand
+        in: query
+        required: false
+        description: 'Additional information provided as an expanded response: [tags, categories, taxRates, modifierGroups, itemStock, options, ageRestricted]'
+        schema:
+          type: string
+        example: example-expand
+      - name: offset
+        in: query
+        required: false
+        description: Position of the first line item returned in the search results. Indicates the number of line items that are excluded from the search results.
+        schema:
+          type: integer
+        example: 1
+      - name: limit
+        in: query
+        required: false
+        description: "Maximum number of line items returned in the search result.\n Default: 100 \n Maximum limit: 1000"
+        schema:
+          type: integer
+        example: 1
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Item'
+              examples:
+                InventoryGetItems200Example:
+                  summary: Default inventoryGetItems 200 response
+                  x-microcks-default: true
+                  value:
+                    elements:
+                    - {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      summary: Clover Create an Inventory Item
+      description: Creates an inventory item.
+      operationId: inventoryCreateItem
+      tags:
+      - INVENTORY
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields to display additional nested information: [tags, categories, taxRates, modifierGroups, itemStock, options, ageRestricted]'
+        schema:
+          type: string
+        example: example-expand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+            examples:
+              InventoryCreateItemRequestExample:
+                summary: Default inventoryCreateItem request
+                x-microcks-default: true
+                value:
+                  id: example-value
+                  hidden: true
+                  available: true
+                  autoManage: true
+                  itemGroup: {}
+                  options:
+                  - {}
+                  name: example-value
+                  alternateName: example-value
+                  code: example-value
+                  sku: example-value
+                  price: 1
+                  priceType: FIXED
+                  defaultTaxRates: true
+                  unitName: example-value
+                  cost: 1
+                  isRevenue: true
+                  stockCount: 1
+                  taxRates:
+                  - {}
+                  modifierGroups:
+                  - {}
+                  categories:
+                  - {}
+                  tags:
+                  - {}
+                  canonical: {}
+                  itemStock: {}
+                  MenuItem: {}
+                  modifiedTime: 1
+                  deletedTime: 1
+                  priceWithoutVat: 1
+                  colorCode: example-value
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+              examples:
+                InventoryCreateItem200Example:
+                  summary: Default inventoryCreateItem 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    hidden: true
+                    available: true
+                    autoManage: true
+                    itemGroup: {}
+                    options:
+                    - {}
+                    name: example-value
+                    alternateName: example-value
+                    code: example-value
+                    sku: example-value
+                    price: 1
+                    priceType: FIXED
+                    defaultTaxRates: true
+                    unitName: example-value
+                    cost: 1
+                    isRevenue: true
+                    stockCount: 1
+                    taxRates:
+                    - {}
+                    modifierGroups:
+                    - {}
+                    categories:
+                    - {}
+                    tags:
+                    - {}
+                    canonical: {}
+                    itemStock: {}
+                    MenuItem: {}
+                    modifiedTime: 1
+                    deletedTime: 1
+                    priceWithoutVat: 1
+                    colorCode: example-value
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/categories/{catId}:
+    get:
+      summary: Clover Get a Category
+      description: Get a category
+      operationId: categoryGetCategory
+      tags:
+      - INVENTORY
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: catId
+        in: path
+        required: true
+        description: Category Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable field: [items]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+              examples:
+                CategoryGetCategory200Example:
+                  summary: Default categoryGetCategory 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    name: example-value
+                    sortOrder: 1
+                    items:
+                    - {}
+                    colorCode: example-value
+                    deleted: true
+                    modifiedTime: 1
+                    canonical: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/payments/{payId}:
+    get:
+      summary: Clover Get a Single Payment
+      description: Retrieve a single payment information, including the total amount, tip amount, tax amount, and result status.
+      operationId: payGetPayment
+      tags:
+      - PAYMENTS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: payId
+        in: path
+        required: true
+        description: Payment Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields: [tender, germanInfo, lineItemPayments, cardTransaction, dccInfo, employee, refunds, transactionInfo, externalReferenceId, oceanGatewayInfo, taxRates, additionalCharges, appTracking, paymentAttributes, order]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+              examples:
+                PayGetPayment200Example:
+                  summary: Default payGetPayment 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    order: {}
+                    device: {}
+                    tender: {}
+                    amount: 1
+                    tipAmount: 1
+                    taxAmount: 1
+                    cashbackAmount: 1
+                    cashTendered: 1
+                    externalPaymentId: example-value
+                    employee: {}
+                    createdTime: 1
+                    clientCreatedTime: 1
+                    gatewayProcessingTime: 1
+                    modifiedTime: 1
+                    offline: true
+                    result: SUCCESS
+                    cardTransaction: {}
+                    serviceCharge: {}
+                    attributes: {}
+                    additionalCharges:
+                    - {}
+                    taxRates:
+                    - {}
+                    refunds:
+                    - {}
+                    note: example-value
+                    lineItemPayments:
+                    - {}
+                    authorization: {}
+                    voidPaymentRef: {}
+                    voidReason: USER_CANCEL
+                    voidReasonDetails: {}
+                    dccInfo: {}
+                    transactionSettings: {}
+                    germanInfo: {}
+                    appTracking: {}
+                    cashAdvanceExtra: {}
+                    transactionInfo: {}
+                    signatureDisclaimer: {}
+                    externalReferenceId: example-value
+                    merchant: {}
+                    increments:
+                    - {}
+                    purchaseCardL2: {}
+                    purchaseCardL3: {}
+                    oceanGatewayInfo: {}
+                    terminalManagementComponents:
+                    - {}
+                    emiInfo: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/employees/{empId}:
+    get:
+      summary: Clover Get a Single Employee
+      description: Returns information for a single employee.  Accepts optional expand query parameters
+      operationId: employeeGetEmployee
+      tags:
+      - EMPLOYEES
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: empId
+        in: path
+        required: true
+        description: Employee Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields: [roles, shifts]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+              examples:
+                EmployeeGetEmployee200Example:
+                  summary: Default employeeGetEmployee 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    name: example-value
+                    nickname: example-value
+                    customId: example-value
+                    email: example-value
+                    inviteSent: true
+                    claimedTime: 1
+                    deletedTime: 1
+                    pin: example-value
+                    unhashedPin: example-value
+                    role: OWNER
+                    roles:
+                    - {}
+                    isOwner: true
+                    shifts:
+                    - {}
+                    payments:
+                    - {}
+                    orders:
+                    - {}
+                    employeeCards:
+                    - {}
+                    merchant: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/customers/{customerId}:
+    get:
+      summary: Clover Get a Single Customer
+      description: Returns information for a single customer.
+      operationId: customersGetCustomer
+      tags:
+      - CUSTOMERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: customerId
+        in: path
+        required: true
+        description: customerId parameter.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: filter
+        in: query
+        required: false
+        description: 'Filter fields: [customerSince, firstName, lastName, emailAddress, phoneNumber, marketingAllowed, fullName, id, deletedTime]'
+        schema:
+          type: string
+        example: example-filter
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields: [addresses, emailAddresses, phoneNumbers, cards, metadata]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+              examples:
+                CustomersGetCustomer200Example:
+                  summary: Default customersGetCustomer 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    merchant: {}
+                    firstName: example-value
+                    lastName: example-value
+                    marketingAllowed: true
+                    customerSince: 1
+                    orders:
+                    - {}
+                    addresses:
+                    - {}
+                    emailAddresses:
+                    - {}
+                    phoneNumbers:
+                    - {}
+                    cards:
+                    - {}
+                    metadata: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      summary: Clover Update a Customer
+      description: Updates information for a single customer.
+      operationId: customersUpdateCustomer
+      tags:
+      - CUSTOMERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: customerId
+        in: path
+        required: true
+        description: Unique identifier of the customer.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields to display additional nested information: [addresses, emailAddresses, phoneNumbers, cards, metadata]'
+        schema:
+          type: string
+        example: example-expand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+            examples:
+              CustomersUpdateCustomerRequestExample:
+                summary: Default customersUpdateCustomer request
+                x-microcks-default: true
+                value:
+                  id: example-value
+                  merchant: {}
+                  firstName: example-value
+                  lastName: example-value
+                  marketingAllowed: true
+                  customerSince: 1
+                  orders:
+                  - {}
+                  addresses:
+                  - {}
+                  emailAddresses:
+                  - {}
+                  phoneNumbers:
+                  - {}
+                  cards:
+                  - {}
+                  metadata: {}
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+              examples:
+                CustomersUpdateCustomer200Example:
+                  summary: Default customersUpdateCustomer 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    merchant: {}
+                    firstName: example-value
+                    lastName: example-value
+                    marketingAllowed: true
+                    customerSince: 1
+                    orders:
+                    - {}
+                    addresses:
+                    - {}
+                    emailAddresses:
+                    - {}
+                    phoneNumbers:
+                    - {}
+                    cards:
+                    - {}
+                    metadata: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      summary: Clover Delete a Customer
+      description: Deletes a single customer from a merchant.
+      operationId: customersDeleteCustomer
+      tags:
+      - CUSTOMERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: customerId
+        in: path
+        required: true
+        description: customerId parameter.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+              examples:
+                CustomersDeleteCustomer200Example:
+                  summary: Default customersDeleteCustomer 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    merchant: {}
+                    firstName: example-value
+                    lastName: example-value
+                    marketingAllowed: true
+                    customerSince: 1
+                    orders:
+                    - {}
+                    addresses:
+                    - {}
+                    emailAddresses:
+                    - {}
+                    phoneNumbers:
+                    - {}
+                    cards:
+                    - {}
+                    metadata: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/orders/{orderId}/line_items:
+    post:
+      summary: Clover Create a New Line Item
+      description: "Creates a new line item for an order. Requests must include either a `price` or an `item` object with an inventory item `id`. \n\n**Note:** To ensure platform stability, an order is limited to a maximum of 3,000 line items. If this call would cause the order to exceed this limit, the request will fail with a `400 Bad Request` error."
+      operationId: orderCreateLineItem
+      tags:
+      - ORDERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: orderId
+        in: path
+        required: true
+        description: Order Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+            examples:
+              OrderCreateLineItemRequestExample:
+                summary: Default orderCreateLineItem request
+                x-microcks-default: true
+                value:
+                  id: example-value
+                  currency: example-value
+                  customers:
+                  - {}
+                  employee: {}
+                  total: 1
+                  externalReferenceId: example-value
+                  unpaidBalance: 1
+                  paymentState: OPEN
+                  title: example-value
+                  note: example-value
+                  orderType: {}
+                  taxRemoved: true
+                  isVat: true
+                  state: example-value
+                  manualTransaction: true
+                  groupLineItems: true
+                  testMode: true
+                  payType: SPLIT_GUEST
+                  createdTime: 1
+                  clientCreatedTime: 1
+                  modifiedTime: 1
+                  deletedTimestamp: 1
+                  serviceCharge: {}
+                  additionalCharges:
+                  - {}
+                  discounts:
+                  - {}
+                  lineItems:
+                  - {}
+                  payments:
+                  - {}
+                  refunds:
+                  - {}
+                  credits:
+                  - {}
+                  voids:
+                  - {}
+                  preAuths:
+                  - {}
+                  device: {}
+                  authorizations:
+                  - {}
+                  merchant: {}
+                  printGroups:
+                  - {}
+                  orderFulfillmentEvent: {}
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                OrderCreateLineItem200Example:
+                  summary: Default orderCreateLineItem 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    currency: example-value
+                    customers:
+                    - {}
+                    employee: {}
+                    total: 1
+                    externalReferenceId: example-value
+                    unpaidBalance: 1
+                    paymentState: OPEN
+                    title: example-value
+                    note: example-value
+                    orderType: {}
+                    taxRemoved: true
+                    isVat: true
+                    state: example-value
+                    manualTransaction: true
+                    groupLineItems: true
+                    testMode: true
+                    payType: SPLIT_GUEST
+                    createdTime: 1
+                    clientCreatedTime: 1
+                    modifiedTime: 1
+                    deletedTimestamp: 1
+                    serviceCharge: {}
+                    additionalCharges:
+                    - {}
+                    discounts:
+                    - {}
+                    lineItems:
+                    - {}
+                    payments:
+                    - {}
+                    refunds:
+                    - {}
+                    credits:
+                    - {}
+                    voids:
+                    - {}
+                    preAuths:
+                    - {}
+                    device: {}
+                    authorizations:
+                    - {}
+                    merchant: {}
+                    printGroups:
+                    - {}
+                    orderFulfillmentEvent: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      summary: Clover Get All Line Items for an Order
+      description: Returns all line items for an order.
+      operationId: orderGetOrderLineItems
+      tags:
+      - ORDERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: orderId
+        in: path
+        required: true
+        description: Order Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields: [employee, orderType, discounts, modifications, taxRates, payments]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Order'
+              examples:
+                OrderGetOrderLineItems200Example:
+                  summary: Default orderGetOrderLineItems 200 response
+                  x-microcks-default: true
+                  value:
+                    elements:
+                    - {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/customers:
+    get:
+      summary: Clover Get a List of Customers
+      description: Gives information for every customer of a merchant by default.
+      operationId: customersGetCustomers
+      tags:
+      - CUSTOMERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: filter
+        in: query
+        required: false
+        description: 'Filter fields: [customerSince, firstName, lastName, emailAddress, phoneNumber, marketingAllowed, fullName, id, deletedTime]'
+        schema:
+          type: string
+        example: example-filter
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields: [addresses, emailAddresses, phoneNumbers, cards, metadata]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Customer'
+              examples:
+                CustomersGetCustomers200Example:
+                  summary: Default customersGetCustomers 200 response
+                  x-microcks-default: true
+                  value:
+                    elements:
+                    - {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      summary: Clover Create a Customer
+      description: Creates customer record for a merchant. Note that the request body cannot be null.
+      operationId: customersCreateCustomer
+      tags:
+      - CUSTOMERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields to display additional nested information: [addresses, emailAddresses, phoneNumbers, cards, metadata]'
+        schema:
+          type: string
+        example: example-expand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+            examples:
+              CustomersCreateCustomerRequestExample:
+                summary: Default customersCreateCustomer request
+                x-microcks-default: true
+                value:
+                  id: example-value
+                  merchant: {}
+                  firstName: example-value
+                  lastName: example-value
+                  marketingAllowed: true
+                  customerSince: 1
+                  orders:
+                  - {}
+                  addresses:
+                  - {}
+                  emailAddresses:
+                  - {}
+                  phoneNumbers:
+                  - {}
+                  cards:
+                  - {}
+                  metadata: {}
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+              examples:
+                CustomersCreateCustomer200Example:
+                  summary: Default customersCreateCustomer 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    merchant: {}
+                    firstName: example-value
+                    lastName: example-value
+                    marketingAllowed: true
+                    customerSince: 1
+                    orders:
+                    - {}
+                    addresses:
+                    - {}
+                    emailAddresses:
+                    - {}
+                    phoneNumbers:
+                    - {}
+                    cards:
+                    - {}
+                    metadata: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/orders:
+    post:
+      summary: Clover Create Custom Orders
+      description: "**Description:** Creates or updates orders with a non-Clover inventory and dynamically calculates taxes. Valid fields are: taxRemoved, note, title, state, testMode, manualTransaction, groupLineItems, and orderType. Use separate API calls to add line items. <br> \n **Tip:** Use the [create an atomic order](https://docs.clover.com/dev/reference/ordercreateatomicorder) endpoint to create orders using Clover inventory and leverage the real-time totals and tax calculation features using a single API call. <br> \n **Tutorial:** [Create custom orders](https://docs.clover.com/dev/docs/creating-custom-orders)."
+      operationId: orderCreateOrder
+      tags:
+      - ORDERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+            examples:
+              OrderCreateOrderRequestExample:
+                summary: Default orderCreateOrder request
+                x-microcks-default: true
+                value:
+                  id: example-value
+                  currency: example-value
+                  customers:
+                  - {}
+                  employee: {}
+                  total: 1
+                  externalReferenceId: example-value
+                  unpaidBalance: 1
+                  paymentState: OPEN
+                  title: example-value
+                  note: example-value
+                  orderType: {}
+                  taxRemoved: true
+                  isVat: true
+                  state: example-value
+                  manualTransaction: true
+                  groupLineItems: true
+                  testMode: true
+                  payType: SPLIT_GUEST
+                  createdTime: 1
+                  clientCreatedTime: 1
+                  modifiedTime: 1
+                  deletedTimestamp: 1
+                  serviceCharge: {}
+                  additionalCharges:
+                  - {}
+                  discounts:
+                  - {}
+                  lineItems:
+                  - {}
+                  payments:
+                  - {}
+                  refunds:
+                  - {}
+                  credits:
+                  - {}
+                  voids:
+                  - {}
+                  preAuths:
+                  - {}
+                  device: {}
+                  authorizations:
+                  - {}
+                  merchant: {}
+                  printGroups:
+                  - {}
+                  orderFulfillmentEvent: {}
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                OrderCreateOrder200Example:
+                  summary: Default orderCreateOrder 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    currency: example-value
+                    customers:
+                    - {}
+                    employee: {}
+                    total: 1
+                    externalReferenceId: example-value
+                    unpaidBalance: 1
+                    paymentState: OPEN
+                    title: example-value
+                    note: example-value
+                    orderType: {}
+                    taxRemoved: true
+                    isVat: true
+                    state: example-value
+                    manualTransaction: true
+                    groupLineItems: true
+                    testMode: true
+                    payType: SPLIT_GUEST
+                    createdTime: 1
+                    clientCreatedTime: 1
+                    modifiedTime: 1
+                    deletedTimestamp: 1
+                    serviceCharge: {}
+                    additionalCharges:
+                    - {}
+                    discounts:
+                    - {}
+                    lineItems:
+                    - {}
+                    payments:
+                    - {}
+                    refunds:
+                    - {}
+                    credits:
+                    - {}
+                    voids:
+                    - {}
+                    preAuths:
+                    - {}
+                    device: {}
+                    authorizations:
+                    - {}
+                    merchant: {}
+                    printGroups:
+                    - {}
+                    orderFulfillmentEvent: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      summary: Clover Gets a List of Orders
+      description: Displays a list of orders. See [Manage orders data](https://docs.clover.com/build/working-with-orders/) for more details.
+      operationId: orderGetOrders
+      tags:
+      - ORDERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier (mId).
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: filter
+        in: query
+        required: false
+        description: "Filter fields to display search results: [employee.id, note, modifiedTime, orderType, touched, cardTransaction.last4, manualTransaction, employee.name, title, device.id, externalReferenceId, clientCreatedTime, total, payType, testMode, createdTime, id, state, deletedTime]\n `Note`: Search results for the list of orders list is restricted to the last 90 days if the filter fields include: [deletedTime, externalReferenceId, createdTime, total, payType, title, note, state, manualTransaction, cardTransaction.last4, testMode, touched]"
+        schema:
+          type: string
+        example: example-filter
+      - name: expand
+        in: query
+        required: false
+        description: 'Additional information provided as an expanded response: [employee, payments, refunds, credits, voids, payment.tender, payment.cardTransaction, lineItems, customers, serviceCharge, discounts, orderType, lineItems.discounts, lineItems.modifications]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Order'
+              examples:
+                OrderGetOrders200Example:
+                  summary: Default orderGetOrders 200 response
+                  x-microcks-default: true
+                  value:
+                    elements:
+                    - {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/orders/{orderId}/payments:
+    post:
+      summary: Clover Create a Payment Record on an Order
+      description: "Payment must include a `positive amount` and a valid `tender ID`.\n `Note`: This endpoint references external tenders and logs them for bookkeeping purposes. This is not for Clover credits/debit tenders. A merchant's tenders and their IDs can be retrieved from /v3/merchants/mId/tenders."
+      operationId: orderCreatePaymentForOrder
+      tags:
+      - ORDERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: orderId
+        in: path
+        required: true
+        description: Order identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+            examples:
+              OrderCreatePaymentForOrderRequestExample:
+                summary: Default orderCreatePaymentForOrder request
+                x-microcks-default: true
+                value:
+                  id: example-value
+                  currency: example-value
+                  customers:
+                  - {}
+                  employee: {}
+                  total: 1
+                  externalReferenceId: example-value
+                  unpaidBalance: 1
+                  paymentState: OPEN
+                  title: example-value
+                  note: example-value
+                  orderType: {}
+                  taxRemoved: true
+                  isVat: true
+                  state: example-value
+                  manualTransaction: true
+                  groupLineItems: true
+                  testMode: true
+                  payType: SPLIT_GUEST
+                  createdTime: 1
+                  clientCreatedTime: 1
+                  modifiedTime: 1
+                  deletedTimestamp: 1
+                  serviceCharge: {}
+                  additionalCharges:
+                  - {}
+                  discounts:
+                  - {}
+                  lineItems:
+                  - {}
+                  payments:
+                  - {}
+                  refunds:
+                  - {}
+                  credits:
+                  - {}
+                  voids:
+                  - {}
+                  preAuths:
+                  - {}
+                  device: {}
+                  authorizations:
+                  - {}
+                  merchant: {}
+                  printGroups:
+                  - {}
+                  orderFulfillmentEvent: {}
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                OrderCreatePaymentForOrder200Example:
+                  summary: Default orderCreatePaymentForOrder 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    currency: example-value
+                    customers:
+                    - {}
+                    employee: {}
+                    total: 1
+                    externalReferenceId: example-value
+                    unpaidBalance: 1
+                    paymentState: OPEN
+                    title: example-value
+                    note: example-value
+                    orderType: {}
+                    taxRemoved: true
+                    isVat: true
+                    state: example-value
+                    manualTransaction: true
+                    groupLineItems: true
+                    testMode: true
+                    payType: SPLIT_GUEST
+                    createdTime: 1
+                    clientCreatedTime: 1
+                    modifiedTime: 1
+                    deletedTimestamp: 1
+                    serviceCharge: {}
+                    additionalCharges:
+                    - {}
+                    discounts:
+                    - {}
+                    lineItems:
+                    - {}
+                    payments:
+                    - {}
+                    refunds:
+                    - {}
+                    credits:
+                    - {}
+                    voids:
+                    - {}
+                    preAuths:
+                    - {}
+                    device: {}
+                    authorizations:
+                    - {}
+                    merchant: {}
+                    printGroups:
+                    - {}
+                    orderFulfillmentEvent: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/bulk_items:
+    post:
+      summary: Clover Create Multiple Inventory Items
+      description: Creates multiple inventory items in a single request. Use the PUT HTTP method to [update existing inventory items](https://docs.clover.com/reference/inventorybulkpatchinventoryitems).
+      operationId: inventoryBulkCreateInventoryItems
+      tags:
+      - INVENTORY
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      responses:
+        '200':
+          description: Successful response.
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/employees:
+    get:
+      summary: Clover Get All Employees
+      description: Retrieves information about employees associated with a merchant.
+      operationId: employeeGetEmployees
+      tags:
+      - EMPLOYEES
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier (mId).
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: filter
+        in: query
+        required: false
+        description: 'Filter fields to display search results: [modifiedTime, role, role.id, customId, name, nickname, id, deletedTime, deleted_time, email]'
+        schema:
+          type: string
+        example: example-filter
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields to display additional nested information: [roles, shifts]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Employee'
+              examples:
+                EmployeeGetEmployees200Example:
+                  summary: Default employeeGetEmployees 200 response
+                  x-microcks-default: true
+                  value:
+                    elements:
+                    - {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      summary: Clover Create an Employee
+      description: Creates an employee for a merchant. Accepts optional expand parameters.
+      operationId: employeeCreateEmployee
+      tags:
+      - EMPLOYEES
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields: [shifts, payments, orders, roles]'
+        schema:
+          type: string
+        example: example-expand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+            examples:
+              EmployeeCreateEmployeeRequestExample:
+                summary: Default employeeCreateEmployee request
+                x-microcks-default: true
+                value:
+                  id: example-value
+                  name: example-value
+                  nickname: example-value
+                  customId: example-value
+                  email: example-value
+                  inviteSent: true
+                  claimedTime: 1
+                  deletedTime: 1
+                  pin: example-value
+                  unhashedPin: example-value
+                  role: OWNER
+                  roles:
+                  - {}
+                  isOwner: true
+                  shifts:
+                  - {}
+                  payments:
+                  - {}
+                  orders:
+                  - {}
+                  employeeCards:
+                  - {}
+                  merchant: {}
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+              examples:
+                EmployeeCreateEmployee200Example:
+                  summary: Default employeeCreateEmployee 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    name: example-value
+                    nickname: example-value
+                    customId: example-value
+                    email: example-value
+                    inviteSent: true
+                    claimedTime: 1
+                    deletedTime: 1
+                    pin: example-value
+                    unhashedPin: example-value
+                    role: OWNER
+                    roles:
+                    - {}
+                    isOwner: true
+                    shifts:
+                    - {}
+                    payments:
+                    - {}
+                    orders:
+                    - {}
+                    employeeCards:
+                    - {}
+                    merchant: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/orders/{orderId}:
+    post:
+      summary: Clover Update an Order
+      description: Updates a single order. See [working-with-orders](https://docs.clover.com/build/working-with-orders/) for more details.
+      operationId: orderUpdateOrder
+      tags:
+      - ORDERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: orderId
+        in: path
+        required: true
+        description: Order identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Additional information provided as an expanded response: [lineItems, serviceCharge, discounts, credits, payments, customers, orderFulfillmentEvent, refunds]'
+        schema:
+          type: string
+        example: example-expand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+            examples:
+              OrderUpdateOrderRequestExample:
+                summary: Default orderUpdateOrder request
+                x-microcks-default: true
+                value:
+                  id: example-value
+                  currency: example-value
+                  customers:
+                  - {}
+                  employee: {}
+                  total: 1
+                  externalReferenceId: example-value
+                  unpaidBalance: 1
+                  paymentState: OPEN
+                  title: example-value
+                  note: example-value
+                  orderType: {}
+                  taxRemoved: true
+                  isVat: true
+                  state: example-value
+                  manualTransaction: true
+                  groupLineItems: true
+                  testMode: true
+                  payType: SPLIT_GUEST
+                  createdTime: 1
+                  clientCreatedTime: 1
+                  modifiedTime: 1
+                  deletedTimestamp: 1
+                  serviceCharge: {}
+                  additionalCharges:
+                  - {}
+                  discounts:
+                  - {}
+                  lineItems:
+                  - {}
+                  payments:
+                  - {}
+                  refunds:
+                  - {}
+                  credits:
+                  - {}
+                  voids:
+                  - {}
+                  preAuths:
+                  - {}
+                  device: {}
+                  authorizations:
+                  - {}
+                  merchant: {}
+                  printGroups:
+                  - {}
+                  orderFulfillmentEvent: {}
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                OrderUpdateOrder200Example:
+                  summary: Default orderUpdateOrder 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    currency: example-value
+                    customers:
+                    - {}
+                    employee: {}
+                    total: 1
+                    externalReferenceId: example-value
+                    unpaidBalance: 1
+                    paymentState: OPEN
+                    title: example-value
+                    note: example-value
+                    orderType: {}
+                    taxRemoved: true
+                    isVat: true
+                    state: example-value
+                    manualTransaction: true
+                    groupLineItems: true
+                    testMode: true
+                    payType: SPLIT_GUEST
+                    createdTime: 1
+                    clientCreatedTime: 1
+                    modifiedTime: 1
+                    deletedTimestamp: 1
+                    serviceCharge: {}
+                    additionalCharges:
+                    - {}
+                    discounts:
+                    - {}
+                    lineItems:
+                    - {}
+                    payments:
+                    - {}
+                    refunds:
+                    - {}
+                    credits:
+                    - {}
+                    voids:
+                    - {}
+                    preAuths:
+                    - {}
+                    device: {}
+                    authorizations:
+                    - {}
+                    merchant: {}
+                    printGroups:
+                    - {}
+                    orderFulfillmentEvent: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      summary: Clover Get a Single Order
+      description: 'Returns a single order. See https://docs.clover.com/build/working-with-orders/ for more details. '
+      operationId: orderGetOrder
+      tags:
+      - ORDERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: orderId
+        in: path
+        required: true
+        description: Order Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields: [lineItems, serviceCharge, discounts, credits, payments, customers, orderFulfillmentEvent, refunds]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                OrderGetOrder200Example:
+                  summary: Default orderGetOrder 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    currency: example-value
+                    customers:
+                    - {}
+                    employee: {}
+                    total: 1
+                    externalReferenceId: example-value
+                    unpaidBalance: 1
+                    paymentState: OPEN
+                    title: example-value
+                    note: example-value
+                    orderType: {}
+                    taxRemoved: true
+                    isVat: true
+                    state: example-value
+                    manualTransaction: true
+                    groupLineItems: true
+                    testMode: true
+                    payType: SPLIT_GUEST
+                    createdTime: 1
+                    clientCreatedTime: 1
+                    modifiedTime: 1
+                    deletedTimestamp: 1
+                    serviceCharge: {}
+                    additionalCharges:
+                    - {}
+                    discounts:
+                    - {}
+                    lineItems:
+                    - {}
+                    payments:
+                    - {}
+                    refunds:
+                    - {}
+                    credits:
+                    - {}
+                    voids:
+                    - {}
+                    preAuths:
+                    - {}
+                    device: {}
+                    authorizations:
+                    - {}
+                    merchant: {}
+                    printGroups:
+                    - {}
+                    orderFulfillmentEvent: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      summary: Clover Delete an Order
+      description: Deletes a single order. See https://docs.clover.com/build/working-with-orders/ for more details.
+      operationId: orderDeleteOrder
+      tags:
+      - ORDERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: orderId
+        in: path
+        required: true
+        description: Order Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                OrderDeleteOrder200Example:
+                  summary: Default orderDeleteOrder 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    currency: example-value
+                    customers:
+                    - {}
+                    employee: {}
+                    total: 1
+                    externalReferenceId: example-value
+                    unpaidBalance: 1
+                    paymentState: OPEN
+                    title: example-value
+                    note: example-value
+                    orderType: {}
+                    taxRemoved: true
+                    isVat: true
+                    state: example-value
+                    manualTransaction: true
+                    groupLineItems: true
+                    testMode: true
+                    payType: SPLIT_GUEST
+                    createdTime: 1
+                    clientCreatedTime: 1
+                    modifiedTime: 1
+                    deletedTimestamp: 1
+                    serviceCharge: {}
+                    additionalCharges:
+                    - {}
+                    discounts:
+                    - {}
+                    lineItems:
+                    - {}
+                    payments:
+                    - {}
+                    refunds:
+                    - {}
+                    credits:
+                    - {}
+                    voids:
+                    - {}
+                    preAuths:
+                    - {}
+                    device: {}
+                    authorizations:
+                    - {}
+                    merchant: {}
+                    printGroups:
+                    - {}
+                    orderFulfillmentEvent: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/shifts:
+    get:
+      summary: Clover Get All Shifts
+      description: Get all shifts
+      operationId: merchantGetAllShifts
+      tags:
+      - EMPLOYEES
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: filter
+        in: query
+        required: false
+        description: 'Filter fields: [employee.id, out_time, in_time, employee.name, in_and_override_time, out_and_override_time, id, has_in_time, override_in_time, deletedTime, server_banking]'
+        schema:
+          type: string
+        example: example-filter
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields: [employee, overrideInEmployee, overrideOutEmployee]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/payments:
+    get:
+      summary: Clover Get All Payments
+      description: Retrieves payment information, including the total amount, tip amount, tax amount, and result status.
+      operationId: payGetPayments
+      tags:
+      - PAYMENTS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: filter
+        in: query
+        required: false
+        description: 'Filter fields to display search results: [modifiedTime, device.id, externalReferenceId, result, offline, createdTime, externalPaymentId, voided, id, tender.id, employee.id, order.modifiedTime, amount, cardType, clientCreatedTime]'
+        schema:
+          type: string
+        example: example-filter
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields to display additional nested information: [tender, germanInfo, lineItemPayments, cardTransaction, dccInfo, refunds, transactionInfo, externalReferenceId, oceanGatewayInfo, taxRates, additionalCharges, appTracking, paymentAttributes, order]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Payment'
+              examples:
+                PayGetPayments200Example:
+                  summary: Default payGetPayments 200 response
+                  x-microcks-default: true
+                  value:
+                    elements:
+                    - {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token or merchant API token.
+  schemas:
+    Item:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the inventory item.
+          example: 9ABCDEF1234567
+        hidden:
+          type: boolean
+          description: "Indicates whether the inventory item is hidden on the Register app.\n Default: False"
+          example: true
+        available:
+          type: boolean
+          description: "Indicates whether the inventory item is available for sale across all channels.\n Default: True"
+          example: true
+        autoManage:
+          type: boolean
+          description: "Indicates whether the inventory item's availability is automatically or manually managed.\n Values:\n True - Item availability is automatically managed.\n False(default) - Item availability is manually managed. "
+          example: true
+        itemGroup:
+          type: object
+          example: {}
+        options:
+          type: array
+          items:
+            type: object
+          example: []
+        name:
+          type: string
+          description: Item name.
+          example: Example name
+        alternateName:
+          type: string
+          description: Alternate name of the item.
+          example: Example alternateName
+        code:
+          type: string
+          description: Item product code, such as Universal Product Code (UPC) or European Article Number (EAN).
+          example: ABC123
+        sku:
+          type: string
+          description: Stock keeping unit (SKU).
+          example: SKU-001
+        price:
+          type: integer
+          format: int64
+          description: "Price of the item based on the merchant's local currency and price type, such as fixed, variable, or per unit price.\n For non-VAT merchants who do not pay value-added tax, this field is exclusive of tax.\n For VAT merchants, this field is inclusive of tax.\n Format: Cents"
+          example: 1099
+        priceType:
+          type: string
+          description: Price type, such as fixed, variable, or per unit price.
+          enum:
+          - FIXED
+          - VARIABLE
+          - PER_UNIT
+          example: FIXED
+        defaultTaxRates:
+          type: boolean
+          description: "Indicates whether or not to use the default tax rate. \n Default: True"
+          example: true
+        unitName:
+          type: string
+          description: Unit of measurement for the item, such as pound or meter.
+          example: Example unitName
+        cost:
+          type: integer
+          description: 'Cost of the item to a merchant as compared to the price payable by the customer, for example: wholesale versus retail price.'
+          example: 1099
+        isRevenue:
+          type: boolean
+          description: "Indicates whether this item is counted as revenue, for example: gift cards and donations are not counted as revenue.\n Default: False"
+          example: true
+        stockCount:
+          type: integer
+          description: Deprecated. Use itemStock.
+          example: 1
+        taxRates:
+          type: array
+          items:
+            type: object
+          example: []
+        modifierGroups:
+          type: array
+          items:
+            type: object
+          example: []
+        categories:
+          type: array
+          items:
+            type: object
+          example: []
+        tags:
+          type: array
+          items:
+            type: object
+          example: []
+        canonical:
+          type: object
+          example: {}
+        itemStock:
+          type: object
+          example: {}
+        MenuItem:
+          type: object
+          example: {}
+        modifiedTime:
+          type: integer
+          description: Time when the item was modified.
+          example: 1718153645000
+        deletedTime:
+          type: integer
+          description: Time when the item was deleted.
+          example: 1718153645000
+        priceWithoutVat:
+          type: integer
+          description: "Item price without value-added tax (VAT).\n For non-VAT merchants, this field is not used.\n For VAT merchants, this field is the base price of an item."
+          example: 1099
+        colorCode:
+          type: string
+          description: "Hex code of the color assigned to the category and its items.\n Format: #fff, #ffffff, or #ffffffff."
+          example: ABC123
+      description: Clover Item resource. Schema derived from the Clover Platform REST API v3 reference.
+      x-schema-source: documentation
+      x-source-url: https://docs.clover.com/dev/reference/inventorygetitem
+    Order:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          example: 9ABCDEF1234567
+        currency:
+          type: string
+          description: Currency of this order. For example, "USD"
+          example: USD
+        customers:
+          type: array
+          items:
+            type: object
+          example: []
+        employee:
+          type: object
+          example: {}
+        total:
+          type: integer
+          description: Total price of the order in cents
+          example: 1099
+        externalReferenceId:
+          type: string
+          description: External reference id if present in the order
+          example: 9ABCDEF1234567
+        unpaidBalance:
+          type: integer
+          description: The net of orders with payment minus the amount collected. Includes refunds, manual refunds, tax, tip, service charge, non-revenue items, paid gift card activations and loads and discounts
+          example: 1099
+        paymentState:
+          type: string
+          description: Is this order paid or not?
+          enum:
+          - OPEN
+          - PAID
+          - REFUNDED
+          - CREDITED
+          - PARTIALLY_PAID
+          - PARTIALLY_REFUNDED
+          example: OPEN
+        title:
+          type: string
+          example: example-title
+        note:
+          type: string
+          description: An arbitrary string with information about this order, may be printed on the order receipt and displayed in apps
+          example: Example note value.
+        orderType:
+          type: object
+          example: {}
+        taxRemoved:
+          type: boolean
+          description: If true then this order should not have taxes applied to it
+          example: true
+        isVat:
+          type: boolean
+          description: This order was created by merchant with VAT enabled.
+          example: true
+        state:
+          type: string
+          description: A String generally describing the state of the order. If no value is set, the state defaults to null, which indicates a hidden order. A hidden order is not displayed in user interfaces and can only be retrieved by its id. When creating an order via the REST API the value must be manually set to "open". When creating an order via the Android SDK the value must be left empty and the value will be updated to "open" and "locked" automatically when actions such as taking payments and adding line items occur. The state value is not checked or enforced by the Clover server, at this time it is used for visualization purposes only.
+          example: open
+        manualTransaction:
+          type: boolean
+          description: Whether this order represents a manual transaction. A manual transaction is a transaction that has an arbitrary amount defined and is not associated with any inventory items. For example, the Clover Sale App and Clover Manual Transaction App create manual transactions. A manual transactions will have a single associated line item to hold the sale amount, but the generated receipt will display this differently to indicate that it is not considered a typical order with inventory items.
+          example: true
+        groupLineItems:
+          type: boolean
+          description: Whether similar line items should be grouped together on the receipt that this order generates. Item "similarity" is based on items having matching values for a set of properties including price, modifiers, and discounts.
+          example: true
+        testMode:
+          type: boolean
+          description: Whether this order was created in test mode. Payments made against test orders are not processed. Test mode orders can be deleted from the Orders App on the merchant's device or web dashboard (https://www.clover.com/orders/m/{mId}/orders). They will also be deleted when the device sends a POST to the /v2/merchant/{mId}/orders/delete_all_tests endpoint.
+          example: true
+        payType:
+          type: string
+          description: 'Possible values: SPLIT_GUEST, SPLIT_ITEM, SPLIT_CUSTOM, FULL. During the payment flow, if the user chooses to split the payment for this order, this field will be set to one of the SPLIT_* values to indicate how the full amount should be split. If the user chooses to pay for the order in full with one payment, then this field will be FULL.'
+          enum:
+          - SPLIT_GUEST
+          - SPLIT_ITEM
+          - SPLIT_CUSTOM
+          - FULL
+          example: SPLIT_GUEST
+        createdTime:
+          type: integer
+          format: int64
+          description: Creation timestamp
+          example: 1718153645000
+        clientCreatedTime:
+          type: integer
+          format: int64
+          description: Time at which the client created this order.
+          example: 1718153645000
+        modifiedTime:
+          type: integer
+          format: int64
+          description: Last modified time of the order.
+          example: 1718153645000
+        deletedTimestamp:
+          type: integer
+          format: int64
+          example: 1718153645000
+        serviceCharge:
+          type: object
+          example: {}
+        additionalCharges:
+          type: array
+          items:
+            type: object
+          example: []
+        discounts:
+          type: array
+          items:
+            type: object
+          example: []
+        lineItems:
+          type: array
+          items:
+            type: object
+          example: []
+        payments:
+          type: array
+          items:
+            type: object
+          example: []
+        refunds:
+          type: array
+          items:
+            type: object
+          example: []
+        credits:
+          type: array
+          items:
+            type: object
+          example: []
+        voids:
+          type: array
+          items:
+            type: object
+          example: []
+        preAuths:
+          type: array
+          items:
+            type: object
+          example: []
+        device:
+          type: object
+          example: {}
+        authorizations:
+          type: array
+          items:
+            type: object
+          example: []
+        merchant:
+          type: object
+          example: {}
+        printGroups:
+          type: array
+          items:
+            type: object
+          example: []
+        orderFulfillmentEvent:
+          type: object
+          example: {}
+      description: Clover Order resource. Schema derived from the Clover Platform REST API v3 reference.
+      x-schema-source: documentation
+      x-source-url: https://docs.clover.com/dev/reference/ordergetorder
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier.
+          example: 9ABCDEF1234567
+        merchant:
+          type: object
+          example: {}
+        firstName:
+          type: string
+          description: 'First/given name of the customer. Note: Length of first name cannot be more than 64 characters.'
+          example: Example firstName
+        lastName:
+          type: string
+          description: 'Last name/surname of the customer. Note: Length of last name cannot be more than 64 characters.'
+          example: Example lastName
+        marketingAllowed:
+          type: boolean
+          description: Indicates if the customer allows receiving of marketing communication.
+          example: true
+        customerSince:
+          type: integer
+          format: int64
+          description: Date of start of customer association with the merchant.
+          example: 1718153645000
+        orders:
+          type: array
+          items:
+            type: object
+          example: []
+        addresses:
+          type: array
+          items:
+            type: object
+          example: []
+        emailAddresses:
+          type: array
+          items:
+            type: object
+          example: []
+        phoneNumbers:
+          type: array
+          items:
+            type: object
+          example: []
+        cards:
+          type: array
+          items:
+            type: object
+          example: []
+        metadata:
+          type: object
+          example: {}
+      description: Clover Customer resource. Schema derived from the Clover Platform REST API v3 reference.
+      x-schema-source: documentation
+      x-source-url: https://docs.clover.com/dev/reference/customersgetcustomer
+    Payment:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 13-digits unique identifier of the Merchant.
+          example: 9ABCDEF1234567
+        order:
+          type: object
+          example: {}
+        device:
+          type: object
+          example: {}
+        tender:
+          type: object
+          example: {}
+        amount:
+          type: integer
+          format: int64
+          description: Total amount paid.
+          example: 1099
+        tipAmount:
+          type: integer
+          description: Tip amount paid.
+          example: 1099
+        taxAmount:
+          type: integer
+          description: Tax amount paid.
+          example: 1099
+        cashbackAmount:
+          type: integer
+          description: Cash amount given by the customer to the merchant.
+          example: 1099
+        cashTendered:
+          type: integer
+          description: Payment amount given by the customer.
+          example: 1
+        externalPaymentId:
+          type: string
+          description: External payment identifier.
+          example: 9ABCDEF1234567
+        employee:
+          type: object
+          example: {}
+        createdTime:
+          type: integer
+          format: int64
+          description: Time when payment was recorded on the server.
+          example: 1718153645000
+        clientCreatedTime:
+          type: integer
+          format: int64
+          description: Time when payment was recorded on the client server.
+          example: 1718153645000
+        gatewayProcessingTime:
+          type: integer
+          format: int64
+          description: Time when the transaction was processed by the payment gateway.
+          example: 1718153645000
+        modifiedTime:
+          type: integer
+          format: int64
+          description: Last modified time of the payment.
+          example: 1718153645000
+        offline:
+          type: boolean
+          description: Indicates if the tender option is offline.
+          example: true
+        result:
+          type: string
+          description: "Indicates the result of the tender.\n Values: Success, fail, initiated, voided, voiding, void_failed, auth, auth_completed, discount, offline_retrying, and pending."
+          enum:
+          - SUCCESS
+          - FAIL
+          - INITIATED
+          - VOIDED
+          - VOIDING
+          - VOID_FAILED
+          - AUTH
+          - AUTH_COMPLETED
+          - DISCOUNT
+          - OFFLINE_RETRYING
+          - PENDING
+          example: SUCCESS
+        cardTransaction:
+          type: object
+          example: {}
+        serviceCharge:
+          type: object
+          example: {}
+        attributes:
+          type: object
+          example: {}
+        additionalCharges:
+          type: array
+          items:
+            type: object
+          example: []
+        taxRates:
+          type: array
+          items:
+            type: object
+          example: []
+        refunds:
+          type: array
+          items:
+            type: object
+          example: []
+        note:
+          type: string
+          description: Note for the refund.
+          example: Example note value.
+        lineItemPayments:
+          type: array
+          items:
+            type: object
+          example: []
+        authorization:
+          type: object
+          example: {}
+        voidPaymentRef:
+          type: object
+          example: {}
+        voidReason:
+          type: string
+          description: If voided, the reason for the payment void, if available.
+          enum:
+          - USER_CANCEL
+          - TRANSPORT_ERROR
+          - REJECT_SIGNATURE
+          - REJECT_PARTIAL_AUTH
+          - NOT_APPROVED
+          - FAILED
+          - AUTH_CLOSED_NEW_CARD
+          - DEVELOPER_PAY_PARTIAL_AUTH
+          - REJECT_DUPLICATE
+          - REJECT_OFFLINE
+          - GIFTCARD_LOAD_FAILED
+          - USER_GIFTCARD_LOAD_CANCEL
+          - DEVELOPER_PAY_TIP_ADJUST_FAILED
+          - USER_CUSTOMER_CANCEL
+          - FRAUD
+          - REJECT_GREATER_APPROVED_AMOUNT
+          - TIMEOUT
+          example: USER_CANCEL
+        voidReasonDetails:
+          type: object
+          example: {}
+        dccInfo:
+          type: object
+          example: {}
+        transactionSettings:
+          type: object
+          example: {}
+        germanInfo:
+          type: object
+          example: {}
+        appTracking:
+          type: object
+          example: {}
+        cashAdvanceExtra:
+          type: object
+          example: {}
+        transactionInfo:
+          type: object
+          example: {}
+        signatureDisclaimer:
+          type: object
+          example: {}
+        externalReferenceId:
+          type: string
+          description: External reference identifier (ID) if associated with the payment.
+          example: 9ABCDEF1234567
+        merchant:
+          type: object
+          example: {}
+        increments:
+          type: array
+          items:
+            type: object
+          example: []
+        purchaseCardL2:
+          type: object
+          example: {}
+        purchaseCardL3:
+          type: object
+          example: {}
+        oceanGatewayInfo:
+          type: object
+          example: {}
+        terminalManagementComponents:
+          type: array
+          items:
+            type: object
+          example: []
+        emiInfo:
+          type: object
+          example: {}
+      description: Clover Payment resource. Schema derived from the Clover Platform REST API v3 reference.
+      x-schema-source: documentation
+      x-source-url: https://docs.clover.com/dev/reference/paygetpayment
+    Employee:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          example: 9ABCDEF1234567
+        name:
+          type: string
+          description: Full name of the employee
+          example: Example name
+        nickname:
+          type: string
+          description: Nickname of the employee (shows up on receipts)
+          example: Example nickname
+        customId:
+          type: string
+          description: Custom ID of the employee
+          example: 9ABCDEF1234567
+        email:
+          type: string
+          description: Email of the employee (optional)
+          example: merchant@example.com
+        inviteSent:
+          type: boolean
+          description: Returns true if this employee was sent an invite to activate their account
+          example: true
+        claimedTime:
+          type: integer
+          description: Timestamp of when this employee claimed their account
+          example: 1718153645000
+        deletedTime:
+          type: integer
+          description: Timestamp of when this employee was deleted
+          example: 1718153645000
+        pin:
+          type: string
+          description: Employee PIN (hashed)
+          example: example-pin
+        unhashedPin:
+          type: string
+          description: Employee PIN
+          example: example-unhashedPin
+        role:
+          type: string
+          description: Employee System Role
+          enum:
+          - OWNER
+          - ADMIN
+          - MANAGER
+          - EMPLOYEE
+          example: OWNER
+        roles:
+          type: array
+          items:
+            type: object
+          example: []
+        isOwner:
+          type: boolean
+          description: Returns true if this employee is the owner account for this merchant
+          example: true
+        shifts:
+          type: array
+          items:
+            type: object
+          example: []
+        payments:
+          type: array
+          items:
+            type: object
+          example: []
+        orders:
+          type: array
+          items:
+            type: object
+          example: []
+        employeeCards:
+          type: array
+          items:
+            type: object
+          example: []
+        merchant:
+          type: object
+          example: {}
+      description: Clover Employee resource. Schema derived from the Clover Platform REST API v3 reference.
+      x-schema-source: documentation
+      x-source-url: https://docs.clover.com/dev/reference/employeegetemployee
+    Category:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          example: 9ABCDEF1234567
+        name:
+          type: string
+          description: The name of the category which will appear in Clover Register App.
+          example: Example name
+        sortOrder:
+          type: integer
+          description: Integer used to determine how this category is sorted against other categories.
+          example: 1
+        items:
+          type: array
+          items:
+            type: object
+          example: []
+        colorCode:
+          type: string
+          description: 'Hex code representation of the color assigned to this category and its items, in the form of #fff, #ffffff, or #ffffffff'
+          example: ABC123
+        deleted:
+          type: boolean
+          description: Whether the category has been deleted.
+          example: true
+        modifiedTime:
+          type: integer
+          description: The time this category was last modified
+          example: 1718153645000
+        canonical:
+          type: object
+          example: {}
+      description: Clover Category resource. Schema derived from the Clover Platform REST API v3 reference.
+      x-schema-source: documentation
+      x-source-url: https://docs.clover.com/dev/reference/categorygetcategory

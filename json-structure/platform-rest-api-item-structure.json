@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/clover/refs/heads/main/json-structure/platform-rest-api-item-structure.json",
+  "name": "Item",
+  "description": "Clover Item resource. Schema derived from the Clover Platform REST API v3 reference.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the inventory item.",
+      "example": "9ABCDEF1234567"
+    },
+    "hidden": {
+      "type": "boolean",
+      "description": "Indicates whether the inventory item is hidden on the Register app.\n Default: False",
+      "example": true
+    },
+    "available": {
+      "type": "boolean",
+      "description": "Indicates whether the inventory item is available for sale across all channels.\n Default: True",
+      "example": true
+    },
+    "autoManage": {
+      "type": "boolean",
+      "description": "Indicates whether the inventory item's availability is automatically or manually managed.\n Values:\n True - Item availability is automatically managed.\n False(default) - Item availability is manually managed. ",
+      "example": true
+    },
+    "itemGroup": {
+      "type": "object",
+      "example": {}
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "name": {
+      "type": "string",
+      "description": "Item name.",
+      "example": "Example name"
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "Alternate name of the item.",
+      "example": "Example alternateName"
+    },
+    "code": {
+      "type": "string",
+      "description": "Item product code, such as Universal Product Code (UPC) or European Article Number (EAN).",
+      "example": "ABC123"
+    },
+    "sku": {
+      "type": "string",
+      "description": "Stock keeping unit (SKU).",
+      "example": "SKU-001"
+    },
+    "price": {
+      "type": "int64",
+      "description": "Price of the item based on the merchant's local currency and price type, such as fixed, variable, or per unit price.\n For non-VAT merchants who do not pay value-added tax, this field is exclusive of tax.\n For VAT merchants, this field is inclusive of tax.\n Format: Cents",
+      "example": 1099
+    },
+    "priceType": {
+      "type": "string",
+      "description": "Price type, such as fixed, variable, or per unit price.",
+      "enum": [
+        "FIXED",
+        "VARIABLE",
+        "PER_UNIT"
+      ],
+      "example": "FIXED"
+    },
+    "defaultTaxRates": {
+      "type": "boolean",
+      "description": "Indicates whether or not to use the default tax rate. \n Default: True",
+      "example": true
+    },
+    "unitName": {
+      "type": "string",
+      "description": "Unit of measurement for the item, such as pound or meter.",
+      "example": "Example unitName"
+    },
+    "cost": {
+      "type": "int32",
+      "description": "Cost of the item to a merchant as compared to the price payable by the customer, for example: wholesale versus retail price.",
+      "example": 1099
+    },
+    "isRevenue": {
+      "type": "boolean",
+      "description": "Indicates whether this item is counted as revenue, for example: gift cards and donations are not counted as revenue.\n Default: False",
+      "example": true
+    },
+    "stockCount": {
+      "type": "int32",
+      "description": "Deprecated. Use itemStock.",
+      "example": 1
+    },
+    "taxRates": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "modifierGroups": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "canonical": {
+      "type": "object",
+      "example": {}
+    },
+    "itemStock": {
+      "type": "object",
+      "example": {}
+    },
+    "MenuItem": {
+      "type": "object",
+      "example": {}
+    },
+    "modifiedTime": {
+      "type": "int32",
+      "description": "Time when the item was modified.",
+      "example": 1718153645000
+    },
+    "deletedTime": {
+      "type": "int32",
+      "description": "Time when the item was deleted.",
+      "example": 1718153645000
+    },
+    "priceWithoutVat": {
+      "type": "int32",
+      "description": "Item price without value-added tax (VAT).\n For non-VAT merchants, this field is not used.\n For VAT merchants, this field is the base price of an item.",
+      "example": 1099
+    },
+    "colorCode": {
+      "type": "string",
+      "description": "Hex code of the color assigned to the category and its items.\n Format: #fff, #ffffff, or #ffffffff.",
+      "example": "ABC123"
+    }
+  }
+}

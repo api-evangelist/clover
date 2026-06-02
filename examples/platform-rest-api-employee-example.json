@@ -1,0 +1,20 @@
+{
+  "id": "9ABCDEF1234567",
+  "name": "Example name",
+  "nickname": "Example nickname",
+  "customId": "9ABCDEF1234567",
+  "email": "merchant@example.com",
+  "inviteSent": true,
+  "claimedTime": 1718153645000,
+  "deletedTime": 1718153645000,
+  "pin": "example-pin",
+  "unhashedPin": "example-unhashedPin",
+  "role": "OWNER",
+  "roles": [],
+  "isOwner": true,
+  "shifts": [],
+  "payments": [],
+  "orders": [],
+  "employeeCards": [],
+  "merchant": {}
+}

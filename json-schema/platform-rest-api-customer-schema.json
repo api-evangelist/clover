@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Customer",
+  "description": "Clover Customer resource. Schema derived from the Clover Platform REST API v3 reference.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/clover/refs/heads/main/json-schema/platform-rest-api-customer-schema.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier.",
+      "example": "9ABCDEF1234567"
+    },
+    "merchant": {
+      "type": "object",
+      "example": {}
+    },
+    "firstName": {
+      "type": "string",
+      "description": "First/given name of the customer. Note: Length of first name cannot be more than 64 characters.",
+      "example": "Example firstName"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Last name/surname of the customer. Note: Length of last name cannot be more than 64 characters.",
+      "example": "Example lastName"
+    },
+    "marketingAllowed": {
+      "type": "boolean",
+      "description": "Indicates if the customer allows receiving of marketing communication.",
+      "example": true
+    },
+    "customerSince": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Date of start of customer association with the merchant.",
+      "example": 1718153645000
+    },
+    "orders": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "addresses": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "emailAddresses": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "phoneNumbers": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "cards": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "metadata": {
+      "type": "object",
+      "example": {}
+    }
+  }
+}

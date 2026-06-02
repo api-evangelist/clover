@@ -1,0 +1,252 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/clover/refs/heads/main/json-structure/ecommerce-api-charge-structure.json",
+  "name": "Charge",
+  "description": "Charge schema from Clover Ecommerce API",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "int64",
+      "description": "Charge amount in cents. If the charge request includes tax (`tax_rate_uuid` or `tax_amount`), this value must be the sum of any item prices and any tax or tip.\n For example, if the item cost = $10 and the tax is $1, the amount is 1100 cents ($11).\n Format: cents",
+      "example": 1099
+    },
+    "tax_amount": {
+      "type": "int64",
+      "description": "Amount paid in taxes. This value is not automatically added to the total amount. Your app must ensure the Amount property is the total final amount to charge the customer.",
+      "example": 1099
+    },
+    "tip_amount": {
+      "type": "int64",
+      "description": "Amount paid in tips. This value is automatically added to the total amount when the transaction is finalized.",
+      "example": 1099
+    },
+    "additional_charges": {
+      "type": "object",
+      "example": {}
+    },
+    "amount_refunded": {
+      "type": "int64",
+      "description": "Amount refunded in cents. This value can be less than the amount property on the charge if a partial refund is issued.",
+      "example": 1099
+    },
+    "partial_auth": {
+      "type": "boolean",
+      "description": "Indicates if the transaction was partially approved.",
+      "example": true
+    },
+    "billing_details": {
+      "type": "object",
+      "example": {}
+    },
+    "captured": {
+      "type": "boolean",
+      "description": "Indicates whether to immediately capture the charge.\n Values:\n  True - Default.\n  False - Indicates the charge transaction type is AUTH (or PRE-AUTH), and the charge can be captured later using the [capture a charge](https://docs.clover.com/reference/capturecharge) endpoint.",
+      "example": true
+    },
+    "created": {
+      "type": "int64",
+      "description": "Charge creation time (Unix timestamp in milliseconds).",
+      "example": 1718153645000
+    },
+    "currency": {
+      "type": "string",
+      "description": "Three-letter [ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html).\n Format: Lower case\n Length: Maximum 3",
+      "example": "USD"
+    },
+    "customer": {
+      "type": "string",
+      "description": "Unique identifier of the customer associated with the charge.",
+      "example": "example-customer"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detail description of the charge.",
+      "example": "Example description value."
+    },
+    "external_reference_id": {
+      "type": "string",
+      "description": "Unique identifier (ID), such as an invoice or purchase order (PO) number, that is sent to the merchant's gateway and displayed in settlement records. \n Format: Supported for US\u2014alphanumeric characters with in-between spaces. \n Length: Maximum 12, including spaces and alphanumeric characters.",
+      "example": "9ABCDEF1234567"
+    },
+    "external_customer_reference": {
+      "type": "string",
+      "description": "Customer reference number from the merchant's order management system.",
+      "example": "example-external_customer_reference"
+    },
+    "auth_code": {
+      "type": "string",
+      "description": "Authorization code of the charge, if available.",
+      "example": "ABC123"
+    },
+    "ref_num": {
+      "type": "string",
+      "description": "Reference number returned from the payment gateway when the transaction is successful.",
+      "example": "example-ref_num"
+    },
+    "failure_code": {
+      "type": "string",
+      "description": "Error code explaining the reason for the charge failure.",
+      "example": "ABC123"
+    },
+    "failure_message": {
+      "type": "string",
+      "description": "Detailed information about the reason for the charge failure.",
+      "example": "Example failure_message value."
+    },
+    "warning_message": {
+      "type": "string",
+      "description": "Detailed warning information about the charge. Example: Missing original transaction identifer for c-token.",
+      "example": "Example warning_message value."
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the charge.",
+      "example": "9ABCDEF1234567"
+    },
+    "livemode": {
+      "type": "boolean",
+      "description": "Indicates whether the token object is live in production.",
+      "example": true
+    },
+    "metadata": {
+      "type": "string",
+      "description": "Set of key-value pairs that you can attach to the object. This parameter is useful for storing additional information about the object in a structured format.\n Length: Maximum 500 characters",
+      "example": "example-metadata"
+    },
+    "object": {
+      "type": "string",
+      "description": "Object type.",
+      "enum": [
+        "charge"
+      ],
+      "example": "charge"
+    },
+    "order": {
+      "type": "string",
+      "description": "Unique identifier of the order.",
+      "example": "example-order"
+    },
+    "outcome": {
+      "type": "object",
+      "example": {}
+    },
+    "paid": {
+      "type": "boolean",
+      "description": "Indicates whether the charge was successful or authorized for capture.",
+      "example": true
+    },
+    "payment_method_details": {
+      "type": "string",
+      "description": "Indicates the payment method used for the charge.",
+      "enum": [
+        "card",
+        "ach",
+        "paypal",
+        "giftCard"
+      ],
+      "example": "card"
+    },
+    "on_behalf_of": {
+      "type": "boolean",
+      "description": "Indicates the transaction was made on someone's behalf.",
+      "example": true
+    },
+    "debt_payment": {
+      "type": "string",
+      "description": "Indicates the status of the charge.",
+      "enum": [
+        "approved",
+        "declined",
+        "not_processed"
+      ],
+      "example": "approved"
+    },
+    "receipt_email": {
+      "type": "string",
+      "description": "Email address to which the charge receipt is sent. Receipts are sent only after the charge is paid.\n  **Note:** Receipts are not sent in the sandbox environment.",
+      "example": "merchant@example.com"
+    },
+    "receipt_number": {
+      "type": "string",
+      "description": "Receipt number of the charge.",
+      "example": "example-receipt_number"
+    },
+    "receipt_url": {
+      "type": "string",
+      "description": "URL where the charge receipt is accessible. The receipt displays the latest state of the charge, including any refunds. If the charge is for an invoice, the receipt is displayed as an invoice.",
+      "example": "https://www.clover.com/example"
+    },
+    "site_url": {
+      "type": "string",
+      "description": "URL of the site performing the e-commerce transaction.\n **Default:** `clover.com`\n **Constraints:**\n  Length: 4\u201313 characters.\n  Allowed characters: Alphanumeric, periods (`.`), and hyphens (`-`) only.\n  **Note:** Do not include protocol (for example, `https://`) or `www`.",
+      "example": "https://www.clover.com/example"
+    },
+    "refunded": {
+      "type": "boolean",
+      "description": "Indicates whether the charge was fully refunded or partial refunded.\n Values:\n True - Full refunded\n False - Partially refunded",
+      "example": true
+    },
+    "shipping": {
+      "type": "string",
+      "description": "Shipping information for the charge.",
+      "example": "example-shipping"
+    },
+    "source": {
+      "type": "object",
+      "example": {}
+    },
+    "status": {
+      "type": "string",
+      "description": "Payment status of the charge.",
+      "enum": [
+        "succeeded",
+        "pending",
+        "failed"
+      ],
+      "example": "succeeded"
+    },
+    "stored_credentials": {
+      "type": "object",
+      "example": {}
+    },
+    "soft_descriptor": {
+      "type": "object",
+      "example": {}
+    },
+    "threeds": {
+      "type": "object",
+      "example": {}
+    },
+    "gift_card": {
+      "type": "object",
+      "example": {}
+    },
+    "level2": {
+      "type": "object",
+      "example": {}
+    },
+    "level3": {
+      "type": "object",
+      "example": {}
+    },
+    "saved_credentials_on_file": {
+      "type": "object",
+      "example": {}
+    },
+    "ecomind": {
+      "type": "string",
+      "description": "Indicates the source of the card data.",
+      "enum": [
+        "ecom",
+        "moto",
+        "retail"
+      ],
+      "example": "ecom"
+    },
+    "amount_captured": {
+      "type": "int64",
+      "description": "Total amount captured for pre-auth transactions.",
+      "example": 1099
+    }
+  }
+}

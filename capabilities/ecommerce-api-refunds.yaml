@@ -1,0 +1,190 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Clover Ecommerce API — REFUNDS
+  description: 'Clover Ecommerce API — REFUNDS. 3 operations. Lead operation: Create a Refund. Self-contained Naftiko capability covering one Clover business surface.'
+  tags:
+  - Clover
+  - Ecommerce API
+  - REFUNDS
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    CLOVER_ECOMM_API_KEY: CLOVER_ECOMM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ecommerce-api-refunds
+    baseUri: https://scl.clover.com
+    description: Clover Ecommerce API — REFUNDS business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.CLOVER_ECOMM_API_KEY}}'
+    resources:
+    - name: v1-refunds
+      path: /v1/refunds
+      operations:
+      - name: CreateRefund
+        method: POST
+        description: Clover Create a Refund
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request body payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-refunds
+      path: /v1/refunds
+      operations:
+      - name: ListRefunds
+        method: GET
+        description: Clover Get Refunds List
+        inputParameters:
+        - name: charge
+          in: query
+          type: string
+          required: false
+          description: Retrieve refunds applied to a specific charge.
+        - name: created
+          in: query
+          type: string
+          required: false
+          description: List filter based on the object's `created` field. The value can be a string with a Unix timestamp (in milliseconds) or a dictionary of multiple options describing a time range.
+        - name: ending_before
+          in: query
+          type: string
+          required: false
+          description: Cursor used in pagination. The ending_before object ID sets your place in the list. For example, if you receive 100 objects in a list starting with obj_bar, add ending_before=obj_bar in your subsequent request to retrieve the previous page of the list.
+        - name: limit
+          in: query
+          type: integer
+          required: false
+          description: The number of objects returned by the request, ranging between `1` and `100`. The default value is `10`.
+        - name: starting_after
+          in: query
+          type: string
+          required: false
+          description: Cursor used in pagination. The starting_after object ID sets your place in the list. For example, if you receive 100 objects in a list starting with obj_foo, add starting_after=obj_foo in your subsequent request to retrieve the next page of the list.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-refunds-refundid
+      path: /v1/refunds/{refundId}
+      operations:
+      - name: GetRefund
+        method: GET
+        description: Clover Get a Refund
+        inputParameters:
+        - name: refundId
+          in: path
+          type: string
+          required: true
+          description: Universal unique identifier (UUID) of the refund to retrieve.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ecommerce-api-refunds-rest
+    port: 8080
+    description: REST adapter for Clover Ecommerce API — REFUNDS. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/refunds
+      name: v1-refunds
+      description: REST surface for REFUNDS.
+      operations:
+      - method: POST
+        name: CreateRefund
+        description: Clover Create a Refund
+        call: ecommerce-api-refunds.CreateRefund
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/refunds
+      name: v1-refunds
+      description: REST surface for REFUNDS.
+      operations:
+      - method: GET
+        name: ListRefunds
+        description: Clover Get Refunds List
+        call: ecommerce-api-refunds.ListRefunds
+        with:
+          charge: rest.charge
+          created: rest.created
+          ending_before: rest.ending_before
+          limit: rest.limit
+          starting_after: rest.starting_after
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/refunds-refundid
+      name: v1-refunds-refundid
+      description: REST surface for REFUNDS.
+      operations:
+      - method: GET
+        name: GetRefund
+        description: Clover Get a Refund
+        call: ecommerce-api-refunds.GetRefund
+        with:
+          refundId: rest.refundId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ecommerce-api-refunds-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Clover Ecommerce API — REFUNDS. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: create-refund
+      description: Clover Create a Refund
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ecommerce-api-refunds.CreateRefund
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-refunds-list
+      description: Clover Get Refunds List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ecommerce-api-refunds.ListRefunds
+      with:
+        charge: tools.charge
+        created: tools.created
+        ending_before: tools.ending_before
+        limit: tools.limit
+        starting_after: tools.starting_after
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-refund
+      description: Clover Get a Refund
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ecommerce-api-refunds.GetRefund
+      with:
+        refundId: tools.refundId
+      outputParameters:
+      - type: object
+        mapping: $.

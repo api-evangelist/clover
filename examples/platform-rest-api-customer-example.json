@@ -1,0 +1,14 @@
+{
+  "id": "9ABCDEF1234567",
+  "merchant": {},
+  "firstName": "Example firstName",
+  "lastName": "Example lastName",
+  "marketingAllowed": true,
+  "customerSince": 1718153645000,
+  "orders": [],
+  "addresses": [],
+  "emailAddresses": [],
+  "phoneNumbers": [],
+  "cards": [],
+  "metadata": {}
+}

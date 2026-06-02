@@ -1,0 +1,260 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Clover Platform REST API — EMPLOYEES
+  description: 'Clover Platform REST API — EMPLOYEES. 4 operations. Lead operation: Get a Single Employee. Self-contained Naftiko capability covering one Clover business surface.'
+  tags:
+  - Clover
+  - Platform REST API
+  - EMPLOYEES
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    CLOVER_API_TOKEN: CLOVER_API_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: platform-rest-api-employees
+    baseUri: https://api.clover.com
+    description: Clover Platform REST API — EMPLOYEES business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.CLOVER_API_TOKEN}}'
+    resources:
+    - name: v3-merchants-mid-employees-empid
+      path: /v3/merchants/{mId}/employees/{empId}
+      operations:
+      - name: employeeGetEmployee
+        method: GET
+        description: Clover Get a Single Employee
+        inputParameters:
+        - name: mId
+          in: path
+          type: string
+          required: true
+          description: Merchant Id
+        - name: empId
+          in: path
+          type: string
+          required: true
+          description: Employee Id
+        - name: expand
+          in: query
+          type: string
+          required: false
+          description: 'Expandable fields: [roles, shifts]'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v3-merchants-mid-employees
+      path: /v3/merchants/{mId}/employees
+      operations:
+      - name: employeeGetEmployees
+        method: GET
+        description: Clover Get All Employees
+        inputParameters:
+        - name: mId
+          in: path
+          type: string
+          required: true
+          description: Merchant identifier (mId).
+        - name: filter
+          in: query
+          type: string
+          required: false
+          description: 'Filter fields to display search results: [modifiedTime, role, role.id, customId, name, nickname, id, deletedTime, deleted_time, email]'
+        - name: expand
+          in: query
+          type: string
+          required: false
+          description: 'Expandable fields to display additional nested information: [roles, shifts]'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v3-merchants-mid-employees
+      path: /v3/merchants/{mId}/employees
+      operations:
+      - name: employeeCreateEmployee
+        method: POST
+        description: Clover Create an Employee
+        inputParameters:
+        - name: mId
+          in: path
+          type: string
+          required: true
+          description: Merchant Id
+        - name: expand
+          in: query
+          type: string
+          required: false
+          description: 'Expandable fields: [shifts, payments, orders, roles]'
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request body payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v3-merchants-mid-shifts
+      path: /v3/merchants/{mId}/shifts
+      operations:
+      - name: merchantGetAllShifts
+        method: GET
+        description: Clover Get All Shifts
+        inputParameters:
+        - name: mId
+          in: path
+          type: string
+          required: true
+          description: Merchant Id
+        - name: filter
+          in: query
+          type: string
+          required: false
+          description: 'Filter fields: [employee.id, out_time, in_time, employee.name, in_and_override_time, out_and_override_time, id, has_in_time, override_in_time, deletedTime, server_banking]'
+        - name: expand
+          in: query
+          type: string
+          required: false
+          description: 'Expandable fields: [employee, overrideInEmployee, overrideOutEmployee]'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: platform-rest-api-employees-rest
+    port: 8080
+    description: REST adapter for Clover Platform REST API — EMPLOYEES. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/merchants-mid-employees-empid
+      name: v3-merchants-mid-employees-empid
+      description: REST surface for EMPLOYEES.
+      operations:
+      - method: GET
+        name: employeeGetEmployee
+        description: Clover Get a Single Employee
+        call: platform-rest-api-employees.employeeGetEmployee
+        with:
+          mId: rest.mId
+          empId: rest.empId
+          expand: rest.expand
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/merchants-mid-employees
+      name: v3-merchants-mid-employees
+      description: REST surface for EMPLOYEES.
+      operations:
+      - method: GET
+        name: employeeGetEmployees
+        description: Clover Get All Employees
+        call: platform-rest-api-employees.employeeGetEmployees
+        with:
+          mId: rest.mId
+          filter: rest.filter
+          expand: rest.expand
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/merchants-mid-employees
+      name: v3-merchants-mid-employees
+      description: REST surface for EMPLOYEES.
+      operations:
+      - method: POST
+        name: employeeCreateEmployee
+        description: Clover Create an Employee
+        call: platform-rest-api-employees.employeeCreateEmployee
+        with:
+          mId: rest.mId
+          expand: rest.expand
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/merchants-mid-shifts
+      name: v3-merchants-mid-shifts
+      description: REST surface for EMPLOYEES.
+      operations:
+      - method: GET
+        name: merchantGetAllShifts
+        description: Clover Get All Shifts
+        call: platform-rest-api-employees.merchantGetAllShifts
+        with:
+          mId: rest.mId
+          filter: rest.filter
+          expand: rest.expand
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-rest-api-employees-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Clover Platform REST API — EMPLOYEES. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-single-employee
+      description: Clover Get a Single Employee
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-rest-api-employees.employeeGetEmployee
+      with:
+        mId: tools.mId
+        empId: tools.empId
+        expand: tools.expand
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-all-employees
+      description: Clover Get All Employees
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-rest-api-employees.employeeGetEmployees
+      with:
+        mId: tools.mId
+        filter: tools.filter
+        expand: tools.expand
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-employee
+      description: Clover Create an Employee
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-rest-api-employees.employeeCreateEmployee
+      with:
+        mId: tools.mId
+        expand: tools.expand
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-all-shifts
+      description: Clover Get All Shifts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-rest-api-employees.merchantGetAllShifts
+      with:
+        mId: tools.mId
+        filter: tools.filter
+        expand: tools.expand
+      outputParameters:
+      - type: object
+        mapping: $.

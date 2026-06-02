@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Refund",
+  "description": "Refund schema from Clover Ecommerce API",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/clover/refs/heads/main/json-schema/ecommerce-api-refund-schema.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "9ABCDEF1234567"
+    },
+    "charge": {
+      "type": "string",
+      "example": "example-charge"
+    },
+    "amount": {
+      "type": "integer",
+      "example": 1099
+    },
+    "status": {
+      "type": "string",
+      "example": "open"
+    }
+  }
+}

@@ -1,0 +1,368 @@
+vocabulary: 1.0.0
+info:
+  provider: Clover
+  description: Unified taxonomy for the Clover Platform REST and Ecommerce APIs mapping operational (OpenAPI) resources and actions to capability (Naftiko) workflows.
+  created: '2026-06-02'
+  modified: '2026-06-02'
+operational:
+  apis:
+  - name: Clover Ecommerce API
+    namespace: ecommerce-api
+    version: v1
+    baseUrl: https://scl.clover.com
+    status: active
+  - name: Clover Platform REST API
+    namespace: platform-rest-api
+    version: v3
+    baseUrl: https://api.clover.com
+    status: active
+  resources:
+  - name: CHARGES
+    api: Clover Ecommerce API
+    actions:
+    - create
+    - read
+  - name: REFUNDS
+    api: Clover Ecommerce API
+    actions:
+    - create
+    - read
+  - name: TOKENS
+    api: Clover Ecommerce API
+    actions:
+    - create
+  - name: CHECKOUT
+    api: Clover Ecommerce API
+    actions:
+    - create
+  - name: INVENTORY
+    api: Clover Platform REST API
+    actions:
+    - create
+    - delete
+    - read
+  - name: PAYMENTS
+    api: Clover Platform REST API
+    actions:
+    - read
+  - name: EMPLOYEES
+    api: Clover Platform REST API
+    actions:
+    - create
+    - read
+  - name: CUSTOMERS
+    api: Clover Platform REST API
+    actions:
+    - create
+    - delete
+    - read
+  - name: ORDERS
+    api: Clover Platform REST API
+    actions:
+    - create
+    - delete
+    - read
+  actions:
+  - name: create
+    methods:
+    - POST
+    pattern: write
+  - name: read
+    methods:
+    - GET
+    pattern: read
+  - name: delete
+    methods:
+    - DELETE
+    pattern: destructive
+  schemas:
+    ecommerce:
+    - name: Charge
+      properties:
+      - amount
+      - tax_amount
+      - tip_amount
+      - additional_charges
+      - amount_refunded
+      - partial_auth
+      - billing_details
+      - captured
+      - created
+      - currency
+      - customer
+      - description
+    - name: Refund
+      properties:
+      - id
+      - charge
+      - amount
+      - status
+    core:
+    - name: Item
+      properties:
+      - id
+      - hidden
+      - available
+      - autoManage
+      - itemGroup
+      - options
+      - name
+      - alternateName
+      - code
+      - sku
+      - price
+      - priceType
+    - name: Order
+      properties:
+      - id
+      - currency
+      - customers
+      - employee
+      - total
+      - externalReferenceId
+      - unpaidBalance
+      - paymentState
+      - title
+      - note
+      - orderType
+      - taxRemoved
+    - name: Customer
+      properties:
+      - id
+      - merchant
+      - firstName
+      - lastName
+      - marketingAllowed
+      - customerSince
+      - orders
+      - addresses
+      - emailAddresses
+      - phoneNumbers
+      - cards
+      - metadata
+    - name: Payment
+      properties:
+      - id
+      - order
+      - device
+      - tender
+      - amount
+      - tipAmount
+      - taxAmount
+      - cashbackAmount
+      - cashTendered
+      - externalPaymentId
+      - employee
+      - createdTime
+    - name: Employee
+      properties:
+      - id
+      - name
+      - nickname
+      - customId
+      - email
+      - inviteSent
+      - claimedTime
+      - deletedTime
+      - pin
+      - unhashedPin
+      - role
+      - roles
+    - name: Category
+      properties:
+      - id
+      - name
+      - sortOrder
+      - items
+      - colorCode
+      - deleted
+      - modifiedTime
+      - canonical
+  parameters:
+    pagination:
+    - limit
+    - offset
+    identifiers:
+    - mId
+    - itemId
+    - orderId
+    - customerId
+    - empId
+    - payId
+    - catId
+    - chargeId
+    - refundId
+    filters:
+    - filter
+    - expand
+  enums:
+    orderStates:
+    - open
+    - locked
+    - paid
+    priceTypes:
+    - FIXED
+    - VARIABLE
+    - PER_UNIT
+  authentication:
+  - scheme: OAuth2
+    type: oauth2
+    api: Clover Ecommerce API
+  - scheme: bearerAuth
+    type: http
+    api: Clover Platform REST API
+capability:
+  workflows:
+  - name: Clover Ecommerce API — CHARGES
+    file: capabilities/ecommerce-api-charges.yaml
+    description: 'Clover Ecommerce API — CHARGES. 4 operations. Lead operation: Create a Charge. Self-contained Naftiko capability covering one Clover business surface.'
+    toolCount: 4
+    tags:
+    - Clover
+    - Ecommerce API
+    - CHARGES
+  - name: Clover Ecommerce API — CHECKOUT
+    file: capabilities/ecommerce-api-checkout.yaml
+    description: 'Clover Ecommerce API — CHECKOUT. 1 operations. Lead operation: Create Checkout. Self-contained Naftiko capability covering one Clover business surface.'
+    toolCount: 1
+    tags:
+    - Clover
+    - Ecommerce API
+    - CHECKOUT
+  - name: Clover Ecommerce API — REFUNDS
+    file: capabilities/ecommerce-api-refunds.yaml
+    description: 'Clover Ecommerce API — REFUNDS. 3 operations. Lead operation: Create a Refund. Self-contained Naftiko capability covering one Clover business surface.'
+    toolCount: 3
+    tags:
+    - Clover
+    - Ecommerce API
+    - REFUNDS
+  - name: Clover Ecommerce API — TOKENS
+    file: capabilities/ecommerce-api-tokens.yaml
+    description: 'Clover Ecommerce API — TOKENS. 1 operations. Lead operation: Create a Card Token. Self-contained Naftiko capability covering one Clover business surface.'
+    toolCount: 1
+    tags:
+    - Clover
+    - Ecommerce API
+    - TOKENS
+  - name: Clover Platform REST API — CUSTOMERS
+    file: capabilities/platform-rest-api-customers.yaml
+    description: 'Clover Platform REST API — CUSTOMERS. 5 operations. Lead operation: Get a Single Customer. Self-contained Naftiko capability covering one Clover business surface.'
+    toolCount: 5
+    tags:
+    - Clover
+    - Platform REST API
+    - CUSTOMERS
+  - name: Clover Platform REST API — EMPLOYEES
+    file: capabilities/platform-rest-api-employees.yaml
+    description: 'Clover Platform REST API — EMPLOYEES. 4 operations. Lead operation: Get a Single Employee. Self-contained Naftiko capability covering one Clover business surface.'
+    toolCount: 4
+    tags:
+    - Clover
+    - Platform REST API
+    - EMPLOYEES
+  - name: Clover Platform REST API — INVENTORY
+    file: capabilities/platform-rest-api-inventory.yaml
+    description: 'Clover Platform REST API — INVENTORY. 8 operations. Lead operation: Delete an Inventory Item. Self-contained Naftiko capability covering one Clover business surface.'
+    toolCount: 8
+    tags:
+    - Clover
+    - Platform REST API
+    - INVENTORY
+  - name: Clover Platform REST API — ORDERS
+    file: capabilities/platform-rest-api-orders.yaml
+    description: 'Clover Platform REST API — ORDERS. 8 operations. Lead operation: Create a New Line Item. Self-contained Naftiko capability covering one Clover business surface.'
+    toolCount: 8
+    tags:
+    - Clover
+    - Platform REST API
+    - ORDERS
+  - name: Clover Platform REST API — PAYMENTS
+    file: capabilities/platform-rest-api-payments.yaml
+    description: 'Clover Platform REST API — PAYMENTS. 2 operations. Lead operation: Get a Single Payment. Self-contained Naftiko capability covering one Clover business surface.'
+    toolCount: 2
+    tags:
+    - Clover
+    - Platform REST API
+    - PAYMENTS
+  personas:
+  - id: merchant-developer
+    name: Merchant Developer
+    description: Builds POS and back-office integrations against merchant inventory, orders, and employees.
+  - id: payments-engineer
+    name: Payments Engineer
+    description: Integrates ecommerce charges, tokenization, refunds, and hosted checkout.
+  domains:
+  - Inventory
+  - Orders
+  - Payments
+  - Customers
+  - Employees
+  - Charges
+  - Refunds
+  - Tokens
+  - Checkout
+crossReference:
+- resource: CHARGES
+  api: Clover Ecommerce API
+  actions:
+  - create
+  - read
+  workflows:
+  - Clover Ecommerce API — CHARGES
+- resource: REFUNDS
+  api: Clover Ecommerce API
+  actions:
+  - create
+  - read
+  workflows:
+  - Clover Ecommerce API — REFUNDS
+- resource: TOKENS
+  api: Clover Ecommerce API
+  actions:
+  - create
+  workflows:
+  - Clover Ecommerce API — TOKENS
+- resource: CHECKOUT
+  api: Clover Ecommerce API
+  actions:
+  - create
+  workflows:
+  - Clover Ecommerce API — CHECKOUT
+- resource: INVENTORY
+  api: Clover Platform REST API
+  actions:
+  - create
+  - delete
+  - read
+  workflows:
+  - Clover Platform REST API — INVENTORY
+- resource: PAYMENTS
+  api: Clover Platform REST API
+  actions:
+  - read
+  workflows:
+  - Clover Platform REST API — PAYMENTS
+- resource: EMPLOYEES
+  api: Clover Platform REST API
+  actions:
+  - create
+  - read
+  workflows:
+  - Clover Platform REST API — EMPLOYEES
+- resource: CUSTOMERS
+  api: Clover Platform REST API
+  actions:
+  - create
+  - delete
+  - read
+  workflows:
+  - Clover Platform REST API — CUSTOMERS
+- resource: ORDERS
+  api: Clover Platform REST API
+  actions:
+  - create
+  - delete
+  - read
+  workflows:
+  - Clover Platform REST API — ORDERS

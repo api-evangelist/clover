@@ -1,0 +1,78 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Clover Ecommerce API — CHECKOUT
+  description: 'Clover Ecommerce API — CHECKOUT. 1 operations. Lead operation: Create Checkout. Self-contained Naftiko capability covering one Clover business surface.'
+  tags:
+  - Clover
+  - Ecommerce API
+  - CHECKOUT
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    CLOVER_ECOMM_API_KEY: CLOVER_ECOMM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ecommerce-api-checkout
+    baseUri: https://scl.clover.com
+    description: Clover Ecommerce API — CHECKOUT business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.CLOVER_ECOMM_API_KEY}}'
+    resources:
+    - name: invoicingcheckoutservice-v1-checkouts
+      path: /invoicingcheckoutservice/v1/checkouts
+      operations:
+      - name: CreateCheckout
+        method: POST
+        description: Clover Create Checkout
+        inputParameters:
+        - name: X-Clover-Merchant-Id
+          in: header
+          type: string
+          required: true
+          description: Clover merchant identifier (mid).
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ecommerce-api-checkout-rest
+    port: 8080
+    description: REST adapter for Clover Ecommerce API — CHECKOUT. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/invoicingcheckoutservice-v1-checkouts
+      name: invoicingcheckoutservice-v1-checkouts
+      description: REST surface for CHECKOUT.
+      operations:
+      - method: POST
+        name: CreateCheckout
+        description: Clover Create Checkout
+        call: ecommerce-api-checkout.CreateCheckout
+        with:
+          X-Clover-Merchant-Id: rest.X-Clover-Merchant-Id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ecommerce-api-checkout-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Clover Ecommerce API — CHECKOUT. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: create-checkout
+      description: Clover Create Checkout
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: ecommerce-api-checkout.CreateCheckout
+      with:
+        X-Clover-Merchant-Id: tools.X-Clover-Merchant-Id
+      outputParameters:
+      - type: object
+        mapping: $.

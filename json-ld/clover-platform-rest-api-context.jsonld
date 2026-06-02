@@ -1,0 +1,513 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "clover": "https://docs.clover.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Employee": "clover:Employee",
+    "id": {
+      "@id": "clover:id",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "nickname": {
+      "@id": "clover:nickname",
+      "@type": "xsd:string"
+    },
+    "customId": {
+      "@id": "clover:customId",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "schema:email"
+    },
+    "inviteSent": {
+      "@id": "clover:inviteSent",
+      "@type": "xsd:boolean"
+    },
+    "claimedTime": {
+      "@id": "clover:claimedTime",
+      "@type": "xsd:integer"
+    },
+    "deletedTime": {
+      "@id": "clover:deletedTime",
+      "@type": "xsd:integer"
+    },
+    "pin": {
+      "@id": "clover:pin",
+      "@type": "xsd:string"
+    },
+    "unhashedPin": {
+      "@id": "clover:unhashedPin",
+      "@type": "xsd:string"
+    },
+    "role": {
+      "@id": "clover:role",
+      "@type": "xsd:string"
+    },
+    "roles": {
+      "@id": "clover:roles",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "isOwner": {
+      "@id": "clover:isOwner",
+      "@type": "xsd:boolean"
+    },
+    "shifts": {
+      "@id": "clover:shifts",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "payments": {
+      "@id": "clover:payments",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "orders": {
+      "@id": "clover:orders",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "employeeCards": {
+      "@id": "clover:employeeCards",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "merchant": {
+      "@id": "clover:merchant",
+      "@type": "@id"
+    },
+    "Category": "clover:Category",
+    "sortOrder": {
+      "@id": "clover:sortOrder",
+      "@type": "xsd:integer"
+    },
+    "items": {
+      "@id": "clover:items",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "colorCode": {
+      "@id": "clover:colorCode",
+      "@type": "xsd:string"
+    },
+    "deleted": {
+      "@id": "clover:deleted",
+      "@type": "xsd:boolean"
+    },
+    "modifiedTime": {
+      "@id": "clover:modifiedTime",
+      "@type": "xsd:integer"
+    },
+    "canonical": {
+      "@id": "clover:canonical",
+      "@type": "@id"
+    },
+    "Customer": "clover:Customer",
+    "firstName": {
+      "@id": "clover:firstName",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "clover:lastName",
+      "@type": "xsd:string"
+    },
+    "marketingAllowed": {
+      "@id": "clover:marketingAllowed",
+      "@type": "xsd:boolean"
+    },
+    "customerSince": {
+      "@id": "clover:customerSince",
+      "@type": "xsd:integer"
+    },
+    "addresses": {
+      "@id": "clover:addresses",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "emailAddresses": {
+      "@id": "clover:emailAddresses",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "phoneNumbers": {
+      "@id": "clover:phoneNumbers",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "cards": {
+      "@id": "clover:cards",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "metadata": {
+      "@id": "clover:metadata",
+      "@type": "@id"
+    },
+    "Order": "clover:Order",
+    "currency": {
+      "@id": "clover:currency",
+      "@type": "xsd:string"
+    },
+    "customers": {
+      "@id": "clover:customers",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "employee": {
+      "@id": "clover:employee",
+      "@type": "@id"
+    },
+    "total": {
+      "@id": "clover:total",
+      "@type": "xsd:integer"
+    },
+    "externalReferenceId": {
+      "@id": "clover:externalReferenceId",
+      "@type": "xsd:string"
+    },
+    "unpaidBalance": {
+      "@id": "clover:unpaidBalance",
+      "@type": "xsd:integer"
+    },
+    "paymentState": {
+      "@id": "clover:paymentState",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "clover:title",
+      "@type": "xsd:string"
+    },
+    "note": {
+      "@id": "clover:note",
+      "@type": "xsd:string"
+    },
+    "orderType": {
+      "@id": "clover:orderType",
+      "@type": "@id"
+    },
+    "taxRemoved": {
+      "@id": "clover:taxRemoved",
+      "@type": "xsd:boolean"
+    },
+    "isVat": {
+      "@id": "clover:isVat",
+      "@type": "xsd:boolean"
+    },
+    "state": {
+      "@id": "clover:state",
+      "@type": "xsd:string"
+    },
+    "manualTransaction": {
+      "@id": "clover:manualTransaction",
+      "@type": "xsd:boolean"
+    },
+    "groupLineItems": {
+      "@id": "clover:groupLineItems",
+      "@type": "xsd:boolean"
+    },
+    "testMode": {
+      "@id": "clover:testMode",
+      "@type": "xsd:boolean"
+    },
+    "payType": {
+      "@id": "clover:payType",
+      "@type": "xsd:string"
+    },
+    "createdTime": {
+      "@id": "clover:createdTime",
+      "@type": "xsd:integer"
+    },
+    "clientCreatedTime": {
+      "@id": "clover:clientCreatedTime",
+      "@type": "xsd:integer"
+    },
+    "deletedTimestamp": {
+      "@id": "clover:deletedTimestamp",
+      "@type": "xsd:integer"
+    },
+    "serviceCharge": {
+      "@id": "clover:serviceCharge",
+      "@type": "@id"
+    },
+    "additionalCharges": {
+      "@id": "clover:additionalCharges",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "discounts": {
+      "@id": "clover:discounts",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "lineItems": {
+      "@id": "clover:lineItems",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "refunds": {
+      "@id": "clover:refunds",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "credits": {
+      "@id": "clover:credits",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "voids": {
+      "@id": "clover:voids",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "preAuths": {
+      "@id": "clover:preAuths",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "device": {
+      "@id": "clover:device",
+      "@type": "@id"
+    },
+    "authorizations": {
+      "@id": "clover:authorizations",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "printGroups": {
+      "@id": "clover:printGroups",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "orderFulfillmentEvent": {
+      "@id": "clover:orderFulfillmentEvent",
+      "@type": "@id"
+    },
+    "Item": "clover:Item",
+    "hidden": {
+      "@id": "clover:hidden",
+      "@type": "xsd:boolean"
+    },
+    "available": {
+      "@id": "clover:available",
+      "@type": "xsd:boolean"
+    },
+    "autoManage": {
+      "@id": "clover:autoManage",
+      "@type": "xsd:boolean"
+    },
+    "itemGroup": {
+      "@id": "clover:itemGroup",
+      "@type": "@id"
+    },
+    "options": {
+      "@id": "clover:options",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "alternateName": {
+      "@id": "clover:alternateName",
+      "@type": "xsd:string"
+    },
+    "code": {
+      "@id": "clover:code",
+      "@type": "xsd:string"
+    },
+    "sku": {
+      "@id": "clover:sku",
+      "@type": "xsd:string"
+    },
+    "price": {
+      "@id": "clover:price",
+      "@type": "xsd:integer"
+    },
+    "priceType": {
+      "@id": "clover:priceType",
+      "@type": "xsd:string"
+    },
+    "defaultTaxRates": {
+      "@id": "clover:defaultTaxRates",
+      "@type": "xsd:boolean"
+    },
+    "unitName": {
+      "@id": "clover:unitName",
+      "@type": "xsd:string"
+    },
+    "cost": {
+      "@id": "clover:cost",
+      "@type": "xsd:integer"
+    },
+    "isRevenue": {
+      "@id": "clover:isRevenue",
+      "@type": "xsd:boolean"
+    },
+    "stockCount": {
+      "@id": "clover:stockCount",
+      "@type": "xsd:integer"
+    },
+    "taxRates": {
+      "@id": "clover:taxRates",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "modifierGroups": {
+      "@id": "clover:modifierGroups",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "categories": {
+      "@id": "clover:categories",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "tags": {
+      "@id": "clover:tags",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "itemStock": {
+      "@id": "clover:itemStock",
+      "@type": "@id"
+    },
+    "MenuItem": {
+      "@id": "clover:MenuItem",
+      "@type": "@id"
+    },
+    "priceWithoutVat": {
+      "@id": "clover:priceWithoutVat",
+      "@type": "xsd:integer"
+    },
+    "Payment": "clover:Payment",
+    "order": {
+      "@id": "clover:order",
+      "@type": "@id"
+    },
+    "tender": {
+      "@id": "clover:tender",
+      "@type": "@id"
+    },
+    "amount": {
+      "@id": "clover:amount",
+      "@type": "xsd:integer"
+    },
+    "tipAmount": {
+      "@id": "clover:tipAmount",
+      "@type": "xsd:integer"
+    },
+    "taxAmount": {
+      "@id": "clover:taxAmount",
+      "@type": "xsd:integer"
+    },
+    "cashbackAmount": {
+      "@id": "clover:cashbackAmount",
+      "@type": "xsd:integer"
+    },
+    "cashTendered": {
+      "@id": "clover:cashTendered",
+      "@type": "xsd:integer"
+    },
+    "externalPaymentId": {
+      "@id": "clover:externalPaymentId",
+      "@type": "xsd:string"
+    },
+    "gatewayProcessingTime": {
+      "@id": "clover:gatewayProcessingTime",
+      "@type": "xsd:integer"
+    },
+    "offline": {
+      "@id": "clover:offline",
+      "@type": "xsd:boolean"
+    },
+    "result": {
+      "@id": "clover:result",
+      "@type": "xsd:string"
+    },
+    "cardTransaction": {
+      "@id": "clover:cardTransaction",
+      "@type": "@id"
+    },
+    "attributes": {
+      "@id": "clover:attributes",
+      "@type": "@id"
+    },
+    "lineItemPayments": {
+      "@id": "clover:lineItemPayments",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "authorization": {
+      "@id": "clover:authorization",
+      "@type": "@id"
+    },
+    "voidPaymentRef": {
+      "@id": "clover:voidPaymentRef",
+      "@type": "@id"
+    },
+    "voidReason": {
+      "@id": "clover:voidReason",
+      "@type": "xsd:string"
+    },
+    "voidReasonDetails": {
+      "@id": "clover:voidReasonDetails",
+      "@type": "@id"
+    },
+    "dccInfo": {
+      "@id": "clover:dccInfo",
+      "@type": "@id"
+    },
+    "transactionSettings": {
+      "@id": "clover:transactionSettings",
+      "@type": "@id"
+    },
+    "germanInfo": {
+      "@id": "clover:germanInfo",
+      "@type": "@id"
+    },
+    "appTracking": {
+      "@id": "clover:appTracking",
+      "@type": "@id"
+    },
+    "cashAdvanceExtra": {
+      "@id": "clover:cashAdvanceExtra",
+      "@type": "@id"
+    },
+    "transactionInfo": {
+      "@id": "clover:transactionInfo",
+      "@type": "@id"
+    },
+    "signatureDisclaimer": {
+      "@id": "clover:signatureDisclaimer",
+      "@type": "@id"
+    },
+    "increments": {
+      "@id": "clover:increments",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "purchaseCardL2": {
+      "@id": "clover:purchaseCardL2",
+      "@type": "@id"
+    },
+    "purchaseCardL3": {
+      "@id": "clover:purchaseCardL3",
+      "@type": "@id"
+    },
+    "oceanGatewayInfo": {
+      "@id": "clover:oceanGatewayInfo",
+      "@type": "@id"
+    },
+    "terminalManagementComponents": {
+      "@id": "clover:terminalManagementComponents",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "emiInfo": {
+      "@id": "clover:emiInfo",
+      "@type": "@id"
+    }
+  }
+}

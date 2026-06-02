@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Employee",
+  "description": "Clover Employee resource. Schema derived from the Clover Platform REST API v3 reference.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/clover/refs/heads/main/json-schema/platform-rest-api-employee-schema.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier",
+      "example": "9ABCDEF1234567"
+    },
+    "name": {
+      "type": "string",
+      "description": "Full name of the employee",
+      "example": "Example name"
+    },
+    "nickname": {
+      "type": "string",
+      "description": "Nickname of the employee (shows up on receipts)",
+      "example": "Example nickname"
+    },
+    "customId": {
+      "type": "string",
+      "description": "Custom ID of the employee",
+      "example": "9ABCDEF1234567"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email of the employee (optional)",
+      "example": "merchant@example.com"
+    },
+    "inviteSent": {
+      "type": "boolean",
+      "description": "Returns true if this employee was sent an invite to activate their account",
+      "example": true
+    },
+    "claimedTime": {
+      "type": "integer",
+      "description": "Timestamp of when this employee claimed their account",
+      "example": 1718153645000
+    },
+    "deletedTime": {
+      "type": "integer",
+      "description": "Timestamp of when this employee was deleted",
+      "example": 1718153645000
+    },
+    "pin": {
+      "type": "string",
+      "description": "Employee PIN (hashed)",
+      "example": "example-pin"
+    },
+    "unhashedPin": {
+      "type": "string",
+      "description": "Employee PIN",
+      "example": "example-unhashedPin"
+    },
+    "role": {
+      "type": "string",
+      "description": "Employee System Role",
+      "enum": [
+        "OWNER",
+        "ADMIN",
+        "MANAGER",
+        "EMPLOYEE"
+      ],
+      "example": "OWNER"
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "isOwner": {
+      "type": "boolean",
+      "description": "Returns true if this employee is the owner account for this merchant",
+      "example": true
+    },
+    "shifts": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "payments": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "orders": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "employeeCards": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "merchant": {
+      "type": "object",
+      "example": {}
+    }
+  }
+}

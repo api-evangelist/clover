@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Order",
+  "description": "Clover Order resource. Schema derived from the Clover Platform REST API v3 reference.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/clover/refs/heads/main/json-schema/platform-rest-api-order-schema.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier",
+      "example": "9ABCDEF1234567"
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency of this order. For example, \"USD\"",
+      "example": "USD"
+    },
+    "customers": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "employee": {
+      "type": "object",
+      "example": {}
+    },
+    "total": {
+      "type": "integer",
+      "description": "Total price of the order in cents",
+      "example": 1099
+    },
+    "externalReferenceId": {
+      "type": "string",
+      "description": "External reference id if present in the order",
+      "example": "9ABCDEF1234567"
+    },
+    "unpaidBalance": {
+      "type": "integer",
+      "description": "The net of orders with payment minus the amount collected. Includes refunds, manual refunds, tax, tip, service charge, non-revenue items, paid gift card activations and loads and discounts",
+      "example": 1099
+    },
+    "paymentState": {
+      "type": "string",
+      "description": "Is this order paid or not?",
+      "enum": [
+        "OPEN",
+        "PAID",
+        "REFUNDED",
+        "CREDITED",
+        "PARTIALLY_PAID",
+        "PARTIALLY_REFUNDED"
+      ],
+      "example": "OPEN"
+    },
+    "title": {
+      "type": "string",
+      "example": "example-title"
+    },
+    "note": {
+      "type": "string",
+      "description": "An arbitrary string with information about this order, may be printed on the order receipt and displayed in apps",
+      "example": "Example note value."
+    },
+    "orderType": {
+      "type": "object",
+      "example": {}
+    },
+    "taxRemoved": {
+      "type": "boolean",
+      "description": "If true then this order should not have taxes applied to it",
+      "example": true
+    },
+    "isVat": {
+      "type": "boolean",
+      "description": "This order was created by merchant with VAT enabled.",
+      "example": true
+    },
+    "state": {
+      "type": "string",
+      "description": "A String generally describing the state of the order. If no value is set, the state defaults to null, which indicates a hidden order. A hidden order is not displayed in user interfaces and can only be retrieved by its id. When creating an order via the REST API the value must be manually set to \"open\". When creating an order via the Android SDK the value must be left empty and the value will be updated to \"open\" and \"locked\" automatically when actions such as taking payments and adding line items occur. The state value is not checked or enforced by the Clover server, at this time it is used for visualization purposes only.",
+      "example": "open"
+    },
+    "manualTransaction": {
+      "type": "boolean",
+      "description": "Whether this order represents a manual transaction. A manual transaction is a transaction that has an arbitrary amount defined and is not associated with any inventory items. For example, the Clover Sale App and Clover Manual Transaction App create manual transactions. A manual transactions will have a single associated line item to hold the sale amount, but the generated receipt will display this differently to indicate that it is not considered a typical order with inventory items.",
+      "example": true
+    },
+    "groupLineItems": {
+      "type": "boolean",
+      "description": "Whether similar line items should be grouped together on the receipt that this order generates. Item \"similarity\" is based on items having matching values for a set of properties including price, modifiers, and discounts.",
+      "example": true
+    },
+    "testMode": {
+      "type": "boolean",
+      "description": "Whether this order was created in test mode. Payments made against test orders are not processed. Test mode orders can be deleted from the Orders App on the merchant's device or web dashboard (https://www.clover.com/orders/m/{mId}/orders). They will also be deleted when the device sends a POST to the /v2/merchant/{mId}/orders/delete_all_tests endpoint.",
+      "example": true
+    },
+    "payType": {
+      "type": "string",
+      "description": "Possible values: SPLIT_GUEST, SPLIT_ITEM, SPLIT_CUSTOM, FULL. During the payment flow, if the user chooses to split the payment for this order, this field will be set to one of the SPLIT_* values to indicate how the full amount should be split. If the user chooses to pay for the order in full with one payment, then this field will be FULL.",
+      "enum": [
+        "SPLIT_GUEST",
+        "SPLIT_ITEM",
+        "SPLIT_CUSTOM",
+        "FULL"
+      ],
+      "example": "SPLIT_GUEST"
+    },
+    "createdTime": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Creation timestamp",
+      "example": 1718153645000
+    },
+    "clientCreatedTime": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Time at which the client created this order.",
+      "example": 1718153645000
+    },
+    "modifiedTime": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Last modified time of the order.",
+      "example": 1718153645000
+    },
+    "deletedTimestamp": {
+      "type": "integer",
+      "format": "int64",
+      "example": 1718153645000
+    },
+    "serviceCharge": {
+      "type": "object",
+      "example": {}
+    },
+    "additionalCharges": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "discounts": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "lineItems": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "payments": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "refunds": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "credits": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "voids": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "preAuths": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "device": {
+      "type": "object",
+      "example": {}
+    },
+    "authorizations": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "merchant": {
+      "type": "object",
+      "example": {}
+    },
+    "printGroups": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "orderFulfillmentEvent": {
+      "type": "object",
+      "example": {}
+    }
+  }
+}

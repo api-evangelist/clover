@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/clover/refs/heads/main/json-structure/ecommerce-api-refund-structure.json",
+  "name": "Refund",
+  "description": "Refund schema from Clover Ecommerce API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "9ABCDEF1234567"
+    },
+    "charge": {
+      "type": "string",
+      "example": "example-charge"
+    },
+    "amount": {
+      "type": "int32",
+      "example": 1099
+    },
+    "status": {
+      "type": "string",
+      "example": "open"
+    }
+  }
+}

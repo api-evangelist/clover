@@ -4,8 +4,8 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Clover
 providerId: clover
 created: '2026-05-08'
-modified: '2026-05-08'
-reconciled: false
+modified: '2026-06-02'
+reconciled: true
 tags:
 - POS
 - Payments
@@ -19,6 +19,7 @@ description: Clover plans (Starter, Standard, Advanced, etc.) are merchant SaaS 
 notes: App developers can publish to the Clover App Market (revenue-share model).
 sources:
 - https://www.clover.com/pos-systems
+- https://docs.clover.com/dev/docs/transaction-data
 - https://docs.clover.com/
 plans:
 - id: clover-developer
@@ -52,13 +53,34 @@ plans:
     metric: merchant subscription
     limit: -1
     timeFrame: monthly
-    geo: global
+    geo: US
     unit: 1
     price: varies by reseller and bundle
+    userMultiplied: false
+  - label: Card-Present Processing
+    name: card_present_processing
+    type: metered
+    metric: transaction
+    limit: -1
+    timeFrame: usage
+    geo: US
+    unit: 1
+    price: '2.3% - 2.6% + $0.10'
+    userMultiplied: false
+  - label: Keyed / Online Processing
+    name: card_not_present_processing
+    type: metered
+    metric: transaction
+    limit: -1
+    timeFrame: usage
+    geo: US
+    unit: 1
+    price: '3.5% + $0.10'
     userMultiplied: false
   elements:
   - name: POS Hardware
   - name: Payment Processing
+  - name: Ecommerce / Online Payments
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

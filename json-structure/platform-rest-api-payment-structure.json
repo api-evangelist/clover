@@ -1,0 +1,251 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/clover/refs/heads/main/json-structure/platform-rest-api-payment-structure.json",
+  "name": "Payment",
+  "description": "Clover Payment resource. Schema derived from the Clover Platform REST API v3 reference.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "13-digits unique identifier of the Merchant.",
+      "example": "9ABCDEF1234567"
+    },
+    "order": {
+      "type": "object",
+      "example": {}
+    },
+    "device": {
+      "type": "object",
+      "example": {}
+    },
+    "tender": {
+      "type": "object",
+      "example": {}
+    },
+    "amount": {
+      "type": "int64",
+      "description": "Total amount paid.",
+      "example": 1099
+    },
+    "tipAmount": {
+      "type": "int32",
+      "description": "Tip amount paid.",
+      "example": 1099
+    },
+    "taxAmount": {
+      "type": "int32",
+      "description": "Tax amount paid.",
+      "example": 1099
+    },
+    "cashbackAmount": {
+      "type": "int32",
+      "description": "Cash amount given by the customer to the merchant.",
+      "example": 1099
+    },
+    "cashTendered": {
+      "type": "int32",
+      "description": "Payment amount given by the customer.",
+      "example": 1
+    },
+    "externalPaymentId": {
+      "type": "string",
+      "description": "External payment identifier.",
+      "example": "9ABCDEF1234567"
+    },
+    "employee": {
+      "type": "object",
+      "example": {}
+    },
+    "createdTime": {
+      "type": "int64",
+      "description": "Time when payment was recorded on the server.",
+      "example": 1718153645000
+    },
+    "clientCreatedTime": {
+      "type": "int64",
+      "description": "Time when payment was recorded on the client server.",
+      "example": 1718153645000
+    },
+    "gatewayProcessingTime": {
+      "type": "int64",
+      "description": "Time when the transaction was processed by the payment gateway.",
+      "example": 1718153645000
+    },
+    "modifiedTime": {
+      "type": "int64",
+      "description": "Last modified time of the payment.",
+      "example": 1718153645000
+    },
+    "offline": {
+      "type": "boolean",
+      "description": "Indicates if the tender option is offline.",
+      "example": true
+    },
+    "result": {
+      "type": "string",
+      "description": "Indicates the result of the tender.\n Values: Success, fail, initiated, voided, voiding, void_failed, auth, auth_completed, discount, offline_retrying, and pending.",
+      "enum": [
+        "SUCCESS",
+        "FAIL",
+        "INITIATED",
+        "VOIDED",
+        "VOIDING",
+        "VOID_FAILED",
+        "AUTH",
+        "AUTH_COMPLETED",
+        "DISCOUNT",
+        "OFFLINE_RETRYING",
+        "PENDING"
+      ],
+      "example": "SUCCESS"
+    },
+    "cardTransaction": {
+      "type": "object",
+      "example": {}
+    },
+    "serviceCharge": {
+      "type": "object",
+      "example": {}
+    },
+    "attributes": {
+      "type": "object",
+      "example": {}
+    },
+    "additionalCharges": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "taxRates": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "refunds": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "note": {
+      "type": "string",
+      "description": "Note for the refund.",
+      "example": "Example note value."
+    },
+    "lineItemPayments": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "authorization": {
+      "type": "object",
+      "example": {}
+    },
+    "voidPaymentRef": {
+      "type": "object",
+      "example": {}
+    },
+    "voidReason": {
+      "type": "string",
+      "description": "If voided, the reason for the payment void, if available.",
+      "enum": [
+        "USER_CANCEL",
+        "TRANSPORT_ERROR",
+        "REJECT_SIGNATURE",
+        "REJECT_PARTIAL_AUTH",
+        "NOT_APPROVED",
+        "FAILED",
+        "AUTH_CLOSED_NEW_CARD",
+        "DEVELOPER_PAY_PARTIAL_AUTH",
+        "REJECT_DUPLICATE",
+        "REJECT_OFFLINE",
+        "GIFTCARD_LOAD_FAILED",
+        "USER_GIFTCARD_LOAD_CANCEL",
+        "DEVELOPER_PAY_TIP_ADJUST_FAILED",
+        "USER_CUSTOMER_CANCEL",
+        "FRAUD",
+        "REJECT_GREATER_APPROVED_AMOUNT",
+        "TIMEOUT"
+      ],
+      "example": "USER_CANCEL"
+    },
+    "voidReasonDetails": {
+      "type": "object",
+      "example": {}
+    },
+    "dccInfo": {
+      "type": "object",
+      "example": {}
+    },
+    "transactionSettings": {
+      "type": "object",
+      "example": {}
+    },
+    "germanInfo": {
+      "type": "object",
+      "example": {}
+    },
+    "appTracking": {
+      "type": "object",
+      "example": {}
+    },
+    "cashAdvanceExtra": {
+      "type": "object",
+      "example": {}
+    },
+    "transactionInfo": {
+      "type": "object",
+      "example": {}
+    },
+    "signatureDisclaimer": {
+      "type": "object",
+      "example": {}
+    },
+    "externalReferenceId": {
+      "type": "string",
+      "description": "External reference identifier (ID) if associated with the payment.",
+      "example": "9ABCDEF1234567"
+    },
+    "merchant": {
+      "type": "object",
+      "example": {}
+    },
+    "increments": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "purchaseCardL2": {
+      "type": "object",
+      "example": {}
+    },
+    "purchaseCardL3": {
+      "type": "object",
+      "example": {}
+    },
+    "oceanGatewayInfo": {
+      "type": "object",
+      "example": {}
+    },
+    "terminalManagementComponents": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "emiInfo": {
+      "type": "object",
+      "example": {}
+    }
+  }
+}

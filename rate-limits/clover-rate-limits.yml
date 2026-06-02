@@ -4,8 +4,8 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Clover
 providerId: clover
 created: '2026-05-08'
-modified: '2026-05-08'
-reconciled: false
+modified: '2026-06-02'
+reconciled: true
 tags:
 - POS
 - Payments
@@ -15,23 +15,55 @@ tags:
 - Rate Limiting
 - Quotas
 - Throttling
-description: 'Clover REST API enforces per-merchant and per-app rate limits. Documented guidance: stay
-  under 16 requests/second per merchant token; bulk operations have separate guidance. Honor 429 with
-  Retry-After.'
-notes: Confirm tenant-specific quotas in your Clover developer dashboard.
+description: Clover enforces both request-rate and concurrency limits on the REST API, scoped per OAuth
+  app and per access token. Documented limits are 50 requests/second per app and 16 requests/second per
+  token, with 10 concurrent requests per app and 5 concurrent requests per token. Exceeding any limit
+  returns HTTP 429 with an X-RateLimit-* header identifying which limit was hit; concurrent-limit responses
+  include a retry-after header.
+notes: Confirm tenant-specific quotas in your Clover developer dashboard. Making a request before the
+  retry-after window elapses increases the waiting period.
 sources:
-- https://docs.clover.com/reference
+- https://docs.clover.com/dev/docs/api-usage-rate-limits
+- https://docs.clover.com/dev/reference/api-reference-overview
+headers:
+  retryAfter: retry-after
+  crossTokenLimit: X-RateLimit-crossTokenLimit
+  crossTokenConcurrentLimit: X-RateLimit-crossTokenConcurrentLimit
+  tokenLimit: X-RateLimit-tokenLimit
+  tokenConcurrentLimit: X-RateLimit-tokenConcurrentLimit
 responseCodes:
   throttled: 429
+  concurrencyExceeded: 429
 limits:
-- name: Default REST
-  scope: merchant
-  metric: requests/second
-  limit: 'guidance: ~16 RPS per merchant'
-  notes: Honor 429 and Retry-After.
+- name: Per-app request rate
+  scope: app
+  metric: requests_per_second
+  limit: 50
+  timeFrame: second
+  notes: Across all tokens issued to the app.
+- name: Per-token request rate
+  scope: key
+  metric: requests_per_second
+  limit: 16
+  timeFrame: second
+  notes: Per merchant access token.
+- name: Per-app concurrency
+  scope: app
+  metric: concurrent_requests
+  limit: 10
+  notes: Simultaneous in-flight requests across the app.
+- name: Per-token concurrency
+  scope: key
+  metric: concurrent_requests
+  limit: 5
+  notes: Simultaneous in-flight requests per access token; 429 responses carry a retry-after header.
 policies:
 - name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  description: Pause one second on the first 429, then double the wait on each subsequent 429 until a
+    successful response; honor the retry-after header on concurrency-limit responses.
+- name: Scope Awareness
+  description: Inspect the X-RateLimit-* response header to determine whether the app-level or token-level
+    limit was exceeded, and throttle the appropriate dimension.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

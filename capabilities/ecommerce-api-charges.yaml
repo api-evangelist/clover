@@ -1,0 +1,274 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Clover Ecommerce API — CHARGES
+  description: 'Clover Ecommerce API — CHARGES. 4 operations. Lead operation: Create a Charge. Self-contained Naftiko capability covering one Clover business surface.'
+  tags:
+  - Clover
+  - Ecommerce API
+  - CHARGES
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    CLOVER_ECOMM_API_KEY: CLOVER_ECOMM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ecommerce-api-charges
+    baseUri: https://scl.clover.com
+    description: Clover Ecommerce API — CHARGES business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.CLOVER_ECOMM_API_KEY}}'
+    resources:
+    - name: v1-charges
+      path: /v1/charges
+      operations:
+      - name: CreateCharge
+        method: POST
+        description: Clover Create a Charge
+        inputParameters:
+        - name: x-forwarded-for
+          in: header
+          type: string
+          required: true
+          description: "Client internet protocol (IP) address of the web browser from which the customer’s payment originates.\n `Note:` Header x-forwarded-for is required for enhanced security and accuracy of Clover services. Requests that don’t include the header are not successful."
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request body payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-charges
+      path: /v1/charges
+      operations:
+      - name: GetCharges
+        method: GET
+        description: Clover Get Charges
+        inputParameters:
+        - name: created
+          in: query
+          type: string
+          required: false
+          description: created parameter.
+        - name: customer
+          in: query
+          type: string
+          required: false
+          description: Displays charges associated with the provided `customer ID`.
+        - name: ending_before
+          in: query
+          type: string
+          required: false
+          description: Cursor used in pagination. The ending_before object ID sets your place in the list. For example, if you receive 100 objects in a list starting with obj_bar, add ending_before=obj_bar in your subsequent request to retrieve the previous page of the list.
+        - name: expand
+          in: query
+          type: array
+          required: false
+          description: Additional information provided as an expanded response, for example, a related object nested within the parent. See [Use expandable fields](https://docs.clover.com/docs/expanding-fields).
+        - name: limit
+          in: query
+          type: integer
+          required: false
+          description: "Number of objects returned by the request, ranging between 1 and 100.\n Default: 10"
+        - name: threeds_validation_result
+          in: query
+          type: string
+          required: false
+          description: EMV® 3-D Secure (3DS) authentication result. 3-D Secure is a protocol that provides an additional security layer for online credit and debit card-not-present (CNP) transactions.
+        - name: is_threeds
+          in: query
+          type: boolean
+          required: false
+          description: Indicates whether the transaction is 3-D Secure authenticated.
+        - name: starting_after
+          in: query
+          type: string
+          required: false
+          description: Cursor used in pagination. The starting_after object ID sets your place in the list. For example, if you receive 100 objects in a list starting with obj_foo, add starting_after=obj_foo in your subsequent request to retrieve the next page of the list.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-charges-chargeid-capture
+      path: /v1/charges/{chargeId}/capture
+      operations:
+      - name: CaptureCharge
+        method: POST
+        description: Clover Capture a Charge
+        inputParameters:
+        - name: x-forwarded-for
+          in: header
+          type: string
+          required: true
+          description: "Client internet protocol (IP) address of the web browser from which the customer’s payment originates.\n `Note:` Header x-forwarded-for is required for enhanced security and accuracy of Clover services. Requests that don’t include the header are not successful."
+        - name: chargeId
+          in: path
+          type: string
+          required: true
+          description: Universal unique identifier (UUID) of the charge to capture.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request body payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-charges-chargeid
+      path: /v1/charges/{chargeId}
+      operations:
+      - name: GetChargesCharge
+        method: GET
+        description: Clover Get a Charge
+        inputParameters:
+        - name: chargeId
+          in: path
+          type: string
+          required: true
+          description: Universally unique identifier (UUID) of the charge.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ecommerce-api-charges-rest
+    port: 8080
+    description: REST adapter for Clover Ecommerce API — CHARGES. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/charges
+      name: v1-charges
+      description: REST surface for CHARGES.
+      operations:
+      - method: POST
+        name: CreateCharge
+        description: Clover Create a Charge
+        call: ecommerce-api-charges.CreateCharge
+        with:
+          x-forwarded-for: rest.x-forwarded-for
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/charges
+      name: v1-charges
+      description: REST surface for CHARGES.
+      operations:
+      - method: GET
+        name: GetCharges
+        description: Clover Get Charges
+        call: ecommerce-api-charges.GetCharges
+        with:
+          created: rest.created
+          customer: rest.customer
+          ending_before: rest.ending_before
+          expand: rest.expand
+          limit: rest.limit
+          threeds_validation_result: rest.threeds_validation_result
+          is_threeds: rest.is_threeds
+          starting_after: rest.starting_after
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/charges-chargeid-capture
+      name: v1-charges-chargeid-capture
+      description: REST surface for CHARGES.
+      operations:
+      - method: POST
+        name: CaptureCharge
+        description: Clover Capture a Charge
+        call: ecommerce-api-charges.CaptureCharge
+        with:
+          x-forwarded-for: rest.x-forwarded-for
+          chargeId: rest.chargeId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/charges-chargeid
+      name: v1-charges-chargeid
+      description: REST surface for CHARGES.
+      operations:
+      - method: GET
+        name: GetChargesCharge
+        description: Clover Get a Charge
+        call: ecommerce-api-charges.GetChargesCharge
+        with:
+          chargeId: rest.chargeId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ecommerce-api-charges-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Clover Ecommerce API — CHARGES. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: create-charge
+      description: Clover Create a Charge
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ecommerce-api-charges.CreateCharge
+      with:
+        x-forwarded-for: tools.x-forwarded-for
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-charges
+      description: Clover Get Charges
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ecommerce-api-charges.GetCharges
+      with:
+        created: tools.created
+        customer: tools.customer
+        ending_before: tools.ending_before
+        expand: tools.expand
+        limit: tools.limit
+        threeds_validation_result: tools.threeds_validation_result
+        is_threeds: tools.is_threeds
+        starting_after: tools.starting_after
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: capture-charge
+      description: Clover Capture a Charge
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ecommerce-api-charges.CaptureCharge
+      with:
+        x-forwarded-for: tools.x-forwarded-for
+        chargeId: tools.chargeId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-charge
+      description: Clover Get a Charge
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ecommerce-api-charges.GetChargesCharge
+      with:
+        chargeId: tools.chargeId
+      outputParameters:
+      - type: object
+        mapping: $.

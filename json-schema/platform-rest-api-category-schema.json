@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Category",
+  "description": "Clover Category resource. Schema derived from the Clover Platform REST API v3 reference.",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/clover/refs/heads/main/json-schema/platform-rest-api-category-schema.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier",
+      "example": "9ABCDEF1234567"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the category which will appear in Clover Register App.",
+      "example": "Example name"
+    },
+    "sortOrder": {
+      "type": "integer",
+      "description": "Integer used to determine how this category is sorted against other categories.",
+      "example": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "example": []
+    },
+    "colorCode": {
+      "type": "string",
+      "description": "Hex code representation of the color assigned to this category and its items, in the form of #fff, #ffffff, or #ffffffff",
+      "example": "ABC123"
+    },
+    "deleted": {
+      "type": "boolean",
+      "description": "Whether the category has been deleted.",
+      "example": true
+    },
+    "modifiedTime": {
+      "type": "integer",
+      "description": "The time this category was last modified",
+      "example": 1718153645000
+    },
+    "canonical": {
+      "type": "object",
+      "example": {}
+    }
+  }
+}
