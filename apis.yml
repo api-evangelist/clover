@@ -2,11 +2,11 @@ aid: clover
 url: https://raw.githubusercontent.com/api-evangelist/clover/refs/heads/main/apis.yml
 name: Clover
 kind: company
-description: Clover is a Fiserv-owned point-of-sale platform for small and mid-size merchants. The Clover
-  developer platform exposes the Clover REST API for inventory/orders/customers/transactions, the Ecommerce
-  API for online payments, an Android Payments API and Clover Android SDK for native apps on Clover devices,
-  the REST Pay Display API for semi-integrated POS, the Remote Pay SDKs (cloud, Windows, iOS, Android),
-  and the Clover Go SDK.
+description: >-
+  Clover is a Fiserv-owned point-of-sale platform for small and mid-size merchants. The Clover developer platform
+  exposes the Clover REST API for inventory/orders/customers/transactions, the Ecommerce API for online payments, an
+  Android Payments API and Clover Android SDK for native apps on Clover devices, the REST Pay Display API for
+  semi-integrated POS, the Remote Pay SDKs (cloud, Windows, iOS, Android), and the Clover Go SDK.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Restaurant
@@ -21,130 +21,112 @@ specificationVersion: '0.19'
 apis:
   - aid: clover:rest-api
     name: Clover REST API
-    description: 'Foundational REST API for merchant data: inventory, orders, customers, employees, line
-      items, modifiers, payments, refunds, and more. OAuth-based auth with sandbox and production environments.'
+    description: >-
+      Foundational REST API for merchant data: inventory, orders, customers, employees, line items, modifiers, payments,
+      refunds, and more. OAuth-based auth with sandbox and production environments.
     humanURL: https://docs.clover.com/reference
     baseURL: https://api.clover.com
     tags:
-    - REST
-    - Merchant
-    - Inventory
-    - Orders
+      - REST
+      - Merchant
+      - Inventory
+      - Orders
     properties:
-    - type: Documentation
-      url: https://docs.clover.com/reference
-    - type: Sandbox
-      url: https://sandbox.dev.clover.com/
-    - type: OpenAPI
-      url: openapi/clover-platform-rest-api-openapi.yml
-    - type: NaftikoCapability
-      url: capabilities/platform-rest-api-inventory.yaml
-    - type: NaftikoCapability
-      url: capabilities/platform-rest-api-orders.yaml
-    - type: NaftikoCapability
-      url: capabilities/platform-rest-api-payments.yaml
-    - type: NaftikoCapability
-      url: capabilities/platform-rest-api-customers.yaml
-    - type: NaftikoCapability
-      url: capabilities/platform-rest-api-employees.yaml
+      - type: Documentation
+        url: https://docs.clover.com/reference
+      - type: Sandbox
+        url: https://sandbox.dev.clover.com/
+      - type: OpenAPI
+        url: openapi/clover-platform-rest-api-openapi.yml
   - aid: clover:ecommerce-api
     name: Clover Ecommerce API
     description: Online payments API for charges, refunds, tokenization, recurring payments, and gift cards.
     humanURL: https://docs.clover.com/
     baseURL: https://api.clover.com
     tags:
-    - REST
-    - Payments
-    - Ecommerce
+      - REST
+      - Payments
+      - Ecommerce
     properties:
-    - type: Documentation
-      url: https://docs.clover.com/
-    - type: OpenAPI
-      url: openapi/clover-ecommerce-api-openapi.yml
-    - type: NaftikoCapability
-      url: capabilities/ecommerce-api-charges.yaml
-    - type: NaftikoCapability
-      url: capabilities/ecommerce-api-refunds.yaml
-    - type: NaftikoCapability
-      url: capabilities/ecommerce-api-tokens.yaml
-    - type: NaftikoCapability
-      url: capabilities/ecommerce-api-checkout.yaml
+      - type: Documentation
+        url: https://docs.clover.com/
+      - type: OpenAPI
+        url: openapi/clover-ecommerce-api-openapi.yml
   - aid: clover:android-sdk
     name: Clover Android SDK
-    description: Native SDK for Android apps running on Clover devices, with access to merchant data and
-      device hardware.
+    description: Native SDK for Android apps running on Clover devices, with access to merchant data and device hardware.
     humanURL: https://docs.clover.com/
     tags:
-    - SDK
-    - Android
-    - Hardware
+      - SDK
+      - Android
+      - Hardware
     properties:
-    - type: Documentation
-      url: https://docs.clover.com/
-    - type: SDK
-      title: Android SDK (Maven)
-      url: https://search.maven.org/artifact/com.clover.sdk/clover-android-sdk
-    - type: SDK
-      title: GitHub Source
-      url: https://github.com/clover/clover-android-sdk
+      - type: Documentation
+        url: https://docs.clover.com/
+      - type: SDK
+        title: Android SDK (Maven)
+        url: https://search.maven.org/artifact/com.clover.sdk/clover-android-sdk
+      - type: SDK
+        title: GitHub Source
+        url: https://github.com/clover/clover-android-sdk
   - aid: clover:android-payments-api
     name: Clover Android Payments API
     description: Payment-processing API for Android apps on Clover devices that abstracts device configuration.
     humanURL: https://docs.clover.com/
     tags:
-    - SDK
-    - Android
-    - Payments
+      - SDK
+      - Android
+      - Payments
     properties:
-    - type: Documentation
-      url: https://docs.clover.com/
+      - type: Documentation
+        url: https://docs.clover.com/
   - aid: clover:rest-pay-display
     name: Clover REST Pay Display API
     description: Semi-integrated POS API for merchant-facing Pay Display flows on Clover devices.
     humanURL: https://docs.clover.com/
     tags:
-    - REST
-    - Pay Display
-    - Semi-Integrated
+      - REST
+      - Pay Display
+      - Semi-Integrated
     properties:
-    - type: Documentation
-      url: https://docs.clover.com/
+      - type: Documentation
+        url: https://docs.clover.com/
   - aid: clover:remote-pay-sdks
     name: Clover Remote Pay SDKs
     description: Remote Pay SDKs for Cloud, Windows, iOS, and Android integrations with Clover devices.
     humanURL: https://docs.clover.com/
     tags:
-    - SDK
-    - Remote Pay
+      - SDK
+      - Remote Pay
     properties:
-    - type: Documentation
-      url: https://docs.clover.com/
-    - type: SDK
-      title: Cloud SDK (npm)
-      url: https://www.npmjs.com/package/remote-pay-cloud
-    - type: SDK
-      title: Windows SDK
-      url: https://github.com/clover/remote-pay-windows
-    - type: SDK
-      title: Android SDK
-      url: https://github.com/clover/remote-pay-android
-    - type: SDK
-      title: iOS SDK
-      url: https://github.com/clover/remote-pay-ios
+      - type: Documentation
+        url: https://docs.clover.com/
+      - type: SDK
+        title: Cloud SDK (npm)
+        url: https://www.npmjs.com/package/remote-pay-cloud
+      - type: SDK
+        title: Windows SDK
+        url: https://github.com/clover/remote-pay-windows
+      - type: SDK
+        title: Android SDK
+        url: https://github.com/clover/remote-pay-android
+      - type: SDK
+        title: iOS SDK
+        url: https://github.com/clover/remote-pay-ios
   - aid: clover:go-sdk
     name: Clover Go SDK
     description: Mobile SDK (iOS, Android) for accepting card-present payments via Clover Go readers.
     humanURL: https://docs.clover.com/
     tags:
-    - SDK
-    - Mobile
-    - Card Reader
+      - SDK
+      - Mobile
+      - Card Reader
     properties:
-    - type: Documentation
-      url: https://docs.clover.com/
-    - type: SDK
-      title: iOS Payment SDK
-      url: https://github.com/clover/clover-ios-payment-sdk
+      - type: Documentation
+        url: https://docs.clover.com/
+      - type: SDK
+        title: iOS Payment SDK
+        url: https://github.com/clover/clover-ios-payment-sdk
 common:
   - type: GitHubOrganization
     url: https://github.com/clover
