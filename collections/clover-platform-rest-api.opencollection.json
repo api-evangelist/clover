@@ -1,0 +1,881 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clover Platform REST API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "INVENTORY",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clover Get a Single Inventory Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clover.com/v3/merchants/:mId/items/:itemId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant idenitifier."
+              },
+              {
+                "name": "itemId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Inventory item identifier."
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Additional information provided as an expanded response: [tags, categories, taxRates, modifierGroups, itemStock, options]"
+              }
+            ]
+          },
+          "docs": "Retrieves an existing inventory item."
+        },
+        {
+          "info": {
+            "name": "Clover Delete an Inventory Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.clover.com/v3/merchants/:mId/items/:itemId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "itemId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Item Id"
+              }
+            ]
+          },
+          "docs": "Delete an inventory item"
+        },
+        {
+          "info": {
+            "name": "Clover Get All Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clover.com/v3/merchants/:mId/categories",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              },
+              {
+                "name": "filter",
+                "value": "example-filter",
+                "type": "query",
+                "description": "Filter fields to display search results: [modifiedTime, deleted, sortOrder, name, colorCode, id]"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Additional information provided as an expanded response: [items]"
+              },
+              {
+                "name": "offset",
+                "value": "1",
+                "type": "query",
+                "description": "Position of the first line item returned in the search results. Indicates the number of line items that are excluded from the search results."
+              },
+              {
+                "name": "limit",
+                "value": "1",
+                "type": "query",
+                "description": "Maximum number of line items returned in the search result.\n Default: 100 \n Maximum limit: 1000"
+              }
+            ]
+          },
+          "docs": "Retrieves all categories. Items display on the Register app within categories in the order in which they are added to a category. Items may be associated with one or more categories or may not be associated with any category. Categories display in the Register app based on the sort order value for each category."
+        },
+        {
+          "info": {
+            "name": "Clover Create an Item Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.clover.com/v3/merchants/:mId/categories",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable field: [items]"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an item category"
+        },
+        {
+          "info": {
+            "name": "Clover Get All Inventory Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clover.com/v3/merchants/:mId/items",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              },
+              {
+                "name": "filter",
+                "value": "example-filter",
+                "type": "query",
+                "description": "Filter fields to display search results: [lowStock, modifiedTime, hidden, itemCode, available, option.id, modifierGroup.id, autoManage, price, id, sku, defaultTaxRates, tags.id, alternateName, isRevenue, tags.name, deleted, item.id, name, itemStock.quantity, itemGroup.id, isAgeRestricted, ageRestrictedType, minimumAge]"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Additional information provided as an expanded response: [tags, categories, taxRates, modifierGroups, itemStock, options, ageRestricted]"
+              },
+              {
+                "name": "offset",
+                "value": "1",
+                "type": "query",
+                "description": "Position of the first line item returned in the search results. Indicates the number of line items that are excluded from the search results."
+              },
+              {
+                "name": "limit",
+                "value": "1",
+                "type": "query",
+                "description": "Maximum number of line items returned in the search result.\n Default: 100 \n Maximum limit: 1000"
+              }
+            ]
+          },
+          "docs": "Displays line items for each category in the inventory for an order."
+        },
+        {
+          "info": {
+            "name": "Clover Create an Inventory Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.clover.com/v3/merchants/:mId/items",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields to display additional nested information: [tags, categories, taxRates, modifierGroups, itemStock, options, ageRestricted]"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an inventory item."
+        },
+        {
+          "info": {
+            "name": "Clover Get a Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clover.com/v3/merchants/:mId/categories/:catId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "catId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Category Id"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable field: [items]"
+              }
+            ]
+          },
+          "docs": "Get a category"
+        },
+        {
+          "info": {
+            "name": "Clover Create Multiple Inventory Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.clover.com/v3/merchants/:mId/bulk_items",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              }
+            ]
+          },
+          "docs": "Creates multiple inventory items in a single request. Use the PUT HTTP method to [update existing inventory items](https://docs.clover.com/reference/inventorybulkpatchinventoryitems)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "PAYMENTS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clover Get a Single Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clover.com/v3/merchants/:mId/payments/:payId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "payId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Payment Id"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields: [tender, germanInfo, lineItemPayments, cardTransaction, dccInfo, employee, refunds, transactionInfo, externalReferenceId, oceanGatewayInfo, taxRates, additionalCharges, appTracking, paymentAttributes, order]"
+              }
+            ]
+          },
+          "docs": "Retrieve a single payment information, including the total amount, tip amount, tax amount, and result status."
+        },
+        {
+          "info": {
+            "name": "Clover Get All Payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clover.com/v3/merchants/:mId/payments",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              },
+              {
+                "name": "filter",
+                "value": "example-filter",
+                "type": "query",
+                "description": "Filter fields to display search results: [modifiedTime, device.id, externalReferenceId, result, offline, createdTime, externalPaymentId, voided, id, tender.id, employee.id, order.modifiedTime, amount, cardType, clientCreatedTime]"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields to display additional nested information: [tender, germanInfo, lineItemPayments, cardTransaction, dccInfo, refunds, transactionInfo, externalReferenceId, oceanGatewayInfo, taxRates, additionalCharges, appTracking, paymentAttributes, order]"
+              }
+            ]
+          },
+          "docs": "Retrieves payment information, including the total amount, tip amount, tax amount, and result status."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "EMPLOYEES",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clover Get a Single Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clover.com/v3/merchants/:mId/employees/:empId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "empId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Employee Id"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields: [roles, shifts]"
+              }
+            ]
+          },
+          "docs": "Returns information for a single employee.  Accepts optional expand query parameters"
+        },
+        {
+          "info": {
+            "name": "Clover Get All Employees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clover.com/v3/merchants/:mId/employees",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier (mId)."
+              },
+              {
+                "name": "filter",
+                "value": "example-filter",
+                "type": "query",
+                "description": "Filter fields to display search results: [modifiedTime, role, role.id, customId, name, nickname, id, deletedTime, deleted_time, email]"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields to display additional nested information: [roles, shifts]"
+              }
+            ]
+          },
+          "docs": "Retrieves information about employees associated with a merchant."
+        },
+        {
+          "info": {
+            "name": "Clover Create an Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.clover.com/v3/merchants/:mId/employees",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields: [shifts, payments, orders, roles]"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an employee for a merchant. Accepts optional expand parameters."
+        },
+        {
+          "info": {
+            "name": "Clover Get All Shifts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clover.com/v3/merchants/:mId/shifts",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "filter",
+                "value": "example-filter",
+                "type": "query",
+                "description": "Filter fields: [employee.id, out_time, in_time, employee.name, in_and_override_time, out_and_override_time, id, has_in_time, override_in_time, deletedTime, server_banking]"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields: [employee, overrideInEmployee, overrideOutEmployee]"
+              }
+            ]
+          },
+          "docs": "Get all shifts"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "CUSTOMERS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clover Get a Single Customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clover.com/v3/merchants/:mId/customers/:customerId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "customerId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "customerId parameter."
+              },
+              {
+                "name": "filter",
+                "value": "example-filter",
+                "type": "query",
+                "description": "Filter fields: [customerSince, firstName, lastName, emailAddress, phoneNumber, marketingAllowed, fullName, id, deletedTime]"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields: [addresses, emailAddresses, phoneNumbers, cards, metadata]"
+              }
+            ]
+          },
+          "docs": "Returns information for a single customer."
+        },
+        {
+          "info": {
+            "name": "Clover Update a Customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.clover.com/v3/merchants/:mId/customers/:customerId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              },
+              {
+                "name": "customerId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Unique identifier of the customer."
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields to display additional nested information: [addresses, emailAddresses, phoneNumbers, cards, metadata]"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates information for a single customer."
+        },
+        {
+          "info": {
+            "name": "Clover Delete a Customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.clover.com/v3/merchants/:mId/customers/:customerId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "customerId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "customerId parameter."
+              }
+            ]
+          },
+          "docs": "Deletes a single customer from a merchant."
+        },
+        {
+          "info": {
+            "name": "Clover Get a List of Customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clover.com/v3/merchants/:mId/customers",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "filter",
+                "value": "example-filter",
+                "type": "query",
+                "description": "Filter fields: [customerSince, firstName, lastName, emailAddress, phoneNumber, marketingAllowed, fullName, id, deletedTime]"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields: [addresses, emailAddresses, phoneNumbers, cards, metadata]"
+              }
+            ]
+          },
+          "docs": "Gives information for every customer of a merchant by default."
+        },
+        {
+          "info": {
+            "name": "Clover Create a Customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.clover.com/v3/merchants/:mId/customers",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields to display additional nested information: [addresses, emailAddresses, phoneNumbers, cards, metadata]"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates customer record for a merchant. Note that the request body cannot be null."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ORDERS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clover Get All Line Items for an Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clover.com/v3/merchants/:mId/orders/:orderId/line_items",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "orderId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Order Id"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields: [employee, orderType, discounts, modifications, taxRates, payments]"
+              }
+            ]
+          },
+          "docs": "Returns all line items for an order."
+        },
+        {
+          "info": {
+            "name": "Clover Create a New Line Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.clover.com/v3/merchants/:mId/orders/:orderId/line_items",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "orderId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Order Id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new line item for an order. Requests must include either a `price` or an `item` object with an inventory item `id`. \n\n**Note:** To ensure platform stability, an order is limited to a maximum of 3,000 line items. If this call would cause the order to exceed this limit, the request will fail with a `400 Bad Request` error."
+        },
+        {
+          "info": {
+            "name": "Clover Gets a List of Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clover.com/v3/merchants/:mId/orders",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier (mId)."
+              },
+              {
+                "name": "filter",
+                "value": "example-filter",
+                "type": "query",
+                "description": "Filter fields to display search results: [employee.id, note, modifiedTime, orderType, touched, cardTransaction.last4, manualTransaction, employee.name, title, device.id, externalReferenceId, clientCreatedTime, total, payType, testMode, createdTime, id, state, deletedTime]\n `Note`: Search results for the list of orders list is restricted to the last 90 days if the filter fields include: [deletedTime, externalReferenceId, createdTime, total, payType, title, note, state, manualTransaction, cardTransaction.last4, testMode, touched]"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Additional information provided as an expanded response: [employee, payments, refunds, credits, voids, payment.tender, payment.cardTransaction, lineItems, customers, serviceCharge, discounts, orderType, lineItems.discounts, lineItems.modifications]"
+              }
+            ]
+          },
+          "docs": "Displays a list of orders. See [Manage orders data](https://docs.clover.com/build/working-with-orders/) for more details."
+        },
+        {
+          "info": {
+            "name": "Clover Create Custom Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.clover.com/v3/merchants/:mId/orders",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "**Description:** Creates or updates orders with a non-Clover inventory and dynamically calculates taxes. Valid fields are: taxRemoved, note, title, state, testMode, manualTransaction, groupLineItems, and orderType. Use separate API calls to add line items. <br> \n **Tip:** Use the [create an atomic order](https://docs.clover.com/dev/reference/ordercreateatomicorder) endpoint to create orders using Clover inventory and leverage the real-time totals and tax calculation features using a single API c"
+        },
+        {
+          "info": {
+            "name": "Clover Create a Payment Record on an Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.clover.com/v3/merchants/:mId/orders/:orderId/payments",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              },
+              {
+                "name": "orderId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Order identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Payment must include a `positive amount` and a valid `tender ID`.\n `Note`: This endpoint references external tenders and logs them for bookkeeping purposes. This is not for Clover credits/debit tenders. A merchant's tenders and their IDs can be retrieved from /v3/merchants/mId/tenders."
+        },
+        {
+          "info": {
+            "name": "Clover Get a Single Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clover.com/v3/merchants/:mId/orders/:orderId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "orderId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Order Id"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields: [lineItems, serviceCharge, discounts, credits, payments, customers, orderFulfillmentEvent, refunds]"
+              }
+            ]
+          },
+          "docs": "Returns a single order. See https://docs.clover.com/build/working-with-orders/ for more details. "
+        },
+        {
+          "info": {
+            "name": "Clover Update an Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.clover.com/v3/merchants/:mId/orders/:orderId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              },
+              {
+                "name": "orderId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Order identifier."
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Additional information provided as an expanded response: [lineItems, serviceCharge, discounts, credits, payments, customers, orderFulfillmentEvent, refunds]"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a single order. See [working-with-orders](https://docs.clover.com/build/working-with-orders/) for more details."
+        },
+        {
+          "info": {
+            "name": "Clover Delete an Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.clover.com/v3/merchants/:mId/orders/:orderId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "orderId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Order Id"
+              }
+            ]
+          },
+          "docs": "Deletes a single order. See https://docs.clover.com/build/working-with-orders/ for more details."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

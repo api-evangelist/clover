@@ -1,0 +1,2123 @@
+{
+  "item": [
+    {
+      "id": "d4fa5038-1361-4b5a-93de-07d7013373e7",
+      "name": "Charges",
+      "description": {
+        "content": "Create, capture, and retrieve ecommerce charges.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "7d29e244-addf-4814-b735-63eda37ca40c",
+      "name": "Refunds",
+      "description": {
+        "content": "Create and retrieve refunds for ecommerce charges.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "0097dbfe-f43a-40cd-9e0d-2d910dee0ed3",
+      "name": "Tokens",
+      "description": {
+        "content": "Tokenize cards for card-on-file and reuse.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "91a3f42b-1e86-4e7a-8ff0-fdc4c7fafcea",
+      "name": "Checkout",
+      "description": {
+        "content": "Hosted checkout sessions.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "f69cdf6d-e53a-445e-85c1-8dda24dca8f5",
+      "name": "CHARGES",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2f714055-6f77-4fad-9f1e-2d9286d97a99",
+          "name": "Clover Create a Charge",
+          "request": {
+            "name": "Clover Create a Charge",
+            "description": {
+              "content": "Charges a credit card or other payment source using data in the `charge` object. See [Create a charge](https://docs.clover.com/docs/create-a-charge) tutorial for more information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "charges"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Client internet protocol (IP) address of the web browser from which the customer’s payment originates.\n `Note:` Header x-forwarded-for is required for enhanced security and accuracy of Clover services. Requests that don’t include the header are not successful.",
+                "key": "x-forwarded-for",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<long>\",\n  \"tax_amount\": \"<long>\",\n  \"tip_amount\": \"<long>\",\n  \"additional_charges\": \"<object>\",\n  \"amount_refunded\": \"<long>\",\n  \"partial_auth\": \"<boolean>\",\n  \"billing_details\": \"<object>\",\n  \"captured\": \"<boolean>\",\n  \"created\": \"<long>\",\n  \"currency\": \"<string>\",\n  \"customer\": \"<string>\",\n  \"description\": \"<string>\",\n  \"external_reference_id\": \"<string>\",\n  \"external_customer_reference\": \"<string>\",\n  \"auth_code\": \"<string>\",\n  \"ref_num\": \"<string>\",\n  \"failure_code\": \"<string>\",\n  \"failure_message\": \"<string>\",\n  \"warning_message\": \"<string>\",\n  \"id\": \"<string>\",\n  \"livemode\": \"<boolean>\",\n  \"metadata\": \"<string>\",\n  \"object\": \"<string>\",\n  \"order\": \"<string>\",\n  \"outcome\": \"<object>\",\n  \"paid\": \"<boolean>\",\n  \"payment_method_details\": \"<string>\",\n  \"on_behalf_of\": \"<boolean>\",\n  \"debt_payment\": \"<string>\",\n  \"receipt_email\": \"<string>\",\n  \"receipt_number\": \"<string>\",\n  \"receipt_url\": \"<string>\",\n  \"site_url\": \"<string>\",\n  \"refunded\": \"<boolean>\",\n  \"shipping\": \"<string>\",\n  \"source\": \"<object>\",\n  \"status\": \"<string>\",\n  \"stored_credentials\": \"<object>\",\n  \"soft_descriptor\": \"<object>\",\n  \"threeds\": \"<object>\",\n  \"gift_card\": \"<object>\",\n  \"level2\": \"<object>\",\n  \"level3\": \"<object>\",\n  \"saved_credentials_on_file\": \"<object>\",\n  \"ecomind\": \"<string>\",\n  \"amount_captured\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e685acd4-4457-49af-be2a-0cf3b7971c6d",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Client internet protocol (IP) address of the web browser from which the customer’s payment originates.\n `Note:` Header x-forwarded-for is required for enhanced security and accuracy of Clover services. Requests that don’t include the header are not successful.",
+                    "key": "x-forwarded-for",
+                    "value": "example-x-forwarded-for"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 1,\n  \"tax_amount\": 1,\n  \"tip_amount\": 1,\n  \"additional_charges\": {},\n  \"amount_refunded\": 1,\n  \"partial_auth\": true,\n  \"billing_details\": {},\n  \"captured\": true,\n  \"created\": 1,\n  \"currency\": \"example-value\",\n  \"customer\": \"example-value\",\n  \"description\": \"example-value\",\n  \"external_reference_id\": \"example-value\",\n  \"external_customer_reference\": \"example-value\",\n  \"auth_code\": \"example-value\",\n  \"ref_num\": \"example-value\",\n  \"failure_code\": \"example-value\",\n  \"failure_message\": \"example-value\",\n  \"warning_message\": \"example-value\",\n  \"id\": \"example-value\",\n  \"livemode\": true,\n  \"metadata\": \"example-value\",\n  \"object\": \"charge\",\n  \"order\": \"example-value\",\n  \"outcome\": {},\n  \"paid\": true,\n  \"payment_method_details\": \"card\",\n  \"on_behalf_of\": true,\n  \"debt_payment\": \"approved\",\n  \"receipt_email\": \"example-value\",\n  \"receipt_number\": \"example-value\",\n  \"receipt_url\": \"example-value\",\n  \"site_url\": \"example-value\",\n  \"refunded\": true,\n  \"shipping\": \"example-value\",\n  \"source\": {},\n  \"status\": \"succeeded\",\n  \"stored_credentials\": {},\n  \"soft_descriptor\": {},\n  \"threeds\": {},\n  \"gift_card\": {},\n  \"level2\": {},\n  \"level3\": {},\n  \"saved_credentials_on_file\": {},\n  \"ecomind\": \"ecom\",\n  \"amount_captured\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 1,\n  \"tax_amount\": 1,\n  \"tip_amount\": 1,\n  \"additional_charges\": {},\n  \"amount_refunded\": 1,\n  \"partial_auth\": true,\n  \"billing_details\": {},\n  \"captured\": true,\n  \"created\": 1,\n  \"currency\": \"example-value\",\n  \"customer\": \"example-value\",\n  \"description\": \"example-value\",\n  \"external_reference_id\": \"example-value\",\n  \"external_customer_reference\": \"example-value\",\n  \"auth_code\": \"example-value\",\n  \"ref_num\": \"example-value\",\n  \"failure_code\": \"example-value\",\n  \"failure_message\": \"example-value\",\n  \"warning_message\": \"example-value\",\n  \"id\": \"example-value\",\n  \"livemode\": true,\n  \"metadata\": \"example-value\",\n  \"object\": \"charge\",\n  \"order\": \"example-value\",\n  \"outcome\": {},\n  \"paid\": true,\n  \"payment_method_details\": \"card\",\n  \"on_behalf_of\": true,\n  \"debt_payment\": \"approved\",\n  \"receipt_email\": \"example-value\",\n  \"receipt_number\": \"example-value\",\n  \"receipt_url\": \"example-value\",\n  \"site_url\": \"example-value\",\n  \"refunded\": true,\n  \"shipping\": \"example-value\",\n  \"source\": {},\n  \"status\": \"succeeded\",\n  \"stored_credentials\": {},\n  \"soft_descriptor\": {},\n  \"threeds\": {},\n  \"gift_card\": {},\n  \"level2\": {},\n  \"level3\": {},\n  \"saved_credentials_on_file\": {},\n  \"ecomind\": \"ecom\",\n  \"amount_captured\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "401c8299-58e2-45db-bff0-5d8301afe577",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Client internet protocol (IP) address of the web browser from which the customer’s payment originates.\n `Note:` Header x-forwarded-for is required for enhanced security and accuracy of Clover services. Requests that don’t include the header are not successful.",
+                    "key": "x-forwarded-for",
+                    "value": "example-x-forwarded-for"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 1,\n  \"tax_amount\": 1,\n  \"tip_amount\": 1,\n  \"additional_charges\": {},\n  \"amount_refunded\": 1,\n  \"partial_auth\": true,\n  \"billing_details\": {},\n  \"captured\": true,\n  \"created\": 1,\n  \"currency\": \"example-value\",\n  \"customer\": \"example-value\",\n  \"description\": \"example-value\",\n  \"external_reference_id\": \"example-value\",\n  \"external_customer_reference\": \"example-value\",\n  \"auth_code\": \"example-value\",\n  \"ref_num\": \"example-value\",\n  \"failure_code\": \"example-value\",\n  \"failure_message\": \"example-value\",\n  \"warning_message\": \"example-value\",\n  \"id\": \"example-value\",\n  \"livemode\": true,\n  \"metadata\": \"example-value\",\n  \"object\": \"charge\",\n  \"order\": \"example-value\",\n  \"outcome\": {},\n  \"paid\": true,\n  \"payment_method_details\": \"card\",\n  \"on_behalf_of\": true,\n  \"debt_payment\": \"approved\",\n  \"receipt_email\": \"example-value\",\n  \"receipt_number\": \"example-value\",\n  \"receipt_url\": \"example-value\",\n  \"site_url\": \"example-value\",\n  \"refunded\": true,\n  \"shipping\": \"example-value\",\n  \"source\": {},\n  \"status\": \"succeeded\",\n  \"stored_credentials\": {},\n  \"soft_descriptor\": {},\n  \"threeds\": {},\n  \"gift_card\": {},\n  \"level2\": {},\n  \"level3\": {},\n  \"saved_credentials_on_file\": {},\n  \"ecomind\": \"ecom\",\n  \"amount_captured\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "51461288-ad71-4407-9549-045194296f8a",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Client internet protocol (IP) address of the web browser from which the customer’s payment originates.\n `Note:` Header x-forwarded-for is required for enhanced security and accuracy of Clover services. Requests that don’t include the header are not successful.",
+                    "key": "x-forwarded-for",
+                    "value": "example-x-forwarded-for"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 1,\n  \"tax_amount\": 1,\n  \"tip_amount\": 1,\n  \"additional_charges\": {},\n  \"amount_refunded\": 1,\n  \"partial_auth\": true,\n  \"billing_details\": {},\n  \"captured\": true,\n  \"created\": 1,\n  \"currency\": \"example-value\",\n  \"customer\": \"example-value\",\n  \"description\": \"example-value\",\n  \"external_reference_id\": \"example-value\",\n  \"external_customer_reference\": \"example-value\",\n  \"auth_code\": \"example-value\",\n  \"ref_num\": \"example-value\",\n  \"failure_code\": \"example-value\",\n  \"failure_message\": \"example-value\",\n  \"warning_message\": \"example-value\",\n  \"id\": \"example-value\",\n  \"livemode\": true,\n  \"metadata\": \"example-value\",\n  \"object\": \"charge\",\n  \"order\": \"example-value\",\n  \"outcome\": {},\n  \"paid\": true,\n  \"payment_method_details\": \"card\",\n  \"on_behalf_of\": true,\n  \"debt_payment\": \"approved\",\n  \"receipt_email\": \"example-value\",\n  \"receipt_number\": \"example-value\",\n  \"receipt_url\": \"example-value\",\n  \"site_url\": \"example-value\",\n  \"refunded\": true,\n  \"shipping\": \"example-value\",\n  \"source\": {},\n  \"status\": \"succeeded\",\n  \"stored_credentials\": {},\n  \"soft_descriptor\": {},\n  \"threeds\": {},\n  \"gift_card\": {},\n  \"level2\": {},\n  \"level3\": {},\n  \"saved_credentials_on_file\": {},\n  \"ecomind\": \"ecom\",\n  \"amount_captured\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01e2ca73-fd10-4de2-8114-b241a6faa26b",
+          "name": "Clover Get Charges",
+          "request": {
+            "name": "Clover Get Charges",
+            "description": {
+              "content": "Displays a list of existing charges. First displays the newest charge in the list. See [Get charges](https://docs.clover.com/docs/get-charges) tutorials for more information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "charges"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "created",
+                  "value": "<string>",
+                  "description": "created parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "customer",
+                  "value": "<string>",
+                  "description": "Displays charges associated with the provided `customer ID`."
+                },
+                {
+                  "disabled": false,
+                  "key": "ending_before",
+                  "value": "<string>",
+                  "description": "Cursor used in pagination. The ending_before object ID sets your place in the list. For example, if you receive 100 objects in a list starting with obj_bar, add ending_before=obj_bar in your subsequent request to retrieve the previous page of the list."
+                },
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<array>",
+                  "description": "Additional information provided as an expanded response, for example, a related object nested within the parent. See [Use expandable fields](https://docs.clover.com/docs/expanding-fields)."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of objects returned by the request, ranging between 1 and 100.\n Default: 10"
+                },
+                {
+                  "disabled": false,
+                  "key": "threeds_validation_result",
+                  "value": "<string>",
+                  "description": "EMV® 3-D Secure (3DS) authentication result. 3-D Secure is a protocol that provides an additional security layer for online credit and debit card-not-present (CNP) transactions."
+                },
+                {
+                  "disabled": false,
+                  "key": "is_threeds",
+                  "value": "<boolean>",
+                  "description": "Indicates whether the transaction is 3-D Secure authenticated."
+                },
+                {
+                  "disabled": false,
+                  "key": "starting_after",
+                  "value": "<string>",
+                  "description": "Cursor used in pagination. The starting_after object ID sets your place in the list. For example, if you receive 100 objects in a list starting with obj_foo, add starting_after=obj_foo in your subsequent request to retrieve the next page of the list."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38d1f40d-8107-44da-bcb3-abd090727441",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "created",
+                      "value": "example-created"
+                    },
+                    {
+                      "key": "customer",
+                      "value": "example-customer"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "example-ending_before"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "threeds_validation_result",
+                      "value": "example-threeds_validation_result"
+                    },
+                    {
+                      "key": "is_threeds",
+                      "value": "true"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "example-starting_after"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"elements\": [\n    {}\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f181034-b651-41eb-bbf8-7e3961aa6bab",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "created",
+                      "value": "example-created"
+                    },
+                    {
+                      "key": "customer",
+                      "value": "example-customer"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "example-ending_before"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "threeds_validation_result",
+                      "value": "example-threeds_validation_result"
+                    },
+                    {
+                      "key": "is_threeds",
+                      "value": "true"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "example-starting_after"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "10c423eb-5cdc-4f6d-a6f0-8ce8269cc106",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "created",
+                      "value": "example-created"
+                    },
+                    {
+                      "key": "customer",
+                      "value": "example-customer"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "example-ending_before"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "threeds_validation_result",
+                      "value": "example-threeds_validation_result"
+                    },
+                    {
+                      "key": "is_threeds",
+                      "value": "true"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "example-starting_after"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6fbc022-7b6c-475f-93b3-580b27559b13",
+          "name": "Clover Capture a Charge",
+          "request": {
+            "name": "Clover Capture a Charge",
+            "description": {
+              "content": "As step two of the two-part payment flow, captures the payment of an existing but uncaptured charge. The first step is to [create a charge](https://docs.clover.com/reference/createcharge) with the capture option set to `false`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "charges",
+                ":chargeId",
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chargeId",
+                  "description": "(Required) Universal unique identifier (UUID) of the charge to capture."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Client internet protocol (IP) address of the web browser from which the customer’s payment originates.\n `Note:` Header x-forwarded-for is required for enhanced security and accuracy of Clover services. Requests that don’t include the header are not successful.",
+                "key": "x-forwarded-for",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<long>\",\n  \"tax_amount\": \"<long>\",\n  \"tip_amount\": \"<long>\",\n  \"additional_charges\": \"<object>\",\n  \"amount_refunded\": \"<long>\",\n  \"partial_auth\": \"<boolean>\",\n  \"billing_details\": \"<object>\",\n  \"captured\": \"<boolean>\",\n  \"created\": \"<long>\",\n  \"currency\": \"<string>\",\n  \"customer\": \"<string>\",\n  \"description\": \"<string>\",\n  \"external_reference_id\": \"<string>\",\n  \"external_customer_reference\": \"<string>\",\n  \"auth_code\": \"<string>\",\n  \"ref_num\": \"<string>\",\n  \"failure_code\": \"<string>\",\n  \"failure_message\": \"<string>\",\n  \"warning_message\": \"<string>\",\n  \"id\": \"<string>\",\n  \"livemode\": \"<boolean>\",\n  \"metadata\": \"<string>\",\n  \"object\": \"<string>\",\n  \"order\": \"<string>\",\n  \"outcome\": \"<object>\",\n  \"paid\": \"<boolean>\",\n  \"payment_method_details\": \"<string>\",\n  \"on_behalf_of\": \"<boolean>\",\n  \"debt_payment\": \"<string>\",\n  \"receipt_email\": \"<string>\",\n  \"receipt_number\": \"<string>\",\n  \"receipt_url\": \"<string>\",\n  \"site_url\": \"<string>\",\n  \"refunded\": \"<boolean>\",\n  \"shipping\": \"<string>\",\n  \"source\": \"<object>\",\n  \"status\": \"<string>\",\n  \"stored_credentials\": \"<object>\",\n  \"soft_descriptor\": \"<object>\",\n  \"threeds\": \"<object>\",\n  \"gift_card\": \"<object>\",\n  \"level2\": \"<object>\",\n  \"level3\": \"<object>\",\n  \"saved_credentials_on_file\": \"<object>\",\n  \"ecomind\": \"<string>\",\n  \"amount_captured\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "02f5adea-f2bc-4612-9126-197265ed355f",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "charges",
+                    ":chargeId",
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chargeId",
+                      "description": "(Required) Universal unique identifier (UUID) of the charge to capture."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Client internet protocol (IP) address of the web browser from which the customer’s payment originates.\n `Note:` Header x-forwarded-for is required for enhanced security and accuracy of Clover services. Requests that don’t include the header are not successful.",
+                    "key": "x-forwarded-for",
+                    "value": "example-x-forwarded-for"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 1,\n  \"tax_amount\": 1,\n  \"tip_amount\": 1,\n  \"additional_charges\": {},\n  \"amount_refunded\": 1,\n  \"partial_auth\": true,\n  \"billing_details\": {},\n  \"captured\": true,\n  \"created\": 1,\n  \"currency\": \"example-value\",\n  \"customer\": \"example-value\",\n  \"description\": \"example-value\",\n  \"external_reference_id\": \"example-value\",\n  \"external_customer_reference\": \"example-value\",\n  \"auth_code\": \"example-value\",\n  \"ref_num\": \"example-value\",\n  \"failure_code\": \"example-value\",\n  \"failure_message\": \"example-value\",\n  \"warning_message\": \"example-value\",\n  \"id\": \"example-value\",\n  \"livemode\": true,\n  \"metadata\": \"example-value\",\n  \"object\": \"charge\",\n  \"order\": \"example-value\",\n  \"outcome\": {},\n  \"paid\": true,\n  \"payment_method_details\": \"card\",\n  \"on_behalf_of\": true,\n  \"debt_payment\": \"approved\",\n  \"receipt_email\": \"example-value\",\n  \"receipt_number\": \"example-value\",\n  \"receipt_url\": \"example-value\",\n  \"site_url\": \"example-value\",\n  \"refunded\": true,\n  \"shipping\": \"example-value\",\n  \"source\": {},\n  \"status\": \"succeeded\",\n  \"stored_credentials\": {},\n  \"soft_descriptor\": {},\n  \"threeds\": {},\n  \"gift_card\": {},\n  \"level2\": {},\n  \"level3\": {},\n  \"saved_credentials_on_file\": {},\n  \"ecomind\": \"ecom\",\n  \"amount_captured\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 1,\n  \"tax_amount\": 1,\n  \"tip_amount\": 1,\n  \"additional_charges\": {},\n  \"amount_refunded\": 1,\n  \"partial_auth\": true,\n  \"billing_details\": {},\n  \"captured\": true,\n  \"created\": 1,\n  \"currency\": \"example-value\",\n  \"customer\": \"example-value\",\n  \"description\": \"example-value\",\n  \"external_reference_id\": \"example-value\",\n  \"external_customer_reference\": \"example-value\",\n  \"auth_code\": \"example-value\",\n  \"ref_num\": \"example-value\",\n  \"failure_code\": \"example-value\",\n  \"failure_message\": \"example-value\",\n  \"warning_message\": \"example-value\",\n  \"id\": \"example-value\",\n  \"livemode\": true,\n  \"metadata\": \"example-value\",\n  \"object\": \"charge\",\n  \"order\": \"example-value\",\n  \"outcome\": {},\n  \"paid\": true,\n  \"payment_method_details\": \"card\",\n  \"on_behalf_of\": true,\n  \"debt_payment\": \"approved\",\n  \"receipt_email\": \"example-value\",\n  \"receipt_number\": \"example-value\",\n  \"receipt_url\": \"example-value\",\n  \"site_url\": \"example-value\",\n  \"refunded\": true,\n  \"shipping\": \"example-value\",\n  \"source\": {},\n  \"status\": \"succeeded\",\n  \"stored_credentials\": {},\n  \"soft_descriptor\": {},\n  \"threeds\": {},\n  \"gift_card\": {},\n  \"level2\": {},\n  \"level3\": {},\n  \"saved_credentials_on_file\": {},\n  \"ecomind\": \"ecom\",\n  \"amount_captured\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad952658-9f1a-4bdd-bb87-84853ecd2b61",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "charges",
+                    ":chargeId",
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chargeId",
+                      "description": "(Required) Universal unique identifier (UUID) of the charge to capture."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Client internet protocol (IP) address of the web browser from which the customer’s payment originates.\n `Note:` Header x-forwarded-for is required for enhanced security and accuracy of Clover services. Requests that don’t include the header are not successful.",
+                    "key": "x-forwarded-for",
+                    "value": "example-x-forwarded-for"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 1,\n  \"tax_amount\": 1,\n  \"tip_amount\": 1,\n  \"additional_charges\": {},\n  \"amount_refunded\": 1,\n  \"partial_auth\": true,\n  \"billing_details\": {},\n  \"captured\": true,\n  \"created\": 1,\n  \"currency\": \"example-value\",\n  \"customer\": \"example-value\",\n  \"description\": \"example-value\",\n  \"external_reference_id\": \"example-value\",\n  \"external_customer_reference\": \"example-value\",\n  \"auth_code\": \"example-value\",\n  \"ref_num\": \"example-value\",\n  \"failure_code\": \"example-value\",\n  \"failure_message\": \"example-value\",\n  \"warning_message\": \"example-value\",\n  \"id\": \"example-value\",\n  \"livemode\": true,\n  \"metadata\": \"example-value\",\n  \"object\": \"charge\",\n  \"order\": \"example-value\",\n  \"outcome\": {},\n  \"paid\": true,\n  \"payment_method_details\": \"card\",\n  \"on_behalf_of\": true,\n  \"debt_payment\": \"approved\",\n  \"receipt_email\": \"example-value\",\n  \"receipt_number\": \"example-value\",\n  \"receipt_url\": \"example-value\",\n  \"site_url\": \"example-value\",\n  \"refunded\": true,\n  \"shipping\": \"example-value\",\n  \"source\": {},\n  \"status\": \"succeeded\",\n  \"stored_credentials\": {},\n  \"soft_descriptor\": {},\n  \"threeds\": {},\n  \"gift_card\": {},\n  \"level2\": {},\n  \"level3\": {},\n  \"saved_credentials_on_file\": {},\n  \"ecomind\": \"ecom\",\n  \"amount_captured\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "598684e0-f90b-464c-a06f-3ff8127868eb",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "charges",
+                    ":chargeId",
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chargeId",
+                      "description": "(Required) Universal unique identifier (UUID) of the charge to capture."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Client internet protocol (IP) address of the web browser from which the customer’s payment originates.\n `Note:` Header x-forwarded-for is required for enhanced security and accuracy of Clover services. Requests that don’t include the header are not successful.",
+                    "key": "x-forwarded-for",
+                    "value": "example-x-forwarded-for"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 1,\n  \"tax_amount\": 1,\n  \"tip_amount\": 1,\n  \"additional_charges\": {},\n  \"amount_refunded\": 1,\n  \"partial_auth\": true,\n  \"billing_details\": {},\n  \"captured\": true,\n  \"created\": 1,\n  \"currency\": \"example-value\",\n  \"customer\": \"example-value\",\n  \"description\": \"example-value\",\n  \"external_reference_id\": \"example-value\",\n  \"external_customer_reference\": \"example-value\",\n  \"auth_code\": \"example-value\",\n  \"ref_num\": \"example-value\",\n  \"failure_code\": \"example-value\",\n  \"failure_message\": \"example-value\",\n  \"warning_message\": \"example-value\",\n  \"id\": \"example-value\",\n  \"livemode\": true,\n  \"metadata\": \"example-value\",\n  \"object\": \"charge\",\n  \"order\": \"example-value\",\n  \"outcome\": {},\n  \"paid\": true,\n  \"payment_method_details\": \"card\",\n  \"on_behalf_of\": true,\n  \"debt_payment\": \"approved\",\n  \"receipt_email\": \"example-value\",\n  \"receipt_number\": \"example-value\",\n  \"receipt_url\": \"example-value\",\n  \"site_url\": \"example-value\",\n  \"refunded\": true,\n  \"shipping\": \"example-value\",\n  \"source\": {},\n  \"status\": \"succeeded\",\n  \"stored_credentials\": {},\n  \"soft_descriptor\": {},\n  \"threeds\": {},\n  \"gift_card\": {},\n  \"level2\": {},\n  \"level3\": {},\n  \"saved_credentials_on_file\": {},\n  \"ecomind\": \"ecom\",\n  \"amount_captured\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8564eadf-9227-4c35-91c0-47379f148bd1",
+          "name": "Clover Get a Charge",
+          "request": {
+            "name": "Clover Get a Charge",
+            "description": {
+              "content": "Retrieves the details of an existing charge. This information is also returned when a charge is first created, see [create a charge](https://docs.clover.com/reference/createcharge) or if it is refunded, see [create a refund](https://docs.clover.com/reference/createrefund).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "charges",
+                ":chargeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chargeId",
+                  "description": "(Required) Universally unique identifier (UUID) of the charge."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a97a7b98-2ce5-4f34-a631-cdcba3ff6741",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "charges",
+                    ":chargeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chargeId",
+                      "description": "(Required) Universally unique identifier (UUID) of the charge."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 1,\n  \"tax_amount\": 1,\n  \"tip_amount\": 1,\n  \"additional_charges\": {},\n  \"amount_refunded\": 1,\n  \"partial_auth\": true,\n  \"billing_details\": {},\n  \"captured\": true,\n  \"created\": 1,\n  \"currency\": \"example-value\",\n  \"customer\": \"example-value\",\n  \"description\": \"example-value\",\n  \"external_reference_id\": \"example-value\",\n  \"external_customer_reference\": \"example-value\",\n  \"auth_code\": \"example-value\",\n  \"ref_num\": \"example-value\",\n  \"failure_code\": \"example-value\",\n  \"failure_message\": \"example-value\",\n  \"warning_message\": \"example-value\",\n  \"id\": \"example-value\",\n  \"livemode\": true,\n  \"metadata\": \"example-value\",\n  \"object\": \"charge\",\n  \"order\": \"example-value\",\n  \"outcome\": {},\n  \"paid\": true,\n  \"payment_method_details\": \"card\",\n  \"on_behalf_of\": true,\n  \"debt_payment\": \"approved\",\n  \"receipt_email\": \"example-value\",\n  \"receipt_number\": \"example-value\",\n  \"receipt_url\": \"example-value\",\n  \"site_url\": \"example-value\",\n  \"refunded\": true,\n  \"shipping\": \"example-value\",\n  \"source\": {},\n  \"status\": \"succeeded\",\n  \"stored_credentials\": {},\n  \"soft_descriptor\": {},\n  \"threeds\": {},\n  \"gift_card\": {},\n  \"level2\": {},\n  \"level3\": {},\n  \"saved_credentials_on_file\": {},\n  \"ecomind\": \"ecom\",\n  \"amount_captured\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8045a9c-fc3c-4b67-a60b-39bc4e3e1cea",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "charges",
+                    ":chargeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chargeId",
+                      "description": "(Required) Universally unique identifier (UUID) of the charge."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a3a8e332-f365-4f57-9a02-adb39d18df2d",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "charges",
+                    ":chargeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chargeId",
+                      "description": "(Required) Universally unique identifier (UUID) of the charge."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "876537a7-5271-4fd4-ba47-964daf3296c9",
+      "name": "REFUNDS",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "701ca11c-f49b-43e5-9fc0-de4c89d72218",
+          "name": "Clover Create a Refund",
+          "request": {
+            "name": "Clover Create a Refund",
+            "description": {
+              "content": "Creates a new refund that must be associated with an existing charge. Refunds are applied to the `source` used for the original payment. Partial refunds are allowed up to the original charge amount.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "refunds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"charge\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "70226a29-c1f7-4117-8ea2-15f7fbae5cae",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "refunds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"charge\": \"example-value\",\n  \"amount\": 1,\n  \"status\": \"example-value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"charge\": \"example-value\",\n  \"amount\": 1,\n  \"status\": \"example-value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc5ce519-2bc5-40c7-b669-d11306ede85d",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "refunds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"charge\": \"example-value\",\n  \"amount\": 1,\n  \"status\": \"example-value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "918bcd4d-7340-453b-ad74-f367e16edf9d",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "refunds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"charge\": \"example-value\",\n  \"amount\": 1,\n  \"status\": \"example-value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f283bdcf-b566-4836-b8ca-a9d4af3f772d",
+          "name": "Clover Get Refunds List",
+          "request": {
+            "name": "Clover Get Refunds List",
+            "description": {
+              "content": "Returns a list of all existing refunds. The newest refund is first in the list. The ten most recent refunds appear by default on the `charge` object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "refunds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "charge",
+                  "value": "<string>",
+                  "description": "Retrieve refunds applied to a specific charge."
+                },
+                {
+                  "disabled": false,
+                  "key": "created",
+                  "value": "<string>",
+                  "description": "List filter based on the object's `created` field. The value can be a string with a Unix timestamp (in milliseconds) or a dictionary of multiple options describing a time range."
+                },
+                {
+                  "disabled": false,
+                  "key": "ending_before",
+                  "value": "<string>",
+                  "description": "Cursor used in pagination. The ending_before object ID sets your place in the list. For example, if you receive 100 objects in a list starting with obj_bar, add ending_before=obj_bar in your subsequent request to retrieve the previous page of the list."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of objects returned by the request, ranging between `1` and `100`. The default value is `10`."
+                },
+                {
+                  "disabled": false,
+                  "key": "starting_after",
+                  "value": "<string>",
+                  "description": "Cursor used in pagination. The starting_after object ID sets your place in the list. For example, if you receive 100 objects in a list starting with obj_foo, add starting_after=obj_foo in your subsequent request to retrieve the next page of the list."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e7c4d0f7-5cb2-441f-a0b8-1219e0b5ca2f",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "refunds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "charge",
+                      "value": "example-charge"
+                    },
+                    {
+                      "key": "created",
+                      "value": "example-created"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "example-ending_before"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "example-starting_after"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"elements\": [\n    {}\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6fbfa3ec-9d31-463a-a31e-5d1355f1df35",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "refunds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "charge",
+                      "value": "example-charge"
+                    },
+                    {
+                      "key": "created",
+                      "value": "example-created"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "example-ending_before"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "example-starting_after"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c650f1b7-ca90-43fb-8aab-5bca19eaa9af",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "refunds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "charge",
+                      "value": "example-charge"
+                    },
+                    {
+                      "key": "created",
+                      "value": "example-created"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "example-ending_before"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "example-starting_after"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0d749ca-b69c-4170-a823-02c7ef584a40",
+          "name": "Clover Get a Refund",
+          "request": {
+            "name": "Clover Get a Refund",
+            "description": {
+              "content": "Returns details of a specific refund.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "refunds",
+                ":refundId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "refundId",
+                  "description": "(Required) Universal unique identifier (UUID) of the refund to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b05c2eb1-2eea-47ee-aa48-915d9cb5cdec",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "refunds",
+                    ":refundId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "refundId",
+                      "description": "(Required) Universal unique identifier (UUID) of the refund to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"charge\": \"example-value\",\n  \"amount\": 1,\n  \"status\": \"example-value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8da2a488-c0da-455c-92b9-ff8b6070c1ae",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "refunds",
+                    ":refundId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "refundId",
+                      "description": "(Required) Universal unique identifier (UUID) of the refund to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "86aba893-3517-4682-9bef-db4afa2db6a9",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "refunds",
+                    ":refundId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "refundId",
+                      "description": "(Required) Universal unique identifier (UUID) of the refund to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "35aaab64-d8b4-40d6-814e-278f70350c20",
+      "name": "TOKENS",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ac05f6ed-03a3-4835-8bcb-94a0f4c69b5f",
+          "name": "Clover Create a Card Token",
+          "request": {
+            "name": "Clover Create a Card Token",
+            "description": {
+              "content": "Creates a single-use token, which is a unique code that indicates credit card details. Use this token with endpoints like [create a charge](https://docs.clover.com/reference/createcharge) or [pay for an order](https://docs.clover.com/reference/postordersidpay).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Public Ecommerce API key associated with a specific merchant and developer app. Use [Retrieve an Ecommerce API key or PAKMS key](https://docs.clover.com/dev/reference/getapikey) to generate this key.",
+                "key": "apikey",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Identifies the application, operating system, vendor, and/or version of the requesting user agent. Format: `<application>/<version>`",
+                "key": "User-Agent",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5da5091e-3584-46b0-9c21-d7f6278a3f42",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Public Ecommerce API key associated with a specific merchant and developer app. Use [Retrieve an Ecommerce API key or PAKMS key](https://docs.clover.com/dev/reference/getapikey) to generate this key.",
+                    "key": "apikey",
+                    "value": "example-apikey"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Identifies the application, operating system, vendor, and/or version of the requesting user agent. Format: `<application>/<version>`",
+                    "key": "User-Agent",
+                    "value": "example-User-Agent"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7f5388b4-cd42-4f0b-848c-40a3c4afe873",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Public Ecommerce API key associated with a specific merchant and developer app. Use [Retrieve an Ecommerce API key or PAKMS key](https://docs.clover.com/dev/reference/getapikey) to generate this key.",
+                    "key": "apikey",
+                    "value": "example-apikey"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Identifies the application, operating system, vendor, and/or version of the requesting user agent. Format: `<application>/<version>`",
+                    "key": "User-Agent",
+                    "value": "example-User-Agent"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8e447e0-0667-452c-9038-b8642a119c30",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Public Ecommerce API key associated with a specific merchant and developer app. Use [Retrieve an Ecommerce API key or PAKMS key](https://docs.clover.com/dev/reference/getapikey) to generate this key.",
+                    "key": "apikey",
+                    "value": "example-apikey"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Identifies the application, operating system, vendor, and/or version of the requesting user agent. Format: `<application>/<version>`",
+                    "key": "User-Agent",
+                    "value": "example-User-Agent"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fa67d10c-581a-4fe7-a007-f65508e9faa0",
+      "name": "CHECKOUT",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ba2a390e-43ad-4bbc-a25f-f9ff609d8a57",
+          "name": "Clover Create Checkout",
+          "request": {
+            "name": "Clover Create Checkout",
+            "description": {
+              "content": "> **Note:** To use this endpoint, please select the **API Sandbox server** (`https://apisandbox.dev.clover.com`) from the Base URL dropdown in the right panel.\n\nCreates a hosted checkout payment object to connect an application. Use this endpoint to request a new checkout session for a customer transaction. For more information, see [Create a Hosted Checkout session request](https://docs.clover.com/dev/docs/creating-a-hosted-checkout-session).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoicingcheckoutservice",
+                "v1",
+                "checkouts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Clover merchant identifier (mid).",
+                "key": "X-Clover-Merchant-Id",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b2b83249-6b39-46d3-befc-a6d5b35ef2ba",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoicingcheckoutservice",
+                    "v1",
+                    "checkouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Clover merchant identifier (mid).",
+                    "key": "X-Clover-Merchant-Id",
+                    "value": "9ABCDEF1234567"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a287b265-a4d4-4cc9-a084-0d061be9389e",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoicingcheckoutservice",
+                    "v1",
+                    "checkouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Clover merchant identifier (mid).",
+                    "key": "X-Clover-Merchant-Id",
+                    "value": "9ABCDEF1234567"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "683bc2b2-d732-4426-932e-cbe5c24f6307",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoicingcheckoutservice",
+                    "v1",
+                    "checkouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Clover merchant identifier (mid).",
+                    "key": "X-Clover-Merchant-Id",
+                    "value": "9ABCDEF1234567"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://scl.clover.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.clover.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.clover.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "994d2bf4-f423-42ef-a377-a4b111d71cde",
+    "name": "Clover Ecommerce API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.\n\nContact Support:\n Name: Clover Developer Platform",
+      "type": "text/plain"
+    }
+  }
+}
