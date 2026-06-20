@@ -7,7 +7,7 @@ description: >-
   exposes the Clover REST API for inventory/orders/customers/transactions, the Ecommerce API for online payments, an
   Android Payments API and Clover Android SDK for native apps on Clover devices, the REST Pay Display API for
   semi-integrated POS, the Remote Pay SDKs (cloud, Windows, iOS, Android), and the Clover Go SDK.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Restaurant
   - POS
