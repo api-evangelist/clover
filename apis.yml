@@ -63,10 +63,10 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.clover.com/
-      - type: SDK
+      - type: SDKs
         title: Android SDK (Maven)
         url: https://search.maven.org/artifact/com.clover.sdk/clover-android-sdk
-      - type: SDK
+      - type: SDKs
         title: GitHub Source
         url: https://github.com/clover/clover-android-sdk
   - aid: clover:android-payments-api
@@ -101,16 +101,16 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.clover.com/
-      - type: SDK
+      - type: SDKs
         title: Cloud SDK (npm)
         url: https://www.npmjs.com/package/remote-pay-cloud
-      - type: SDK
+      - type: SDKs
         title: Windows SDK
         url: https://github.com/clover/remote-pay-windows
-      - type: SDK
+      - type: SDKs
         title: Android SDK
         url: https://github.com/clover/remote-pay-android
-      - type: SDK
+      - type: SDKs
         title: iOS SDK
         url: https://github.com/clover/remote-pay-ios
   - aid: clover:go-sdk
@@ -124,7 +124,7 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.clover.com/
-      - type: SDK
+      - type: SDKs
         title: iOS Payment SDK
         url: https://github.com/clover/clover-ios-payment-sdk
 common:
@@ -152,7 +152,7 @@ common:
   - type: JSONLD
     title: Ecommerce API Context
     url: json-ld/clover-ecommerce-api-context.jsonld
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.clover.com/llms.txt
 maintainers:
   - FN: Kin Lane
