@@ -1,0 +1,73 @@
+generated: '2026-07-11'
+method: searched
+source: openapi/clover-ecommerce-api-openapi.yml
+docs: https://docs.clover.com/dev/docs/permissions
+note: Clover does not use an OAuth scope parameter; access is governed by Read/Write
+  app permissions per category, configured in the Developer Dashboard and granted
+  by the merchant when installing the app via the OAuth flow
+  (https://docs.clover.com/dev/docs/permissions,
+  https://docs.clover.com/dev/docs/ecommerce-app-permissions).
+schemes:
+- name: OAuth2
+  source: openapi/clover-ecommerce-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://www.clover.com/oauth/authorize
+    tokenUrl: https://api.clover.com/oauth/token
+  description: OAuth 2.0 token or Ecommerce (PAKMS) API key.
+scopes:
+- scope: Read customers
+  description: Required to read customer information.
+  sources:
+  - https://docs.clover.com/dev/docs/permissions
+- scope: Write customers
+  description: Required to add and update customer information.
+  sources:
+  - https://docs.clover.com/dev/docs/permissions
+- scope: Read employees
+  description: Required to read employee information, for example, to view who created
+    an order.
+  sources:
+  - https://docs.clover.com/dev/docs/permissions
+- scope: Write employees
+  description: Required to add and update employees.
+  sources:
+  - https://docs.clover.com/dev/docs/permissions
+- scope: Read inventory
+  description: Required to read inventory.
+  sources:
+  - https://docs.clover.com/dev/docs/permissions
+- scope: Write inventory
+  description: Required to add and update inventory.
+  sources:
+  - https://docs.clover.com/dev/docs/permissions
+- scope: Read merchant
+  description: Required to read merchant properties, for example, to view basic information
+    for a merchant.
+  sources:
+  - https://docs.clover.com/dev/docs/permissions
+- scope: Write merchant
+  description: Required to update merchant properties.
+  sources:
+  - https://docs.clover.com/dev/docs/permissions
+- scope: Read orders
+  description: Required to read order information.
+  sources:
+  - https://docs.clover.com/dev/docs/permissions
+- scope: Write orders
+  description: Required to add and update an order.
+  sources:
+  - https://docs.clover.com/dev/docs/permissions
+- scope: Read payments
+  description: Required to read payment information.
+  sources:
+  - https://docs.clover.com/dev/docs/permissions
+- scope: Write payments
+  description: Required to add and update payment records.
+  sources:
+  - https://docs.clover.com/dev/docs/permissions
+- scope: Online payments
+  description: Ecommerce API permission for Clover apps providing card-not-present
+    payments; required to create charges and process payments.
+  sources:
+  - https://docs.clover.com/dev/docs/ecommerce-app-permissions

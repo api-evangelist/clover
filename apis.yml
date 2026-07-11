@@ -128,6 +128,8 @@ apis:
         title: iOS Payment SDK
         url: https://github.com/clover/clover-ios-payment-sdk
 common:
+  - type: OAuthScopes
+    url: scopes/clover-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/clover
   - type: LinkedIn
@@ -154,6 +156,8 @@ common:
     url: json-ld/clover-ecommerce-api-context.jsonld
   - type: LlmsText
     url: https://docs.clover.com/llms.txt
+  - type: Blog
+    url: https://blog.clover.com/feed/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
