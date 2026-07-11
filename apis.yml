@@ -128,6 +128,10 @@ apis:
         title: iOS Payment SDK
         url: https://github.com/clover/clover-ios-payment-sdk
 common:
+  - type: DomainSecurity
+    url: security/clover-domain-security.yml
+  - type: Authentication
+    url: authentication/clover-authentication.yml
   - type: OAuthScopes
     url: scopes/clover-scopes.yml
   - type: GitHubOrganization

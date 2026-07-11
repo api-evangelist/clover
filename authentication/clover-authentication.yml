@@ -1,0 +1,26 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/clover-ecommerce-api-openapi.yml, openapi/clover-platform-rest-api-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://www.clover.com/oauth/authorize
+    tokenUrl: https://api.clover.com/oauth/token
+    scopes: 0
+  description: OAuth 2.0 token or Ecommerce (PAKMS) API key.
+  sources:
+  - openapi/clover-ecommerce-api-openapi.yml
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: OAuth 2.0 access token or merchant API token.
+  sources:
+  - openapi/clover-platform-rest-api-openapi.yml
