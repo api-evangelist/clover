@@ -1,0 +1,21 @@
+{
+  "repo": "clover",
+  "feeds": [
+    {
+      "source": "https://blog.clover.com/feed/",
+      "feed_url": "https://blog.clover.com/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://docs.clover.com/llms.txt",
+      "feed_url": "https://docs.clover.com/llms.txt",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 12
+}
