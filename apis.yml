@@ -128,6 +128,8 @@ apis:
         title: iOS Payment SDK
         url: https://github.com/clover/clover-ios-payment-sdk
 common:
+  - type: AgenticAccess
+    url: agentic-access/clover-agentic-access.yml
   - type: DomainSecurity
     url: security/clover-domain-security.yml
   - type: Authentication
