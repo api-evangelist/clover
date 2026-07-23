@@ -1,0 +1,62 @@
+openapi: 3.1.0
+info:
+  title: Clover Ecommerce CHARGES TOKENS API
+  description: 'Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.'
+  version: v1
+  contact:
+    name: Clover Developer Platform
+    url: https://docs.clover.com/dev/reference
+  x-generated-from: documentation
+  x-last-validated: '2026-06-02'
+servers:
+- url: https://scl.clover.com
+  description: Production Ecommerce
+- url: https://scl-sandbox.dev.clover.com
+  description: Sandbox Ecommerce
+security:
+- OAuth2: []
+tags:
+- name: TOKENS
+paths:
+  /v1/tokens:
+    post:
+      summary: Clover Create a Card Token
+      description: Creates a single-use token, which is a unique code that indicates credit card details. Use this token with endpoints like [create a charge](https://docs.clover.com/reference/createcharge) or [pay for an order](https://docs.clover.com/reference/postordersidpay).
+      operationId: CreateToken
+      tags:
+      - TOKENS
+      parameters:
+      - name: apikey
+        in: header
+        required: true
+        description: Public Ecommerce API key associated with a specific merchant and developer app. Use [Retrieve an Ecommerce API key or PAKMS key](https://docs.clover.com/dev/reference/getapikey) to generate this key.
+        schema:
+          type: string
+        example: example-apikey
+      - name: User-Agent
+        in: header
+        required: true
+        description: 'Identifies the application, operating system, vendor, and/or version of the requesting user agent. Format: `<application>/<version>`'
+        schema:
+          type: string
+        example: example-User-Agent
+      responses:
+        '200':
+          description: Successful response.
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.clover.com/oauth/authorize
+          tokenUrl: https://api.clover.com/oauth/token
+          scopes: {}
+      description: OAuth 2.0 token or Ecommerce (PAKMS) API key.

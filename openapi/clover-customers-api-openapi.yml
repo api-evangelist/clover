@@ -1,0 +1,450 @@
+openapi: 3.1.0
+info:
+  title: Clover Ecommerce CHARGES CUSTOMERS API
+  description: 'Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.'
+  version: v1
+  contact:
+    name: Clover Developer Platform
+    url: https://docs.clover.com/dev/reference
+  x-generated-from: documentation
+  x-last-validated: '2026-06-02'
+servers:
+- url: https://scl.clover.com
+  description: Production Ecommerce
+- url: https://scl-sandbox.dev.clover.com
+  description: Sandbox Ecommerce
+security:
+- OAuth2: []
+tags:
+- name: CUSTOMERS
+paths:
+  /v3/merchants/{mId}/customers/{customerId}:
+    get:
+      summary: Clover Get a Single Customer
+      description: Returns information for a single customer.
+      operationId: customersGetCustomer
+      tags:
+      - CUSTOMERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: customerId
+        in: path
+        required: true
+        description: customerId parameter.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: filter
+        in: query
+        required: false
+        description: 'Filter fields: [customerSince, firstName, lastName, emailAddress, phoneNumber, marketingAllowed, fullName, id, deletedTime]'
+        schema:
+          type: string
+        example: example-filter
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields: [addresses, emailAddresses, phoneNumbers, cards, metadata]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+              examples:
+                CustomersGetCustomer200Example:
+                  summary: Default customersGetCustomer 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    merchant: {}
+                    firstName: example-value
+                    lastName: example-value
+                    marketingAllowed: true
+                    customerSince: 1
+                    orders:
+                    - {}
+                    addresses:
+                    - {}
+                    emailAddresses:
+                    - {}
+                    phoneNumbers:
+                    - {}
+                    cards:
+                    - {}
+                    metadata: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      summary: Clover Update a Customer
+      description: Updates information for a single customer.
+      operationId: customersUpdateCustomer
+      tags:
+      - CUSTOMERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: customerId
+        in: path
+        required: true
+        description: Unique identifier of the customer.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields to display additional nested information: [addresses, emailAddresses, phoneNumbers, cards, metadata]'
+        schema:
+          type: string
+        example: example-expand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+            examples:
+              CustomersUpdateCustomerRequestExample:
+                summary: Default customersUpdateCustomer request
+                x-microcks-default: true
+                value:
+                  id: example-value
+                  merchant: {}
+                  firstName: example-value
+                  lastName: example-value
+                  marketingAllowed: true
+                  customerSince: 1
+                  orders:
+                  - {}
+                  addresses:
+                  - {}
+                  emailAddresses:
+                  - {}
+                  phoneNumbers:
+                  - {}
+                  cards:
+                  - {}
+                  metadata: {}
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+              examples:
+                CustomersUpdateCustomer200Example:
+                  summary: Default customersUpdateCustomer 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    merchant: {}
+                    firstName: example-value
+                    lastName: example-value
+                    marketingAllowed: true
+                    customerSince: 1
+                    orders:
+                    - {}
+                    addresses:
+                    - {}
+                    emailAddresses:
+                    - {}
+                    phoneNumbers:
+                    - {}
+                    cards:
+                    - {}
+                    metadata: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      summary: Clover Delete a Customer
+      description: Deletes a single customer from a merchant.
+      operationId: customersDeleteCustomer
+      tags:
+      - CUSTOMERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: customerId
+        in: path
+        required: true
+        description: customerId parameter.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+              examples:
+                CustomersDeleteCustomer200Example:
+                  summary: Default customersDeleteCustomer 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    merchant: {}
+                    firstName: example-value
+                    lastName: example-value
+                    marketingAllowed: true
+                    customerSince: 1
+                    orders:
+                    - {}
+                    addresses:
+                    - {}
+                    emailAddresses:
+                    - {}
+                    phoneNumbers:
+                    - {}
+                    cards:
+                    - {}
+                    metadata: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/customers:
+    get:
+      summary: Clover Get a List of Customers
+      description: Gives information for every customer of a merchant by default.
+      operationId: customersGetCustomers
+      tags:
+      - CUSTOMERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: filter
+        in: query
+        required: false
+        description: 'Filter fields: [customerSince, firstName, lastName, emailAddress, phoneNumber, marketingAllowed, fullName, id, deletedTime]'
+        schema:
+          type: string
+        example: example-filter
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields: [addresses, emailAddresses, phoneNumbers, cards, metadata]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Customer'
+              examples:
+                CustomersGetCustomers200Example:
+                  summary: Default customersGetCustomers 200 response
+                  x-microcks-default: true
+                  value:
+                    elements:
+                    - {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      summary: Clover Create a Customer
+      description: Creates customer record for a merchant. Note that the request body cannot be null.
+      operationId: customersCreateCustomer
+      tags:
+      - CUSTOMERS
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields to display additional nested information: [addresses, emailAddresses, phoneNumbers, cards, metadata]'
+        schema:
+          type: string
+        example: example-expand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+            examples:
+              CustomersCreateCustomerRequestExample:
+                summary: Default customersCreateCustomer request
+                x-microcks-default: true
+                value:
+                  id: example-value
+                  merchant: {}
+                  firstName: example-value
+                  lastName: example-value
+                  marketingAllowed: true
+                  customerSince: 1
+                  orders:
+                  - {}
+                  addresses:
+                  - {}
+                  emailAddresses:
+                  - {}
+                  phoneNumbers:
+                  - {}
+                  cards:
+                  - {}
+                  metadata: {}
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+              examples:
+                CustomersCreateCustomer200Example:
+                  summary: Default customersCreateCustomer 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    merchant: {}
+                    firstName: example-value
+                    lastName: example-value
+                    marketingAllowed: true
+                    customerSince: 1
+                    orders:
+                    - {}
+                    addresses:
+                    - {}
+                    emailAddresses:
+                    - {}
+                    phoneNumbers:
+                    - {}
+                    cards:
+                    - {}
+                    metadata: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier.
+          example: 9ABCDEF1234567
+        merchant:
+          type: object
+          example: {}
+        firstName:
+          type: string
+          description: 'First/given name of the customer. Note: Length of first name cannot be more than 64 characters.'
+          example: Example firstName
+        lastName:
+          type: string
+          description: 'Last name/surname of the customer. Note: Length of last name cannot be more than 64 characters.'
+          example: Example lastName
+        marketingAllowed:
+          type: boolean
+          description: Indicates if the customer allows receiving of marketing communication.
+          example: true
+        customerSince:
+          type: integer
+          format: int64
+          description: Date of start of customer association with the merchant.
+          example: 1718153645000
+        orders:
+          type: array
+          items:
+            type: object
+          example: []
+        addresses:
+          type: array
+          items:
+            type: object
+          example: []
+        emailAddresses:
+          type: array
+          items:
+            type: object
+          example: []
+        phoneNumbers:
+          type: array
+          items:
+            type: object
+          example: []
+        cards:
+          type: array
+          items:
+            type: object
+          example: []
+        metadata:
+          type: object
+          example: {}
+      description: Clover Customer resource. Schema derived from the Clover Platform REST API v3 reference.
+      x-schema-source: documentation
+      x-source-url: https://docs.clover.com/dev/reference/customersgetcustomer
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.clover.com/oauth/authorize
+          tokenUrl: https://api.clover.com/oauth/token
+          scopes: {}
+      description: OAuth 2.0 token or Ecommerce (PAKMS) API key.

@@ -1,0 +1,380 @@
+openapi: 3.1.0
+info:
+  title: Clover Ecommerce CHARGES EMPLOYEES API
+  description: 'Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.'
+  version: v1
+  contact:
+    name: Clover Developer Platform
+    url: https://docs.clover.com/dev/reference
+  x-generated-from: documentation
+  x-last-validated: '2026-06-02'
+servers:
+- url: https://scl.clover.com
+  description: Production Ecommerce
+- url: https://scl-sandbox.dev.clover.com
+  description: Sandbox Ecommerce
+security:
+- OAuth2: []
+tags:
+- name: EMPLOYEES
+paths:
+  /v3/merchants/{mId}/employees/{empId}:
+    get:
+      summary: Clover Get a Single Employee
+      description: Returns information for a single employee.  Accepts optional expand query parameters
+      operationId: employeeGetEmployee
+      tags:
+      - EMPLOYEES
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: empId
+        in: path
+        required: true
+        description: Employee Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields: [roles, shifts]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+              examples:
+                EmployeeGetEmployee200Example:
+                  summary: Default employeeGetEmployee 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    name: example-value
+                    nickname: example-value
+                    customId: example-value
+                    email: example-value
+                    inviteSent: true
+                    claimedTime: 1
+                    deletedTime: 1
+                    pin: example-value
+                    unhashedPin: example-value
+                    role: OWNER
+                    roles:
+                    - {}
+                    isOwner: true
+                    shifts:
+                    - {}
+                    payments:
+                    - {}
+                    orders:
+                    - {}
+                    employeeCards:
+                    - {}
+                    merchant: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/employees:
+    get:
+      summary: Clover Get All Employees
+      description: Retrieves information about employees associated with a merchant.
+      operationId: employeeGetEmployees
+      tags:
+      - EMPLOYEES
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier (mId).
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: filter
+        in: query
+        required: false
+        description: 'Filter fields to display search results: [modifiedTime, role, role.id, customId, name, nickname, id, deletedTime, deleted_time, email]'
+        schema:
+          type: string
+        example: example-filter
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields to display additional nested information: [roles, shifts]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Employee'
+              examples:
+                EmployeeGetEmployees200Example:
+                  summary: Default employeeGetEmployees 200 response
+                  x-microcks-default: true
+                  value:
+                    elements:
+                    - {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      summary: Clover Create an Employee
+      description: Creates an employee for a merchant. Accepts optional expand parameters.
+      operationId: employeeCreateEmployee
+      tags:
+      - EMPLOYEES
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields: [shifts, payments, orders, roles]'
+        schema:
+          type: string
+        example: example-expand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+            examples:
+              EmployeeCreateEmployeeRequestExample:
+                summary: Default employeeCreateEmployee request
+                x-microcks-default: true
+                value:
+                  id: example-value
+                  name: example-value
+                  nickname: example-value
+                  customId: example-value
+                  email: example-value
+                  inviteSent: true
+                  claimedTime: 1
+                  deletedTime: 1
+                  pin: example-value
+                  unhashedPin: example-value
+                  role: OWNER
+                  roles:
+                  - {}
+                  isOwner: true
+                  shifts:
+                  - {}
+                  payments:
+                  - {}
+                  orders:
+                  - {}
+                  employeeCards:
+                  - {}
+                  merchant: {}
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+              examples:
+                EmployeeCreateEmployee200Example:
+                  summary: Default employeeCreateEmployee 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    name: example-value
+                    nickname: example-value
+                    customId: example-value
+                    email: example-value
+                    inviteSent: true
+                    claimedTime: 1
+                    deletedTime: 1
+                    pin: example-value
+                    unhashedPin: example-value
+                    role: OWNER
+                    roles:
+                    - {}
+                    isOwner: true
+                    shifts:
+                    - {}
+                    payments:
+                    - {}
+                    orders:
+                    - {}
+                    employeeCards:
+                    - {}
+                    merchant: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/shifts:
+    get:
+      summary: Clover Get All Shifts
+      description: Get all shifts
+      operationId: merchantGetAllShifts
+      tags:
+      - EMPLOYEES
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: filter
+        in: query
+        required: false
+        description: 'Filter fields: [employee.id, out_time, in_time, employee.name, in_and_override_time, out_and_override_time, id, has_in_time, override_in_time, deletedTime, server_banking]'
+        schema:
+          type: string
+        example: example-filter
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields: [employee, overrideInEmployee, overrideOutEmployee]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Employee:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          example: 9ABCDEF1234567
+        name:
+          type: string
+          description: Full name of the employee
+          example: Example name
+        nickname:
+          type: string
+          description: Nickname of the employee (shows up on receipts)
+          example: Example nickname
+        customId:
+          type: string
+          description: Custom ID of the employee
+          example: 9ABCDEF1234567
+        email:
+          type: string
+          description: Email of the employee (optional)
+          example: merchant@example.com
+        inviteSent:
+          type: boolean
+          description: Returns true if this employee was sent an invite to activate their account
+          example: true
+        claimedTime:
+          type: integer
+          description: Timestamp of when this employee claimed their account
+          example: 1718153645000
+        deletedTime:
+          type: integer
+          description: Timestamp of when this employee was deleted
+          example: 1718153645000
+        pin:
+          type: string
+          description: Employee PIN (hashed)
+          example: example-pin
+        unhashedPin:
+          type: string
+          description: Employee PIN
+          example: example-unhashedPin
+        role:
+          type: string
+          description: Employee System Role
+          enum:
+          - OWNER
+          - ADMIN
+          - MANAGER
+          - EMPLOYEE
+          example: OWNER
+        roles:
+          type: array
+          items:
+            type: object
+          example: []
+        isOwner:
+          type: boolean
+          description: Returns true if this employee is the owner account for this merchant
+          example: true
+        shifts:
+          type: array
+          items:
+            type: object
+          example: []
+        payments:
+          type: array
+          items:
+            type: object
+          example: []
+        orders:
+          type: array
+          items:
+            type: object
+          example: []
+        employeeCards:
+          type: array
+          items:
+            type: object
+          example: []
+        merchant:
+          type: object
+          example: {}
+      description: Clover Employee resource. Schema derived from the Clover Platform REST API v3 reference.
+      x-schema-source: documentation
+      x-source-url: https://docs.clover.com/dev/reference/employeegetemployee
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.clover.com/oauth/authorize
+          tokenUrl: https://api.clover.com/oauth/token
+          scopes: {}
+      description: OAuth 2.0 token or Ecommerce (PAKMS) API key.

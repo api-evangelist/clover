@@ -1,0 +1,753 @@
+openapi: 3.1.0
+info:
+  title: Clover Ecommerce CHARGES INVENTORY API
+  description: 'Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.'
+  version: v1
+  contact:
+    name: Clover Developer Platform
+    url: https://docs.clover.com/dev/reference
+  x-generated-from: documentation
+  x-last-validated: '2026-06-02'
+servers:
+- url: https://scl.clover.com
+  description: Production Ecommerce
+- url: https://scl-sandbox.dev.clover.com
+  description: Sandbox Ecommerce
+security:
+- OAuth2: []
+tags:
+- name: INVENTORY
+paths:
+  /v3/merchants/{mId}/items/{itemId}:
+    delete:
+      summary: Clover Delete an Inventory Item
+      description: Delete an inventory item
+      operationId: inventoryDeleteItem
+      tags:
+      - INVENTORY
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: itemId
+        in: path
+        required: true
+        description: Item Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+              examples:
+                InventoryDeleteItem200Example:
+                  summary: Default inventoryDeleteItem 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    hidden: true
+                    available: true
+                    autoManage: true
+                    itemGroup: {}
+                    options:
+                    - {}
+                    name: example-value
+                    alternateName: example-value
+                    code: example-value
+                    sku: example-value
+                    price: 1
+                    priceType: FIXED
+                    defaultTaxRates: true
+                    unitName: example-value
+                    cost: 1
+                    isRevenue: true
+                    stockCount: 1
+                    taxRates:
+                    - {}
+                    modifierGroups:
+                    - {}
+                    categories:
+                    - {}
+                    tags:
+                    - {}
+                    canonical: {}
+                    itemStock: {}
+                    MenuItem: {}
+                    modifiedTime: 1
+                    deletedTime: 1
+                    priceWithoutVat: 1
+                    colorCode: example-value
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      summary: Clover Get a Single Inventory Item
+      description: Retrieves an existing inventory item.
+      operationId: inventoryGetItem
+      tags:
+      - INVENTORY
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant idenitifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: itemId
+        in: path
+        required: true
+        description: Inventory item identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Additional information provided as an expanded response: [tags, categories, taxRates, modifierGroups, itemStock, options]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+              examples:
+                InventoryGetItem200Example:
+                  summary: Default inventoryGetItem 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    hidden: true
+                    available: true
+                    autoManage: true
+                    itemGroup: {}
+                    options:
+                    - {}
+                    name: example-value
+                    alternateName: example-value
+                    code: example-value
+                    sku: example-value
+                    price: 1
+                    priceType: FIXED
+                    defaultTaxRates: true
+                    unitName: example-value
+                    cost: 1
+                    isRevenue: true
+                    stockCount: 1
+                    taxRates:
+                    - {}
+                    modifierGroups:
+                    - {}
+                    categories:
+                    - {}
+                    tags:
+                    - {}
+                    canonical: {}
+                    itemStock: {}
+                    MenuItem: {}
+                    modifiedTime: 1
+                    deletedTime: 1
+                    priceWithoutVat: 1
+                    colorCode: example-value
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/categories:
+    post:
+      summary: Clover Create an Item Category
+      description: Create an item category
+      operationId: categoryCreateCategory
+      tags:
+      - INVENTORY
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable field: [items]'
+        schema:
+          type: string
+        example: example-expand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+            examples:
+              CategoryCreateCategoryRequestExample:
+                summary: Default categoryCreateCategory request
+                x-microcks-default: true
+                value:
+                  id: example-value
+                  name: example-value
+                  sortOrder: 1
+                  items:
+                  - {}
+                  colorCode: example-value
+                  deleted: true
+                  modifiedTime: 1
+                  canonical: {}
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+              examples:
+                CategoryCreateCategory200Example:
+                  summary: Default categoryCreateCategory 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    name: example-value
+                    sortOrder: 1
+                    items:
+                    - {}
+                    colorCode: example-value
+                    deleted: true
+                    modifiedTime: 1
+                    canonical: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      summary: Clover Get All Categories
+      description: Retrieves all categories. Items display on the Register app within categories in the order in which they are added to a category. Items may be associated with one or more categories or may not be associated with any category. Categories display in the Register app based on the sort order value for each category.
+      operationId: categoryGetCategories
+      tags:
+      - INVENTORY
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: filter
+        in: query
+        required: false
+        description: 'Filter fields to display search results: [modifiedTime, deleted, sortOrder, name, colorCode, id]'
+        schema:
+          type: string
+        example: example-filter
+      - name: expand
+        in: query
+        required: false
+        description: 'Additional information provided as an expanded response: [items]'
+        schema:
+          type: string
+        example: example-expand
+      - name: offset
+        in: query
+        required: false
+        description: Position of the first line item returned in the search results. Indicates the number of line items that are excluded from the search results.
+        schema:
+          type: integer
+        example: 1
+      - name: limit
+        in: query
+        required: false
+        description: "Maximum number of line items returned in the search result.\n Default: 100 \n Maximum limit: 1000"
+        schema:
+          type: integer
+        example: 1
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
+              examples:
+                CategoryGetCategories200Example:
+                  summary: Default categoryGetCategories 200 response
+                  x-microcks-default: true
+                  value:
+                    elements:
+                    - {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/items:
+    get:
+      summary: Clover Get All Inventory Items
+      description: Displays line items for each category in the inventory for an order.
+      operationId: inventoryGetItems
+      tags:
+      - INVENTORY
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: filter
+        in: query
+        required: false
+        description: 'Filter fields to display search results: [lowStock, modifiedTime, hidden, itemCode, available, option.id, modifierGroup.id, autoManage, price, id, sku, defaultTaxRates, tags.id, alternateName, isRevenue, tags.name, deleted, item.id, name, itemStock.quantity, itemGroup.id, isAgeRestricted, ageRestrictedType, minimumAge]'
+        schema:
+          type: string
+        example: example-filter
+      - name: expand
+        in: query
+        required: false
+        description: 'Additional information provided as an expanded response: [tags, categories, taxRates, modifierGroups, itemStock, options, ageRestricted]'
+        schema:
+          type: string
+        example: example-expand
+      - name: offset
+        in: query
+        required: false
+        description: Position of the first line item returned in the search results. Indicates the number of line items that are excluded from the search results.
+        schema:
+          type: integer
+        example: 1
+      - name: limit
+        in: query
+        required: false
+        description: "Maximum number of line items returned in the search result.\n Default: 100 \n Maximum limit: 1000"
+        schema:
+          type: integer
+        example: 1
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Item'
+              examples:
+                InventoryGetItems200Example:
+                  summary: Default inventoryGetItems 200 response
+                  x-microcks-default: true
+                  value:
+                    elements:
+                    - {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      summary: Clover Create an Inventory Item
+      description: Creates an inventory item.
+      operationId: inventoryCreateItem
+      tags:
+      - INVENTORY
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable fields to display additional nested information: [tags, categories, taxRates, modifierGroups, itemStock, options, ageRestricted]'
+        schema:
+          type: string
+        example: example-expand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+            examples:
+              InventoryCreateItemRequestExample:
+                summary: Default inventoryCreateItem request
+                x-microcks-default: true
+                value:
+                  id: example-value
+                  hidden: true
+                  available: true
+                  autoManage: true
+                  itemGroup: {}
+                  options:
+                  - {}
+                  name: example-value
+                  alternateName: example-value
+                  code: example-value
+                  sku: example-value
+                  price: 1
+                  priceType: FIXED
+                  defaultTaxRates: true
+                  unitName: example-value
+                  cost: 1
+                  isRevenue: true
+                  stockCount: 1
+                  taxRates:
+                  - {}
+                  modifierGroups:
+                  - {}
+                  categories:
+                  - {}
+                  tags:
+                  - {}
+                  canonical: {}
+                  itemStock: {}
+                  MenuItem: {}
+                  modifiedTime: 1
+                  deletedTime: 1
+                  priceWithoutVat: 1
+                  colorCode: example-value
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+              examples:
+                InventoryCreateItem200Example:
+                  summary: Default inventoryCreateItem 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    hidden: true
+                    available: true
+                    autoManage: true
+                    itemGroup: {}
+                    options:
+                    - {}
+                    name: example-value
+                    alternateName: example-value
+                    code: example-value
+                    sku: example-value
+                    price: 1
+                    priceType: FIXED
+                    defaultTaxRates: true
+                    unitName: example-value
+                    cost: 1
+                    isRevenue: true
+                    stockCount: 1
+                    taxRates:
+                    - {}
+                    modifierGroups:
+                    - {}
+                    categories:
+                    - {}
+                    tags:
+                    - {}
+                    canonical: {}
+                    itemStock: {}
+                    MenuItem: {}
+                    modifiedTime: 1
+                    deletedTime: 1
+                    priceWithoutVat: 1
+                    colorCode: example-value
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/categories/{catId}:
+    get:
+      summary: Clover Get a Category
+      description: Get a category
+      operationId: categoryGetCategory
+      tags:
+      - INVENTORY
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: catId
+        in: path
+        required: true
+        description: Category Id
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      - name: expand
+        in: query
+        required: false
+        description: 'Expandable field: [items]'
+        schema:
+          type: string
+        example: example-expand
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+              examples:
+                CategoryGetCategory200Example:
+                  summary: Default categoryGetCategory 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-value
+                    name: example-value
+                    sortOrder: 1
+                    items:
+                    - {}
+                    colorCode: example-value
+                    deleted: true
+                    modifiedTime: 1
+                    canonical: {}
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/merchants/{mId}/bulk_items:
+    post:
+      summary: Clover Create Multiple Inventory Items
+      description: Creates multiple inventory items in a single request. Use the PUT HTTP method to [update existing inventory items](https://docs.clover.com/reference/inventorybulkpatchinventoryitems).
+      operationId: inventoryBulkCreateInventoryItems
+      tags:
+      - INVENTORY
+      parameters:
+      - name: mId
+        in: path
+        required: true
+        description: Merchant identifier.
+        schema:
+          type: string
+        example: 9ABCDEF1234567
+      responses:
+        '200':
+          description: Successful response.
+        '401':
+          description: Authentication required or invalid token.
+        '429':
+          description: Too many requests; rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          example: 9ABCDEF1234567
+        name:
+          type: string
+          description: The name of the category which will appear in Clover Register App.
+          example: Example name
+        sortOrder:
+          type: integer
+          description: Integer used to determine how this category is sorted against other categories.
+          example: 1
+        items:
+          type: array
+          items:
+            type: object
+          example: []
+        colorCode:
+          type: string
+          description: 'Hex code representation of the color assigned to this category and its items, in the form of #fff, #ffffff, or #ffffffff'
+          example: ABC123
+        deleted:
+          type: boolean
+          description: Whether the category has been deleted.
+          example: true
+        modifiedTime:
+          type: integer
+          description: The time this category was last modified
+          example: 1718153645000
+        canonical:
+          type: object
+          example: {}
+      description: Clover Category resource. Schema derived from the Clover Platform REST API v3 reference.
+      x-schema-source: documentation
+      x-source-url: https://docs.clover.com/dev/reference/categorygetcategory
+    Item:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the inventory item.
+          example: 9ABCDEF1234567
+        hidden:
+          type: boolean
+          description: "Indicates whether the inventory item is hidden on the Register app.\n Default: False"
+          example: true
+        available:
+          type: boolean
+          description: "Indicates whether the inventory item is available for sale across all channels.\n Default: True"
+          example: true
+        autoManage:
+          type: boolean
+          description: "Indicates whether the inventory item's availability is automatically or manually managed.\n Values:\n True - Item availability is automatically managed.\n False(default) - Item availability is manually managed. "
+          example: true
+        itemGroup:
+          type: object
+          example: {}
+        options:
+          type: array
+          items:
+            type: object
+          example: []
+        name:
+          type: string
+          description: Item name.
+          example: Example name
+        alternateName:
+          type: string
+          description: Alternate name of the item.
+          example: Example alternateName
+        code:
+          type: string
+          description: Item product code, such as Universal Product Code (UPC) or European Article Number (EAN).
+          example: ABC123
+        sku:
+          type: string
+          description: Stock keeping unit (SKU).
+          example: SKU-001
+        price:
+          type: integer
+          format: int64
+          description: "Price of the item based on the merchant's local currency and price type, such as fixed, variable, or per unit price.\n For non-VAT merchants who do not pay value-added tax, this field is exclusive of tax.\n For VAT merchants, this field is inclusive of tax.\n Format: Cents"
+          example: 1099
+        priceType:
+          type: string
+          description: Price type, such as fixed, variable, or per unit price.
+          enum:
+          - FIXED
+          - VARIABLE
+          - PER_UNIT
+          example: FIXED
+        defaultTaxRates:
+          type: boolean
+          description: "Indicates whether or not to use the default tax rate. \n Default: True"
+          example: true
+        unitName:
+          type: string
+          description: Unit of measurement for the item, such as pound or meter.
+          example: Example unitName
+        cost:
+          type: integer
+          description: 'Cost of the item to a merchant as compared to the price payable by the customer, for example: wholesale versus retail price.'
+          example: 1099
+        isRevenue:
+          type: boolean
+          description: "Indicates whether this item is counted as revenue, for example: gift cards and donations are not counted as revenue.\n Default: False"
+          example: true
+        stockCount:
+          type: integer
+          description: Deprecated. Use itemStock.
+          example: 1
+        taxRates:
+          type: array
+          items:
+            type: object
+          example: []
+        modifierGroups:
+          type: array
+          items:
+            type: object
+          example: []
+        categories:
+          type: array
+          items:
+            type: object
+          example: []
+        tags:
+          type: array
+          items:
+            type: object
+          example: []
+        canonical:
+          type: object
+          example: {}
+        itemStock:
+          type: object
+          example: {}
+        MenuItem:
+          type: object
+          example: {}
+        modifiedTime:
+          type: integer
+          description: Time when the item was modified.
+          example: 1718153645000
+        deletedTime:
+          type: integer
+          description: Time when the item was deleted.
+          example: 1718153645000
+        priceWithoutVat:
+          type: integer
+          description: "Item price without value-added tax (VAT).\n For non-VAT merchants, this field is not used.\n For VAT merchants, this field is the base price of an item."
+          example: 1099
+        colorCode:
+          type: string
+          description: "Hex code of the color assigned to the category and its items.\n Format: #fff, #ffffff, or #ffffffff."
+          example: ABC123
+      description: Clover Item resource. Schema derived from the Clover Platform REST API v3 reference.
+      x-schema-source: documentation
+      x-source-url: https://docs.clover.com/dev/reference/inventorygetitem
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.clover.com/oauth/authorize
+          tokenUrl: https://api.clover.com/oauth/token
+          scopes: {}
+      description: OAuth 2.0 token or Ecommerce (PAKMS) API key.

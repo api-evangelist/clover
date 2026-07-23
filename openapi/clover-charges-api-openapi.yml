@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Clover Ecommerce API
+  title: Clover Ecommerce CHARGES API
   description: 'Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.'
   version: v1
   contact:
@@ -16,14 +16,7 @@ servers:
 security:
 - OAuth2: []
 tags:
-- name: Charges
-  description: Create, capture, and retrieve ecommerce charges.
-- name: Refunds
-  description: Create and retrieve refunds for ecommerce charges.
-- name: Tokens
-  description: Tokenize cards for card-on-file and reuse.
-- name: Checkout
-  description: Hosted checkout sessions.
+- name: CHARGES
 paths:
   /v1/charges:
     post:
@@ -475,227 +468,7 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
-  /v1/refunds:
-    post:
-      summary: Clover Create a Refund
-      description: Creates a new refund that must be associated with an existing charge. Refunds are applied to the `source` used for the original payment. Partial refunds are allowed up to the original charge amount.
-      operationId: CreateRefund
-      tags:
-      - REFUNDS
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Refund'
-            examples:
-              CreateRefundRequestExample:
-                summary: Default CreateRefund request
-                x-microcks-default: true
-                value:
-                  id: example-value
-                  charge: example-value
-                  amount: 1
-                  status: example-value
-      responses:
-        '200':
-          description: Successful response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Refund'
-              examples:
-                CreateRefund200Example:
-                  summary: Default CreateRefund 200 response
-                  x-microcks-default: true
-                  value:
-                    id: example-value
-                    charge: example-value
-                    amount: 1
-                    status: example-value
-        '401':
-          description: Authentication required or invalid token.
-        '429':
-          description: Too many requests; rate limit exceeded.
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-    get:
-      summary: Clover Get Refunds List
-      description: Returns a list of all existing refunds. The newest refund is first in the list. The ten most recent refunds appear by default on the `charge` object.
-      operationId: ListRefunds
-      tags:
-      - REFUNDS
-      parameters:
-      - name: charge
-        in: query
-        required: false
-        description: Retrieve refunds applied to a specific charge.
-        schema:
-          type: string
-        example: example-charge
-      - name: created
-        in: query
-        required: false
-        description: List filter based on the object's `created` field. The value can be a string with a Unix timestamp (in milliseconds) or a dictionary of multiple options describing a time range.
-        schema:
-          type: string
-        example: example-created
-      - name: ending_before
-        in: query
-        required: false
-        description: Cursor used in pagination. The ending_before object ID sets your place in the list. For example, if you receive 100 objects in a list starting with obj_bar, add ending_before=obj_bar in your subsequent request to retrieve the previous page of the list.
-        schema:
-          type: string
-        example: example-ending_before
-      - name: limit
-        in: query
-        required: false
-        description: The number of objects returned by the request, ranging between `1` and `100`. The default value is `10`.
-        schema:
-          type: integer
-        example: 1
-      - name: starting_after
-        in: query
-        required: false
-        description: Cursor used in pagination. The starting_after object ID sets your place in the list. For example, if you receive 100 objects in a list starting with obj_foo, add starting_after=obj_foo in your subsequent request to retrieve the next page of the list.
-        schema:
-          type: string
-        example: example-starting_after
-      responses:
-        '200':
-          description: Successful response.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  elements:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Refund'
-              examples:
-                ListRefunds200Example:
-                  summary: Default ListRefunds 200 response
-                  x-microcks-default: true
-                  value:
-                    elements:
-                    - {}
-        '401':
-          description: Authentication required or invalid token.
-        '429':
-          description: Too many requests; rate limit exceeded.
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-  /v1/refunds/{refundId}:
-    get:
-      summary: Clover Get a Refund
-      description: Returns details of a specific refund.
-      operationId: GetRefund
-      tags:
-      - REFUNDS
-      parameters:
-      - name: refundId
-        in: path
-        required: true
-        description: Universal unique identifier (UUID) of the refund to retrieve.
-        schema:
-          type: string
-        example: 9ABCDEF1234567
-      responses:
-        '200':
-          description: Successful response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Refund'
-              examples:
-                GetRefund200Example:
-                  summary: Default GetRefund 200 response
-                  x-microcks-default: true
-                  value:
-                    id: example-value
-                    charge: example-value
-                    amount: 1
-                    status: example-value
-        '401':
-          description: Authentication required or invalid token.
-        '429':
-          description: Too many requests; rate limit exceeded.
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-  /v1/tokens:
-    post:
-      summary: Clover Create a Card Token
-      description: Creates a single-use token, which is a unique code that indicates credit card details. Use this token with endpoints like [create a charge](https://docs.clover.com/reference/createcharge) or [pay for an order](https://docs.clover.com/reference/postordersidpay).
-      operationId: CreateToken
-      tags:
-      - TOKENS
-      parameters:
-      - name: apikey
-        in: header
-        required: true
-        description: Public Ecommerce API key associated with a specific merchant and developer app. Use [Retrieve an Ecommerce API key or PAKMS key](https://docs.clover.com/dev/reference/getapikey) to generate this key.
-        schema:
-          type: string
-        example: example-apikey
-      - name: User-Agent
-        in: header
-        required: true
-        description: 'Identifies the application, operating system, vendor, and/or version of the requesting user agent. Format: `<application>/<version>`'
-        schema:
-          type: string
-        example: example-User-Agent
-      responses:
-        '200':
-          description: Successful response.
-        '401':
-          description: Authentication required or invalid token.
-        '429':
-          description: Too many requests; rate limit exceeded.
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-  /invoicingcheckoutservice/v1/checkouts:
-    post:
-      summary: Clover Create Checkout
-      description: '> **Note:** To use this endpoint, please select the **API Sandbox server** (`https://apisandbox.dev.clover.com`) from the Base URL dropdown in the right panel.
-
-
-        Creates a hosted checkout payment object to connect an application. Use this endpoint to request a new checkout session for a customer transaction. For more information, see [Create a Hosted Checkout session request](https://docs.clover.com/dev/docs/creating-a-hosted-checkout-session).'
-      operationId: CreateCheckout
-      tags:
-      - CHECKOUT
-      parameters:
-      - name: X-Clover-Merchant-Id
-        in: header
-        required: true
-        description: Clover merchant identifier (mid).
-        schema:
-          type: string
-        example: 9ABCDEF1234567
-      responses:
-        '200':
-          description: Successful response.
-        '401':
-          description: Authentication required or invalid token.
-        '429':
-          description: Too many requests; rate limit exceeded.
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
 components:
-  securitySchemes:
-    OAuth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: https://www.clover.com/oauth/authorize
-          tokenUrl: https://api.clover.com/oauth/token
-          scopes: {}
-      description: OAuth 2.0 token or Ecommerce (PAKMS) API key.
   schemas:
     Charge:
       type: object
@@ -899,19 +672,12 @@ components:
           description: Total amount captured for pre-auth transactions.
           example: 1099
       x-schema-source: documentation
-    Refund:
-      type: object
-      properties:
-        id:
-          type: string
-          example: 9ABCDEF1234567
-        charge:
-          type: string
-          example: example-charge
-        amount:
-          type: integer
-          example: 1099
-        status:
-          type: string
-          example: open
-      x-schema-source: documentation
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.clover.com/oauth/authorize
+          tokenUrl: https://api.clover.com/oauth/token
+          scopes: {}
+      description: OAuth 2.0 token or Ecommerce (PAKMS) API key.
