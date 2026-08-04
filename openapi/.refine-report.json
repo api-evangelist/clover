@@ -1,0 +1,30 @@
+{
+  "provider": "clover",
+  "sources": [
+    "clover-charges-api-openapi.yml",
+    "clover-checkout-api-openapi.yml",
+    "clover-customers-api-openapi.yml",
+    "clover-employees-api-openapi.yml",
+    "clover-inventory-api-openapi.yml",
+    "clover-orders-api-openapi.yml",
+    "clover-payments-api-openapi.yml",
+    "clover-refunds-api-openapi.yml",
+    "clover-tokens-api-openapi.yml"
+  ],
+  "outputs": [
+    "clover-charges-api-openapi.yml",
+    "clover-checkout-api-openapi.yml",
+    "clover-customers-api-openapi.yml",
+    "clover-employees-api-openapi.yml",
+    "clover-inventory-api-openapi.yml",
+    "clover-orders-api-openapi.yml",
+    "clover-payments-api-openapi.yml",
+    "clover-refunds-api-openapi.yml",
+    "clover-tokens-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

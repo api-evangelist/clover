@@ -3,19 +3,13 @@
   "feeds": [
     {
       "source": "https://blog.clover.com/feed/",
-      "feed_url": "https://blog.clover.com/feed/",
-      "title": "",
-      "saved": 0,
-      "method": "feed"
+      "error": "HTTPError"
     },
     {
       "source": "https://docs.clover.com/llms.txt",
-      "feed_url": "https://docs.clover.com/llms.txt",
-      "title": "",
-      "saved": 0,
-      "method": "none"
+      "error": "HTTPError"
     }
   ],
-  "fetched": "2026-07-11T11:50:51Z",
+  "fetched": "2026-08-01T15:49:00Z",
   "post_count": 12
 }
