@@ -254,6 +254,28 @@ apis:
   - type: Documentation
     url: https://docs.clover.com/
 common:
+  - type: Support
+    url: https://www.clover.com/help
+  - type: Webhooks
+    url: https://docs.clover.com/dev/docs/webhooks
+  - type: Deprecation
+    url: https://docs.clover.com/dev/docs/deprecated-apis
+  - type: Sandbox
+    url: https://sandbox.dev.clover.com/developers
+  - type: APIReference
+    url: https://docs.clover.com/reference-link/api-reference-overview
+  - type: DeveloperPortal
+    url: https://www.clover.com/developers
+  - type: ChangeLog
+    url: https://docs.clover.com/changelog
+  - type: PrivacyPolicy
+    url: https://www.clover.com/privacy-policy
+  - type: TermsOfService
+    url: https://www.clover.com/terms
+  - type: Pricing
+    url: https://www.clover.com/pricing
+  - type: GettingStarted
+    url: https://docs.clover.com/docs/get-started-with-sandbox-environment
   - type: AgenticAccess
     url: agentic-access/clover-agentic-access.yml
   - type: DomainSecurity
