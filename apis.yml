@@ -7,6 +7,18 @@ description: >-
   exposes the Clover REST API for inventory/orders/customers/transactions, the Ecommerce API for online payments, an
   Android Payments API and Clover Android SDK for native apps on Clover devices, the REST Pay Display API for
   semi-integrated POS, the Remote Pay SDKs (cloud, Windows, iOS, Android), and the Clover Go SDK.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-11'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -258,7 +270,7 @@ common:
     url: https://www.clover.com/help
   - type: Webhooks
     url: https://docs.clover.com/dev/docs/webhooks
-  - type: Deprecation
+  - type: DeprecationPolicy
     url: https://docs.clover.com/dev/docs/deprecated-apis
   - type: Sandbox
     url: https://sandbox.dev.clover.com/developers
