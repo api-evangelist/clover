@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clover Ecommerce CHARGES API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.clover.com/oauth/authorize",
+      "accessTokenUrl": "https://api.clover.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CHARGES",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clover Get Charges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v1/charges",
+            "params": [
+              {
+                "name": "created",
+                "value": "example-created",
+                "type": "query",
+                "description": "created parameter."
+              },
+              {
+                "name": "customer",
+                "value": "example-customer",
+                "type": "query",
+                "description": "Displays charges associated with the provided `customer ID`."
+              },
+              {
+                "name": "ending_before",
+                "value": "example-ending_before",
+                "type": "query",
+                "description": "Cursor used in pagination. The ending_before object ID sets your place in the list. For example, if you receive 100 objects in a list starting with obj_bar, add ending_before=obj_bar in your subsequent request to retrieve the previous page of the list."
+              },
+              {
+                "name": "expand",
+                "value": "",
+                "type": "query",
+                "description": "Additional information provided as an expanded response, for example, a related object nested within the parent. See [Use expandable fields](https://docs.clover.com/docs/expanding-fields)."
+              },
+              {
+                "name": "limit",
+                "value": "1",
+                "type": "query",
+                "description": "Number of objects returned by the request, ranging between 1 and 100.\n Default: 10"
+              },
+              {
+                "name": "threeds_validation_result",
+                "value": "example-threeds_validation_result",
+                "type": "query",
+                "description": "EMV® 3-D Secure (3DS) authentication result. 3-D Secure is a protocol that provides an additional security layer for online credit and debit card-not-present (CNP) transactions."
+              },
+              {
+                "name": "is_threeds",
+                "value": "true",
+                "type": "query",
+                "description": "Indicates whether the transaction is 3-D Secure authenticated."
+              },
+              {
+                "name": "starting_after",
+                "value": "example-starting_after",
+                "type": "query",
+                "description": "Cursor used in pagination. The starting_after object ID sets your place in the list. For example, if you receive 100 objects in a list starting with obj_foo, add starting_after=obj_foo in your subsequent request to retrieve the next page of the list."
+              }
+            ]
+          },
+          "docs": "Displays a list of existing charges. First displays the newest charge in the list. See [Get charges](https://docs.clover.com/docs/get-charges) tutorials for more information."
+        },
+        {
+          "info": {
+            "name": "Clover Create a Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scl.clover.com/v1/charges",
+            "headers": [
+              {
+                "name": "x-forwarded-for",
+                "value": "example-x-forwarded-for"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Charges a credit card or other payment source using data in the `charge` object. See [Create a charge](https://docs.clover.com/docs/create-a-charge) tutorial for more information."
+        },
+        {
+          "info": {
+            "name": "Clover Capture a Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scl.clover.com/v1/charges/:chargeId/capture",
+            "headers": [
+              {
+                "name": "x-forwarded-for",
+                "value": "example-x-forwarded-for"
+              }
+            ],
+            "params": [
+              {
+                "name": "chargeId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Universal unique identifier (UUID) of the charge to capture."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "As step two of the two-part payment flow, captures the payment of an existing but uncaptured charge. The first step is to [create a charge](https://docs.clover.com/reference/createcharge) with the capture option set to `false`."
+        },
+        {
+          "info": {
+            "name": "Clover Get a Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v1/charges/:chargeId",
+            "params": [
+              {
+                "name": "chargeId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Universally unique identifier (UUID) of the charge."
+              }
+            ]
+          },
+          "docs": "Retrieves the details of an existing charge. This information is also returned when a charge is first created, see [create a charge](https://docs.clover.com/reference/createcharge) or if it is refunded, see [create a refund](https://docs.clover.com/reference/createrefund)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

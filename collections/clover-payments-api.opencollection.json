@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clover Ecommerce CHARGES PAYMENTS API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.clover.com/oauth/authorize",
+      "accessTokenUrl": "https://api.clover.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PAYMENTS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clover Get a Single Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v3/merchants/:mId/payments/:payId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "payId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Payment Id"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields: [tender, germanInfo, lineItemPayments, cardTransaction, dccInfo, employee, refunds, transactionInfo, externalReferenceId, oceanGatewayInfo, taxRates, additionalCharges, appTracking, paymentAttributes, order]"
+              }
+            ]
+          },
+          "docs": "Retrieve a single payment information, including the total amount, tip amount, tax amount, and result status."
+        },
+        {
+          "info": {
+            "name": "Clover Get All Payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v3/merchants/:mId/payments",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              },
+              {
+                "name": "filter",
+                "value": "example-filter",
+                "type": "query",
+                "description": "Filter fields to display search results: [modifiedTime, device.id, externalReferenceId, result, offline, createdTime, externalPaymentId, voided, id, tender.id, employee.id, order.modifiedTime, amount, cardType, clientCreatedTime]"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields to display additional nested information: [tender, germanInfo, lineItemPayments, cardTransaction, dccInfo, refunds, transactionInfo, externalReferenceId, oceanGatewayInfo, taxRates, additionalCharges, appTracking, paymentAttributes, order]"
+              }
+            ]
+          },
+          "docs": "Retrieves payment information, including the total amount, tip amount, tax amount, and result status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

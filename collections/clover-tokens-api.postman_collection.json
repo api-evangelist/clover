@@ -1,0 +1,249 @@
+{
+  "item": [
+    {
+      "id": "9dc88234-e7c6-4962-80e3-9cdfa8787acc",
+      "name": "TOKENS",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f33b5235-237d-43aa-8292-3af69e681c85",
+          "name": "Clover Create a Card Token",
+          "request": {
+            "name": "Clover Create a Card Token",
+            "description": {
+              "content": "Creates a single-use token, which is a unique code that indicates credit card details. Use this token with endpoints like [create a charge](https://docs.clover.com/reference/createcharge) or [pay for an order](https://docs.clover.com/reference/postordersidpay).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Public Ecommerce API key associated with a specific merchant and developer app. Use [Retrieve an Ecommerce API key or PAKMS key](https://docs.clover.com/dev/reference/getapikey) to generate this key.",
+                "key": "apikey",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Identifies the application, operating system, vendor, and/or version of the requesting user agent. Format: `<application>/<version>`",
+                "key": "User-Agent",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "84f149ab-e471-4784-936e-043c9af08f10",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Public Ecommerce API key associated with a specific merchant and developer app. Use [Retrieve an Ecommerce API key or PAKMS key](https://docs.clover.com/dev/reference/getapikey) to generate this key.",
+                    "key": "apikey",
+                    "value": "example-apikey"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Identifies the application, operating system, vendor, and/or version of the requesting user agent. Format: `<application>/<version>`",
+                    "key": "User-Agent",
+                    "value": "example-User-Agent"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "51b3f37f-2531-40f2-897c-2c170e069b62",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Public Ecommerce API key associated with a specific merchant and developer app. Use [Retrieve an Ecommerce API key or PAKMS key](https://docs.clover.com/dev/reference/getapikey) to generate this key.",
+                    "key": "apikey",
+                    "value": "example-apikey"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Identifies the application, operating system, vendor, and/or version of the requesting user agent. Format: `<application>/<version>`",
+                    "key": "User-Agent",
+                    "value": "example-User-Agent"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3fee7582-5d0a-4cbb-9efe-ead92f676ad4",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Public Ecommerce API key associated with a specific merchant and developer app. Use [Retrieve an Ecommerce API key or PAKMS key](https://docs.clover.com/dev/reference/getapikey) to generate this key.",
+                    "key": "apikey",
+                    "value": "example-apikey"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Identifies the application, operating system, vendor, and/or version of the requesting user agent. Format: `<application>/<version>`",
+                    "key": "User-Agent",
+                    "value": "example-User-Agent"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://scl.clover.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.clover.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.clover.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2230b6b8-2e93-4040-8f5d-67c5e9356319",
+    "name": "Clover Ecommerce CHARGES TOKENS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.\n\nContact Support:\n Name: Clover Developer Platform",
+      "type": "text/plain"
+    }
+  }
+}

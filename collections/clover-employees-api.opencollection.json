@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clover Ecommerce CHARGES EMPLOYEES API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.clover.com/oauth/authorize",
+      "accessTokenUrl": "https://api.clover.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EMPLOYEES",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clover Get a Single Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v3/merchants/:mId/employees/:empId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "empId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Employee Id"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields: [roles, shifts]"
+              }
+            ]
+          },
+          "docs": "Returns information for a single employee.  Accepts optional expand query parameters"
+        },
+        {
+          "info": {
+            "name": "Clover Get All Employees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v3/merchants/:mId/employees",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier (mId)."
+              },
+              {
+                "name": "filter",
+                "value": "example-filter",
+                "type": "query",
+                "description": "Filter fields to display search results: [modifiedTime, role, role.id, customId, name, nickname, id, deletedTime, deleted_time, email]"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields to display additional nested information: [roles, shifts]"
+              }
+            ]
+          },
+          "docs": "Retrieves information about employees associated with a merchant."
+        },
+        {
+          "info": {
+            "name": "Clover Create an Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scl.clover.com/v3/merchants/:mId/employees",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields: [shifts, payments, orders, roles]"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an employee for a merchant. Accepts optional expand parameters."
+        },
+        {
+          "info": {
+            "name": "Clover Get All Shifts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v3/merchants/:mId/shifts",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "filter",
+                "value": "example-filter",
+                "type": "query",
+                "description": "Filter fields: [employee.id, out_time, in_time, employee.name, in_and_override_time, out_and_override_time, id, has_in_time, override_in_time, deletedTime, server_banking]"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields: [employee, overrideInEmployee, overrideOutEmployee]"
+              }
+            ]
+          },
+          "docs": "Get all shifts"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

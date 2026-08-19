@@ -1,0 +1,264 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clover Ecommerce CHARGES ORDERS API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.clover.com/oauth/authorize",
+      "accessTokenUrl": "https://api.clover.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ORDERS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clover Get All Line Items for an Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v3/merchants/:mId/orders/:orderId/line_items",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "orderId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Order Id"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields: [employee, orderType, discounts, modifications, taxRates, payments]"
+              }
+            ]
+          },
+          "docs": "Returns all line items for an order."
+        },
+        {
+          "info": {
+            "name": "Clover Create a New Line Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scl.clover.com/v3/merchants/:mId/orders/:orderId/line_items",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "orderId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Order Id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new line item for an order. Requests must include either a `price` or an `item` object with an inventory item `id`. \n\n**Note:** To ensure platform stability, an order is limited to a maximum of 3,000 line items. If this call would cause the order to exceed this limit, the request will fail with a `400 Bad Request` error."
+        },
+        {
+          "info": {
+            "name": "Clover Gets a List of Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v3/merchants/:mId/orders",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier (mId)."
+              },
+              {
+                "name": "filter",
+                "value": "example-filter",
+                "type": "query",
+                "description": "Filter fields to display search results: [employee.id, note, modifiedTime, orderType, touched, cardTransaction.last4, manualTransaction, employee.name, title, device.id, externalReferenceId, clientCreatedTime, total, payType, testMode, createdTime, id, state, deletedTime]\n `Note`: Search results for the list of orders list is restricted to the last 90 days if the filter fields include: [deletedTime, externalReferenceId, createdTime, total, payType, title, note, state, manualTransaction, cardTransaction.last4, testMode, touched]"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Additional information provided as an expanded response: [employee, payments, refunds, credits, voids, payment.tender, payment.cardTransaction, lineItems, customers, serviceCharge, discounts, orderType, lineItems.discounts, lineItems.modifications]"
+              }
+            ]
+          },
+          "docs": "Displays a list of orders. See [Manage orders data](https://docs.clover.com/build/working-with-orders/) for more details."
+        },
+        {
+          "info": {
+            "name": "Clover Create Custom Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scl.clover.com/v3/merchants/:mId/orders",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "**Description:** Creates or updates orders with a non-Clover inventory and dynamically calculates taxes. Valid fields are: taxRemoved, note, title, state, testMode, manualTransaction, groupLineItems, and orderType. Use separate API calls to add line items. <br> \n **Tip:** Use the [create an atomic order](https://docs.clover.com/dev/reference/ordercreateatomicorder) endpoint to create orders using Clover inventory and leverage the real-time totals and tax calculation features using a single API c"
+        },
+        {
+          "info": {
+            "name": "Clover Create a Payment Record on an Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scl.clover.com/v3/merchants/:mId/orders/:orderId/payments",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              },
+              {
+                "name": "orderId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Order identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Payment must include a `positive amount` and a valid `tender ID`.\n `Note`: This endpoint references external tenders and logs them for bookkeeping purposes. This is not for Clover credits/debit tenders. A merchant's tenders and their IDs can be retrieved from /v3/merchants/mId/tenders."
+        },
+        {
+          "info": {
+            "name": "Clover Get a Single Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v3/merchants/:mId/orders/:orderId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "orderId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Order Id"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields: [lineItems, serviceCharge, discounts, credits, payments, customers, orderFulfillmentEvent, refunds]"
+              }
+            ]
+          },
+          "docs": "Returns a single order. See https://docs.clover.com/build/working-with-orders/ for more details. "
+        },
+        {
+          "info": {
+            "name": "Clover Update an Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scl.clover.com/v3/merchants/:mId/orders/:orderId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              },
+              {
+                "name": "orderId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Order identifier."
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Additional information provided as an expanded response: [lineItems, serviceCharge, discounts, credits, payments, customers, orderFulfillmentEvent, refunds]"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a single order. See [working-with-orders](https://docs.clover.com/build/working-with-orders/) for more details."
+        },
+        {
+          "info": {
+            "name": "Clover Delete an Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://scl.clover.com/v3/merchants/:mId/orders/:orderId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "orderId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Order Id"
+              }
+            ]
+          },
+          "docs": "Deletes a single order. See https://docs.clover.com/build/working-with-orders/ for more details."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,280 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clover Ecommerce CHARGES INVENTORY API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.clover.com/oauth/authorize",
+      "accessTokenUrl": "https://api.clover.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "INVENTORY",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clover Get a Single Inventory Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v3/merchants/:mId/items/:itemId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant idenitifier."
+              },
+              {
+                "name": "itemId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Inventory item identifier."
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Additional information provided as an expanded response: [tags, categories, taxRates, modifierGroups, itemStock, options]"
+              }
+            ]
+          },
+          "docs": "Retrieves an existing inventory item."
+        },
+        {
+          "info": {
+            "name": "Clover Delete an Inventory Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://scl.clover.com/v3/merchants/:mId/items/:itemId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "itemId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Item Id"
+              }
+            ]
+          },
+          "docs": "Delete an inventory item"
+        },
+        {
+          "info": {
+            "name": "Clover Get All Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v3/merchants/:mId/categories",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              },
+              {
+                "name": "filter",
+                "value": "example-filter",
+                "type": "query",
+                "description": "Filter fields to display search results: [modifiedTime, deleted, sortOrder, name, colorCode, id]"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Additional information provided as an expanded response: [items]"
+              },
+              {
+                "name": "offset",
+                "value": "1",
+                "type": "query",
+                "description": "Position of the first line item returned in the search results. Indicates the number of line items that are excluded from the search results."
+              },
+              {
+                "name": "limit",
+                "value": "1",
+                "type": "query",
+                "description": "Maximum number of line items returned in the search result.\n Default: 100 \n Maximum limit: 1000"
+              }
+            ]
+          },
+          "docs": "Retrieves all categories. Items display on the Register app within categories in the order in which they are added to a category. Items may be associated with one or more categories or may not be associated with any category. Categories display in the Register app based on the sort order value for each category."
+        },
+        {
+          "info": {
+            "name": "Clover Create an Item Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scl.clover.com/v3/merchants/:mId/categories",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable field: [items]"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an item category"
+        },
+        {
+          "info": {
+            "name": "Clover Get All Inventory Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v3/merchants/:mId/items",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              },
+              {
+                "name": "filter",
+                "value": "example-filter",
+                "type": "query",
+                "description": "Filter fields to display search results: [lowStock, modifiedTime, hidden, itemCode, available, option.id, modifierGroup.id, autoManage, price, id, sku, defaultTaxRates, tags.id, alternateName, isRevenue, tags.name, deleted, item.id, name, itemStock.quantity, itemGroup.id, isAgeRestricted, ageRestrictedType, minimumAge]"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Additional information provided as an expanded response: [tags, categories, taxRates, modifierGroups, itemStock, options, ageRestricted]"
+              },
+              {
+                "name": "offset",
+                "value": "1",
+                "type": "query",
+                "description": "Position of the first line item returned in the search results. Indicates the number of line items that are excluded from the search results."
+              },
+              {
+                "name": "limit",
+                "value": "1",
+                "type": "query",
+                "description": "Maximum number of line items returned in the search result.\n Default: 100 \n Maximum limit: 1000"
+              }
+            ]
+          },
+          "docs": "Displays line items for each category in the inventory for an order."
+        },
+        {
+          "info": {
+            "name": "Clover Create an Inventory Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scl.clover.com/v3/merchants/:mId/items",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields to display additional nested information: [tags, categories, taxRates, modifierGroups, itemStock, options, ageRestricted]"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an inventory item."
+        },
+        {
+          "info": {
+            "name": "Clover Get a Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v3/merchants/:mId/categories/:catId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "catId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Category Id"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable field: [items]"
+              }
+            ]
+          },
+          "docs": "Get a category"
+        },
+        {
+          "info": {
+            "name": "Clover Create Multiple Inventory Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scl.clover.com/v3/merchants/:mId/bulk_items",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              }
+            ]
+          },
+          "docs": "Creates multiple inventory items in a single request. Use the PUT HTTP method to [update existing inventory items](https://docs.clover.com/reference/inventorybulkpatchinventoryitems)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

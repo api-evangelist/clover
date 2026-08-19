@@ -1,0 +1,107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clover Ecommerce CHARGES REFUNDS API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.clover.com/oauth/authorize",
+      "accessTokenUrl": "https://api.clover.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "REFUNDS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clover Get Refunds List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v1/refunds",
+            "params": [
+              {
+                "name": "charge",
+                "value": "example-charge",
+                "type": "query",
+                "description": "Retrieve refunds applied to a specific charge."
+              },
+              {
+                "name": "created",
+                "value": "example-created",
+                "type": "query",
+                "description": "List filter based on the object's `created` field. The value can be a string with a Unix timestamp (in milliseconds) or a dictionary of multiple options describing a time range."
+              },
+              {
+                "name": "ending_before",
+                "value": "example-ending_before",
+                "type": "query",
+                "description": "Cursor used in pagination. The ending_before object ID sets your place in the list. For example, if you receive 100 objects in a list starting with obj_bar, add ending_before=obj_bar in your subsequent request to retrieve the previous page of the list."
+              },
+              {
+                "name": "limit",
+                "value": "1",
+                "type": "query",
+                "description": "The number of objects returned by the request, ranging between `1` and `100`. The default value is `10`."
+              },
+              {
+                "name": "starting_after",
+                "value": "example-starting_after",
+                "type": "query",
+                "description": "Cursor used in pagination. The starting_after object ID sets your place in the list. For example, if you receive 100 objects in a list starting with obj_foo, add starting_after=obj_foo in your subsequent request to retrieve the next page of the list."
+              }
+            ]
+          },
+          "docs": "Returns a list of all existing refunds. The newest refund is first in the list. The ten most recent refunds appear by default on the `charge` object."
+        },
+        {
+          "info": {
+            "name": "Clover Create a Refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scl.clover.com/v1/refunds",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new refund that must be associated with an existing charge. Refunds are applied to the `source` used for the original payment. Partial refunds are allowed up to the original charge amount."
+        },
+        {
+          "info": {
+            "name": "Clover Get a Refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v1/refunds/:refundId",
+            "params": [
+              {
+                "name": "refundId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Universal unique identifier (UUID) of the refund to retrieve."
+              }
+            ]
+          },
+          "docs": "Returns details of a specific refund."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

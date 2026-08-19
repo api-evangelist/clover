@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clover Ecommerce CHARGES TOKENS API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.clover.com/oauth/authorize",
+      "accessTokenUrl": "https://api.clover.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TOKENS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clover Create a Card Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scl.clover.com/v1/tokens",
+            "headers": [
+              {
+                "name": "apikey",
+                "value": "example-apikey"
+              },
+              {
+                "name": "User-Agent",
+                "value": "example-User-Agent"
+              }
+            ]
+          },
+          "docs": "Creates a single-use token, which is a unique code that indicates credit card details. Use this token with endpoints like [create a charge](https://docs.clover.com/reference/createcharge) or [pay for an order](https://docs.clover.com/reference/postordersidpay)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

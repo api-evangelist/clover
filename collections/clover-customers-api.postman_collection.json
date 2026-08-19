@@ -1,0 +1,1343 @@
+{
+  "item": [
+    {
+      "id": "deaf2d35-0b67-4bf5-bea8-0481934f13c3",
+      "name": "CUSTOMERS",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0257ad96-3642-49b2-b93b-044e1201bc0c",
+          "name": "Clover Get a Single Customer",
+          "request": {
+            "name": "Clover Get a Single Customer",
+            "description": {
+              "content": "Returns information for a single customer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "customers",
+                ":customerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter fields: [customerSince, firstName, lastName, emailAddress, phoneNumber, marketingAllowed, fullName, id, deletedTime]"
+                },
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Expandable fields: [addresses, emailAddresses, phoneNumbers, cards, metadata]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant Id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) customerId parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c628f0a0-8652-4eaa-8215-547d04148408",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) customerId parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"merchant\": {},\n  \"firstName\": \"example-value\",\n  \"lastName\": \"example-value\",\n  \"marketingAllowed\": true,\n  \"customerSince\": 1,\n  \"orders\": [\n    {}\n  ],\n  \"addresses\": [\n    {}\n  ],\n  \"emailAddresses\": [\n    {}\n  ],\n  \"phoneNumbers\": [\n    {}\n  ],\n  \"cards\": [\n    {}\n  ],\n  \"metadata\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90b9512b-2ddc-4cd6-83ea-08556532d79d",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) customerId parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c70a9a9a-7191-4171-b299-3480ad398365",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) customerId parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5241879c-ca23-4868-acc1-c1b7b82813ba",
+          "name": "Clover Update a Customer",
+          "request": {
+            "name": "Clover Update a Customer",
+            "description": {
+              "content": "Updates information for a single customer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "customers",
+                ":customerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Expandable fields to display additional nested information: [addresses, emailAddresses, phoneNumbers, cards, metadata]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant identifier."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) Unique identifier of the customer."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"merchant\": \"<object>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"marketingAllowed\": \"<boolean>\",\n  \"customerSince\": \"<long>\",\n  \"orders\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"addresses\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"emailAddresses\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"phoneNumbers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"cards\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"metadata\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "28bee405-3231-403e-8849-7fdf2e233d13",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) Unique identifier of the customer."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"merchant\": {},\n  \"firstName\": \"example-value\",\n  \"lastName\": \"example-value\",\n  \"marketingAllowed\": true,\n  \"customerSince\": 1,\n  \"orders\": [\n    {}\n  ],\n  \"addresses\": [\n    {}\n  ],\n  \"emailAddresses\": [\n    {}\n  ],\n  \"phoneNumbers\": [\n    {}\n  ],\n  \"cards\": [\n    {}\n  ],\n  \"metadata\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"merchant\": {},\n  \"firstName\": \"example-value\",\n  \"lastName\": \"example-value\",\n  \"marketingAllowed\": true,\n  \"customerSince\": 1,\n  \"orders\": [\n    {}\n  ],\n  \"addresses\": [\n    {}\n  ],\n  \"emailAddresses\": [\n    {}\n  ],\n  \"phoneNumbers\": [\n    {}\n  ],\n  \"cards\": [\n    {}\n  ],\n  \"metadata\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "748b987b-2800-4418-845d-ae1ee3bddb8c",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) Unique identifier of the customer."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"merchant\": {},\n  \"firstName\": \"example-value\",\n  \"lastName\": \"example-value\",\n  \"marketingAllowed\": true,\n  \"customerSince\": 1,\n  \"orders\": [\n    {}\n  ],\n  \"addresses\": [\n    {}\n  ],\n  \"emailAddresses\": [\n    {}\n  ],\n  \"phoneNumbers\": [\n    {}\n  ],\n  \"cards\": [\n    {}\n  ],\n  \"metadata\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "52b1d2b8-4b05-4450-ab7d-b33dedf9c9de",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) Unique identifier of the customer."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"merchant\": {},\n  \"firstName\": \"example-value\",\n  \"lastName\": \"example-value\",\n  \"marketingAllowed\": true,\n  \"customerSince\": 1,\n  \"orders\": [\n    {}\n  ],\n  \"addresses\": [\n    {}\n  ],\n  \"emailAddresses\": [\n    {}\n  ],\n  \"phoneNumbers\": [\n    {}\n  ],\n  \"cards\": [\n    {}\n  ],\n  \"metadata\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da0b7b66-7c6e-4ef1-9512-873b1c7f20eb",
+          "name": "Clover Delete a Customer",
+          "request": {
+            "name": "Clover Delete a Customer",
+            "description": {
+              "content": "Deletes a single customer from a merchant.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "customers",
+                ":customerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant Id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) customerId parameter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0c6f0e01-8b61-405f-9edd-6fa7ea7bbee9",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) customerId parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"merchant\": {},\n  \"firstName\": \"example-value\",\n  \"lastName\": \"example-value\",\n  \"marketingAllowed\": true,\n  \"customerSince\": 1,\n  \"orders\": [\n    {}\n  ],\n  \"addresses\": [\n    {}\n  ],\n  \"emailAddresses\": [\n    {}\n  ],\n  \"phoneNumbers\": [\n    {}\n  ],\n  \"cards\": [\n    {}\n  ],\n  \"metadata\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e3ffcab-800a-46ad-8151-e9f81602f36b",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) customerId parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "963d1f30-c918-4e85-8c3e-133bfafd4359",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) customerId parameter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74c57a9f-1837-4068-9482-2b960c071905",
+          "name": "Clover Get a List of Customers",
+          "request": {
+            "name": "Clover Get a List of Customers",
+            "description": {
+              "content": "Gives information for every customer of a merchant by default.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter fields: [customerSince, firstName, lastName, emailAddress, phoneNumber, marketingAllowed, fullName, id, deletedTime]"
+                },
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Expandable fields: [addresses, emailAddresses, phoneNumbers, cards, metadata]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "afd4dd38-475e-42a3-afd5-22b8a5e7b640",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"elements\": [\n    {}\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7be3762-a164-48a8-93c1-9f1f960c77cf",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8b99f4d5-c289-4db1-9b37-a22fa08fb220",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "963bd47b-9387-47af-abd5-6f71cb07565a",
+          "name": "Clover Create a Customer",
+          "request": {
+            "name": "Clover Create a Customer",
+            "description": {
+              "content": "Creates customer record for a merchant. Note that the request body cannot be null.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Expandable fields to display additional nested information: [addresses, emailAddresses, phoneNumbers, cards, metadata]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"merchant\": \"<object>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"marketingAllowed\": \"<boolean>\",\n  \"customerSince\": \"<long>\",\n  \"orders\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"addresses\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"emailAddresses\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"phoneNumbers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"cards\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"metadata\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9c21fa44-d9ae-49a3-a791-fbf317de9e69",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"merchant\": {},\n  \"firstName\": \"example-value\",\n  \"lastName\": \"example-value\",\n  \"marketingAllowed\": true,\n  \"customerSince\": 1,\n  \"orders\": [\n    {}\n  ],\n  \"addresses\": [\n    {}\n  ],\n  \"emailAddresses\": [\n    {}\n  ],\n  \"phoneNumbers\": [\n    {}\n  ],\n  \"cards\": [\n    {}\n  ],\n  \"metadata\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"merchant\": {},\n  \"firstName\": \"example-value\",\n  \"lastName\": \"example-value\",\n  \"marketingAllowed\": true,\n  \"customerSince\": 1,\n  \"orders\": [\n    {}\n  ],\n  \"addresses\": [\n    {}\n  ],\n  \"emailAddresses\": [\n    {}\n  ],\n  \"phoneNumbers\": [\n    {}\n  ],\n  \"cards\": [\n    {}\n  ],\n  \"metadata\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "367fcfd3-a598-4026-9359-b7c937efaefc",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"merchant\": {},\n  \"firstName\": \"example-value\",\n  \"lastName\": \"example-value\",\n  \"marketingAllowed\": true,\n  \"customerSince\": 1,\n  \"orders\": [\n    {}\n  ],\n  \"addresses\": [\n    {}\n  ],\n  \"emailAddresses\": [\n    {}\n  ],\n  \"phoneNumbers\": [\n    {}\n  ],\n  \"cards\": [\n    {}\n  ],\n  \"metadata\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15866411-1f12-42e9-8cc3-997e5592e450",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"merchant\": {},\n  \"firstName\": \"example-value\",\n  \"lastName\": \"example-value\",\n  \"marketingAllowed\": true,\n  \"customerSince\": 1,\n  \"orders\": [\n    {}\n  ],\n  \"addresses\": [\n    {}\n  ],\n  \"emailAddresses\": [\n    {}\n  ],\n  \"phoneNumbers\": [\n    {}\n  ],\n  \"cards\": [\n    {}\n  ],\n  \"metadata\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://scl.clover.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.clover.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.clover.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f434f6aa-9264-4bdc-b55c-fbfa37a9439e",
+    "name": "Clover Ecommerce CHARGES CUSTOMERS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.\n\nContact Support:\n Name: Clover Developer Platform",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1032 @@
+{
+  "item": [
+    {
+      "id": "23cf54b5-6d3e-4db4-bc91-e6493e10fa43",
+      "name": "EMPLOYEES",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ba20f182-5464-42d3-9528-0947455d9113",
+          "name": "Clover Get a Single Employee",
+          "request": {
+            "name": "Clover Get a Single Employee",
+            "description": {
+              "content": "Returns information for a single employee.  Accepts optional expand query parameters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "employees",
+                ":empId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Expandable fields: [roles, shifts]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant Id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "empId",
+                  "description": "(Required) Employee Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9772f6db-43c0-4ca9-8087-22adf08507ee",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "employees",
+                    ":empId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "empId",
+                      "description": "(Required) Employee Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"name\": \"example-value\",\n  \"nickname\": \"example-value\",\n  \"customId\": \"example-value\",\n  \"email\": \"example-value\",\n  \"inviteSent\": true,\n  \"claimedTime\": 1,\n  \"deletedTime\": 1,\n  \"pin\": \"example-value\",\n  \"unhashedPin\": \"example-value\",\n  \"role\": \"OWNER\",\n  \"roles\": [\n    {}\n  ],\n  \"isOwner\": true,\n  \"shifts\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"orders\": [\n    {}\n  ],\n  \"employeeCards\": [\n    {}\n  ],\n  \"merchant\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "084b8439-8eda-452f-879f-d87dde2ce871",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "employees",
+                    ":empId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "empId",
+                      "description": "(Required) Employee Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ec536414-4472-4cdb-a63f-b75e68afd9d5",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "employees",
+                    ":empId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "empId",
+                      "description": "(Required) Employee Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a77627a0-cac8-4617-bf22-a29de5f91e8a",
+          "name": "Clover Get All Employees",
+          "request": {
+            "name": "Clover Get All Employees",
+            "description": {
+              "content": "Retrieves information about employees associated with a merchant.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter fields to display search results: [modifiedTime, role, role.id, customId, name, nickname, id, deletedTime, deleted_time, email]"
+                },
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Expandable fields to display additional nested information: [roles, shifts]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant identifier (mId)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "62c1b447-4055-4083-a564-f0a6ec434bd5",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier (mId)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"elements\": [\n    {}\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9bae96b8-b5ca-4d3d-a21a-1b816f1e008b",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier (mId)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3d0312d3-8936-447f-b375-1a22f08f1e40",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier (mId)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "31f5e5da-d892-459e-a0e5-03ca69937b98",
+          "name": "Clover Create an Employee",
+          "request": {
+            "name": "Clover Create an Employee",
+            "description": {
+              "content": "Creates an employee for a merchant. Accepts optional expand parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Expandable fields: [shifts, payments, orders, roles]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"nickname\": \"<string>\",\n  \"customId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"inviteSent\": \"<boolean>\",\n  \"claimedTime\": \"<integer>\",\n  \"deletedTime\": \"<integer>\",\n  \"pin\": \"<string>\",\n  \"unhashedPin\": \"<string>\",\n  \"role\": \"<string>\",\n  \"roles\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"isOwner\": \"<boolean>\",\n  \"shifts\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"payments\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"orders\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"employeeCards\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"merchant\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f6f0b760-e034-402a-9235-0b68accff7e9",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"name\": \"example-value\",\n  \"nickname\": \"example-value\",\n  \"customId\": \"example-value\",\n  \"email\": \"example-value\",\n  \"inviteSent\": true,\n  \"claimedTime\": 1,\n  \"deletedTime\": 1,\n  \"pin\": \"example-value\",\n  \"unhashedPin\": \"example-value\",\n  \"role\": \"OWNER\",\n  \"roles\": [\n    {}\n  ],\n  \"isOwner\": true,\n  \"shifts\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"orders\": [\n    {}\n  ],\n  \"employeeCards\": [\n    {}\n  ],\n  \"merchant\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"name\": \"example-value\",\n  \"nickname\": \"example-value\",\n  \"customId\": \"example-value\",\n  \"email\": \"example-value\",\n  \"inviteSent\": true,\n  \"claimedTime\": 1,\n  \"deletedTime\": 1,\n  \"pin\": \"example-value\",\n  \"unhashedPin\": \"example-value\",\n  \"role\": \"OWNER\",\n  \"roles\": [\n    {}\n  ],\n  \"isOwner\": true,\n  \"shifts\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"orders\": [\n    {}\n  ],\n  \"employeeCards\": [\n    {}\n  ],\n  \"merchant\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "32a4658d-8b0f-4a7a-b71a-23e92dc44abd",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"name\": \"example-value\",\n  \"nickname\": \"example-value\",\n  \"customId\": \"example-value\",\n  \"email\": \"example-value\",\n  \"inviteSent\": true,\n  \"claimedTime\": 1,\n  \"deletedTime\": 1,\n  \"pin\": \"example-value\",\n  \"unhashedPin\": \"example-value\",\n  \"role\": \"OWNER\",\n  \"roles\": [\n    {}\n  ],\n  \"isOwner\": true,\n  \"shifts\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"orders\": [\n    {}\n  ],\n  \"employeeCards\": [\n    {}\n  ],\n  \"merchant\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0f307c60-f681-491a-89d3-3b57a6b47396",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"name\": \"example-value\",\n  \"nickname\": \"example-value\",\n  \"customId\": \"example-value\",\n  \"email\": \"example-value\",\n  \"inviteSent\": true,\n  \"claimedTime\": 1,\n  \"deletedTime\": 1,\n  \"pin\": \"example-value\",\n  \"unhashedPin\": \"example-value\",\n  \"role\": \"OWNER\",\n  \"roles\": [\n    {}\n  ],\n  \"isOwner\": true,\n  \"shifts\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"orders\": [\n    {}\n  ],\n  \"employeeCards\": [\n    {}\n  ],\n  \"merchant\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01ac42e5-ba0f-4ff1-b956-1f05e280dd22",
+          "name": "Clover Get All Shifts",
+          "request": {
+            "name": "Clover Get All Shifts",
+            "description": {
+              "content": "Get all shifts",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "shifts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter fields: [employee.id, out_time, in_time, employee.name, in_and_override_time, out_and_override_time, id, has_in_time, override_in_time, deletedTime, server_banking]"
+                },
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Expandable fields: [employee, overrideInEmployee, overrideOutEmployee]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant Id"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "998a51a6-7810-4508-a5d9-7ee41c74f723",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "shifts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5d7f9509-97a3-421c-9178-0e1016a5ccdf",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "shifts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c302d536-dadf-45e5-acd0-6e0d5bff5d29",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "shifts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://scl.clover.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.clover.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.clover.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e67362ec-6bad-46c2-830b-061d8245ad83",
+    "name": "Clover Ecommerce CHARGES EMPLOYEES API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.\n\nContact Support:\n Name: Clover Developer Platform",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,543 @@
+{
+  "item": [
+    {
+      "id": "4ea9d0fb-ecfb-4e33-8244-6dc56b978927",
+      "name": "PAYMENTS",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "10e20984-9ad5-4c67-8f94-e476a32faa90",
+          "name": "Clover Get a Single Payment",
+          "request": {
+            "name": "Clover Get a Single Payment",
+            "description": {
+              "content": "Retrieve a single payment information, including the total amount, tip amount, tax amount, and result status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "payments",
+                ":payId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Expandable fields: [tender, germanInfo, lineItemPayments, cardTransaction, dccInfo, employee, refunds, transactionInfo, externalReferenceId, oceanGatewayInfo, taxRates, additionalCharges, appTracking, paymentAttributes, order]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant Id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "payId",
+                  "description": "(Required) Payment Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8de32eb0-7e6e-4aad-81b4-2b0d675e100d",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "payments",
+                    ":payId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payId",
+                      "description": "(Required) Payment Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"order\": {},\n  \"device\": {},\n  \"tender\": {},\n  \"amount\": 1,\n  \"tipAmount\": 1,\n  \"taxAmount\": 1,\n  \"cashbackAmount\": 1,\n  \"cashTendered\": 1,\n  \"externalPaymentId\": \"example-value\",\n  \"employee\": {},\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"gatewayProcessingTime\": 1,\n  \"modifiedTime\": 1,\n  \"offline\": true,\n  \"result\": \"SUCCESS\",\n  \"cardTransaction\": {},\n  \"serviceCharge\": {},\n  \"attributes\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"taxRates\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"note\": \"example-value\",\n  \"lineItemPayments\": [\n    {}\n  ],\n  \"authorization\": {},\n  \"voidPaymentRef\": {},\n  \"voidReason\": \"USER_CANCEL\",\n  \"voidReasonDetails\": {},\n  \"dccInfo\": {},\n  \"transactionSettings\": {},\n  \"germanInfo\": {},\n  \"appTracking\": {},\n  \"cashAdvanceExtra\": {},\n  \"transactionInfo\": {},\n  \"signatureDisclaimer\": {},\n  \"externalReferenceId\": \"example-value\",\n  \"merchant\": {},\n  \"increments\": [\n    {}\n  ],\n  \"purchaseCardL2\": {},\n  \"purchaseCardL3\": {},\n  \"oceanGatewayInfo\": {},\n  \"terminalManagementComponents\": [\n    {}\n  ],\n  \"emiInfo\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87153989-b87c-402b-b613-f42a741836a4",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "payments",
+                    ":payId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payId",
+                      "description": "(Required) Payment Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac727482-bd74-4900-bd7d-5e62fabbfd70",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "payments",
+                    ":payId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payId",
+                      "description": "(Required) Payment Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbf947cf-feb2-45f4-838f-6f4b81a0b7c1",
+          "name": "Clover Get All Payments",
+          "request": {
+            "name": "Clover Get All Payments",
+            "description": {
+              "content": "Retrieves payment information, including the total amount, tip amount, tax amount, and result status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter fields to display search results: [modifiedTime, device.id, externalReferenceId, result, offline, createdTime, externalPaymentId, voided, id, tender.id, employee.id, order.modifiedTime, amount, cardType, clientCreatedTime]"
+                },
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Expandable fields to display additional nested information: [tender, germanInfo, lineItemPayments, cardTransaction, dccInfo, refunds, transactionInfo, externalReferenceId, oceanGatewayInfo, taxRates, additionalCharges, appTracking, paymentAttributes, order]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2568bd2a-6f6e-4857-a0ea-701f8aaa7141",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"elements\": [\n    {}\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a3ba266d-6fda-482c-bcc7-d17d122d8cde",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b9a037c8-bf26-4de2-b26c-a2aa55f9c33d",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://scl.clover.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.clover.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.clover.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "69fb222c-4bed-47a8-82b3-137ee4c3a4ad",
+    "name": "Clover Ecommerce CHARGES PAYMENTS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.\n\nContact Support:\n Name: Clover Developer Platform",
+      "type": "text/plain"
+    }
+  }
+}

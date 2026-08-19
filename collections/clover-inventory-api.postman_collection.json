@@ -1,0 +1,2049 @@
+{
+  "item": [
+    {
+      "id": "392df7d4-7760-4ff5-b32a-d98b3bad0d9f",
+      "name": "INVENTORY",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a832b344-3ba0-465f-8f56-b5177fadef39",
+          "name": "Clover Delete an Inventory Item",
+          "request": {
+            "name": "Clover Delete an Inventory Item",
+            "description": {
+              "content": "Delete an inventory item",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "items",
+                ":itemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant Id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "itemId",
+                  "description": "(Required) Item Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a5b16f6-249a-4597-b142-d8ae91822c41",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "items",
+                    ":itemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemId",
+                      "description": "(Required) Item Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"hidden\": true,\n  \"available\": true,\n  \"autoManage\": true,\n  \"itemGroup\": {},\n  \"options\": [\n    {}\n  ],\n  \"name\": \"example-value\",\n  \"alternateName\": \"example-value\",\n  \"code\": \"example-value\",\n  \"sku\": \"example-value\",\n  \"price\": 1,\n  \"priceType\": \"FIXED\",\n  \"defaultTaxRates\": true,\n  \"unitName\": \"example-value\",\n  \"cost\": 1,\n  \"isRevenue\": true,\n  \"stockCount\": 1,\n  \"taxRates\": [\n    {}\n  ],\n  \"modifierGroups\": [\n    {}\n  ],\n  \"categories\": [\n    {}\n  ],\n  \"tags\": [\n    {}\n  ],\n  \"canonical\": {},\n  \"itemStock\": {},\n  \"MenuItem\": {},\n  \"modifiedTime\": 1,\n  \"deletedTime\": 1,\n  \"priceWithoutVat\": 1,\n  \"colorCode\": \"example-value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b174d313-277c-421c-9552-751ff742f7cf",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "items",
+                    ":itemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemId",
+                      "description": "(Required) Item Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f54d006b-d9f7-4bd8-9694-931ed89b8c8f",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "items",
+                    ":itemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemId",
+                      "description": "(Required) Item Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd64c7de-d541-43a6-81e1-2c37fd8ea3a8",
+          "name": "Clover Get a Single Inventory Item",
+          "request": {
+            "name": "Clover Get a Single Inventory Item",
+            "description": {
+              "content": "Retrieves an existing inventory item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "items",
+                ":itemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Additional information provided as an expanded response: [tags, categories, taxRates, modifierGroups, itemStock, options]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant idenitifier."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "itemId",
+                  "description": "(Required) Inventory item identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5bf693db-c59b-467a-9711-42d039793f0e",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "items",
+                    ":itemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant idenitifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemId",
+                      "description": "(Required) Inventory item identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"hidden\": true,\n  \"available\": true,\n  \"autoManage\": true,\n  \"itemGroup\": {},\n  \"options\": [\n    {}\n  ],\n  \"name\": \"example-value\",\n  \"alternateName\": \"example-value\",\n  \"code\": \"example-value\",\n  \"sku\": \"example-value\",\n  \"price\": 1,\n  \"priceType\": \"FIXED\",\n  \"defaultTaxRates\": true,\n  \"unitName\": \"example-value\",\n  \"cost\": 1,\n  \"isRevenue\": true,\n  \"stockCount\": 1,\n  \"taxRates\": [\n    {}\n  ],\n  \"modifierGroups\": [\n    {}\n  ],\n  \"categories\": [\n    {}\n  ],\n  \"tags\": [\n    {}\n  ],\n  \"canonical\": {},\n  \"itemStock\": {},\n  \"MenuItem\": {},\n  \"modifiedTime\": 1,\n  \"deletedTime\": 1,\n  \"priceWithoutVat\": 1,\n  \"colorCode\": \"example-value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "734a308b-9654-4eb2-bde8-76c155a97a27",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "items",
+                    ":itemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant idenitifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemId",
+                      "description": "(Required) Inventory item identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d145d0c4-0eb9-4dc7-90aa-5f21ea4b93bc",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "items",
+                    ":itemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant idenitifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemId",
+                      "description": "(Required) Inventory item identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "510b837b-1a83-43c7-b600-06a3342f9306",
+          "name": "Clover Create an Item Category",
+          "request": {
+            "name": "Clover Create an Item Category",
+            "description": {
+              "content": "Create an item category",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Expandable field: [items]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sortOrder\": \"<integer>\",\n  \"items\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"colorCode\": \"<string>\",\n  \"deleted\": \"<boolean>\",\n  \"modifiedTime\": \"<integer>\",\n  \"canonical\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "41904051-cb18-4701-a0f4-0fa8a31a4eec",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"name\": \"example-value\",\n  \"sortOrder\": 1,\n  \"items\": [\n    {}\n  ],\n  \"colorCode\": \"example-value\",\n  \"deleted\": true,\n  \"modifiedTime\": 1,\n  \"canonical\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"name\": \"example-value\",\n  \"sortOrder\": 1,\n  \"items\": [\n    {}\n  ],\n  \"colorCode\": \"example-value\",\n  \"deleted\": true,\n  \"modifiedTime\": 1,\n  \"canonical\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc10548f-e844-4b9e-94d6-cae7c1174017",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"name\": \"example-value\",\n  \"sortOrder\": 1,\n  \"items\": [\n    {}\n  ],\n  \"colorCode\": \"example-value\",\n  \"deleted\": true,\n  \"modifiedTime\": 1,\n  \"canonical\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a6eaea7d-8945-41aa-ba1f-3f04319aeb79",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"name\": \"example-value\",\n  \"sortOrder\": 1,\n  \"items\": [\n    {}\n  ],\n  \"colorCode\": \"example-value\",\n  \"deleted\": true,\n  \"modifiedTime\": 1,\n  \"canonical\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "308a459c-2ebc-4984-ae24-b2c66019b772",
+          "name": "Clover Get All Categories",
+          "request": {
+            "name": "Clover Get All Categories",
+            "description": {
+              "content": "Retrieves all categories. Items display on the Register app within categories in the order in which they are added to a category. Items may be associated with one or more categories or may not be associated with any category. Categories display in the Register app based on the sort order value for each category.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter fields to display search results: [modifiedTime, deleted, sortOrder, name, colorCode, id]"
+                },
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Additional information provided as an expanded response: [items]"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Position of the first line item returned in the search results. Indicates the number of line items that are excluded from the search results."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of line items returned in the search result.\n Default: 100 \n Maximum limit: 1000"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5bf48537-342d-4a9d-97e3-61900c12f5fa",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"elements\": [\n    {}\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6bae633-e13f-4639-b998-073179dc2fad",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "26994366-7922-404e-b1f6-171bacf9576e",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de3964cf-d99b-4312-9e00-1526e129d2c0",
+          "name": "Clover Get All Inventory Items",
+          "request": {
+            "name": "Clover Get All Inventory Items",
+            "description": {
+              "content": "Displays line items for each category in the inventory for an order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter fields to display search results: [lowStock, modifiedTime, hidden, itemCode, available, option.id, modifierGroup.id, autoManage, price, id, sku, defaultTaxRates, tags.id, alternateName, isRevenue, tags.name, deleted, item.id, name, itemStock.quantity, itemGroup.id, isAgeRestricted, ageRestrictedType, minimumAge]"
+                },
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Additional information provided as an expanded response: [tags, categories, taxRates, modifierGroups, itemStock, options, ageRestricted]"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Position of the first line item returned in the search results. Indicates the number of line items that are excluded from the search results."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of line items returned in the search result.\n Default: 100 \n Maximum limit: 1000"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ae1edb72-4ab5-4eff-abbf-a92506bb124c",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"elements\": [\n    {}\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ca5e0e9-59da-4100-8c6f-39d362405bf7",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d27363ce-5f48-44ca-bfbc-0fac1c44cb7e",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59fc56f6-36e7-4222-aca1-9ce0a348ee05",
+          "name": "Clover Create an Inventory Item",
+          "request": {
+            "name": "Clover Create an Inventory Item",
+            "description": {
+              "content": "Creates an inventory item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Expandable fields to display additional nested information: [tags, categories, taxRates, modifierGroups, itemStock, options, ageRestricted]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"available\": \"<boolean>\",\n  \"autoManage\": \"<boolean>\",\n  \"itemGroup\": \"<object>\",\n  \"options\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"name\": \"<string>\",\n  \"alternateName\": \"<string>\",\n  \"code\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"price\": \"<long>\",\n  \"priceType\": \"<string>\",\n  \"defaultTaxRates\": \"<boolean>\",\n  \"unitName\": \"<string>\",\n  \"cost\": \"<integer>\",\n  \"isRevenue\": \"<boolean>\",\n  \"stockCount\": \"<integer>\",\n  \"taxRates\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"modifierGroups\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"categories\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tags\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"canonical\": \"<object>\",\n  \"itemStock\": \"<object>\",\n  \"MenuItem\": \"<object>\",\n  \"modifiedTime\": \"<integer>\",\n  \"deletedTime\": \"<integer>\",\n  \"priceWithoutVat\": \"<integer>\",\n  \"colorCode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d4b352d-13bf-4fb8-aebe-e85a70f15e42",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"hidden\": true,\n  \"available\": true,\n  \"autoManage\": true,\n  \"itemGroup\": {},\n  \"options\": [\n    {}\n  ],\n  \"name\": \"example-value\",\n  \"alternateName\": \"example-value\",\n  \"code\": \"example-value\",\n  \"sku\": \"example-value\",\n  \"price\": 1,\n  \"priceType\": \"FIXED\",\n  \"defaultTaxRates\": true,\n  \"unitName\": \"example-value\",\n  \"cost\": 1,\n  \"isRevenue\": true,\n  \"stockCount\": 1,\n  \"taxRates\": [\n    {}\n  ],\n  \"modifierGroups\": [\n    {}\n  ],\n  \"categories\": [\n    {}\n  ],\n  \"tags\": [\n    {}\n  ],\n  \"canonical\": {},\n  \"itemStock\": {},\n  \"MenuItem\": {},\n  \"modifiedTime\": 1,\n  \"deletedTime\": 1,\n  \"priceWithoutVat\": 1,\n  \"colorCode\": \"example-value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"hidden\": true,\n  \"available\": true,\n  \"autoManage\": true,\n  \"itemGroup\": {},\n  \"options\": [\n    {}\n  ],\n  \"name\": \"example-value\",\n  \"alternateName\": \"example-value\",\n  \"code\": \"example-value\",\n  \"sku\": \"example-value\",\n  \"price\": 1,\n  \"priceType\": \"FIXED\",\n  \"defaultTaxRates\": true,\n  \"unitName\": \"example-value\",\n  \"cost\": 1,\n  \"isRevenue\": true,\n  \"stockCount\": 1,\n  \"taxRates\": [\n    {}\n  ],\n  \"modifierGroups\": [\n    {}\n  ],\n  \"categories\": [\n    {}\n  ],\n  \"tags\": [\n    {}\n  ],\n  \"canonical\": {},\n  \"itemStock\": {},\n  \"MenuItem\": {},\n  \"modifiedTime\": 1,\n  \"deletedTime\": 1,\n  \"priceWithoutVat\": 1,\n  \"colorCode\": \"example-value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c8c54e37-7d54-4425-98a8-058dfe668898",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"hidden\": true,\n  \"available\": true,\n  \"autoManage\": true,\n  \"itemGroup\": {},\n  \"options\": [\n    {}\n  ],\n  \"name\": \"example-value\",\n  \"alternateName\": \"example-value\",\n  \"code\": \"example-value\",\n  \"sku\": \"example-value\",\n  \"price\": 1,\n  \"priceType\": \"FIXED\",\n  \"defaultTaxRates\": true,\n  \"unitName\": \"example-value\",\n  \"cost\": 1,\n  \"isRevenue\": true,\n  \"stockCount\": 1,\n  \"taxRates\": [\n    {}\n  ],\n  \"modifierGroups\": [\n    {}\n  ],\n  \"categories\": [\n    {}\n  ],\n  \"tags\": [\n    {}\n  ],\n  \"canonical\": {},\n  \"itemStock\": {},\n  \"MenuItem\": {},\n  \"modifiedTime\": 1,\n  \"deletedTime\": 1,\n  \"priceWithoutVat\": 1,\n  \"colorCode\": \"example-value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "84c54ccb-e937-4f2e-a4bb-ada7c8bbf1c1",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"hidden\": true,\n  \"available\": true,\n  \"autoManage\": true,\n  \"itemGroup\": {},\n  \"options\": [\n    {}\n  ],\n  \"name\": \"example-value\",\n  \"alternateName\": \"example-value\",\n  \"code\": \"example-value\",\n  \"sku\": \"example-value\",\n  \"price\": 1,\n  \"priceType\": \"FIXED\",\n  \"defaultTaxRates\": true,\n  \"unitName\": \"example-value\",\n  \"cost\": 1,\n  \"isRevenue\": true,\n  \"stockCount\": 1,\n  \"taxRates\": [\n    {}\n  ],\n  \"modifierGroups\": [\n    {}\n  ],\n  \"categories\": [\n    {}\n  ],\n  \"tags\": [\n    {}\n  ],\n  \"canonical\": {},\n  \"itemStock\": {},\n  \"MenuItem\": {},\n  \"modifiedTime\": 1,\n  \"deletedTime\": 1,\n  \"priceWithoutVat\": 1,\n  \"colorCode\": \"example-value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05988443-d583-4bfb-8aa6-3c00b6be889c",
+          "name": "Clover Get a Category",
+          "request": {
+            "name": "Clover Get a Category",
+            "description": {
+              "content": "Get a category",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "categories",
+                ":catId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Expandable field: [items]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant Id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "catId",
+                  "description": "(Required) Category Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c4a6f59-2af4-4f5a-bd0e-5247afbb6f9c",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "categories",
+                    ":catId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "catId",
+                      "description": "(Required) Category Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"name\": \"example-value\",\n  \"sortOrder\": 1,\n  \"items\": [\n    {}\n  ],\n  \"colorCode\": \"example-value\",\n  \"deleted\": true,\n  \"modifiedTime\": 1,\n  \"canonical\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9e1fa2a-3ff6-42b5-bdf2-da6cd9221a94",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "categories",
+                    ":catId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "catId",
+                      "description": "(Required) Category Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "573290b3-aa74-42f4-9319-edb8b68ba3d6",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "categories",
+                    ":catId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "catId",
+                      "description": "(Required) Category Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72eb612a-3110-4cb8-817e-e2a9f831d8bb",
+          "name": "Clover Create Multiple Inventory Items",
+          "request": {
+            "name": "Clover Create Multiple Inventory Items",
+            "description": {
+              "content": "Creates multiple inventory items in a single request. Use the PUT HTTP method to [update existing inventory items](https://docs.clover.com/reference/inventorybulkpatchinventoryitems).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "bulk_items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant identifier."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a681cbb-91c8-4936-8935-9267ec523b55",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "bulk_items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fbf3fb0f-1273-41c0-aa11-bd5e63ea5e2b",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "bulk_items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f539d7b-f71a-4b6d-af81-175da0542e5d",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "bulk_items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://scl.clover.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.clover.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.clover.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "493d7c32-c7e4-4833-ab99-76a2621f15a0",
+    "name": "Clover Ecommerce CHARGES INVENTORY API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.\n\nContact Support:\n Name: Clover Developer Platform",
+      "type": "text/plain"
+    }
+  }
+}

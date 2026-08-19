@@ -1,0 +1,187 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clover Ecommerce CHARGES CUSTOMERS API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.clover.com/oauth/authorize",
+      "accessTokenUrl": "https://api.clover.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CUSTOMERS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clover Get a Single Customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v3/merchants/:mId/customers/:customerId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "customerId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "customerId parameter."
+              },
+              {
+                "name": "filter",
+                "value": "example-filter",
+                "type": "query",
+                "description": "Filter fields: [customerSince, firstName, lastName, emailAddress, phoneNumber, marketingAllowed, fullName, id, deletedTime]"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields: [addresses, emailAddresses, phoneNumbers, cards, metadata]"
+              }
+            ]
+          },
+          "docs": "Returns information for a single customer."
+        },
+        {
+          "info": {
+            "name": "Clover Update a Customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scl.clover.com/v3/merchants/:mId/customers/:customerId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              },
+              {
+                "name": "customerId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Unique identifier of the customer."
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields to display additional nested information: [addresses, emailAddresses, phoneNumbers, cards, metadata]"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates information for a single customer."
+        },
+        {
+          "info": {
+            "name": "Clover Delete a Customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://scl.clover.com/v3/merchants/:mId/customers/:customerId",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "customerId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "customerId parameter."
+              }
+            ]
+          },
+          "docs": "Deletes a single customer from a merchant."
+        },
+        {
+          "info": {
+            "name": "Clover Get a List of Customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scl.clover.com/v3/merchants/:mId/customers",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant Id"
+              },
+              {
+                "name": "filter",
+                "value": "example-filter",
+                "type": "query",
+                "description": "Filter fields: [customerSince, firstName, lastName, emailAddress, phoneNumber, marketingAllowed, fullName, id, deletedTime]"
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields: [addresses, emailAddresses, phoneNumbers, cards, metadata]"
+              }
+            ]
+          },
+          "docs": "Gives information for every customer of a merchant by default."
+        },
+        {
+          "info": {
+            "name": "Clover Create a Customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scl.clover.com/v3/merchants/:mId/customers",
+            "params": [
+              {
+                "name": "mId",
+                "value": "9ABCDEF1234567",
+                "type": "path",
+                "description": "Merchant identifier."
+              },
+              {
+                "name": "expand",
+                "value": "example-expand",
+                "type": "query",
+                "description": "Expandable fields to display additional nested information: [addresses, emailAddresses, phoneNumbers, cards, metadata]"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates customer record for a merchant. Note that the request body cannot be null."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

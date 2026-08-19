@@ -1,0 +1,2107 @@
+{
+  "item": [
+    {
+      "id": "b61d97f7-3f8f-46fc-a478-851b308fb2fe",
+      "name": "ORDERS",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3ae67a85-946e-4473-88ef-5152a6421800",
+          "name": "Clover Create a New Line Item",
+          "request": {
+            "name": "Clover Create a New Line Item",
+            "description": {
+              "content": "Creates a new line item for an order. Requests must include either a `price` or an `item` object with an inventory item `id`. \n\n**Note:** To ensure platform stability, an order is limited to a maximum of 3,000 line items. If this call would cause the order to exceed this limit, the request will fail with a `400 Bad Request` error.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "orders",
+                ":orderId",
+                "line_items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant Id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) Order Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"customers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"employee\": \"<object>\",\n  \"total\": \"<integer>\",\n  \"externalReferenceId\": \"<string>\",\n  \"unpaidBalance\": \"<integer>\",\n  \"paymentState\": \"<string>\",\n  \"title\": \"<string>\",\n  \"note\": \"<string>\",\n  \"orderType\": \"<object>\",\n  \"taxRemoved\": \"<boolean>\",\n  \"isVat\": \"<boolean>\",\n  \"state\": \"<string>\",\n  \"manualTransaction\": \"<boolean>\",\n  \"groupLineItems\": \"<boolean>\",\n  \"testMode\": \"<boolean>\",\n  \"payType\": \"<string>\",\n  \"createdTime\": \"<long>\",\n  \"clientCreatedTime\": \"<long>\",\n  \"modifiedTime\": \"<long>\",\n  \"deletedTimestamp\": \"<long>\",\n  \"serviceCharge\": \"<object>\",\n  \"additionalCharges\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"discounts\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"lineItems\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"payments\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"refunds\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"credits\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"voids\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"preAuths\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"device\": \"<object>\",\n  \"authorizations\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"merchant\": \"<object>\",\n  \"printGroups\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"orderFulfillmentEvent\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "736c686c-44fd-496e-8ab0-3c5a1396998c",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId",
+                    "line_items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c7e32e1-5f0d-4644-9791-4b55a52875d0",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId",
+                    "line_items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ba414c3-c6c6-461c-a474-c154c9c770d8",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId",
+                    "line_items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "761de743-506a-4a20-b22f-70f164b13963",
+          "name": "Clover Get All Line Items for an Order",
+          "request": {
+            "name": "Clover Get All Line Items for an Order",
+            "description": {
+              "content": "Returns all line items for an order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "orders",
+                ":orderId",
+                "line_items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Expandable fields: [employee, orderType, discounts, modifications, taxRates, payments]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant Id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) Order Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f78ee6da-ba5c-4a61-ab60-2f9ec4d3e28e",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId",
+                    "line_items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"elements\": [\n    {}\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d8318a9-ec9a-470d-ad2c-172870faac9d",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId",
+                    "line_items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c1607f7-6473-4b56-b7da-7ff4e298ede5",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId",
+                    "line_items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae644df5-095c-4a8e-8d4e-8e97563b58d7",
+          "name": "Clover Create Custom Orders",
+          "request": {
+            "name": "Clover Create Custom Orders",
+            "description": {
+              "content": "**Description:** Creates or updates orders with a non-Clover inventory and dynamically calculates taxes. Valid fields are: taxRemoved, note, title, state, testMode, manualTransaction, groupLineItems, and orderType. Use separate API calls to add line items. <br> \n **Tip:** Use the [create an atomic order](https://docs.clover.com/dev/reference/ordercreateatomicorder) endpoint to create orders using Clover inventory and leverage the real-time totals and tax calculation features using a single API call. <br> \n **Tutorial:** [Create custom orders](https://docs.clover.com/dev/docs/creating-custom-orders).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"customers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"employee\": \"<object>\",\n  \"total\": \"<integer>\",\n  \"externalReferenceId\": \"<string>\",\n  \"unpaidBalance\": \"<integer>\",\n  \"paymentState\": \"<string>\",\n  \"title\": \"<string>\",\n  \"note\": \"<string>\",\n  \"orderType\": \"<object>\",\n  \"taxRemoved\": \"<boolean>\",\n  \"isVat\": \"<boolean>\",\n  \"state\": \"<string>\",\n  \"manualTransaction\": \"<boolean>\",\n  \"groupLineItems\": \"<boolean>\",\n  \"testMode\": \"<boolean>\",\n  \"payType\": \"<string>\",\n  \"createdTime\": \"<long>\",\n  \"clientCreatedTime\": \"<long>\",\n  \"modifiedTime\": \"<long>\",\n  \"deletedTimestamp\": \"<long>\",\n  \"serviceCharge\": \"<object>\",\n  \"additionalCharges\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"discounts\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"lineItems\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"payments\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"refunds\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"credits\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"voids\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"preAuths\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"device\": \"<object>\",\n  \"authorizations\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"merchant\": \"<object>\",\n  \"printGroups\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"orderFulfillmentEvent\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e3630f8e-ad5a-4f0c-8d04-d53f0bda5b61",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9cb7d671-bef9-4ce3-b9c4-e3d9617cf16e",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c02ca3f-268f-4cae-8cf8-b44037209981",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9858abda-55b8-47a2-83dd-ccb52ca69ed9",
+          "name": "Clover Gets a List of Orders",
+          "request": {
+            "name": "Clover Gets a List of Orders",
+            "description": {
+              "content": "Displays a list of orders. See [Manage orders data](https://docs.clover.com/build/working-with-orders/) for more details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter fields to display search results: [employee.id, note, modifiedTime, orderType, touched, cardTransaction.last4, manualTransaction, employee.name, title, device.id, externalReferenceId, clientCreatedTime, total, payType, testMode, createdTime, id, state, deletedTime]\n `Note`: Search results for the list of orders list is restricted to the last 90 days if the filter fields include: [deletedTime, externalReferenceId, createdTime, total, payType, title, note, state, manualTransaction, cardTransaction.last4, testMode, touched]"
+                },
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Additional information provided as an expanded response: [employee, payments, refunds, credits, voids, payment.tender, payment.cardTransaction, lineItems, customers, serviceCharge, discounts, orderType, lineItems.discounts, lineItems.modifications]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant identifier (mId)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "faedea49-1610-473f-99b6-17f2dfc6c957",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier (mId)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"elements\": [\n    {}\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cfed9f8a-4c8d-4a83-afd9-b01ef78f5704",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier (mId)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bb77fccd-62de-4e65-a929-c8b8e7c36883",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "example-filter"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier (mId)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "654139cc-eb18-4d08-9fa3-928fcdd02b5b",
+          "name": "Clover Create a Payment Record on an Order",
+          "request": {
+            "name": "Clover Create a Payment Record on an Order",
+            "description": {
+              "content": "Payment must include a `positive amount` and a valid `tender ID`.\n `Note`: This endpoint references external tenders and logs them for bookkeeping purposes. This is not for Clover credits/debit tenders. A merchant's tenders and their IDs can be retrieved from /v3/merchants/mId/tenders.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "orders",
+                ":orderId",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant identifier."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) Order identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"customers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"employee\": \"<object>\",\n  \"total\": \"<integer>\",\n  \"externalReferenceId\": \"<string>\",\n  \"unpaidBalance\": \"<integer>\",\n  \"paymentState\": \"<string>\",\n  \"title\": \"<string>\",\n  \"note\": \"<string>\",\n  \"orderType\": \"<object>\",\n  \"taxRemoved\": \"<boolean>\",\n  \"isVat\": \"<boolean>\",\n  \"state\": \"<string>\",\n  \"manualTransaction\": \"<boolean>\",\n  \"groupLineItems\": \"<boolean>\",\n  \"testMode\": \"<boolean>\",\n  \"payType\": \"<string>\",\n  \"createdTime\": \"<long>\",\n  \"clientCreatedTime\": \"<long>\",\n  \"modifiedTime\": \"<long>\",\n  \"deletedTimestamp\": \"<long>\",\n  \"serviceCharge\": \"<object>\",\n  \"additionalCharges\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"discounts\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"lineItems\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"payments\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"refunds\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"credits\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"voids\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"preAuths\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"device\": \"<object>\",\n  \"authorizations\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"merchant\": \"<object>\",\n  \"printGroups\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"orderFulfillmentEvent\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9eca36c1-52ff-4661-ac81-5dc65db970c7",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a03f9dcf-aa81-4623-8403-6bedc160c34e",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "764319d5-d0b2-41f5-8490-92b57060f33b",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86707364-389e-417a-9339-fd4d33bde86f",
+          "name": "Clover Update an Order",
+          "request": {
+            "name": "Clover Update an Order",
+            "description": {
+              "content": "Updates a single order. See [working-with-orders](https://docs.clover.com/build/working-with-orders/) for more details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "orders",
+                ":orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Additional information provided as an expanded response: [lineItems, serviceCharge, discounts, credits, payments, customers, orderFulfillmentEvent, refunds]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant identifier."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) Order identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"customers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"employee\": \"<object>\",\n  \"total\": \"<integer>\",\n  \"externalReferenceId\": \"<string>\",\n  \"unpaidBalance\": \"<integer>\",\n  \"paymentState\": \"<string>\",\n  \"title\": \"<string>\",\n  \"note\": \"<string>\",\n  \"orderType\": \"<object>\",\n  \"taxRemoved\": \"<boolean>\",\n  \"isVat\": \"<boolean>\",\n  \"state\": \"<string>\",\n  \"manualTransaction\": \"<boolean>\",\n  \"groupLineItems\": \"<boolean>\",\n  \"testMode\": \"<boolean>\",\n  \"payType\": \"<string>\",\n  \"createdTime\": \"<long>\",\n  \"clientCreatedTime\": \"<long>\",\n  \"modifiedTime\": \"<long>\",\n  \"deletedTimestamp\": \"<long>\",\n  \"serviceCharge\": \"<object>\",\n  \"additionalCharges\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"discounts\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"lineItems\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"payments\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"refunds\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"credits\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"voids\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"preAuths\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"device\": \"<object>\",\n  \"authorizations\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"merchant\": \"<object>\",\n  \"printGroups\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"orderFulfillmentEvent\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f2ec1cdc-2148-41e1-8f68-cd476a7b7424",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c74e92d9-6a0f-4c08-8b2f-4db41ddbaab8",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e5517d7e-a4e4-4ebd-a036-6bef22736a65",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant identifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5e9a231-39df-42e8-bb12-512898d3b0a1",
+          "name": "Clover Get a Single Order",
+          "request": {
+            "name": "Clover Get a Single Order",
+            "description": {
+              "content": "Returns a single order. See https://docs.clover.com/build/working-with-orders/ for more details. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "orders",
+                ":orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Expandable fields: [lineItems, serviceCharge, discounts, credits, payments, customers, orderFulfillmentEvent, refunds]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant Id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) Order Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8277813-77b2-4516-95db-23a8252340db",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c49135a9-ce06-4ce4-bed5-ea1fc7ffff1d",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7843ed45-feb0-4425-8147-d27d4b3d1b4e",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand",
+                      "value": "example-expand"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e78d2c7-9fbd-4eaa-99a7-35487222b578",
+          "name": "Clover Delete an Order",
+          "request": {
+            "name": "Clover Delete an Order",
+            "description": {
+              "content": "Deletes a single order. See https://docs.clover.com/build/working-with-orders/ for more details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "merchants",
+                ":mId",
+                "orders",
+                ":orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mId",
+                  "description": "(Required) Merchant Id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) Order Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "088a62c9-2f3d-40c7-9559-d32a34a090c8",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example-value\",\n  \"currency\": \"example-value\",\n  \"customers\": [\n    {}\n  ],\n  \"employee\": {},\n  \"total\": 1,\n  \"externalReferenceId\": \"example-value\",\n  \"unpaidBalance\": 1,\n  \"paymentState\": \"OPEN\",\n  \"title\": \"example-value\",\n  \"note\": \"example-value\",\n  \"orderType\": {},\n  \"taxRemoved\": true,\n  \"isVat\": true,\n  \"state\": \"example-value\",\n  \"manualTransaction\": true,\n  \"groupLineItems\": true,\n  \"testMode\": true,\n  \"payType\": \"SPLIT_GUEST\",\n  \"createdTime\": 1,\n  \"clientCreatedTime\": 1,\n  \"modifiedTime\": 1,\n  \"deletedTimestamp\": 1,\n  \"serviceCharge\": {},\n  \"additionalCharges\": [\n    {}\n  ],\n  \"discounts\": [\n    {}\n  ],\n  \"lineItems\": [\n    {}\n  ],\n  \"payments\": [\n    {}\n  ],\n  \"refunds\": [\n    {}\n  ],\n  \"credits\": [\n    {}\n  ],\n  \"voids\": [\n    {}\n  ],\n  \"preAuths\": [\n    {}\n  ],\n  \"device\": {},\n  \"authorizations\": [\n    {}\n  ],\n  \"merchant\": {},\n  \"printGroups\": [\n    {}\n  ],\n  \"orderFulfillmentEvent\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bfb5da09-0b0d-4691-84ab-0e0f12ca6406",
+              "name": "Authentication required or invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "80aa44a4-bb35-4291-9cd3-0c2c0152e179",
+              "name": "Too many requests; rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "merchants",
+                    ":mId",
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mId",
+                      "description": "(Required) Merchant Id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) Order Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://scl.clover.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.clover.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.clover.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "52db1628-cda1-4b82-ada8-afada45266e8",
+    "name": "Clover Ecommerce CHARGES ORDERS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.\n\nContact Support:\n Name: Clover Developer Platform",
+      "type": "text/plain"
+    }
+  }
+}
