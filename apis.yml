@@ -42,7 +42,7 @@ tags:
   - Hardware
 created: '2026-05-08'
 modified: '2026-06-02'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: clover:android-sdk
   name: Clover Android SDK
