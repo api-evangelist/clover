@@ -25,6 +25,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "clover-charges-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "clover-checkout-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "clover-customers-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "clover-employees-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "clover-inventory-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "clover-orders-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "clover-payments-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "clover-refunds-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "clover-tokens-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
