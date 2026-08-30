@@ -35,7 +35,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/clover.png
 tags:
   - Restaurant
-  - Point-of-Sale
+  - POS
   - Payments
   - Retail
   - SMB
@@ -134,7 +134,7 @@ apis:
   humanURL: https://docs.clover.com/reference
   baseURL: https://api.clover.com
   tags:
-  - Charges
+  - CHARGES
   tags_raw:
   - CHARGES
   properties:
@@ -152,7 +152,7 @@ apis:
   humanURL: https://docs.clover.com/reference
   baseURL: https://api.clover.com
   tags:
-  - Checkout
+  - CHECKOUT
   tags_raw:
   - CHECKOUT
   properties:
@@ -170,7 +170,7 @@ apis:
   humanURL: https://docs.clover.com/reference
   baseURL: https://api.clover.com
   tags:
-  - Customers
+  - CUSTOMERS
   tags_raw:
   - CUSTOMERS
   properties:
@@ -188,7 +188,7 @@ apis:
   humanURL: https://docs.clover.com/reference
   baseURL: https://api.clover.com
   tags:
-  - Employees
+  - EMPLOYEES
   tags_raw:
   - EMPLOYEES
   properties:
@@ -206,7 +206,7 @@ apis:
   humanURL: https://docs.clover.com/reference
   baseURL: https://api.clover.com
   tags:
-  - Inventory
+  - INVENTORY
   tags_raw:
   - INVENTORY
   properties:
@@ -224,7 +224,7 @@ apis:
   humanURL: https://docs.clover.com/reference
   baseURL: https://api.clover.com
   tags:
-  - Order
+  - ORDERS
   tags_raw:
   - ORDERS
   properties:
@@ -242,7 +242,7 @@ apis:
   humanURL: https://docs.clover.com/reference
   baseURL: https://api.clover.com
   tags:
-  - Payments
+  - PAYMENTS
   tags_raw:
   - PAYMENTS
   properties:
@@ -260,7 +260,7 @@ apis:
   humanURL: https://docs.clover.com/reference
   baseURL: https://api.clover.com
   tags:
-  - Refunds
+  - REFUNDS
   tags_raw:
   - REFUNDS
   properties:
@@ -278,7 +278,7 @@ apis:
   humanURL: https://docs.clover.com/reference
   baseURL: https://api.clover.com
   tags:
-  - Tokens
+  - TOKENS
   tags_raw:
   - TOKENS
   properties:
