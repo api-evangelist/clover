@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Clover Ecommerce CHARGES REFUNDS API
+  title: Clover Ecommerce REFUNDS API
   description: 'Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.'
   version: v1
   contact:
@@ -16,7 +16,7 @@ servers:
 security:
 - OAuth2: []
 tags:
-- name: REFUNDS
+- name: Refunds
 paths:
   /v1/refunds:
     post:
@@ -24,7 +24,7 @@ paths:
       description: Creates a new refund that must be associated with an existing charge. Refunds are applied to the `source` used for the original payment. Partial refunds are allowed up to the original charge amount.
       operationId: CreateRefund
       tags:
-      - REFUNDS
+      - Refunds
       requestBody:
         required: true
         content:
@@ -68,7 +68,7 @@ paths:
       description: Returns a list of all existing refunds. The newest refund is first in the list. The ten most recent refunds appear by default on the `charge` object.
       operationId: ListRefunds
       tags:
-      - REFUNDS
+      - Refunds
       parameters:
       - name: charge
         in: query
@@ -137,7 +137,7 @@ paths:
       description: Returns details of a specific refund.
       operationId: GetRefund
       tags:
-      - REFUNDS
+      - Refunds
       parameters:
       - name: refundId
         in: path

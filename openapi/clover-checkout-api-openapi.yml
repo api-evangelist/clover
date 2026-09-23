@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Clover Ecommerce CHARGES CHECKOUT API
+  title: Clover Ecommerce CHECKOUT API
   description: 'Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.'
   version: v1
   contact:
@@ -16,7 +16,7 @@ servers:
 security:
 - OAuth2: []
 tags:
-- name: CHECKOUT
+- name: Checkout
 paths:
   /invoicingcheckoutservice/v1/checkouts:
     post:
@@ -24,10 +24,10 @@ paths:
       description: '> **Note:** To use this endpoint, please select the **API Sandbox server** (`https://apisandbox.dev.clover.com`) from the Base URL dropdown in the right panel.
 
 
-        Creates a hosted checkout payment object to connect an application. Use this endpoint to request a new checkout session for a customer transaction. For more information, see [Create a Hosted Checkout session request](https://docs.clover.com/dev/docs/creating-a-hosted-checkout-session).'
+        Creates a hosted checkout payment object to connect an application. Use this endpoint to request a new checkout session for a customer transaction. For more information, see Create a Hosted Checkout session request.'
       operationId: CreateCheckout
       tags:
-      - CHECKOUT
+      - Checkout
       parameters:
       - name: X-Clover-Merchant-Id
         in: header

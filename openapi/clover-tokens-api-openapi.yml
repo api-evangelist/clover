@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Clover Ecommerce CHARGES TOKENS API
+  title: Clover Ecommerce TOKENS API
   description: 'Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.'
   version: v1
   contact:
@@ -16,15 +16,15 @@ servers:
 security:
 - OAuth2: []
 tags:
-- name: TOKENS
+- name: Tokens
 paths:
   /v1/tokens:
     post:
       summary: Clover Create a Card Token
-      description: Creates a single-use token, which is a unique code that indicates credit card details. Use this token with endpoints like [create a charge](https://docs.clover.com/reference/createcharge) or [pay for an order](https://docs.clover.com/reference/postordersidpay).
+      description: Creates a single-use token, which is a unique code that indicates credit card details. Use this token with endpoints like create a charge or pay for an order.
       operationId: CreateToken
       tags:
-      - TOKENS
+      - Tokens
       parameters:
       - name: apikey
         in: header

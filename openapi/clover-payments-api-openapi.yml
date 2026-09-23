@@ -1,22 +1,26 @@
 openapi: 3.2.0
 info:
-  title: Clover Ecommerce CHARGES PAYMENTS API
-  description: 'Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.'
-  version: v1
+  title: Clover Platform REST PAYMENTS API
+  description: Clover Platform REST API v3 — merchant-scoped resources for inventory items, categories, orders, line items, payments, customers, employees, and shifts. Authentication uses OAuth 2.0 bearer access tokens (or merchant API tokens) scoped to a single merchant. Schemas and operations are derived from the Clover developer reference at docs.clover.com.
+  version: v3
   contact:
     name: Clover Developer Platform
     url: https://docs.clover.com/dev/reference
   x-generated-from: documentation
   x-last-validated: '2026-06-02'
 servers:
-- url: https://scl.clover.com
-  description: Production Ecommerce
-- url: https://scl-sandbox.dev.clover.com
-  description: Sandbox Ecommerce
+- url: https://api.clover.com
+  description: Production (North America)
+- url: https://api.eu.clover.com
+  description: Production (Europe)
+- url: https://api.la.clover.com
+  description: Production (Latin America)
+- url: https://apisandbox.dev.clover.com
+  description: Sandbox
 security:
-- OAuth2: []
+- bearerAuth: []
 tags:
-- name: PAYMENTS
+- name: Payments
 paths:
   /v3/merchants/{mId}/payments/{payId}:
     get:
@@ -24,7 +28,7 @@ paths:
       description: Retrieve a single payment information, including the total amount, tip amount, tax amount, and result status.
       operationId: payGetPayment
       tags:
-      - PAYMENTS
+      - Payments
       parameters:
       - name: mId
         in: path
@@ -122,7 +126,7 @@ paths:
       description: Retrieves payment information, including the total amount, tip amount, tax amount, and result status.
       operationId: payGetPayments
       tags:
-      - PAYMENTS
+      - Payments
       parameters:
       - name: mId
         in: path
@@ -375,11 +379,7 @@ components:
       x-schema-source: documentation
       x-source-url: https://docs.clover.com/dev/reference/paygetpayment
   securitySchemes:
-    OAuth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: https://www.clover.com/oauth/authorize
-          tokenUrl: https://api.clover.com/oauth/token
-          scopes: {}
-      description: OAuth 2.0 token or Ecommerce (PAKMS) API key.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token or merchant API token.

@@ -1,22 +1,26 @@
 openapi: 3.2.0
 info:
-  title: Clover Ecommerce CHARGES INVENTORY API
-  description: 'Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.'
-  version: v1
+  title: Clover Platform REST INVENTORY API
+  description: Clover Platform REST API v3 — merchant-scoped resources for inventory items, categories, orders, line items, payments, customers, employees, and shifts. Authentication uses OAuth 2.0 bearer access tokens (or merchant API tokens) scoped to a single merchant. Schemas and operations are derived from the Clover developer reference at docs.clover.com.
+  version: v3
   contact:
     name: Clover Developer Platform
     url: https://docs.clover.com/dev/reference
   x-generated-from: documentation
   x-last-validated: '2026-06-02'
 servers:
-- url: https://scl.clover.com
-  description: Production Ecommerce
-- url: https://scl-sandbox.dev.clover.com
-  description: Sandbox Ecommerce
+- url: https://api.clover.com
+  description: Production (North America)
+- url: https://api.eu.clover.com
+  description: Production (Europe)
+- url: https://api.la.clover.com
+  description: Production (Latin America)
+- url: https://apisandbox.dev.clover.com
+  description: Sandbox
 security:
-- OAuth2: []
+- bearerAuth: []
 tags:
-- name: INVENTORY
+- name: Inventory
 paths:
   /v3/merchants/{mId}/items/{itemId}:
     delete:
@@ -24,7 +28,7 @@ paths:
       description: Delete an inventory item
       operationId: inventoryDeleteItem
       tags:
-      - INVENTORY
+      - Inventory
       parameters:
       - name: mId
         in: path
@@ -97,7 +101,7 @@ paths:
       description: Retrieves an existing inventory item.
       operationId: inventoryGetItem
       tags:
-      - INVENTORY
+      - Inventory
       parameters:
       - name: mId
         in: path
@@ -178,7 +182,7 @@ paths:
       description: Create an item category
       operationId: categoryCreateCategory
       tags:
-      - INVENTORY
+      - Inventory
       parameters:
       - name: mId
         in: path
@@ -247,7 +251,7 @@ paths:
       description: Retrieves all categories. Items display on the Register app within categories in the order in which they are added to a category. Items may be associated with one or more categories or may not be associated with any category. Categories display in the Register app based on the sort order value for each category.
       operationId: categoryGetCategories
       tags:
-      - INVENTORY
+      - Inventory
       parameters:
       - name: mId
         in: path
@@ -316,7 +320,7 @@ paths:
       description: Displays line items for each category in the inventory for an order.
       operationId: inventoryGetItems
       tags:
-      - INVENTORY
+      - Inventory
       parameters:
       - name: mId
         in: path
@@ -384,7 +388,7 @@ paths:
       description: Creates an inventory item.
       operationId: inventoryCreateItem
       tags:
-      - INVENTORY
+      - Inventory
       parameters:
       - name: mId
         in: path
@@ -502,7 +506,7 @@ paths:
       description: Get a category
       operationId: categoryGetCategory
       tags:
-      - INVENTORY
+      - Inventory
       parameters:
       - name: mId
         in: path
@@ -556,10 +560,10 @@ paths:
   /v3/merchants/{mId}/bulk_items:
     post:
       summary: Clover Create Multiple Inventory Items
-      description: Creates multiple inventory items in a single request. Use the PUT HTTP method to [update existing inventory items](https://docs.clover.com/reference/inventorybulkpatchinventoryitems).
+      description: Creates multiple inventory items in a single request. Use the PUT HTTP method to update existing inventory items.
       operationId: inventoryBulkCreateInventoryItems
       tags:
-      - INVENTORY
+      - Inventory
       parameters:
       - name: mId
         in: path
@@ -580,44 +584,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Category:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier
-          example: 9ABCDEF1234567
-        name:
-          type: string
-          description: The name of the category which will appear in Clover Register App.
-          example: Example name
-        sortOrder:
-          type: integer
-          description: Integer used to determine how this category is sorted against other categories.
-          example: 1
-        items:
-          type: array
-          items:
-            type: object
-          example: []
-        colorCode:
-          type: string
-          description: 'Hex code representation of the color assigned to this category and its items, in the form of #fff, #ffffff, or #ffffffff'
-          example: ABC123
-        deleted:
-          type: boolean
-          description: Whether the category has been deleted.
-          example: true
-        modifiedTime:
-          type: integer
-          description: The time this category was last modified
-          example: 1718153645000
-        canonical:
-          type: object
-          example: {}
-      description: Clover Category resource. Schema derived from the Clover Platform REST API v3 reference.
-      x-schema-source: documentation
-      x-source-url: https://docs.clover.com/dev/reference/categorygetcategory
     Item:
       type: object
       properties:
@@ -742,12 +708,46 @@ components:
       description: Clover Item resource. Schema derived from the Clover Platform REST API v3 reference.
       x-schema-source: documentation
       x-source-url: https://docs.clover.com/dev/reference/inventorygetitem
+    Category:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          example: 9ABCDEF1234567
+        name:
+          type: string
+          description: The name of the category which will appear in Clover Register App.
+          example: Example name
+        sortOrder:
+          type: integer
+          description: Integer used to determine how this category is sorted against other categories.
+          example: 1
+        items:
+          type: array
+          items:
+            type: object
+          example: []
+        colorCode:
+          type: string
+          description: 'Hex code representation of the color assigned to this category and its items, in the form of #fff, #ffffff, or #ffffffff'
+          example: ABC123
+        deleted:
+          type: boolean
+          description: Whether the category has been deleted.
+          example: true
+        modifiedTime:
+          type: integer
+          description: The time this category was last modified
+          example: 1718153645000
+        canonical:
+          type: object
+          example: {}
+      description: Clover Category resource. Schema derived from the Clover Platform REST API v3 reference.
+      x-schema-source: documentation
+      x-source-url: https://docs.clover.com/dev/reference/categorygetcategory
   securitySchemes:
-    OAuth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: https://www.clover.com/oauth/authorize
-          tokenUrl: https://api.clover.com/oauth/token
-          scopes: {}
-      description: OAuth 2.0 token or Ecommerce (PAKMS) API key.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token or merchant API token.

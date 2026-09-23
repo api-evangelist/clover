@@ -1,30 +1,37 @@
 openapi: 3.2.0
 info:
-  title: Clover Ecommerce CHARGES ORDERS API
-  description: 'Clover Ecommerce API v1 — online (card-not-present) payments: charges, captures, refunds, tokenization, and hosted checkout. Authentication uses OAuth 2.0 / PAKMS Ecommerce API keys. Schemas and operations are derived from the Clover developer reference at docs.clover.com.'
-  version: v1
+  title: Clover Platform REST ORDERS API
+  description: Clover Platform REST API v3 — merchant-scoped resources for inventory items, categories, orders, line items, payments, customers, employees, and shifts. Authentication uses OAuth 2.0 bearer access tokens (or merchant API tokens) scoped to a single merchant. Schemas and operations are derived from the Clover developer reference at docs.clover.com.
+  version: v3
   contact:
     name: Clover Developer Platform
     url: https://docs.clover.com/dev/reference
   x-generated-from: documentation
   x-last-validated: '2026-06-02'
 servers:
-- url: https://scl.clover.com
-  description: Production Ecommerce
-- url: https://scl-sandbox.dev.clover.com
-  description: Sandbox Ecommerce
+- url: https://api.clover.com
+  description: Production (North America)
+- url: https://api.eu.clover.com
+  description: Production (Europe)
+- url: https://api.la.clover.com
+  description: Production (Latin America)
+- url: https://apisandbox.dev.clover.com
+  description: Sandbox
 security:
-- OAuth2: []
+- bearerAuth: []
 tags:
-- name: ORDERS
+- name: Orders
 paths:
   /v3/merchants/{mId}/orders/{orderId}/line_items:
     post:
       summary: Clover Create a New Line Item
-      description: "Creates a new line item for an order. Requests must include either a `price` or an `item` object with an inventory item `id`. \n\n**Note:** To ensure platform stability, an order is limited to a maximum of 3,000 line items. If this call would cause the order to exceed this limit, the request will fail with a `400 Bad Request` error."
+      description: 'Creates a new line item for an order. Requests must include either a `price` or an `item` object with an inventory item `id`.
+
+
+        **Note:** To ensure platform stability, an order is limited to a maximum of 3,000 line items. If this call would cause the order to exceed this limit, the request will fail with a `400 Bad Request` error.'
       operationId: orderCreateLineItem
       tags:
-      - ORDERS
+      - Orders
       parameters:
       - name: mId
         in: path
@@ -169,7 +176,7 @@ paths:
       description: Returns all line items for an order.
       operationId: orderGetOrderLineItems
       tags:
-      - ORDERS
+      - Orders
       parameters:
       - name: mId
         in: path
@@ -221,10 +228,16 @@ paths:
   /v3/merchants/{mId}/orders:
     post:
       summary: Clover Create Custom Orders
-      description: "**Description:** Creates or updates orders with a non-Clover inventory and dynamically calculates taxes. Valid fields are: taxRemoved, note, title, state, testMode, manualTransaction, groupLineItems, and orderType. Use separate API calls to add line items. <br> \n **Tip:** Use the [create an atomic order](https://docs.clover.com/dev/reference/ordercreateatomicorder) endpoint to create orders using Clover inventory and leverage the real-time totals and tax calculation features using a single API call. <br> \n **Tutorial:** [Create custom orders](https://docs.clover.com/dev/docs/creating-custom-orders)."
+      description: '**Description:** Creates or updates orders with a non-Clover inventory and dynamically calculates taxes. Valid fields are: taxRemoved, note, title, state, testMode, manualTransaction, groupLineItems, and orderType. Use separate API calls to add line items.
+
+
+        **Tip:** Use the create an atomic order endpoint to create orders using Clover inventory and leverage the real-time totals and tax calculation features using a single API call.
+
+
+        **Tutorial:** Create custom orders.'
       operationId: orderCreateOrder
       tags:
-      - ORDERS
+      - Orders
       parameters:
       - name: mId
         in: path
@@ -359,10 +372,10 @@ paths:
         dispatcher: FALLBACK
     get:
       summary: Clover Gets a List of Orders
-      description: Displays a list of orders. See [Manage orders data](https://docs.clover.com/build/working-with-orders/) for more details.
+      description: Displays a list of orders. See Manage orders data for more details.
       operationId: orderGetOrders
       tags:
-      - ORDERS
+      - Orders
       parameters:
       - name: mId
         in: path
@@ -414,10 +427,12 @@ paths:
   /v3/merchants/{mId}/orders/{orderId}/payments:
     post:
       summary: Clover Create a Payment Record on an Order
-      description: "Payment must include a `positive amount` and a valid `tender ID`.\n `Note`: This endpoint references external tenders and logs them for bookkeeping purposes. This is not for Clover credits/debit tenders. A merchant's tenders and their IDs can be retrieved from /v3/merchants/mId/tenders."
+      description: 'Payment must include a `positive amount` and a valid `tender ID`.
+
+        `Note`: This endpoint references external tenders and logs them for bookkeeping purposes. This is not for Clover credits/debit tenders. A merchant''s tenders and their IDs can be retrieved from /v3/merchants/mId/tenders.'
       operationId: orderCreatePaymentForOrder
       tags:
-      - ORDERS
+      - Orders
       parameters:
       - name: mId
         in: path
@@ -560,10 +575,10 @@ paths:
   /v3/merchants/{mId}/orders/{orderId}:
     post:
       summary: Clover Update an Order
-      description: Updates a single order. See [working-with-orders](https://docs.clover.com/build/working-with-orders/) for more details.
+      description: Updates a single order. See working-with-orders for more details.
       operationId: orderUpdateOrder
       tags:
-      - ORDERS
+      - Orders
       parameters:
       - name: mId
         in: path
@@ -712,10 +727,10 @@ paths:
         dispatcher: FALLBACK
     get:
       summary: Clover Get a Single Order
-      description: 'Returns a single order. See https://docs.clover.com/build/working-with-orders/ for more details. '
+      description: Returns a single order. See https://docs.clover.com/build/working-with-orders/ for more details.
       operationId: orderGetOrder
       tags:
-      - ORDERS
+      - Orders
       parameters:
       - name: mId
         in: path
@@ -809,7 +824,7 @@ paths:
       description: Deletes a single order. See https://docs.clover.com/build/working-with-orders/ for more details.
       operationId: orderDeleteOrder
       tags:
-      - ORDERS
+      - Orders
       parameters:
       - name: mId
         in: path
@@ -1063,11 +1078,7 @@ components:
       x-schema-source: documentation
       x-source-url: https://docs.clover.com/dev/reference/ordergetorder
   securitySchemes:
-    OAuth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: https://www.clover.com/oauth/authorize
-          tokenUrl: https://api.clover.com/oauth/token
-          scopes: {}
-      description: OAuth 2.0 token or Ecommerce (PAKMS) API key.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token or merchant API token.
