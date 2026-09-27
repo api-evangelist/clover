@@ -33,12 +33,15 @@ accessModel:
   generated: '2026-07-22'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/clover.png
+x-docs-platform: readme
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-09-24
 tags:
   - Restaurant
   - Point-of-Sale
   - Payments
   - Retail
-  - SMB
+  - Small Business
   - Hardware
 tags_raw:
   - Restaurant
