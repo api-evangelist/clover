@@ -87,3 +87,31 @@ plans:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  - subscription
+  units:
+  - object
+  - transaction
+  plans:
+  - name: Clover Developer (App Market)
+    access: free
+    model: subscription
+    model_how: derived
+    units:
+    - object
+    periods:
+    - one-time
+  - name: Merchant SaaS Plans
+    access: paid
+    model: metered
+    model_how: derived
+    units:
+    - other
+    - transaction
+    periods:
+    - month
+    - per-use
