@@ -2,6 +2,7 @@ generated: '2026-10-14'
 method: searched
 checked:
 - doordash/integrations/doordash-integration-edges.yml
+- https://github.com/meltano/hub
 - https://www.clover.com/appmarket
 marketplace_apps:
 - marketplace: own
@@ -7337,5 +7338,34 @@ edges:
   - SUPPORT_ORDER_READY_SIGNAL
   publisher_verified:
   - DoorDash Certified Integration
+- partner_name: Meltano
+  partner: meltano
+  partner_match: aggregator
+  type: marketplace
+  marketplace: meltano-hub
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://hub.meltano.com/extractors/tap-clover--kalai-wavicle
+  category: null
+  contract_reference:
+    register: Meltano Hub (github.com/meltano/hub _data/meltano extractors + loaders)
+    spec_file: null
+    role: elt-connector:meltano-hub
+    registered_name: Clover
+    matched_domain: clover.com
+    matched_by: domain
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    plugins:
+    - tap-clover--kalai-wavicle
+    maintenance_status:
+    - unknown
+    quality:
+    - unknown
+    builder: 'community (Meltano Hub variant maintainers: kalai-wavicle)'
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
 source:
 - doordash/integrations/doordash-integration-edges.yml
