@@ -1,4 +1,4 @@
-# Clover (clover)
+# Clover
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,188 +66,209 @@
 
 Clover is a Fiserv-owned point-of-sale platform for small and mid-size merchants. The Clover developer platform exposes the Clover REST API for inventory/orders/customers/transactions, the Ecommerce API for online payments, an Android Payments API and Clover Android SDK for native apps on Clover devices, the REST Pay Display API for semi-integrated POS, the Remote Pay SDKs (cloud, Windows, iOS, Android), and the Clover Go SDK.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/clover/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/clover/refs/heads/main/apis.yml)
+**Areas:** Restaurant · Point-of-Sale · Payments · Retail · Small Business · Hardware
 
-## Tags
+## Clover on APIs.io
 
-- Restaurant
-- POS
-- Payments
-- Retail
-- SMB
-- Hardware
+Everything profiled for Clover is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/clover/](https://apis.io/providers/clover/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (14)
 
-- **Created:** 2026-05-08
-- **Modified:** 2026-06-02
+- [Clover Android SDK](https://apis.io/apis/clover/android-sdk/) — Native SDK for Android apps running on Clover devices, with access to merchant data and device hardware.
+- [Clover Android Payments API](https://apis.io/apis/clover/android-payments-api/) — Payment-processing API for Android apps on Clover devices that abstracts device configuration.
+- [Clover REST Pay Display API](https://apis.io/apis/clover/rest-pay-display/) — Semi-integrated POS API for merchant-facing Pay Display flows on Clover devices.
+- [Clover Remote Pay SDKs](https://apis.io/apis/clover/remote-pay-sdks/) — Remote Pay SDKs for Cloud, Windows, iOS, and Android integrations with Clover devices.
+- [Clover Go SDK](https://apis.io/apis/clover/go-sdk/) — Mobile SDK (iOS, Android) for accepting card-present payments via Clover Go readers.
+- [Clover CHARGES API](https://apis.io/apis/clover/clover-charges-api/) — The CHARGES API from Clover — 3 operation(s) for charges.
+- [Clover CHECKOUT API](https://apis.io/apis/clover/clover-checkout-api/) — The CHECKOUT API from Clover — 1 operation(s) for checkout.
+- [Clover CUSTOMERS API](https://apis.io/apis/clover/clover-customers-api/) — The CUSTOMERS API from Clover — 2 operation(s) for customers.
+- [Clover EMPLOYEES API](https://apis.io/apis/clover/clover-employees-api/) — The EMPLOYEES API from Clover — 3 operation(s) for employees.
+- [Clover INVENTORY API](https://apis.io/apis/clover/clover-inventory-api/) — The INVENTORY API from Clover — 5 operation(s) for inventory.
+- [Clover ORDERS API](https://apis.io/apis/clover/clover-orders-api/) — The ORDERS API from Clover — 4 operation(s) for orders.
+- [Clover PAYMENTS API](https://apis.io/apis/clover/clover-payments-api/) — The PAYMENTS API from Clover — 2 operation(s) for payments.
+- [Clover REFUNDS API](https://apis.io/apis/clover/clover-refunds-api/) — The REFUNDS API from Clover — 2 operation(s) for refunds.
+- [Clover TOKENS API](https://apis.io/apis/clover/clover-tokens-api/) — The TOKENS API from Clover — 1 operation(s) for tokens.
 
-## APIs
+### Published properties
 
-### Clover REST API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Foundational REST API for merchant data: inventory, orders, customers, employees, line items, modifiers, payments, refunds, and more. OAuth-based auth with sandbox and production environments.
+#### Agentic access (1)
 
-- **Human URL:** [https://docs.clover.com/reference](https://docs.clover.com/reference)
-- **Base URL:** `https://api.clover.com`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Clover Agentic Access](https://apis.io/agentic-access/clover/clover-agentic-access/)
 
-- REST
-- Merchant
-- Inventory
-- Orders
+#### JSON Schema (8)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://docs.clover.com/reference)
-- [Sandbox](https://sandbox.dev.clover.com/)
-- [OpenAPI](openapi/clover-platform-rest-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/clover-platform-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/clover-platform-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Charge](https://apis.io/schemas/clover/ecommerce-api-charge/)
+- [Refund](https://apis.io/schemas/clover/ecommerce-api-refund/)
+- [Category](https://apis.io/schemas/clover/platform-rest-api-category/)
+- [Customer](https://apis.io/schemas/clover/platform-rest-api-customer/)
+- [Employee](https://apis.io/schemas/clover/platform-rest-api-employee/)
+- [Item](https://apis.io/schemas/clover/platform-rest-api-item/)
+- [Order](https://apis.io/schemas/clover/platform-rest-api-order/)
+- [Payment](https://apis.io/schemas/clover/platform-rest-api-payment/)
 
-### Clover Ecommerce API
+#### JSON Structure (8)
 
-Online payments API for charges, refunds, tokenization, recurring payments, and gift cards.
+Data models expressed in JSON Structure.
 
-- **Human URL:** [https://docs.clover.com/](https://docs.clover.com/)
-- **Base URL:** `https://api.clover.com`
+- [Ecommerce Api Charge Structure](https://apis.io/json-structure/clover/ecommerce-api-charge-structure/)
+- [Ecommerce Api Refund Structure](https://apis.io/json-structure/clover/ecommerce-api-refund-structure/)
+- [Platform Rest Api Category Structure](https://apis.io/json-structure/clover/platform-rest-api-category-structure/)
+- [Platform Rest Api Customer Structure](https://apis.io/json-structure/clover/platform-rest-api-customer-structure/)
+- [Platform Rest Api Employee Structure](https://apis.io/json-structure/clover/platform-rest-api-employee-structure/)
+- [Platform Rest Api Item Structure](https://apis.io/json-structure/clover/platform-rest-api-item-structure/)
+- [Platform Rest Api Order Structure](https://apis.io/json-structure/clover/platform-rest-api-order-structure/)
+- [Platform Rest Api Payment Structure](https://apis.io/json-structure/clover/platform-rest-api-payment-structure/)
 
-#### Tags
+#### JSON-LD (2)
 
-- REST
-- Payments
-- Ecommerce
+Linked-data contexts for the provider's vocabulary.
 
-#### Properties
+- [Clover Ecommerce Api Context](https://apis.io/jsonld/clover/clover-ecommerce-api-context/)
+- [Clover Platform Rest Api Context](https://apis.io/jsonld/clover/clover-platform-rest-api-context/)
 
-- [Documentation](https://docs.clover.com/)
-- [OpenAPI](openapi/clover-ecommerce-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/clover-ecommerce-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/clover-ecommerce-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Vocabulary (1)
 
-### Clover Android SDK
+The provider's domain terms, defined.
 
-Native SDK for Android apps running on Clover devices, with access to merchant data and device hardware.
+- [Clover Vocabulary](https://apis.io/vocabularies/clover/clover-vocabulary/)
 
-- **Human URL:** [https://docs.clover.com/](https://docs.clover.com/)
+#### Examples (8)
 
-#### Tags
+Example requests and responses.
 
-- SDK
-- Android
-- Hardware
+- [Ecommerce Api Charge Example](https://apis.io/examples/clover/ecommerce-api-charge-example/)
+- [Ecommerce Api Refund Example](https://apis.io/examples/clover/ecommerce-api-refund-example/)
+- [Platform Rest Api Category Example](https://apis.io/examples/clover/platform-rest-api-category-example/)
+- [Platform Rest Api Customer Example](https://apis.io/examples/clover/platform-rest-api-customer-example/)
+- [Platform Rest Api Employee Example](https://apis.io/examples/clover/platform-rest-api-employee-example/)
+- [Platform Rest Api Item Example](https://apis.io/examples/clover/platform-rest-api-item-example/)
+- [Platform Rest Api Order Example](https://apis.io/examples/clover/platform-rest-api-order-example/)
+- [Platform Rest Api Payment Example](https://apis.io/examples/clover/platform-rest-api-payment-example/)
 
-#### Properties
+#### Collections (11)
 
-- [Documentation](https://docs.clover.com/)
-- [SDK](https://search.maven.org/artifact/com.clover.sdk/clover-android-sdk)
-- [SDK](https://github.com/clover/clover-android-sdk)
-- [Postman Collection](collections/clover-ecommerce-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/clover-ecommerce-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/clover-platform-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/clover-platform-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-### Clover Android Payments API
+- [Clover Ecommerce CHARGES API](https://apis.io/collections/clover/open-clover-charges-api/)
+- [Clover Ecommerce CHARGES CHECKOUT API](https://apis.io/collections/clover/open-clover-checkout-api/)
+- [Clover Ecommerce CHARGES CUSTOMERS API](https://apis.io/collections/clover/open-clover-customers-api/)
+- [Clover Ecommerce API](https://apis.io/collections/clover/open-clover-ecommerce-api/)
+- [Clover Ecommerce CHARGES EMPLOYEES API](https://apis.io/collections/clover/open-clover-employees-api/)
+- [Clover Ecommerce CHARGES INVENTORY API](https://apis.io/collections/clover/open-clover-inventory-api/)
+- [Clover Ecommerce CHARGES ORDERS API](https://apis.io/collections/clover/open-clover-orders-api/)
+- [Clover Ecommerce CHARGES PAYMENTS API](https://apis.io/collections/clover/open-clover-payments-api/)
+- [Clover Platform REST API](https://apis.io/collections/clover/open-clover-platform-rest-api/)
+- [Clover Ecommerce CHARGES REFUNDS API](https://apis.io/collections/clover/open-clover-refunds-api/)
+- [Clover Ecommerce CHARGES TOKENS API](https://apis.io/collections/clover/open-clover-tokens-api/)
 
-Payment-processing API for Android apps on Clover devices that abstracts device configuration.
+#### Governance rules (2)
 
-- **Human URL:** [https://docs.clover.com/](https://docs.clover.com/)
+Spectral rulesets for the provider's contracts.
 
-#### Tags
+- [Clover — jsonschema rules](https://apis.io/rules/clover/clover-jsonschema-spectral-rules/)
+- [Clover API Rules](https://apis.io/rules/clover/clover-spectral-rules/)
 
-- SDK
-- Android
-- Payments
+#### Security (2)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Documentation](https://docs.clover.com/)
-- [Postman Collection](collections/clover-ecommerce-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/clover-ecommerce-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/clover-platform-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/clover-platform-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Clover Authentication](https://apis.io/security/clover/clover-authentication/)
+- [Clover Domain Security](https://apis.io/security/clover/clover-domain-security/)
 
-### Clover REST Pay Display API
+#### OAuth scopes (1)
 
-Semi-integrated POS API for merchant-facing Pay Display flows on Clover devices.
+The permissions the API asks for.
 
-- **Human URL:** [https://docs.clover.com/](https://docs.clover.com/)
+- [Clover Scopes](https://apis.io/scopes/clover/clover-scopes/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- REST
-- Pay Display
-- Semi-Integrated
+Published plans, tiers and prices.
 
-#### Properties
+- [Clover Plans Pricing](https://apis.io/plans/clover/clover-plans-pricing/)
 
-- [Documentation](https://docs.clover.com/)
-- [Postman Collection](collections/clover-ecommerce-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/clover-ecommerce-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/clover-platform-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/clover-platform-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Clover Remote Pay SDKs
+Published request limits.
 
-Remote Pay SDKs for Cloud, Windows, iOS, and Android integrations with Clover devices.
+- [Clover Rate Limits](https://apis.io/rate-limits/clover/clover-rate-limits/)
 
-- **Human URL:** [https://docs.clover.com/](https://docs.clover.com/)
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- SDK
-- Remote Pay
+- [Clover Finops](https://apis.io/finops/clover/clover-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://docs.clover.com/)
-- [SDK](https://www.npmjs.com/package/remote-pay-cloud)
-- [SDK](https://github.com/clover/remote-pay-windows)
-- [SDK](https://github.com/clover/remote-pay-android)
-- [SDK](https://github.com/clover/remote-pay-ios)
-- [Postman Collection](collections/clover-ecommerce-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/clover-ecommerce-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/clover-platform-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/clover-platform-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Clover Go SDK
-
-Mobile SDK (iOS, Android) for accepting card-present payments via Clover Go readers.
-
-- **Human URL:** [https://docs.clover.com/](https://docs.clover.com/)
-
-#### Tags
-
-- SDK
-- Mobile
-- Card Reader
-
-#### Properties
-
-- [Documentation](https://docs.clover.com/)
-- [SDK](https://github.com/clover/clover-ios-payment-sdk)
-- [Postman Collection](collections/clover-ecommerce-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/clover-ecommerce-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/clover-platform-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/clover-platform-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/clover)
-- [LinkedIn](https://www.linkedin.com/company/clovernetwork)
 - [Website](https://www.clover.com/)
-- [Developer](https://docs.clover.com/)
-- [Plans](plans/clover-plans-pricing.yml)
-- [Rate Limits](rate-limits/clover-rate-limits.yml)
-- [Fin Ops](finops/clover-finops.yml)
-- [Rules](rules/clover-spectral-rules.yml)
-- [Vocabulary](vocabulary/clover-vocabulary.yaml)
-- [JSON-LD](json-ld/clover-platform-rest-api-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON-LD](json-ld/clover-ecommerce-api-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [L L Ms Txt](https://docs.clover.com/llms.txt)
+- [Getting started](https://docs.clover.com/docs/get-started-with-sandbox-environment)
+- [API reference](https://docs.clover.com/reference-link/api-reference-overview)
+- [Pricing](https://www.clover.com/pricing)
+- [Support](https://www.clover.com/help)
+- [Changelog](https://docs.clover.com/changelog)
+- [Blog](https://blog.clover.com/feed/)
+- [Terms of service](https://www.clover.com/terms)
+- [Privacy policy](https://www.clover.com/privacy-policy)
+- [GitHub](https://github.com/clover)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 36.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 69.6 |
+| Contract quality | 21.8 |
+| Contract governance | 27.3 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 50.0 |
+| Access clarity | 36.8 |
+
+**Agent readiness 33.6** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | unknown |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 31.3** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/clover/](https://apis.io/providers/clover/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Clover: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/clover/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
